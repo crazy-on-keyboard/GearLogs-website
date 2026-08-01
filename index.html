@@ -5,30 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GearLogs — Inventory & Personnel Management System</title>
   <meta name="description" content="GearLogs is an inventory and personnel management system for organizations that need to know exactly what they have and who has it. By RAQIOM.">
+  <meta property="og:title" content="GearLogs — Inventory & Personnel Management">
+  <meta property="og:description" content="Track every piece of equipment. Know who has what. Manage personnel, assets, and operations across your organization.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gearlogs.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="GearLogs — Inventory & Personnel Management">
+  <meta name="twitter:description" content="Track every piece of equipment. Know who has what.">
+  <link rel="canonical" href="https://gearlogs.com">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
   <div class="page">
 
-    <!-- Classification stripe -->
     <div class="class-stripe"></div>
 
-    <!-- Header / Nav -->
     <header class="header">
       <div class="header-inner">
         <a href="/" class="logo">GEARLOGS</a>
         <nav class="nav">
           <a href="#capabilities">Capabilities</a>
-          <a href="#specifications">Specifications</a>
-          <a href="#operations">Operations</a>
-          <a href="#access">Access Control</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#security">Security</a>
+          <a href="#faq">FAQ</a>
+          <a href="#changelog">Changelog</a>
         </nav>
         <a href="https://app.gearlogs.com" class="nav-cta">Launch App</a>
       </div>
     </header>
 
-    <!-- Hero / Cover Sheet -->
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-meta">
@@ -37,7 +44,6 @@
             <div class="doc-class">SYSTEM SPECIFICATION</div>
           </div>
           <div class="hero-meta-right">
-            <div class="meta-row"><span class="meta-label">Revision</span><span class="meta-val">1.0</span></div>
             <div class="meta-row"><span class="meta-label">Classification</span><span class="meta-val">Enterprise</span></div>
             <div class="meta-row"><span class="meta-label">Status</span><span class="meta-val stamp">OPERATIONAL</span></div>
           </div>
@@ -46,31 +52,27 @@
         <div class="hero-divider"></div>
 
         <h1 class="hero-title">Inventory & Personnel<br>Management System</h1>
-        <p class="hero-desc">Track every piece of equipment. Know who has what. Manage personnel records, asset assignments, consumable supplies, and operational analytics across your entire organization.</p>
+        <p class="hero-desc">Track every piece of equipment. Know who has what. Manage personnel records, asset assignments, and operational analytics across your entire organization.</p>
 
         <div class="hero-actions">
           <a href="https://app.gearlogs.com" class="btn-primary">Launch Application</a>
-          <a href="#capabilities" class="btn-secondary">Read Specification</a>
+          <a href="#capabilities" class="btn-secondary">Learn More</a>
         </div>
 
         <div class="hero-summary">
           <div class="summary-item">
             <span class="summary-label">Purpose</span>
-            <span class="summary-val">Multi-tenant inventory tracking, personnel management, and operational analytics</span>
-          </div>
-          <div class="summary-item">
-            <span class="summary-label">Capacity</span>
-            <span class="summary-val">Unlimited items, personnel, and organizations</span>
+            <span class="summary-val">Inventory tracking, personnel management, and operational analytics for organizations</span>
           </div>
           <div class="summary-item">
             <span class="summary-label">Deployment</span>
-            <span class="summary-val">Cloud-hosted, browser-based, real-time synchronization</span>
+            <span class="summary-val">Cloud-hosted, browser-based, real-time synchronization — no installation required</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 1: Capabilities -->
+    <!-- Capabilities -->
     <section class="section" id="capabilities">
       <div class="section-inner">
         <div class="section-head">
@@ -83,236 +85,184 @@
           <div class="cap-card">
             <div class="cap-ref">1.1</div>
             <h3 class="cap-name">Inventory Management</h3>
-            <p class="cap-desc">Track items organized by departments and groups. Monitor stock levels against configurable health thresholds. Lock critical assets. Manage consumable and durable equipment separately.</p>
-            <ul class="cap-specs">
-              <li>Stock health thresholds (low / healthy / total)</li>
-              <li>Admin lock on item stock levels</li>
-              <li>Consumable vs. durable distinction</li>
-              <li>Location and group tracking</li>
-            </ul>
+            <p class="cap-desc">Organize items by departments and groups. Monitor stock levels against configurable thresholds. Manage consumable and durable equipment separately with per-item controls.</p>
           </div>
 
           <div class="cap-card">
             <div class="cap-ref">1.2</div>
             <h3 class="cap-name">Personnel Management</h3>
-            <p class="cap-desc">Maintain complete personnel records with government IDs, designations, department assignments, and contact information. Track who holds what and their consumption history.</p>
-            <ul class="cap-specs">
-              <li>Full personnel records with IDs and contact</li>
-              <li>Primary and secondary department assignment</li>
-              <li>Designation and rank tracking</li>
-              <li>Department head identification</li>
-            </ul>
+            <p class="cap-desc">Maintain personnel records with department assignments, designations, and contact information. Track who holds what equipment and their consumption history.</p>
           </div>
 
           <div class="cap-card">
             <div class="cap-ref">1.3</div>
             <h3 class="cap-name">Asset Assignment</h3>
-            <p class="cap-desc">Assign equipment to personnel with quantity tracking. Process partial returns. Track consumable dispensation separately with one-way logging. Full assignment history per person.</p>
-            <ul class="cap-specs">
-              <li>Assign and return with quantity control</li>
-              <li>Consumable dispensation logging</li>
-              <li>Per-person asset holding view</li>
-              <li>Automatic stock adjustment</li>
-            </ul>
+            <p class="cap-desc">Assign equipment to personnel with quantity tracking. Process returns and track consumable dispensation. Full assignment history per person with automatic stock adjustment.</p>
           </div>
 
           <div class="cap-card">
             <div class="cap-ref">1.4</div>
             <h3 class="cap-name">Analytics & Dashboard</h3>
-            <p class="cap-desc">Configurable dashboard with 16 widget types. 90-day activity trends per group. Low-stock alerts. Activity feeds. Custom widget builder. Export-ready reports.</p>
-            <ul class="cap-specs">
-              <li>16 widget types (stat cards, charts, feeds, alerts)</li>
-              <li>Customizable grid layout (4-column)</li>
-              <li>90-day trend analysis</li>
-              <li>Time range filtering</li>
-            </ul>
+            <p class="cap-desc">Configurable dashboard with multiple widget types. Activity trends, low-stock alerts, live feeds, and export-ready reports. Customize your view to see what matters most.</p>
           </div>
 
           <div class="cap-card">
             <div class="cap-ref">1.5</div>
             <h3 class="cap-name">Data Operations</h3>
-            <p class="cap-desc">Bulk import from CSV with intelligent deduplication. Conflict resolution for duplicates. Encrypted backup and restore. Multiple export formats for audits, rosters, and inventory reports.</p>
-            <ul class="cap-specs">
-              <li>CSV import with dedup engine</li>
-              <li>Conflict resolution (discard, overwrite, copy, repair)</li>
-              <li>AES-GCM encrypted backup/restore</li>
-              <li>CSV export (audit, roster, assignments, users)</li>
-            </ul>
+            <p class="cap-desc">Import data from CSV with intelligent deduplication. Export reports for audits, rosters, and compliance. Encrypted backups for data protection.</p>
           </div>
 
           <div class="cap-card">
             <div class="cap-ref">1.6</div>
-            <h3 class="cap-name">Audit Trail</h3>
-            <p class="cap-desc">Every operation logged with timestamp, user, and action description. Filter logs by user, action type, date range, and keywords. Export-ready. User last-active tracking.</p>
-            <ul class="cap-specs">
-              <li>Comprehensive activity logging</li>
-              <li>Search and filter by multiple criteria</li>
-              <li>CSV log export</li>
-              <li>User activity timestamps</li>
-            </ul>
+            <h3 class="cap-name">Complete Audit Trail</h3>
+            <p class="cap-desc">Every operation logged with timestamp and user. Search and filter by multiple criteria. Export audit logs for compliance and review.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 2: Specifications -->
-    <section class="section section-alt" id="specifications">
+    <!-- How It Works -->
+    <section class="section section-alt" id="how-it-works">
       <div class="section-inner">
         <div class="section-head">
           <div class="section-num">Section 2</div>
-          <h2 class="section-title">Technical Specifications</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="specs-table-wrap">
-          <table class="specs-table">
-            <thead>
-              <tr>
-                <th>Parameter</th>
-                <th>Specification</th>
-                <th>Notes</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="spec-param">Architecture</td>
-                <td>Single-page application, cloud backend</td>
-                <td>Real-time sync across all connected clients</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Multi-Tenancy</td>
-                <td>Organization-scoped data isolation</td>
-                <td>Row-level security per organization</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Authentication</td>
-                <td>Email/password with session management</td>
-                <td>Secure server-side auth with JWT tokens</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Authorization</td>
-                <td>Role-Based Access Control (RBAC)</td>
-                <td>5 roles, 14 granular permissions, custom overrides</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Internationalization</td>
-                <td>English, Hebrew (RTL)</td>
-                <td>Full bidirectional text support</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Theming</td>
-                <td>5 themes: Office, Light, Dark, Army, Medical</td>
-                <td>CSS custom properties, user-selectable</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Data Capacity</td>
-                <td>Unlimited items, personnel, organizations</td>
-                <td>Relational database with indexed queries</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Deployment</td>
-                <td>Sector templates (6 profiles)</td>
-                <td>Office, Medical, IT, Army, Logistics, Manufacturing</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Platform</td>
-                <td>Browser-based (desktop)</td>
-                <td>No installation required</td>
-              </tr>
-              <tr>
-                <td class="spec-param">Hosting</td>
-                <td>Cloudflare global edge network</td>
-                <td>Low-latency delivery worldwide</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: Operations -->
-    <section class="section" id="operations">
-      <div class="section-inner">
-        <div class="section-head">
-          <div class="section-num">Section 3</div>
-          <h2 class="section-title">Operational Workflow</h2>
+          <h2 class="section-title">How It Works</h2>
           <div class="section-rule"></div>
         </div>
 
         <div class="ops-flow">
           <div class="ops-step">
             <div class="ops-step-num">I</div>
-            <h3 class="ops-step-title">Organization Setup</h3>
-            <p class="ops-step-desc">Create your organization. Deploy a sector template or start from scratch. Configure departments, groups, and locations to match your structure.</p>
+            <h3 class="ops-step-title">Set Up Your Organization</h3>
+            <p class="ops-step-desc">Configure departments, groups, and locations to match your organizational structure. Start from scratch or use a pre-built template.</p>
           </div>
           <div class="ops-connector"></div>
           <div class="ops-step">
             <div class="ops-step-num">II</div>
-            <h3 class="ops-step-title">Populate Data</h3>
-            <p class="ops-step-desc">Add items and personnel manually or bulk-import from CSV. The dedup engine prevents duplicates. Conflicts are queued for review.</p>
+            <h3 class="ops-step-title">Add Your Data</h3>
+            <p class="ops-step-desc">Add items and personnel manually or bulk-import from CSV. Duplicates are detected automatically and queued for your review.</p>
           </div>
           <div class="ops-connector"></div>
           <div class="ops-step">
             <div class="ops-step-num">III</div>
             <h3 class="ops-step-title">Assign & Track</h3>
-            <p class="ops-step-desc">Assign equipment to personnel. Dispense consumables. Process returns. Every transaction is logged with full audit trail.</p>
+            <p class="ops-step-desc">Assign equipment to personnel. Dispense consumables. Process returns. Everything is logged and tracked in real time.</p>
           </div>
           <div class="ops-connector"></div>
           <div class="ops-step">
             <div class="ops-step-num">IV</div>
             <h3 class="ops-step-title">Monitor & Report</h3>
-            <p class="ops-step-desc">Configure your dashboard. Track trends over 90 days. Receive low-stock alerts. Export reports for audits and compliance.</p>
+            <p class="ops-step-desc">Build your dashboard. Track trends. Receive alerts for low stock. Export reports for audits and compliance reviews.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 4: Access Control -->
-    <section class="section section-alt" id="access">
+    <!-- Security -->
+    <section class="section" id="security">
       <div class="section-inner">
         <div class="section-head">
-          <div class="section-num">Section 4</div>
-          <h2 class="section-title">Access Control Matrix</h2>
+          <div class="section-num">Section 3</div>
+          <h2 class="section-title">Security & Trust</h2>
           <div class="section-rule"></div>
         </div>
 
-        <div class="specs-table-wrap">
-          <table class="specs-table roles-table">
-            <thead>
-              <tr>
-                <th>Permission</th>
-                <th>Admin</th>
-                <th>Operator</th>
-                <th>User</th>
-                <th>Viewer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="spec-param">Manage Structure</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Manage Inventory</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Delete Items</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Adjust Stock</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Lock Items</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Manage Personnel</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Assign Assets</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Manage Users</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">Export Data</td><td class="check-yes">Yes</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td><td class="check-no">&mdash;</td></tr>
-              <tr><td class="spec-param">View Analytics</td><td class="check-yes">All</td><td class="check-yes">All</td><td class="check-partial">Own</td><td class="check-no">&mdash;</td></tr>
-            </tbody>
-          </table>
+        <div class="cap-grid">
+          <div class="cap-card">
+            <div class="cap-ref">3.1</div>
+            <h3 class="cap-name">Data Isolation</h3>
+            <p class="cap-desc">Each organization's data is completely isolated. Users can only access data within their own organization. Multi-tenant architecture with strict enforcement at every layer.</p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-ref">3.2</div>
+            <h3 class="cap-name">Role-Based Access</h3>
+            <p class="cap-desc">Fine-grained permission system ensures users see only what they need. Administrators control who can view, edit, and manage each area of the system.</p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-ref">3.3</div>
+            <h3 class="cap-name">Encrypted & Secure</h3>
+            <p class="cap-desc">All data encrypted in transit and at rest. Industry-standard authentication with secure session management. Backups encrypted for additional protection.</p>
+          </div>
+          <div class="cap-card">
+            <div class="cap-ref">3.4</div>
+            <h3 class="cap-name">Audit Everything</h3>
+            <p class="cap-desc">Complete audit trail of every action. Know who did what, when. Export-ready logs for compliance requirements and internal reviews.</p>
+          </div>
         </div>
-
-        <p class="roles-note">A fifth role, <strong>Custom</strong>, allows per-user permission overrides from the 14 available permissions. The Admin lock on items overrides Operator stock adjustment.</p>
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-num">Section 4</div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3 class="faq-q">What types of organizations use GearLogs?</h3>
+            <p class="faq-a">GearLogs is designed for any organization that needs to track equipment, manage personnel, and control asset assignments. This includes logistics operations, medical facilities, field units, IT departments, and manufacturing operations.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">How do I get started?</h3>
+            <p class="faq-a">Contact us to set up your organization. Once provisioned, you can sign in at app.gearlogs.com, configure your departments and groups, and begin adding items and personnel.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Can I import existing data?</h3>
+            <p class="faq-a">Yes. GearLogs supports bulk CSV import for items, personnel, and users. The import engine automatically detects duplicates and queues conflicts for your review.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Is my data secure?</h3>
+            <p class="faq-a">Yes. All data is encrypted, isolated per organization, and protected by role-based access controls. Every action is logged in a complete audit trail.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Does it support multiple languages?</h3>
+            <p class="faq-a">GearLogs currently supports English and Hebrew (with full RTL support). Additional languages can be added on request.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Changelog -->
+    <section class="section" id="changelog">
+      <div class="section-inner">
+        <div class="section-head">
+          <div class="section-num">Section 5</div>
+          <h2 class="section-title">Changelog</h2>
+          <div class="section-rule"></div>
+        </div>
+
+        <div class="changelog">
+          <div class="changelog-entry">
+            <div class="changelog-date">2026-08-01</div>
+            <div class="changelog-body">
+              <h3 class="changelog-title">GearLogs Revival</h3>
+              <ul class="changelog-list">
+                <li>Complete backend migration to Supabase with relational database</li>
+                <li>Secure authentication with email/password sign-in</li>
+                <li>Multi-tenant data isolation with row-level security</li>
+                <li>New spec-sheet design language matching the RAQIOM product suite</li>
+                <li>Marketing website launched at gearlogs.com</li>
+                <li>Application deployed to app.gearlogs.com</li>
+                <li>Cloudflare hosting with security headers and edge delivery</li>
+                <li>English and Hebrew language support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <section class="section cta-section">
       <div class="section-inner cta-inner">
         <div class="cta-stamp">CLEARED FOR OPERATIONS</div>
         <h2 class="cta-title">Ready to deploy?</h2>
-        <p class="cta-desc">GearLogs is operational and ready for your organization. Launch the application to begin setup.</p>
-        <a href="https://app.gearlogs.com" class="btn-primary btn-large">Launch GearLogs</a>
+        <p class="cta-desc">GearLogs is operational and ready for your organization. Contact us to get started.</p>
+        <a href="mailto:admin@gearlogs.com" class="btn-primary btn-large">Contact Us</a>
       </div>
     </section>
 
@@ -328,9 +278,15 @@
           <div class="footer-col">
             <div class="footer-col-title">Product</div>
             <a href="#capabilities">Capabilities</a>
-            <a href="#specifications">Specifications</a>
-            <a href="#operations">Operations</a>
-            <a href="#access">Access Control</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#security">Security</a>
+            <a href="https://app.gearlogs.com">Launch App</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <a href="#faq">FAQ</a>
+            <a href="#changelog">Changelog</a>
+            <a href="mailto:admin@gearlogs.com">Contact</a>
           </div>
           <div class="footer-col">
             <div class="footer-col-title">RAQIOM Suite</div>
@@ -339,8 +295,9 @@
           </div>
           <div class="footer-col">
             <div class="footer-col-title">Legal</div>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+            <a href="mailto:security@gearlogs.com">Security</a>
           </div>
         </div>
         <div class="footer-bottom">
