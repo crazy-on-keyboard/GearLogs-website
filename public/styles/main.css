@@ -595,13 +595,16 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--rule);
 }
 .changelog-entry:last-child { border-bottom: none; }
-.changelog-date {
+.changelog-ver {
   font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-faint);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--red);
   min-width: 100px;
   flex-shrink: 0;
   padding-top: 2px;
+  white-space: nowrap;
 }
 .changelog-title {
   font-family: var(--mono);
