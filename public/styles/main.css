@@ -628,3 +628,57 @@ img { max-width: 100%; display: block; }
 @media (max-width: 860px) {
   body { min-width: 860px; }
 }
+
+/* ── Standalone sub-pages (Guides / FAQ / Changelog) ── */
+.page-lead-section { min-height: 62vh; }
+.page-lead {
+  font-family: var(--body);
+  color: var(--ink-soft);
+  font-size: 15px;
+  max-width: 640px;
+  margin-top: 14px;
+}
+.page-lead a { color: var(--red); border-bottom: 1px solid var(--red-light); }
+.page-lead a:hover { border-bottom-color: var(--red); }
+.nav a.active { color: var(--ink); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+.faq-a a { color: var(--red); border-bottom: 1px solid var(--red-light); }
+.faq-a a:hover { border-bottom-color: var(--red); }
+
+/* ── Contact form ── */
+.contact-form {
+  max-width: 640px;
+  margin: 34px auto 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.form-opt { color: var(--ink-faint); text-transform: none; letter-spacing: 0; opacity: 0.7; }
+.form-input {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 1px var(--red); }
+.form-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+.form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-footer { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.form-status { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin: 0; }
+.form-status-ok { color: var(--ok); }
+.form-status-err { color: var(--red); }
+.btn-primary:disabled { opacity: 0.5; pointer-events: none; }
