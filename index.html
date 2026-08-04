@@ -207,39 +207,12 @@
     </section>
 
     <!-- Contact -->
-    <section class="section section-alt cta-section" id="contact">
+    <section class="section cta-section" id="contact">
       <div class="section-inner cta-inner">
         <div class="cta-stamp">CLEARED FOR OPERATIONS</div>
         <h2 class="cta-title">Ready to deploy?</h2>
-        <p class="cta-desc">GearLogs is operational and ready for your organization. Send us a message and we'll get you set up.</p>
-
-        <form class="contact-form" id="contact-form" method="post" action="/api/contact" novalidate>
-          <div class="form-grid">
-            <label class="form-field">
-              <span class="form-label">Name</span>
-              <input class="form-input" type="text" name="name" required maxlength="120" autocomplete="name">
-            </label>
-            <label class="form-field">
-              <span class="form-label">Email</span>
-              <input class="form-input" type="email" name="email" required maxlength="200" autocomplete="email">
-            </label>
-          </div>
-          <label class="form-field">
-            <span class="form-label">Organization <span class="form-opt">optional</span></span>
-            <input class="form-input" type="text" name="organization" maxlength="160" autocomplete="organization">
-          </label>
-          <label class="form-field">
-            <span class="form-label">Message</span>
-            <textarea class="form-input form-textarea" name="message" required maxlength="3000" rows="5"></textarea>
-          </label>
-          <div class="form-hp" aria-hidden="true">
-            <label>Leave this field empty<input type="text" name="company_website" tabindex="-1" autocomplete="off"></label>
-          </div>
-          <div class="form-footer">
-            <button class="btn-primary btn-large" type="submit" id="contact-submit">Send Message</button>
-            <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
-          </div>
-        </form>
+        <p class="cta-desc">GearLogs is operational and ready for your organization. Contact us to get started.</p>
+        <a href="mailto:admin@gearlogs.com" class="btn-primary btn-large">Contact Us</a>
       </div>
     </section>
 
@@ -285,6 +258,5 @@
     </footer>
 
   </div>
-  <script src="/js/contact.js" defer></script>
 </body>
 </html>
