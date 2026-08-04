@@ -628,3 +628,18 @@ img { max-width: 100%; display: block; }
 @media (max-width: 860px) {
   body { min-width: 860px; }
 }
+
+/* ── Standalone sub-pages (Guides / FAQ / Changelog) ── */
+.page-lead-section { min-height: 62vh; }
+.page-lead {
+  font-family: var(--body);
+  color: var(--ink-soft);
+  font-size: 15px;
+  max-width: 640px;
+  margin-top: 14px;
+}
+.page-lead a { color: var(--red); border-bottom: 1px solid var(--red-light); }
+.page-lead a:hover { border-bottom-color: var(--red); }
+.nav a.active { color: var(--ink); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
+.faq-a a { color: var(--red); border-bottom: 1px solid var(--red-light); }
+.faq-a a:hover { border-bottom-color: var(--red); }
