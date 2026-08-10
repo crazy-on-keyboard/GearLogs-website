@@ -6,7 +6,7 @@
   if (!feed) return;
 
   var USERS = [["US-004","Marcus Reed"],["US-006","Elena Sokolova"],["US-009","Tomás Rivera"],["US-011","Aisha Bello"],["US-013","Jonas Berg"],["US-015","Priya Nair"],["US-018","Kenji Watanabe"],["US-021","Sofia Marchetti"],["US-024","Omar Haddad"],["US-027","Grace Okafor"],["US-030","Liam Fletcher"],["US-033","Nadia Petrova"]];
-  var ITEMS = [["EQ-001","Combat Helmet"],["EQ-013","Signal Flare"],["EQ-017","Combat Gauze (pack)"],["EQ-022","Gun Oil (bottle)"],["EQ-008","Combat Boots (pair)"],["EQ-009","MRE Ration"],["EQ-002","Body Armor Vest"],["EQ-014","Antenna Mast"],["EQ-031","Field Radio"],["EQ-042","Med Kit"],["EQ-055","Headlamp"],["EQ-063","Tent (2-man)"],["EQ-071","Fuel Can"],["EQ-084","Binoculars"],["EQ-092","Water Filter"],["EQ-103","Tool Roll"],["EQ-118","Rope (30m)"],["EQ-126","Thermal Scope"]];
+  var ITEMS = [["EQ-001","Laptop (14-inch)"],["EQ-006","Two-Way Radio"],["EQ-013","Barcode Scanner"],["EQ-017","First-Aid Kit"],["EQ-022","Cordless Drill"],["EQ-028","Safety Harness"],["EQ-031","Label Printer"],["EQ-035","Defibrillator (AED)"],["EQ-042","Impact Wrench"],["EQ-048","Hi-Vis Vest"],["EQ-055","Headlamp"],["EQ-061","Pallet Jack"],["EQ-067","Tablet (10-inch)"],["EQ-071","Fuel Can"],["EQ-078","Angle Grinder"],["EQ-084","Binoculars"],["EQ-090","Hard Hat"],["EQ-096","Multimeter"],["EQ-103","Tool Roll"],["EQ-118","Extension Ladder"],["EQ-126","GPS Unit"]];
   var PEOPLE = [["PR-001","J. Whitaker"],["PR-006","M. Larsson"],["PR-007","D. Petrov"],["PR-011","G. Traoré"],["PR-003","K. Novak"],["PR-002","R. Ibáñez"],["PR-014","F. Diallo"],["PR-019","L. Nguyen"],["PR-022","A. Kowalski"],["PR-028","S. Mbeki"],["PR-034","H. Yamamoto"],["PR-041","C. Andersen"]];
   var REASONS = ["Lost","Damaged","Stolen","Unreturned"];
 
