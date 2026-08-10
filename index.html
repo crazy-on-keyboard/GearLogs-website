@@ -85,15 +85,17 @@
           <h2 class="section-title">The system, working</h2>
           <div class="section-rule"></div>
         </div>
-        <p class="activity-lead reveal">Every action — dispensed, returned, assigned, written off — lands on the record the moment it happens, colour-coded and searchable. Here it is, live.</p>
+        <p class="activity-lead reveal">Every action — dispensed, returned, assigned, written off — lands on the record the moment it happens, colour-coded and searchable. Below is a live sample of how it looks.</p>
         <div class="actpanel reveal">
           <div class="actpanel-bar">
             <span class="act-live" aria-hidden="true"></span>
             <span class="act-t">Activity Log</span><span class="act-sub">on the record</span>
+            <span class="act-demo">Sample data</span>
             <span class="act-count"><span data-count="248">248</span> items tracked today</span>
+            <button type="button" id="actpause" class="act-pause" aria-pressed="false" aria-label="Pause the sample activity feed">Pause</button>
           </div>
-          <div class="actcols"><span>Timestamp</span><span>User</span><span>Type</span><span>Action</span></div>
-          <div class="actviewport"><div class="actfeed" id="actfeed"></div></div>
+          <div class="actcols" aria-hidden="true"><span>Timestamp</span><span>User</span><span>Type</span><span>Action</span></div>
+          <div class="actviewport" aria-hidden="true"><div class="actfeed" id="actfeed"></div></div>
           <div class="actfoot">Every action recorded, searchable, and exportable — kept for twelve months</div>
         </div>
       </div>
@@ -108,7 +110,7 @@
           <div class="section-rule"></div>
         </div>
 
-        <div class="cap-grid" data-stagger>
+        <div class="cap-grid">
           <div class="cap-card reveal">
             <div class="cap-ref">1.1</div>
             <h3 class="cap-name">Inventory Management</h3>
@@ -218,7 +220,7 @@
           <div class="section-rule"></div>
         </div>
 
-        <div class="cap-grid" data-stagger>
+        <div class="cap-grid">
           <div class="cap-card reveal">
             <div class="cap-ref">3.1</div>
             <h3 class="cap-name">Data Isolation</h3>

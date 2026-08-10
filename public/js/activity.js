@@ -20,7 +20,7 @@
 
   var now = new Date();
   var today = pad(now.getDate()) + "/" + pad(now.getMonth() + 1) + "/" + now.getFullYear();
-  var h = 8, m = 2, s = 6;
+  var h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
   function tick() { s -= 7; if (s < 0) { s += 60; m -= 1; } if (m < 0) { m += 60; h -= 1; } if (h < 0) h = 23; return pad(h) + ":" + pad(m) + ":" + pad(s); }
 
   var rows = [], N = 40;

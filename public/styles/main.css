@@ -7,7 +7,7 @@
   --paper-alt: #f3f0e8;
   --ink: #26221c;
   --ink-soft: #574f42;
-  --ink-faint: #8a8070;
+  --ink-faint: #736a58;
   --red: #c4392d;
   --red-deep: #9d2b21;
   --red-light: #e8d5d2;
@@ -30,7 +30,7 @@
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 82px; }
 
 body {
   font-family: var(--body);
@@ -246,7 +246,7 @@ img { max-width: 100%; display: block; }
   color: var(--ink-soft);
   padding: 10px 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--rule);
+  border: 1px solid #8a8070;
   transition: border-color 0.15s, color 0.15s;
 }
 .btn-secondary:hover {
@@ -698,7 +698,7 @@ img { max-width: 100%; display: block; }
   animation: rule-draw var(--d3) var(--ease) 0.7s forwards;
 }
 .hero .stamp { animation: stamp-thud 0.55s var(--ease-thud) 1.15s both; }
-.hero .hero-desc    { opacity: 0; animation: rise var(--d3) var(--ease) 0.45s forwards; }
+/* .hero-desc paints instantly (LCP-safety) — no entrance animation */
 .hero .hero-actions { opacity: 0; animation: rise var(--d3) var(--ease) 0.62s forwards; }
 .hero .hero-summary { opacity: 0; animation: rise var(--d3) var(--ease) 0.80s forwards; }
 
@@ -716,6 +716,9 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 .cap-card::before { left: -1px; top: -1px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
 .cap-card::after  { right: -1px; bottom: -1px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
 .cap-card:hover::before, .cap-card:hover::after { opacity: 1; }
+/* keep the hover lift + eased border after a card has revealed (specificity fix) */
+html.anim-ready .cap-card.reveal.is-visible { transition: opacity 0.5s var(--ease), transform 0.18s var(--ease), border-color 0.18s var(--ease); }
+html.anim-ready .cap-card.reveal.is-visible:hover { transform: translateY(-2px); }
 
 /* Cross-document page morph (Chrome/Edge/Safari; Firefox degrades to instant nav) */
 @view-transition { navigation: auto; }
@@ -725,7 +728,8 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 @keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
+  html { scroll-behavior: auto !important; }
   html.anim-ready .reveal { opacity: 1 !important; transform: none !important; }
   .hero .doc-ref { width: auto !important; border-right: none; }
   .hero .hero-divider { transform: none !important; }
@@ -736,7 +740,7 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 /* ── Activity ledger — live product vignette (Stage C) ── */
 .activity-lead { font-size: 15px; color: var(--ink-soft); max-width: 620px; margin-bottom: 22px; }
 .actpanel {
-  --eq: #2563eb; --pr: #7c3aed; --us: #0e9384; --gr: #c026d3; --tb: #5b6b7a;
+  --eq: #2563eb; --pr: #7c3aed; --us: #0c8071; --gr: #c026d3; --tb: #5b6b7a;
   border: 1px solid var(--rule-strong); border-radius: 5px; background: var(--paper); overflow: hidden;
   box-shadow: 0 1px 0 var(--rule), 0 22px 46px -34px rgba(38,34,28,.45);
 }
@@ -768,7 +772,7 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 .actrow .un { font-family: var(--mono); font-size: 10.5px; color: var(--ink); }
 .actbadge { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .04em; padding: 3px 7px; text-align: center; display: inline-block; }
 .b-disp { background: #dbeafe; color: #1e40af; }
-.b-rtn  { background: #d5f0e0; color: #15803d; }
+.b-rtn  { background: #d5f0e0; color: #126832; }
 .b-woff { background: #fde0e0; color: #b91c1c; }
 .b-asg  { background: #ece7fd; color: #6d28d9; }
 .b-add  { background: #eef1f4; color: #475569; }
@@ -796,4 +800,12 @@ html.anim-ready .ops-step.is-visible .ops-step-num::before { animation: node-rin
 @media (prefers-reduced-motion: reduce) {
   html.anim-ready .reveal.rev-line { transform: none !important; }
   .ops-step-num::before { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ── Ledger demo label + pause control, and a designed focus ring (QA fixes) ── */
+.act-demo { font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--red-deep); border: 1px solid var(--red-light); border-radius: 2px; padding: 1px 6px; }
+.act-pause { margin-left: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: transparent; border: 1px solid var(--rule-strong); border-radius: 3px; padding: 3px 10px; cursor: pointer; }
+.act-pause:hover { border-color: var(--red); color: var(--red); }
+a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible, .act-pause:focus-visible {
+  outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px;
 }
