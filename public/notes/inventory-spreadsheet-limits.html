@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The spreadsheet that breaks at 200 assets — GearLogs Field Notes</title>
+  <meta name="description" content="An inventory spreadsheet doesn't fail at a row count — it fails the moment a second person edits it. The tells, why it's dangerous, and what actually replaces it.">
+  <meta property="og:title" content="The spreadsheet that breaks at 200 assets">
+  <meta property="og:description" content="Spreadsheets don't fail loudly. They quietly stop being true.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gearlogs.com/notes/inventory-spreadsheet-limits.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The spreadsheet that breaks at 200 assets">
+  <meta name="twitter:description" content="Spreadsheets don't fail loudly. They quietly stop being true.">
+  <link rel="canonical" href="https://gearlogs.com/notes/inventory-spreadsheet-limits.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "The spreadsheet that breaks at 200 assets",
+        "description": "Spreadsheets don't fail loudly. They quietly stop being true.",
+        "articleSection": "Systems",
+        "url": "https://gearlogs.com/notes/inventory-spreadsheet-limits.html",
+        "mainEntityOfPage": "https://gearlogs.com/notes/inventory-spreadsheet-limits.html",
+        "author": { "@type": "Organization", "name": "GearLogs", "url": "https://gearlogs.com" },
+        "publisher": { "@type": "Organization", "name": "GearLogs", "url": "https://gearlogs.com" },
+        "isPartOf": { "@type": "Blog", "@id": "https://gearlogs.com/notes.html#blog", "name": "Field Notes" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gearlogs.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Field Notes", "item": "https://gearlogs.com/notes.html" },
+          { "@type": "ListItem", "position": 3, "name": "The spreadsheet that breaks at 200 assets", "item": "https://gearlogs.com/notes/inventory-spreadsheet-limits.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+
+    <div class="class-stripe"></div>
+
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="GearLogs home">
+          <img class="logo-mark" src="/img/logo-mark.png" alt="" width="42" height="39">
+          <span class="logo-wm">GEAR<span class="lr">LOGS</span></span>
+        </a>
+        <nav class="nav">
+          <a href="/#capabilities">Capabilities</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#security">Security</a>
+          <a href="/guides.html">Guides</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/notes.html" class="active" aria-current="page">Field Notes</a>
+          <a href="/changelog.html">Changelog</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <a href="https://app.gearlogs.com" class="nav-cta">Launch App</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-inner">
+        <article class="note-article">
+          <div class="note-breadcrumb"><a href="/notes.html">Field Notes</a><span class="sep">/</span>FN-003</div>
+          <div class="note-eyebrow">Field Note FN-003 <span class="dot">&middot;</span> Systems</div>
+          <h1 class="note-h1">The spreadsheet that breaks at 200 assets</h1>
+          <p class="note-lede">Spreadsheets don't fail loudly. They quietly stop being true.</p>
+          <div class="note-rule"></div>
+          <div class="note-body">
+            <p>A spreadsheet is the best place in the world to start tracking your kit, and one of the more dangerous places to stay. It's free, it's familiar, and for a while it's genuinely enough. Then, without any announcement, it stops describing reality &mdash; and it keeps looking exactly as trustworthy as it did the day it was still right.</p>
+            <p>The wall isn't a row count, whatever the title of this note suggests. Plenty of people run five thousand rows without trouble, because they are the only person who ever touches the file. The wall is a <em>concurrency</em> count. It arrives with the second person.</p>
+            <p>The moment two people can change the same list, the spreadsheet faces a problem it was never built to solve: whose version is real? One person marks the drill returned. Another, working from a copy opened an hour earlier, marks it out. Both save. One truth quietly overwrites the other &mdash; no warning, no record of the collision. The file is still green, still tidy, and now wrong.</p>
+            <p>You can spot a sheet that's hit the wall without even opening it. It's in the filename: <em>final</em>, then <em>final_v2</em>, then <em>final_v3_REAL</em>, then the one with someone's initials bolted on. It's the column everyone agreed to keep updated and nobody has touched in months. It's the colour-coding that made sense to one person who has since left, and now functions as a small archaeological site.</p>
+            <p class="note-pull">A spreadsheet presents a wrong answer with exactly the same authority as a right one.</p>
+            <p>That's the real danger &mdash; not the mess, but the confidence. There's no "last updated by", no history of who changed what, no way to ask the file how it got into this state. When the sheet and the world disagree, the world doesn't get a vote, and people act on the sheet.</p>
+            <p>What replaces a spreadsheet isn't "software" as a status symbol. It's three specific things the sheet can't give you: a single copy everyone edits at once without overwriting each other; a history that remembers every change and who made it; and rules that stop two people from handing out the same thing twice. Everything else is detail.</p>
+            <p>That's the line GearLogs is built along &mdash; one shared record instead of a scatter of copies, every action kept with its author and time, counts that can't drift because the system won't let two people spend the same item. You can absolutely start in a spreadsheet; most good operations did. The skill is noticing the day it stopped being true, and moving before the gap between the list and the world grows large enough to cost you.</p>
+          </div>
+
+          <img class="note-endmark" src="/img/logo-mark.png" alt="" width="30" height="28">
+
+          <div class="note-filed">
+            <img src="/img/logo-mark.png" alt="" width="34" height="32">
+            <div>
+              <div class="nf-t">Filed by GearLogs</div>
+              <div class="nf-d">One shared record, full history, no overwrites.</div>
+            </div>
+            <a href="/#capabilities" class="btn-secondary nf-cta">See what it does</a>
+          </div>
+        </article>
+
+        <div class="note-more">
+          <div class="note-more-t">More field notes</div>
+          <div class="note-more-list">
+            <a href="/notes/track-who-has-equipment.html"><span class="mfn">FN-001</span> Who has the drill right now?</a>
+            <a href="/notes/equipment-shrinkage.html"><span class="mfn">FN-002</span> Where the 5 to 15 percent goes</a>
+            <a href="/notes.html"><span class="mfn">&larr;</span> All field notes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">GEARLOGS</div>
+          <div class="footer-by">by <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM</a></div>
+          <div class="footer-tagline">Software for the people who run things</div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <div class="footer-col-title">Product</div>
+            <a href="/#capabilities">Capabilities</a>
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#security">Security</a>
+            <a href="https://app.gearlogs.com">Launch App</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <a href="/guides.html">Guides</a>
+            <a href="/faq.html">FAQ</a>
+            <a href="/notes.html">Field Notes</a>
+            <a href="/changelog.html">Changelog</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">RAQIOM Suite</div>
+            <a href="https://pmolikepro.com" target="_blank" rel="noopener">PMOlikePRO</a>
+            <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM.com</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Legal</div>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+            <a href="/#security">Security</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; RAQIOM. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="/js/anim.js" defer></script>
+</body>
+</html>
