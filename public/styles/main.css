@@ -780,3 +780,20 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 .actfoot { padding: 9px 18px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10px; color: var(--ink-faint); text-align: center; background: var(--paper-alt); }
 .cta-about { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: #b0a898; margin-top: 18px; }
 @media (prefers-reduced-motion: reduce) { .actfeed { animation: none !important; } .act-live { animation: none !important; } }
+
+/* ── How-it-works — the process draws itself (self-drawing diagram, Stage C.2) ── */
+.ops-connector { transform-origin: top center; }
+html.anim-ready .reveal.rev-line { opacity: 1; transform: scaleY(0); transform-origin: top center; transition: transform 0.5s var(--ease); }
+html.anim-ready .reveal.rev-line.is-visible { transform: scaleY(1); }
+.ops-step-num { position: relative; z-index: 1; }
+.ops-step-num::before {
+  content: ""; position: absolute; left: 50%; top: 48%; width: 38px; height: 38px;
+  transform: translate(-50%, -50%) scale(0.4); border: 1.5px solid var(--red-light); border-radius: 50%;
+  opacity: 0; z-index: -1;
+}
+html.anim-ready .ops-step.is-visible .ops-step-num::before { animation: node-ring 0.5s var(--ease) 0.12s forwards; }
+@keyframes node-ring { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  html.anim-ready .reveal.rev-line { transform: none !important; }
+  .ops-step-num::before { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
