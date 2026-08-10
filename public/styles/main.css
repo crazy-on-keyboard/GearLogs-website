@@ -2,15 +2,18 @@
 
 /* ── Tokens ── */
 :root {
-  --paper: #f8f6f2;
-  --paper-alt: #f2efe8;
-  --ink: #2a2520;
-  --ink-soft: #5a5040;
-  --ink-faint: #8a8070;
+  --page: #f7f5ef;
+  --paper: #fdfcf9;
+  --paper-alt: #f3f0e8;
+  --ink: #26221c;
+  --ink-soft: #574f42;
+  --ink-faint: #736a58;
   --red: #c4392d;
+  --red-deep: #9d2b21;
   --red-light: #e8d5d2;
-  --rule: #d4cfc6;
-  --rule-strong: #2a2520;
+  --gold: #c99a3b;
+  --rule: #e2ddd0;
+  --rule-strong: #26221c;
   --accent: #2b5fb0;
   --accent-soft: #dce6f4;
   --ok: #1e6f4e;
@@ -19,15 +22,20 @@
   --body: system-ui, "Segoe UI", -apple-system, sans-serif;
   --max-w: 920px;
   --radius: 3px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --ease-thud: cubic-bezier(.3,1.5,.5,1);
+  --d1: 180ms; --d2: 320ms; --d3: 520ms;
+  --vellum: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='v'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23v)' opacity='0.14'/></svg>");
 }
 
 /* ── Reset ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 82px; }
 
 body {
   font-family: var(--body);
-  background: var(--paper);
+  background-color: var(--page);
+  background-image: var(--vellum);
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -69,14 +77,29 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 24px;
-  height: 52px;
+  height: 66px;
 }
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--ink);
+  view-transition-name: brand;
+}
+.logo-mark {
+  width: 42px;
+  height: 39px;
+  display: block;
+  animation: logo-breathe 6s ease-in-out infinite 1.2s;
+}
+.logo .lr { color: var(--red); }
+@keyframes logo-breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.05) drop-shadow(0 2px 6px rgba(201,154,59,.20)); }
 }
 .nav {
   display: flex;
@@ -223,7 +246,7 @@ img { max-width: 100%; display: block; }
   color: var(--ink-soft);
   padding: 10px 24px;
   border-radius: var(--radius);
-  border: 1px solid var(--rule);
+  border: 1px solid #8a8070;
   transition: border-color 0.15s, color 0.15s;
 }
 .btn-secondary:hover {
@@ -643,3 +666,146 @@ img { max-width: 100%; display: block; }
 .nav a.active { color: var(--ink); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
 .faq-a a { color: var(--red); border-bottom: 1px solid var(--red-light); }
 .faq-a a:hover { border-bottom-color: var(--red); }
+
+/* ═══════════════════════════════════════════════════════════
+   Redesign motion layer — Living Dossier (Stage A foundation + Stage B hero)
+   CSP-safe: all motion is CSS or driven by an external /js file.
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes stamp-thud {
+  0%   { opacity: 0; transform: rotate(-2deg) scale(1.85); filter: blur(3px); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: rotate(-2deg) scale(1); filter: blur(0); }
+}
+@keyframes typing { to { width: var(--tw, 7em); } }
+@keyframes caret-off { to { border-right-color: transparent; } }
+
+/* Hero entrance — the H1 paints instantly (LCP); supporting bits animate in */
+.hero .doc-ref {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 2px solid var(--red);
+  --tw: 7em;
+  animation: typing 0.85s steps(11) 0.3s forwards, caret-off 0.01s linear 1.35s forwards;
+}
+.hero .hero-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: rule-draw var(--d3) var(--ease) 0.7s forwards;
+}
+.hero .stamp { animation: stamp-thud 0.55s var(--ease-thud) 1.15s both; }
+/* .hero-desc paints instantly (LCP-safety) — no entrance animation */
+.hero .hero-actions { opacity: 0; animation: rise var(--d3) var(--ease) 0.62s forwards; }
+.hero .hero-summary { opacity: 0; animation: rise var(--d3) var(--ease) 0.80s forwards; }
+
+/* Scroll reveals — only hidden once the external JS confirms it loaded
+   (html.anim-ready). If the JS ever fails, content stays fully visible. */
+html.anim-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Corner-bracket "flag for review" on capability cards */
+.cap-card { position: relative; transition: border-color 0.18s var(--ease), transform 0.18s var(--ease); }
+.cap-card:hover { transform: translateY(-2px); border-color: var(--ink-faint); }
+.cap-card::before, .cap-card::after {
+  content: ""; position: absolute; width: 11px; height: 11px; opacity: 0; transition: opacity 0.2s var(--ease); pointer-events: none;
+}
+.cap-card::before { left: -1px; top: -1px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.cap-card::after  { right: -1px; bottom: -1px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.cap-card:hover::before, .cap-card:hover::after { opacity: 1; }
+/* keep the hover lift + eased border after a card has revealed (specificity fix) */
+html.anim-ready .cap-card.reveal.is-visible { transition: opacity 0.5s var(--ease), transform 0.18s var(--ease), border-color 0.18s var(--ease); }
+html.anim-ready .cap-card.reveal.is-visible:hover { transform: translateY(-2px); }
+
+/* Cross-document page morph (Chrome/Edge/Safari; Firefox degrades to instant nav) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out 0.3s var(--ease) both; }
+::view-transition-new(root) { animation: vt-in 0.36s var(--ease) both; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
+  html { scroll-behavior: auto !important; }
+  html.anim-ready .reveal { opacity: 1 !important; transform: none !important; }
+  .hero .doc-ref { width: auto !important; border-right: none; }
+  .hero .hero-divider { transform: none !important; }
+  .logo-mark { animation: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
+
+/* ── Activity ledger — live product vignette (Stage C) ── */
+.activity-lead { font-size: 15px; color: var(--ink-soft); max-width: 620px; margin-bottom: 22px; }
+.actpanel {
+  --eq: #2563eb; --pr: #7c3aed; --us: #0c8071; --gr: #c026d3; --tb: #5b6b7a;
+  border: 1px solid var(--rule-strong); border-radius: 5px; background: var(--paper); overflow: hidden;
+  box-shadow: 0 1px 0 var(--rule), 0 22px 46px -34px rgba(38,34,28,.45);
+}
+.actpanel-bar {
+  display: flex; align-items: center; gap: 10px; padding: 11px 16px;
+  border-bottom: 1px solid var(--rule); background: var(--paper-alt);
+  font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint);
+}
+.act-t { color: var(--ink); font-weight: 700; letter-spacing: .08em; }
+.act-live { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(30,111,78,.5); animation: act-pulse 1.8s infinite; }
+@keyframes act-pulse { 0% { box-shadow: 0 0 0 0 rgba(30,111,78,.5); } 70% { box-shadow: 0 0 0 7px rgba(30,111,78,0); } 100% { box-shadow: 0 0 0 0 rgba(30,111,78,0); } }
+.act-count { margin-left: auto; }
+.actcols {
+  display: grid; grid-template-columns: 152px 158px 70px 1fr; gap: 14px; padding: 9px 18px;
+  border-bottom: 2px solid var(--rule-strong); background: var(--paper);
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint);
+}
+.actviewport { position: relative; height: 452px; overflow: hidden; }
+.actviewport::before, .actviewport::after { content: ""; position: absolute; left: 0; right: 0; height: 52px; z-index: 3; pointer-events: none; }
+.actviewport::before { top: 0; background: linear-gradient(var(--paper), transparent); }
+.actviewport::after { bottom: 0; background: linear-gradient(transparent, var(--paper)); }
+.actfeed { will-change: transform; animation: act-scroll 46s linear infinite; }
+.actviewport:hover .actfeed { animation-play-state: paused; }
+@keyframes act-scroll { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+.actrow { display: grid; grid-template-columns: 152px 158px 70px 1fr; gap: 14px; align-items: center; padding: 11px 18px; border-bottom: 1px solid var(--rule); font-size: 12.5px; }
+.actrow .ts { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
+.actrow .user { display: flex; flex-direction: column; gap: 2px; }
+.actrow .uc { font-family: var(--mono); font-size: 11px; font-weight: 700; color: var(--us); }
+.actrow .un { font-family: var(--mono); font-size: 10.5px; color: var(--ink); }
+.actbadge { font-family: var(--mono); font-size: 9.5px; font-weight: 700; letter-spacing: .04em; padding: 3px 7px; text-align: center; display: inline-block; }
+.b-disp { background: #dbeafe; color: #1e40af; }
+.b-rtn  { background: #d5f0e0; color: #126832; }
+.b-woff { background: #fde0e0; color: #b91c1c; }
+.b-asg  { background: #ece7fd; color: #6d28d9; }
+.b-add  { background: #eef1f4; color: #475569; }
+.actrow .act { color: var(--ink-soft); line-height: 1.5; }
+.actqty { font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--ink); border: 1px solid var(--rule-strong); padding: 0 5px; margin: 0 3px; display: inline-block; }
+.actcode { font-family: var(--mono); font-size: 11px; font-weight: 700; padding: 0 2px; }
+.c-eq { color: var(--eq); } .c-pr { color: var(--pr); } .c-gr { color: var(--gr); } .c-tb { color: var(--tb); }
+.actrow .who { color: var(--ink); }
+.actfoot { padding: 9px 18px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10px; color: var(--ink-faint); text-align: center; background: var(--paper-alt); }
+.cta-about { font-family: var(--mono); font-size: 11px; letter-spacing: .04em; color: #b0a898; margin-top: 18px; }
+@media (prefers-reduced-motion: reduce) { .actfeed { animation: none !important; } .act-live { animation: none !important; } }
+
+/* ── How-it-works — the process draws itself (self-drawing diagram, Stage C.2) ── */
+.ops-connector { transform-origin: top center; }
+html.anim-ready .reveal.rev-line { opacity: 1; transform: scaleY(0); transform-origin: top center; transition: transform 0.5s var(--ease); }
+html.anim-ready .reveal.rev-line.is-visible { transform: scaleY(1); }
+.ops-step-num { position: relative; z-index: 1; }
+.ops-step-num::before {
+  content: ""; position: absolute; left: 50%; top: 48%; width: 38px; height: 38px;
+  transform: translate(-50%, -50%) scale(0.4); border: 1.5px solid var(--red-light); border-radius: 50%;
+  opacity: 0; z-index: -1;
+}
+html.anim-ready .ops-step.is-visible .ops-step-num::before { animation: node-ring 0.5s var(--ease) 0.12s forwards; }
+@keyframes node-ring { to { transform: translate(-50%, -50%) scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  html.anim-ready .reveal.rev-line { transform: none !important; }
+  .ops-step-num::before { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ── Ledger demo label + pause control, and a designed focus ring (QA fixes) ── */
+.act-demo { font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--red-deep); border: 1px solid var(--red-light); border-radius: 2px; padding: 1px 6px; }
+.act-pause { margin-left: 12px; font-family: var(--mono); font-size: 9px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: transparent; border: 1px solid var(--rule-strong); border-radius: 3px; padding: 3px 10px; cursor: pointer; }
+.act-pause:hover { border-color: var(--red); color: var(--red); }
+a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible, .act-pause:focus-visible {
+  outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px;
+}
