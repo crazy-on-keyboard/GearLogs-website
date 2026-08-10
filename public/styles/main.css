@@ -2,15 +2,18 @@
 
 /* ── Tokens ── */
 :root {
-  --paper: #f8f6f2;
-  --paper-alt: #f2efe8;
-  --ink: #2a2520;
-  --ink-soft: #5a5040;
+  --page: #f7f5ef;
+  --paper: #fdfcf9;
+  --paper-alt: #f3f0e8;
+  --ink: #26221c;
+  --ink-soft: #574f42;
   --ink-faint: #8a8070;
   --red: #c4392d;
+  --red-deep: #9d2b21;
   --red-light: #e8d5d2;
-  --rule: #d4cfc6;
-  --rule-strong: #2a2520;
+  --gold: #c99a3b;
+  --rule: #e2ddd0;
+  --rule-strong: #26221c;
   --accent: #2b5fb0;
   --accent-soft: #dce6f4;
   --ok: #1e6f4e;
@@ -19,6 +22,10 @@
   --body: system-ui, "Segoe UI", -apple-system, sans-serif;
   --max-w: 920px;
   --radius: 3px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --ease-thud: cubic-bezier(.3,1.5,.5,1);
+  --d1: 180ms; --d2: 320ms; --d3: 520ms;
+  --vellum: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><filter id='v'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='150' height='150' filter='url(%23v)' opacity='0.14'/></svg>");
 }
 
 /* ── Reset ── */
@@ -27,7 +34,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--body);
-  background: var(--paper);
+  background-color: var(--page);
+  background-image: var(--vellum);
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -69,14 +77,29 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 24px;
-  height: 52px;
+  height: 66px;
 }
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-family: var(--mono);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--ink);
+  view-transition-name: brand;
+}
+.logo-mark {
+  width: 42px;
+  height: 39px;
+  display: block;
+  animation: logo-breathe 6s ease-in-out infinite 1.2s;
+}
+.logo .lr { color: var(--red); }
+@keyframes logo-breathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.05) drop-shadow(0 2px 6px rgba(201,154,59,.20)); }
 }
 .nav {
   display: flex;
@@ -643,3 +666,69 @@ img { max-width: 100%; display: block; }
 .nav a.active { color: var(--ink); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
 .faq-a a { color: var(--red); border-bottom: 1px solid var(--red-light); }
 .faq-a a:hover { border-bottom-color: var(--red); }
+
+/* ═══════════════════════════════════════════════════════════
+   Redesign motion layer — Living Dossier (Stage A foundation + Stage B hero)
+   CSP-safe: all motion is CSS or driven by an external /js file.
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes rule-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes stamp-thud {
+  0%   { opacity: 0; transform: rotate(-2deg) scale(1.85); filter: blur(3px); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: rotate(-2deg) scale(1); filter: blur(0); }
+}
+@keyframes typing { to { width: var(--tw, 7em); } }
+@keyframes caret-off { to { border-right-color: transparent; } }
+
+/* Hero entrance — the H1 paints instantly (LCP); supporting bits animate in */
+.hero .doc-ref {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 2px solid var(--red);
+  --tw: 7em;
+  animation: typing 0.85s steps(11) 0.3s forwards, caret-off 0.01s linear 1.35s forwards;
+}
+.hero .hero-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: rule-draw var(--d3) var(--ease) 0.7s forwards;
+}
+.hero .stamp { animation: stamp-thud 0.55s var(--ease-thud) 1.15s both; }
+.hero .hero-desc    { opacity: 0; animation: rise var(--d3) var(--ease) 0.45s forwards; }
+.hero .hero-actions { opacity: 0; animation: rise var(--d3) var(--ease) 0.62s forwards; }
+.hero .hero-summary { opacity: 0; animation: rise var(--d3) var(--ease) 0.80s forwards; }
+
+/* Scroll reveals — only hidden once the external JS confirms it loaded
+   (html.anim-ready). If the JS ever fails, content stays fully visible. */
+html.anim-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Corner-bracket "flag for review" on capability cards */
+.cap-card { position: relative; transition: border-color 0.18s var(--ease), transform 0.18s var(--ease); }
+.cap-card:hover { transform: translateY(-2px); border-color: var(--ink-faint); }
+.cap-card::before, .cap-card::after {
+  content: ""; position: absolute; width: 11px; height: 11px; opacity: 0; transition: opacity 0.2s var(--ease); pointer-events: none;
+}
+.cap-card::before { left: -1px; top: -1px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.cap-card::after  { right: -1px; bottom: -1px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.cap-card:hover::before, .cap-card:hover::after { opacity: 1; }
+
+/* Cross-document page morph (Chrome/Edge/Safari; Firefox degrades to instant nav) */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out 0.3s var(--ease) both; }
+::view-transition-new(root) { animation: vt-in 0.36s var(--ease) both; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  html.anim-ready .reveal { opacity: 1 !important; transform: none !important; }
+  .hero .doc-ref { width: auto !important; border-right: none; }
+  .hero .hero-divider { transform: none !important; }
+  .logo-mark { animation: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}
