@@ -648,8 +648,9 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── Minimum width (desktop-only, per Director's rule) ── */
-@media (max-width: 860px) {
-  body { min-width: 860px; }
+/* Floor raised to 1000px so the 8-item nav never overflows (GL-22). */
+@media (max-width: 1000px) {
+  body { min-width: 1000px; }
 }
 
 /* ── Standalone sub-pages (Guides / FAQ / Changelog) ── */
@@ -809,3 +810,59 @@ html.anim-ready .ops-step.is-visible .ops-step-num::before { animation: node-rin
 a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondary:focus-visible, .nav-cta:focus-visible, .act-pause:focus-visible {
   outline: 2px solid var(--red); outline-offset: 2px; border-radius: 2px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Field Notes — the blog (GL-22). Filed as dossiers on vellum.
+   Desktop-only (no responsive breakpoints); reuses the tokens above.
+   ═══════════════════════════════════════════════════════════ */
+
+/* — Index: notes filed as spec-sheet rows — */
+.notes-list { border-top: 2px solid var(--rule-strong); margin-top: 30px; }
+.note-row {
+  display: grid; grid-template-columns: 116px 1fr auto; gap: 28px; align-items: center;
+  padding: 22px 8px; border-bottom: 1px solid var(--rule); position: relative;
+  transition: background 0.15s var(--ease);
+}
+.note-row:hover { background: var(--paper); }
+.note-fn { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: var(--ink); }
+.note-cat { display: block; margin-top: 6px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); }
+.note-ti { display: block; font-family: var(--mono); font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 6px; }
+.note-dek { display: block; font-family: var(--serif); font-size: 15px; color: var(--ink-soft); max-width: 60ch; line-height: 1.5; }
+.note-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-faint); text-align: right; white-space: nowrap; }
+.note-meta .note-arrow { display: block; margin-top: 8px; color: var(--red); font-size: 15px; transition: transform 0.15s var(--ease); }
+.note-row:hover .note-arrow { transform: translateX(3px); }
+/* corner brackets on hover, echoing the capability cards */
+.note-row::before, .note-row::after { content: ""; position: absolute; width: 9px; height: 9px; opacity: 0; transition: opacity 0.2s var(--ease); pointer-events: none; }
+.note-row::before { left: -2px; top: 10px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.note-row::after { right: -2px; bottom: 10px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.note-row:hover::before, .note-row:hover::after { opacity: 1; }
+
+/* — Article: a document that reads like field notes — */
+.note-article { max-width: 680px; margin: 0 auto; }
+.note-breadcrumb { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 26px; }
+.note-breadcrumb a { color: var(--red); }
+.note-breadcrumb a:hover { border-bottom: 1px solid var(--red-light); }
+.note-breadcrumb .sep { color: var(--rule); margin: 0 8px; }
+.note-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; }
+.note-eyebrow .dot { color: var(--rule); margin: 0 8px; }
+.note-h1 { font-family: var(--mono); font-size: 38px; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; text-wrap: balance; }
+.note-lede { font-family: var(--serif); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--ink-soft); margin-bottom: 24px; }
+.note-rule { width: 60px; height: 2px; background: var(--rule-strong); margin-bottom: 30px; }
+.note-body { font-family: var(--serif); font-size: 19px; line-height: 1.72; color: #2f2a21; }
+.note-body p { margin-bottom: 22px; }
+.note-body p:first-of-type::first-letter { font-family: var(--mono); font-weight: 700; float: left; font-size: 58px; line-height: 0.82; padding: 6px 12px 0 0; color: var(--red); }
+.note-pull { font-family: var(--mono); font-size: 19px; line-height: 1.42; letter-spacing: -0.01em; color: var(--ink); border-top: 2px solid var(--rule-strong); border-bottom: 1px solid var(--rule); padding: 20px 0; margin: 30px 0; text-wrap: balance; }
+.note-endmark { width: 30px; height: 28px; margin: 36px auto 8px; opacity: 0.85; }
+.note-filed { display: flex; gap: 16px; align-items: center; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper); padding: 18px 22px; margin-top: 24px; }
+.note-filed img { width: 34px; height: 32px; flex: none; }
+.note-filed .nf-t { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); margin-bottom: 3px; }
+.note-filed .nf-d { font-size: 13px; color: var(--ink-faint); }
+.note-filed .nf-cta { margin-left: auto; white-space: nowrap; }
+
+/* — More notes (internal links) — */
+.note-more { max-width: 680px; margin: 42px auto 0; border-top: 1px solid var(--rule); padding-top: 22px; }
+.note-more-t { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+.note-more-list { display: flex; flex-direction: column; gap: 12px; }
+.note-more-list a { font-family: var(--mono); font-size: 14px; color: var(--ink); display: flex; gap: 12px; align-items: baseline; }
+.note-more-list a:hover { color: var(--red); }
+.note-more-list a .mfn { color: var(--red); font-size: 11px; font-weight: 700; flex: none; }
