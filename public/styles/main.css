@@ -833,8 +833,8 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 .note-row:hover .note-arrow { transform: translateX(3px); }
 /* corner brackets on hover, echoing the capability cards */
 .note-row::before, .note-row::after { content: ""; position: absolute; width: 9px; height: 9px; opacity: 0; transition: opacity 0.2s var(--ease); pointer-events: none; }
-.note-row::before { left: -2px; top: 10px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
-.note-row::after { right: -2px; bottom: 10px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.note-row::before { left: -2px; top: -2px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.note-row::after { right: -2px; bottom: -2px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
 .note-row:hover::before, .note-row:hover::after { opacity: 1; }
 
 /* — Article: a document that reads like field notes — */
