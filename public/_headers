@@ -7,11 +7,19 @@
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-# /pay.html is the ONE page allowed to run Paddle.js (the overlay checkout for
-# vendor-minted payment links). The site-wide CSP is detached and replaced with
-# the minimal Paddle set — the rest of the site stays strict. COOP is detached
-# too: the checkout's 3-D-Secure popups must be able to talk to their opener.
+# The /pay page is the ONE page allowed to run Paddle.js (the overlay checkout
+# for vendor-minted payment links). The site-wide CSP is detached and replaced
+# with the minimal Paddle set — the rest of the site stays strict. COOP is
+# detached too: the checkout's 3-D-Secure popups must be able to talk to their
+# opener. BOTH paths are declared: Cloudflare's clean URLs 308 /pay.html → /pay,
+# and the page actually SERVES at /pay — a rule on /pay.html alone left the
+# strict CSP on the real page (verified live 2026-08-20).
 /pay.html
+  ! Content-Security-Policy
+  ! Cross-Origin-Opener-Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/pay
   ! Content-Security-Policy
   ! Cross-Origin-Opener-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
