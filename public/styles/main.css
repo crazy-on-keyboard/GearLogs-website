@@ -103,9 +103,10 @@ img { max-width: 100%; display: block; }
 }
 .nav {
   display: flex;
-  gap: 20px;
+  gap: 14px;
   margin-left: auto;
 }
+.nav a { white-space: nowrap; }
 .nav a {
   font-family: var(--mono);
   font-size: 11px;
@@ -866,3 +867,80 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 .note-more-list a { font-family: var(--mono); font-size: 14px; color: var(--ink); display: flex; gap: 12px; align-items: baseline; }
 .note-more-list a:hover { color: var(--red); }
 .note-more-list a .mfn { color: var(--red); font-size: 11px; font-weight: 700; flex: none; }
+
+/* ── Pricing (Section 4 · The Terms + /pricing.html) ── */
+.price-wrap {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) 1fr;
+  gap: 36px;
+  align-items: start;
+}
+@media (max-width: 720px) { .price-wrap { grid-template-columns: 1fr; } }
+.price-panel {
+  background: var(--paper);
+  border: 2px solid var(--rule-strong);
+  padding: 26px 28px;
+  position: relative;
+}
+.price-panel::before {
+  content: "";
+  position: absolute; left: -1px; top: -1px;
+  border-left: 3px solid var(--red); border-top: 3px solid var(--red);
+  width: 22px; height: 22px;
+}
+.price-headline {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 10px;
+}
+.price-big { display: flex; align-items: baseline; gap: 10px; }
+.price-amount {
+  font-family: var(--serif);
+  font-size: 54px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.price-per { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+.price-alt { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+.price-facts { margin: 16px 0 18px; padding: 0; }
+.price-facts li {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  padding-inline-start: 18px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.price-facts li::before { content: "\2713"; color: var(--ok); position: absolute; inset-inline-start: 0; }
+.price-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.price-aside { padding-top: 6px; }
+.price-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 21px;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 14px;
+  max-width: 26em;
+}
+.price-why { font-size: 14px; color: var(--ink-soft); max-width: 56ch; margin-bottom: 10px; }
+.price-included {
+  columns: 2;
+  column-gap: 28px;
+  margin: 14px 0 4px;
+  padding: 0;
+}
+@media (max-width: 640px) { .price-included { columns: 1; } }
+.price-included li {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  padding-inline-start: 18px;
+  position: relative;
+  break-inside: avoid;
+}
+.price-included li::before { content: "\2713"; color: var(--ok); position: absolute; inset-inline-start: 0; }
