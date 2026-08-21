@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:links": "node scripts/check-links.mjs",
+    "check": "npm run build && npm run check:links"
   },
   "devDependencies": {
     "vite": "^6.2.0"
