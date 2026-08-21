@@ -95,6 +95,9 @@
       });
     }).then(function (out) {
       if (out.status === 200 && out.data && out.data.ok) {
+        // Keep the band the same height when the form gives way to the RECEIVED panel, so a
+        // second click (double-click on Send) lands on nothing, not on whatever scrolled up.
+        received.style.minHeight = form.offsetHeight + "px";
         form.hidden = true;
         received.hidden = false;
         received.focus && received.setAttribute('tabindex', '-1');
