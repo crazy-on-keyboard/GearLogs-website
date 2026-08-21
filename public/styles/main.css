@@ -944,3 +944,84 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
   break-inside: avoid;
 }
 .price-included li::before { content: "\2713"; color: var(--ok); position: absolute; inset-inline-start: 0; }
+
+/* ── Contact band: the Request-access form (comms S3) ──
+   A paper panel with the cap-card corner brackets, inside the ink band. */
+.cta-form {
+  text-align: left;
+  max-width: 560px;
+  margin: 0 auto 14px;
+  padding: 22px 22px 20px;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+  border: 1px solid var(--rule);
+}
+.cta-form::before, .cta-form::after { content: ""; position: absolute; width: 16px; height: 16px; }
+.cta-form::before { left: -1px; top: -1px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.cta-form::after  { right: -1px; bottom: -1px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.cta-field { display: grid; gap: 5px; margin-bottom: 14px; }
+.cta-field label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.cta-optional { text-transform: none; letter-spacing: 0; color: #a39b8b; margin-left: 6px; }
+.cta-field input, .cta-field textarea {
+  font: 14px/1.5 var(--body);
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+  width: 100%;
+  transition: border-color var(--d1) var(--ease), box-shadow var(--d1) var(--ease);
+}
+.cta-field textarea { resize: vertical; min-height: 96px; }
+.cta-field input:focus-visible, .cta-field textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.cta-field.is-invalid input, .cta-field.is-invalid textarea { border-color: var(--red); background: #fbeeec; }
+.cta-field-error { font-family: var(--mono); font-size: 11.5px; color: var(--red-deep); margin: 0; }
+.cta-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.cf-turnstile { margin: 4px 0 14px; min-height: 65px; }
+.cta-form-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cta-form-actions .btn-large:disabled { opacity: 0.6; cursor: progress; }
+.cta-form-actions .btn-large:disabled:hover { background: var(--red); color: #fff; }
+.cta-form-status { font-family: var(--mono); font-size: 12px; margin: 0; color: var(--ink-soft); }
+.cta-form-status.is-error { color: var(--red-deep); }
+.cta-form-status.is-warn { color: #7a6118; }
+.cta-received {
+  max-width: 560px;
+  margin: 0 auto 14px;
+  padding: 30px 22px 26px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  position: relative;
+  outline: none;
+}
+.cta-received::before, .cta-received::after { content: ""; position: absolute; width: 16px; height: 16px; }
+.cta-received::before { left: -1px; top: -1px; border-left: 2px solid var(--red); border-top: 2px solid var(--red); }
+.cta-received::after  { right: -1px; bottom: -1px; border-right: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+.cta-received-stamp {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  border: 3px solid var(--red);
+  padding: 10px 20px;
+  transform: rotate(-4deg);
+  margin-bottom: 14px;
+}
+.cta-received-text { font-size: 14px; color: var(--ink-soft); margin: 0; max-width: 44ch; margin-left: auto; margin-right: auto; }
+.cta-fallback { font-family: var(--mono); font-size: 12px; color: #9c948a; margin: 0; }
+.cta-fallback a { color: #c9c2b4; }
+@media (max-width: 640px) { .cta-form-grid { grid-template-columns: 1fr; } }

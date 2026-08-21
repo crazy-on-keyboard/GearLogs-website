@@ -334,7 +334,44 @@
         <div class="cta-stamp">CLEARED FOR OPERATIONS</div>
         <h2 class="cta-title">Access by request.</h2>
         <p class="cta-desc">We onboard organizations we can serve well. Tell us what you run, and we'll set you up.</p>
-        <a href="mailto:hello@gearlogs.com" class="btn-primary btn-large">Request Access</a>
+
+        <form class="cta-form" id="contact-form" action="/" method="post" novalidate aria-describedby="contact-status">
+          <div class="cta-form-grid">
+            <div class="cta-field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+              <p class="cta-field-error" data-error-for="cf-name" hidden>Tell us who to write back to.</p>
+            </div>
+            <div class="cta-field">
+              <label for="cf-email">Work email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+              <p class="cta-field-error" data-error-for="cf-email" hidden>That doesn&rsquo;t look like a full address &mdash; we need somewhere to reply.</p>
+            </div>
+          </div>
+          <div class="cta-field">
+            <label for="cf-org">Organisation <span class="cta-optional">optional</span></label>
+            <input id="cf-org" name="org" type="text" autocomplete="organization" maxlength="160">
+          </div>
+          <div class="cta-field">
+            <label for="cf-message">What do you run?</label>
+            <textarea id="cf-message" name="message" rows="4" maxlength="4000" required></textarea>
+            <p class="cta-field-error" data-error-for="cf-message" hidden>A line or two is enough &mdash; at least 10 characters.</p>
+          </div>
+          <div class="cta-honeypot" aria-hidden="true">
+            <label for="cf-website">Website</label>
+            <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAEXrTkhtxROIhlJQ" data-theme="light" data-size="flexible"></div>
+          <div class="cta-form-actions">
+            <button type="submit" class="btn-primary btn-large" id="contact-submit">Request Access</button>
+            <p class="cta-form-status" id="contact-status" role="status" aria-live="polite" hidden></p>
+          </div>
+        </form>
+        <div class="cta-received" id="contact-received" hidden>
+          <div class="cta-received-stamp">RECEIVED</div>
+          <p class="cta-received-text">Thanks &mdash; a person reads every request and replies from <b>hello@gearlogs.com</b>, usually within one business day.</p>
+        </div>
+        <p class="cta-fallback">Prefer email? Write to <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
         <p class="cta-about">Made by RAQIOM — software for the people who run things.</p>
       </div>
     </section>
@@ -386,5 +423,7 @@
   </div>
   <script src="/js/anim.js" defer></script>
   <script src="/js/activity.js" defer></script>
+  <script src="/js/contact.js" defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
