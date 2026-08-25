@@ -3,24 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — GearLogs</title>
+  <title>Page not found — GearLogs</title>
+  <meta name="robots" content="noindex">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <style>
-    body { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; background: #f7f5ef; color: #26221c; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-    .box { text-align: center; max-width: 400px; padding: 40px; }
-    h1 { font-size: 48px; margin: 0 0 8px; }
-    p { color: #736a58; font-size: 14px; margin: 0 0 24px; }
-    a { color: #c4392d; text-decoration: none; font-size: 13px; border: 1px solid #c4392d; padding: 8px 20px; }
-    a:hover { background: #c4392d; color: #fff; }
-    .stripe { position: fixed; top: 0; right: 0; width: 4px; height: 100vh; background: #c4392d; }
-  </style>
+  <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-  <div class="stripe"></div>
-  <div class="box">
-    <h1>404</h1>
-    <p>Page not found.</p>
-    <a href="/">Return to GearLogs</a>
+  <div class="page">
+
+    <div class="class-stripe"></div>
+
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="GearLogs home">
+          <img class="logo-mark" src="/img/logo-mark.png" alt="" width="42" height="39">
+          <span class="logo-wm">GEAR<span class="lr">LOGS</span></span>
+        </a>
+        <nav class="nav">
+          <a href="/#capabilities">Capabilities</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#security">Security</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/guides">Guides</a>
+          <a href="/faq">FAQ</a>
+          <a href="/notes">Field Notes</a>
+          <a href="/changelog">Changelog</a>
+        </nav>
+        <a href="https://app.gearlogs.com" class="nav-cta">Launch App</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">404 — Page not found</h1>
+        <p class="hero-desc">There is nothing at this address. The page may have moved, or the link may be out of date.</p>
+        <div class="hero-actions">
+          <a href="/" class="btn-primary">Back to the home page</a>
+          <a href="/guides" class="btn-secondary">Browse the guides</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">GEARLOGS</div>
+          <div class="footer-by">by <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM</a></div>
+          <div class="footer-tagline">Software for the people who run things</div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <div class="footer-col-title">Product</div>
+            <a href="/#capabilities">Capabilities</a>
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#security">Security</a>
+            <a href="/pricing">Pricing</a>
+            <a href="https://app.gearlogs.com">Launch App</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <a href="/guides">Guides</a>
+            <a href="/faq">FAQ</a>
+            <a href="/notes">Field Notes</a>
+            <a href="/changelog">Changelog</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">RAQIOM Suite</div>
+            <a href="https://pmolikepro.com" target="_blank" rel="noopener">PMOlikePRO</a>
+            <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM.com</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Legal</div>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/refunds">Refund Policy</a>
+            <a href="/#security">Security</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; RAQIOM. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
   </div>
 </body>
 </html>

@@ -74,6 +74,9 @@
           userPaused = !userPaused;
           btn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
           btn.textContent = userPaused ? 'Play' : 'Pause';
+          // The accessible name follows the visible word (WCAG 2.5.3 Label in Name): a voice-control
+          // user says what they see — "click Play" must resolve while the label reads Play.
+          btn.setAttribute('aria-label', userPaused ? 'Play the sample activity feed' : 'Pause the sample activity feed');
           apply();
         });
       }

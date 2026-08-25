@@ -1,4 +1,7 @@
 /*
+  # Cloudflare Pages adds a wildcard CORS header to every response by default; a marketing
+  # site has no cross-origin readers, so it is detached (sweep pass 4, D42).
+  ! Access-Control-Allow-Origin
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
@@ -17,12 +20,12 @@
 /pay.html
   ! Content-Security-Policy
   ! Cross-Origin-Opener-Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 /pay
   ! Content-Security-Policy
   ! Cross-Origin-Opener-Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
 # The home page carries the Request-access form: Turnstile (script + its iframe) and one
 # cross-origin POST to the contact-inbound function. Everything else stays strict, COOP is
