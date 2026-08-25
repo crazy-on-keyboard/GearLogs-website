@@ -732,7 +732,6 @@ html.anim-ready .cap-card.reveal.is-visible:hover { transform: translateY(-2px);
   .hero .doc-ref { width: auto !important; border-right: none; }
   .hero .hero-divider { transform: none !important; }
   .logo-mark { animation: none !important; }
-  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 
 /* ── Activity ledger — live product vignette (Stage C) ── */
