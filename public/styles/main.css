@@ -88,7 +88,6 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--ink);
-  view-transition-name: brand;
 }
 .logo-mark {
   width: 42px;
@@ -722,12 +721,9 @@ html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
 html.anim-ready .cap-card.reveal.is-visible { transition: opacity 0.5s var(--ease), transform 0.18s var(--ease), border-color 0.18s var(--ease); }
 html.anim-ready .cap-card.reveal.is-visible:hover { transform: translateY(-2px); }
 
-/* Cross-document page morph (Chrome/Edge/Safari; Firefox degrades to instant nav) */
-@view-transition { navigation: auto; }
-::view-transition-old(root) { animation: vt-out 0.3s var(--ease) both; }
-::view-transition-new(root) { animation: vt-in 0.36s var(--ease) both; }
-@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
-@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+/* No cross-document page morph: Chrome raised an unhandled "Transition was skipped" AbortError
+   on every navigation with `@view-transition { navigation: auto }` (sweep pass 4, D44) — the
+   Director chose a silent console over the fade (2026-08-26). */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
