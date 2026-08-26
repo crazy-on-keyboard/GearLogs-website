@@ -667,6 +667,8 @@ img { max-width: 100%; display: block; }
 .nav a.active { color: var(--ink); border-bottom: 2px solid var(--red); padding-bottom: 2px; }
 .faq-a a { color: var(--red); border-bottom: 1px solid var(--red-light); }
 .faq-a a:hover { border-bottom-color: var(--red); }
+.changelog-list a { color: var(--red); border-bottom: 1px solid var(--red-light); }
+.changelog-list a:hover { border-bottom-color: var(--red); }
 
 /* ═══════════════════════════════════════════════════════════
    Redesign motion layer — Living Dossier (Stage A foundation + Stage B hero)
