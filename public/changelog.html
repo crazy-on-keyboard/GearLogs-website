@@ -55,6 +55,31 @@
 
         <div class="changelog">
           <div class="changelog-entry">
+            <div class="changelog-ver">GL-51</div>
+            <div class="changelog-body">
+              <h2 class="changelog-title">Clean Records, by Rule</h2>
+              <ul class="changelog-list">
+                <li>A staff record follows one rule set wherever it is written &mdash; the form, a CSV import and the workspace itself agree, so a record that saves is a record that is clean</li>
+                <li>Names in any script up to 100 characters; ranks and departments up to 60; an email that looks like an email; a phone that is a phone; notes up to 500 characters</li>
+                <li>No hidden or invisible characters can enter a record &mdash; pasted text is checked, and the refusal says which field and why, in your language</li>
+                <li>A CSV row that breaks a record rule stops the import before any record is written &mdash; the refusal names the row and the field (&ldquo;Row 12: email &mdash; &hellip;&rdquo;); rows set aside for review (a duplicate, a missing name) wait in the conflicts queue as before</li>
+              </ul>
+            </div>
+          </div>
+          <div class="changelog-entry">
+            <div class="changelog-ver">GL-50</div>
+            <div class="changelog-body">
+              <h2 class="changelog-title">Who Sees What</h2>
+              <ul class="changelog-list">
+                <li>Staff contact details &mdash; phone, email, notes &mdash; are now a right of their own, held by administrators and operators, and grantable to any other person; everyone else sees a small lock in their place &mdash; and a member who cannot see a detail can never overwrite it</li>
+                <li>Any right in the list except Manage Users (administrators alone) can be added to a person on top of their role &mdash; and a role&rsquo;s own rights are never taken away</li>
+                <li>Archived people, gear, lots, units and contracts are handed only to members who can open the Archive; search follows the same rule, and the other boards stay live</li>
+                <li>Renaming a location, rank or department now reaches every record carrying the old name, archived ones included</li>
+                <li>A colleague&rsquo;s login, rights and personal settings are private to them &mdash; and the Users screen names every right in Hebrew too</li>
+              </ul>
+            </div>
+          </div>
+          <div class="changelog-entry">
             <div class="changelog-ver">GL-49</div>
             <div class="changelog-body">
               <h2 class="changelog-title">What You See Is Current</h2>
