@@ -119,12 +119,28 @@
             <p class="faq-a">Yes. Alongside the automatic reference code, you can record each person's own identifier — an employee number, staff ID, or service number — and you choose what that field is called so it matches how your organisation talks. It's shown to administrators on the user list, and is deliberately kept out of the activity log and analytics.</p>
           </div>
           <div class="faq-item">
+            <h2 class="faq-q">Who can see a staff member&rsquo;s phone number or email?</h2>
+            <p class="faq-a">Administrators and operators, by default &mdash; contact details are a right of their own, called &ldquo;View contact details&rdquo;. An administrator can grant it to anyone else from Users &rsaquo; Edit. Everyone without the right sees a small lock where the contact markers would be, and a quiet note inside the card &mdash; and the workspace itself withholds the data, so it is not merely hidden on screen. A member who cannot see a detail can never overwrite it either.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Can I give one person a right their role does not include?</h2>
+            <p class="faq-a">Yes &mdash; any right except Manage Users, which stays with administrators alone. The checklist in Users &rsaquo; Edit shows which rights their role already includes and which you can add; a role&rsquo;s own rights are never taken away.</p>
+          </div>
+          <div class="faq-item">
             <h2 class="faq-q">How do I know what a button does before I use it?</h2>
             <p class="faq-a">Any action or setting that isn't obvious carries a small (i) beside it, and every one opens the same card: a title, then what it is, what you can do, and what will happen. When an action cannot be undone, the card says so in red before you click. Colour tells you the direction before you read the name: green buttons give or put back, brick-red buttons take away, grey ones only show or edit &mdash; and the confirmation behind an action wears the action&rsquo;s colour. Where a row has several action icons, one legend at the top of the column names them all in one place and lists only the actions your role can take. The card opens on click, never on hover, so it works on a touch screen, from the keyboard and with a screen reader, and stays open until you close it. Longer jobs also show a live progress window that reports each step as it runs.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can I import existing data?</h2>
-            <p class="faq-a">Yes. GearLogs supports bulk CSV import for items, personnel, and users. The import engine automatically detects duplicates and queues conflicts for your review.</p>
+            <p class="faq-a">Yes. GearLogs supports bulk CSV import for items, personnel, and users. The import engine automatically detects duplicates and queues conflicts for your review. A row that breaks a record rule stops the import before any record is written &mdash; the message names the row and the field (&ldquo;Row 12: email &mdash; &hellip;&rdquo;).</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Why was my staff CSV refused?</h2>
+            <p class="faq-a">Because a row breaks a record rule &mdash; a name over the cap, an email that is not an email, a hidden character &mdash; and the refusal message names exactly which one: the row number, the field and what is wrong with it. The import stops before any record is written, so there is nothing to undo; fix that cell and import the file again. Rows the engine sets aside for review &mdash; a duplicate, a missing name &mdash; take a different path: they wait in the conflicts queue while clean rows import.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">What can I put in a staff record?</h2>
+            <p class="faq-a">Names in any script &mdash; Hebrew, Arabic, accented Latin &mdash; up to 100 characters; a rank and a department up to 60 characters each; an email that looks like an email; a phone with 6&ndash;20 digits; notes up to 500 characters. Hidden or invisible characters &mdash; the kind that ride along when text is pasted from elsewhere &mdash; are refused with a message under the field. The same rules hold in the form, in a CSV import and in the workspace itself, so every saved record is a clean one.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">What is in the demo?</h2>
@@ -144,7 +160,7 @@
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Is my data secure?</h2>
-            <p class="faq-a">Yes. All data is encrypted, isolated per organization, and protected by role-based access controls. Sign-in is guarded by an automated human-verification check that blocks bot-driven login attempts, and every action is logged in a complete audit trail. Every password change is confirmed to you by email and signs out every other device.</p>
+            <p class="faq-a">Yes. All data is encrypted, isolated per organization, and protected by role-based access controls &mdash; including per-person rights on top of a role, and a dedicated right for staff contact details that the workspace itself enforces. Sign-in is guarded by an automated human-verification check that blocks bot-driven login attempts, and every action is logged in a complete audit trail. Every password change is confirmed to you by email and signs out every other device.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Why do I see a &ldquo;verify you&rsquo;re human&rdquo; step when I sign in?</h2>
