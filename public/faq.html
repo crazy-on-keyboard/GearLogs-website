@@ -91,8 +91,16 @@
             <p class="faq-a">Yes. Yearly is $290 per user &mdash; two months free compared with twelve monthly payments. You choose the cycle when you subscribe and can switch later from the same screen: to yearly at once, back to monthly at your next renewal.</p>
           </div>
           <div class="faq-item">
+            <h2 class="faq-q">Where do I see a refund?</h2>
+            <p class="faq-a">A workspace administrator opens Settings &rsaquo; Billing and reads the log. &ldquo;Refund requested&rdquo; appears while Paddle reviews it, &ldquo;Refund issued&rdquo; once the money is on its way back, and the amount shown is what comes back. A credit is logged too, when it is issued and if it is ever reversed &mdash; see the <a href="/refunds">refund policy</a> for when we refund.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">What does the Billing log show?</h2>
+            <p class="faq-a">Every billing event in one place, in your language: subscription started, seats changed, cycle switched, payment taken or failed, cancellation scheduled or undone, and money coming back.</p>
+          </div>
+          <div class="faq-item">
             <h2 class="faq-q">What happens to my data if I cancel?</h2>
-            <p class="faq-a">Cancellation takes effect at the end of the period you paid for, and one click undoes it before then. Afterwards your workspace stays read-only — everything visible and exportable — for 12 months, and you're warned by email well before anything is deleted. Your records were always yours.</p>
+            <p class="faq-a">Cancellation takes effect at the end of the period you paid for, and one click undoes it before then. Afterwards your workspace stays read-only — everything visible and exportable — for 12 months, and you're warned by email at least 30 days before anything is deleted. Your records were always yours.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Is GearLogs fast and responsive?</h2>
@@ -132,7 +140,7 @@
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can I import existing data?</h2>
-            <p class="faq-a">Yes. GearLogs supports bulk CSV import for items, personnel, and users. The import engine automatically detects duplicates and queues conflicts for your review. A row that breaks a record rule stops the import before any record is written &mdash; the message names the row and the field (&ldquo;Row 12: email &mdash; &hellip;&rdquo;).</p>
+            <p class="faq-a">Yes. GearLogs supports bulk CSV import for items, personnel, and users. The import engine automatically detects duplicates and queues conflicts for your review. A row that breaks a record rule stops the import before any record is written &mdash; the message names the row and the field (&ldquo;Row 12: email &mdash; &hellip;&rdquo;). For items, a quantity or capacity cell that is not a whole number &mdash; 3.5, 5kg, 1,000 &mdash; is set aside with the reason on it, and the clean rows still import.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Why was my staff CSV refused?</h2>
@@ -165,6 +173,10 @@
           <div class="faq-item">
             <h2 class="faq-q">Why do I see a &ldquo;verify you&rsquo;re human&rdquo; step when I sign in?</h2>
             <p class="faq-a">It&rsquo;s a quick automated-abuse check that protects accounts from bot-driven and scripted sign-in attempts. For real people it almost always clears on its own in a moment &mdash; there&rsquo;s nothing extra to do.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">How do I report a security issue?</h2>
+            <p class="faq-a">Write to <a href="mailto:ops@gearlogs.com">ops@gearlogs.com</a>, or point a scanner at <a href="/.well-known/security.txt">/.well-known/security.txt</a>, which names the same address in the machine-readable form automated tools check first. A person reads every report; our disclosure terms are in the <a href="/privacy">privacy policy</a>.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Does GearLogs support two-factor authentication?</h2>
