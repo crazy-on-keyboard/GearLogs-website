@@ -112,7 +112,7 @@
           </div>
           <div class="faq-item">
             <h2 class="faq-q">What can I search for?</h2>
-            <p class="faq-a">Anything that identifies a thing. The search bar finds items and people, departments, groups, team members, service contracts, and archived records — matching names, reference codes, serial numbers and lot codes, designations and locations, manufacturer, model, category, SKU and GTIN, and the notes you wrote. Results are grouped by type with the best matches first and the matched text highlighted; clicking one takes you straight to it (a department opens the board on its own tab), and &ldquo;+N more&rdquo; carries the same search onto that screen so you keep narrowing.</p>
+            <p class="faq-a">Anything that identifies a thing. The search bar finds items and people, departments, groups, team members, service contracts, and archived records — matching names, reference codes, serial numbers and lot codes, designations and locations, manufacturer, model, category, SKU and GTIN, and the notes you wrote. Results are grouped by type with the best matches first and the matched text highlighted; clicking one takes you straight to it (a department opens the board on its own tab), and &ldquo;+N more&rdquo; carries the same search onto that screen so you keep narrowing. A result whose name does not contain your word says where it matched &mdash; &ldquo;Matched on notes&rdquo;, &ldquo;Matched on location&rdquo;.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can I track equipment by individual serial number, not just by quantity?</h2>
@@ -132,7 +132,15 @@
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can I give one person a right their role does not include?</h2>
-            <p class="faq-a">Yes &mdash; any right except Manage Users, which stays with administrators alone. The checklist in Users &rsaquo; Edit shows which rights their role already includes and which you can add; a role&rsquo;s own rights are never taken away.</p>
+            <p class="faq-a">Yes &mdash; any right except Manage Users, which stays with administrators alone. The checklist in Users &rsaquo; Edit shows which rights their role already includes and which you can add; a role&rsquo;s own rights are never taken away. The right to hand out sensitive gear applies to every item marked sensitive, at every door &mdash; the person&rsquo;s card, the item&rsquo;s Assign button and the bulk sign-out &mdash; and the same sentence refuses each.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Who can hand out sensitive gear?</h2>
+            <p class="faq-a">Anyone whose role includes the right, or who was granted it on top of their role. It applies to every item marked sensitive, not only serial-numbered ones, and it is checked at every door &mdash; the person&rsquo;s card, the item&rsquo;s Assign button and the bulk sign-out &mdash; with the database as the backstop. Without the right, the hand-out is refused by name with the same sentence everywhere, and in the bulk sign-out the row is greyed with a small (i) that says why.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Why can&rsquo;t I hand gear to someone who was archived?</h2>
+            <p class="faq-a">Because custody never returns to an archived person or an archived item: the hand-out is refused by name, wherever you try it. Restore the person or the item first, then assign.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">How do I know what a button does before I use it?</h2>
@@ -180,19 +188,35 @@
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Does GearLogs support two-factor authentication?</h2>
-            <p class="faq-a">Yes. A workspace can require two-factor authentication (2FA) &mdash; a one-time code from an authenticator app in addition to a password. It can be required both to sign in and to make changes, so a stolen password on its own can't alter your records. Members keep one-time recovery codes in case they lose their phone, and admins can reset a member's two-factor if they are ever locked out.</p>
+            <p class="faq-a">Yes. A workspace can require two-factor authentication (2FA) &mdash; a one-time code from an authenticator app in addition to a password. It can be required both to sign in and to make changes, so a stolen password on its own can't alter your records. Members keep one-time recovery codes in case they lose their phone, and admins can reset a member's two-factor if they are ever locked out. Turning two-factor on or off is noted in the bell whichever way it happened, and if several wrong recovery codes are tried on an account in a short time, the account and its administrators are told &mdash; nothing is locked.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">What happens if someone types wrong recovery codes on my account?</h2>
+            <p class="faq-a">After several wrong codes in a short time, you get a notice in the bell and by email, and so does every administrator of your workspace &mdash; it names you by your member code, never your name. Nothing is locked and nothing changes: a wrong code is still simply a wrong code. If it was not you, change your password and tell your administrator.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">I forgot my password. What do I do?</h2>
-            <p class="faq-a">On the sign-in screen choose Forgot password?, enter your login email, and type the 8-digit code from the email into the same screen, then choose a new password. The code works for one hour and only once. If your login uses two-factor, you confirm it before the new password takes effect, and every other device is signed out. Nothing arrived? Check your spam folder, then ask your administrator &mdash; they can see which email your account signs in with.</p>
+            <p class="faq-a">On the sign-in screen choose Forgot password?, enter your login email, and type the 8-digit code from the email into the same screen, then choose a new password. The code works for one hour and only once. If your login uses two-factor, you confirm it before the new password takes effect, and every device is signed out &mdash; sign in again with the new password. Nothing arrived? Check your spam folder, then ask your administrator &mdash; they can see which email your account signs in with.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">How do I change my password?</h2>
-            <p class="faq-a">Every member can, from Settings &rsaquo; Security &rsaquo; Change password. You confirm your current password first, then set the new one. You stay signed in where you are; every other device and browser is signed out, and a confirmation reaches you by email and in the bell.</p>
+            <p class="faq-a">Every member can, from Settings &rsaquo; Security &rsaquo; Change password. You confirm your current password first, then set the new one. The moment it is saved, every device and browser is signed out &mdash; the one you are on included &mdash; and each lands on a screen that says your password was changed. Sign in again with the new password. A confirmation reaches you by email and in the bell.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Why did a field turn red only after I pressed Save?</h2>
+            <p class="faq-a">Because a form judges nothing while you type. When you press Save, the fields that cannot be accepted turn red, a plain line under each says what is wrong, and a banner at the top counts them and takes you to the first. A red asterisk marks the fields that are required. Nothing you typed is changed or cut &mdash; fix the named fields and Save again.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Why does a button stay greyed with a message instead of just failing?</h2>
+            <p class="faq-a">Because a refusal is something you need to read, not catch. Archive a person who still holds gear, delete the last administrator or a storage location still in use, and the dialog opens anyway, says why in red and greys the button. The message stays until you close it, and the moment the reason no longer applies &mdash; the gear is returned, another administrator exists &mdash; the same button works.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Why was I signed out when I signed in somewhere else?</h2>
             <p class="faq-a">By design: one account means one active place. When you sign in on a new device or browser, GearLogs politely ends the previous session, so a workstation left unlocked in the equipment room or a laptop forgotten at home can never stay signed in under your name. Tabs in the same browser share one session and never sign each other out. The newest sign-in always wins, so you can never be locked out of your own account.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">How do I know when my account was signed in somewhere new?</h2>
+            <p class="faq-a">Every fresh sign-in leaves a notice in the bell that says when it happened, from what kind of device and from which address; you can also have it by email from Settings &rsaquo; Notifications. If a sign-in was not yours, change your password &mdash; that signs out every device at once &mdash; and tell your administrator.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can our records be altered or deleted without a trace?</h2>
