@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboards That Answer: A Column Is Not a Question — GearLogs Field Notes</title>
+  <meta name="description" content="Why a chart built from a raw column shows 340 categories and no answer. What a real question needs — a finite vocabulary, a human label, one meaning — and how to build one.">
+  <meta property="og:title" content="A column is not a question">
+  <meta property="og:description" content="A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gearlogs.com/notes/a-column-is-not-a-question">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A column is not a question">
+  <meta name="twitter:description" content="A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.">
+  <link rel="canonical" href="https://gearlogs.com/notes/a-column-is-not-a-question">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Dashboards That Answer: A Column Is Not a Question",
+        "description": "Why a chart built from a raw column shows 340 categories and no answer. What a real question needs — a finite vocabulary, a human label, one meaning — and how to build one.",
+        "articleSection": "Systems",
+        "url": "https://gearlogs.com/notes/a-column-is-not-a-question",
+        "mainEntityOfPage": "https://gearlogs.com/notes/a-column-is-not-a-question",
+        "author": { "@type": "Organization", "name": "GearLogs", "url": "https://gearlogs.com" },
+        "publisher": { "@type": "Organization", "name": "GearLogs", "url": "https://gearlogs.com" },
+        "isPartOf": { "@type": "Blog", "@id": "https://gearlogs.com/notes#blog", "name": "Field Notes" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://gearlogs.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Field Notes", "item": "https://gearlogs.com/notes" },
+          { "@type": "ListItem", "position": 3, "name": "A column is not a question", "item": "https://gearlogs.com/notes/a-column-is-not-a-question" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page">
+
+    <div class="class-stripe"></div>
+
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="GearLogs home">
+          <img class="logo-mark" src="/img/logo-mark.png" alt="" width="42" height="39">
+          <span class="logo-wm">GEAR<span class="lr">LOGS</span></span>
+        </a>
+        <nav class="nav">
+          <a href="/#capabilities">Capabilities</a>
+          <a href="/#how-it-works">How It Works</a>
+          <a href="/#security">Security</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/guides">Guides</a>
+          <a href="/faq">FAQ</a>
+          <a href="/notes" class="active" aria-current="page">Field Notes</a>
+          <a href="/changelog">Changelog</a>
+        </nav>
+        <a href="https://app.gearlogs.com" class="nav-cta">Launch App</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-inner">
+        <article class="note-article">
+          <div class="note-breadcrumb"><a href="/notes">Field Notes</a><span class="sep">/</span>FN-011</div>
+          <div class="note-eyebrow">Field Note FN-011 <span class="dot">&middot;</span> Systems</div>
+          <h1 class="note-h1">A column is not a question</h1>
+          <p class="note-lede">Why a chart built from a field picker shows three hundred categories and no answer, and what a real question needs instead.</p>
+          <div class="note-rule"></div>
+          <div class="note-body">
+            <p>The operations manager wants one chart for Monday&rsquo;s meeting: which department loses the most gear. She exports the activity log, opens a pivot, drags &ldquo;Action&rdquo; into the rows and &ldquo;Count&rdquo; into the values. The chart that comes out has three hundred and forty bars. Each is a slightly different sentence &mdash; &ldquo;Wrote off 2 &times; Radio&rdquo;, &ldquo;Wrote off 1 &times; Radio (damaged)&rdquo;, &ldquo;Written off: Torch&rdquo; &mdash; and not one of them is the answer.</p>
+            <p>She did nothing wrong. She used the tool the way it offers itself: pick a column, group by it. The tool did nothing wrong either; it grouped by the column. The problem is upstream of both. <strong>A column is storage. A question is meaning.</strong> The log stored what happened in the words it happened in. Nobody ever told it what &ldquo;a loss&rdquo; was.</p>
+            <p>You can see the same failure in a dozen shapes. Group by holder and you get user IDs, not names. Group by location and you get &ldquo;Store 2&rdquo;, &ldquo;store 2&rdquo; and &ldquo;Store-2&rdquo; as three places. Filter the log for &ldquo;returned&rdquo; and you match one wording out of five. The picker looks generous because it offers every column. It is generous the way a dictionary is generous with a person who asked for directions.</p>
+            <p class="note-pull">A column stores. A question means.</p>
+            <p>A question worth putting on a dashboard passes three tests. First, its answers come from a <strong>finite vocabulary</strong> that a human could read aloud: eleven kinds of event, six locations, four conditions &mdash; never &ldquo;whatever text is in the rows&rdquo;. Second, each answer has a <strong>label people already use</strong>: the department&rsquo;s name, not its key; the badge the log page shows, not the sentence behind it. Third, and this is the one that quietly breaks most dashboards, the question means <strong>the same thing in the filter and in the chart</strong>. If &ldquo;write-offs&rdquo; in the filter matches two wordings and &ldquo;write-offs&rdquo; in the group-by matches three, the widget is confidently wrong and nobody can tell.</p>
+            <p>The fix is not a smarter picker. It is deciding, once, what the questions are, and where their answers come from. A source &mdash; the log, the items, the people &mdash; declares the questions a person actually asks of it. Each question says where its vocabulary lives: a fixed list, a lookup to a name, or the distinct values already in the data, cleaned. And each question has exactly one rule for turning a row into an answer, used by the filter and by the chart alike, so the two can never disagree. The raw column stays where it belongs, underneath, for the rare day someone needs it.</p>
+            <p>Doing this by hand is possible. A careful analyst keeps a sheet of &ldquo;canonical categories&rdquo; and a lookup table for IDs, and re-applies them every export. It lasts until the second analyst, or the first busy month. The rule that matters is the one the system holds for you, because a question that must be re-asked correctly every Monday will eventually be asked wrong.</p>
+            <p>This is how GearLogs builds a widget. You do not pick a column; you answer a short question: what to count, from which source, split by what, over which period. The choices are the ones people actually ask about &mdash; a department, a holder, a condition, an item &mdash; and the activity &ldquo;type&rdquo; is the same eleven badges the activity log shows, not the sentences behind them. A widget&rsquo;s filter and its chart read the same rule, so they cannot drift apart. Ready-made widgets take two clicks; building your own takes four plain answers; and the chart that comes out has as many bars as there are real answers, which is usually fewer than ten.</p>
+            <p>The operations manager still wants her chart for Monday. She asks the dashboard the question in her own words &mdash; write-offs, by department, this quarter &mdash; and gets four bars. The tallest one is the conversation.</p>
+          </div>
+
+          <img class="note-endmark" src="/img/logo-mark.png" alt="" width="30" height="28">
+
+          <div class="note-filed">
+            <img src="/img/logo-mark.png" alt="" width="34" height="32">
+            <div>
+              <div class="nf-t">Filed by GearLogs</div>
+              <div class="nf-d">Track every piece of equipment. Know who has what &mdash; and ask the dashboard a real question.</div>
+            </div>
+            <a href="/#capabilities" class="btn-secondary nf-cta">See what it does</a>
+          </div>
+        </article>
+
+        <div class="note-more">
+          <div class="note-more-t">More field notes</div>
+          <div class="note-more-list">
+            <a href="/notes/software-that-explains-itself"><span class="mfn">FN-008</span> Software that explains itself</a>
+            <a href="/notes/inventory-spreadsheet-limits"><span class="mfn">FN-003</span> The spreadsheet that breaks at 200 assets</a>
+            <a href="/notes"><span class="mfn">&larr;</span> All field notes</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">GEARLOGS</div>
+          <div class="footer-by">by <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM</a></div>
+          <div class="footer-tagline">Software for the people who run things</div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <div class="footer-col-title">Product</div>
+            <a href="/#capabilities">Capabilities</a>
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/#security">Security</a>
+            <a href="/pricing">Pricing</a>
+            <a href="https://app.gearlogs.com">Launch App</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Resources</div>
+            <a href="/guides">Guides</a>
+            <a href="/faq">FAQ</a>
+            <a href="/notes">Field Notes</a>
+            <a href="/changelog">Changelog</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">RAQIOM Suite</div>
+            <a href="https://pmolikepro.com" target="_blank" rel="noopener">PMOlikePRO</a>
+            <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM.com</a>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Legal</div>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/refunds">Refund Policy</a>
+            <a href="/#security">Security</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>&copy; RAQIOM. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <script src="/js/anim.js" defer></script>
+</body>
+</html>
