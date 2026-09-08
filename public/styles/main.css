@@ -932,12 +932,11 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 }
 .price-why { font-size: 14px; color: var(--ink-soft); max-width: 56ch; margin-bottom: 10px; }
 .price-included {
-  columns: 2;
-  column-gap: 28px;
+  /* GL-66: the aside is the narrower column now (the panel holds three cards) — one column reads clean */
+  columns: 1;
   margin: 14px 0 4px;
   padding: 0;
 }
-@media (max-width: 640px) { .price-included { columns: 1; } }
 .price-included li {
   font-size: 13px;
   color: var(--ink-soft);
