@@ -868,7 +868,7 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 /* ── Pricing (Section 4 · The Terms + /pricing.html) ── */
 .price-wrap {
   display: grid;
-  grid-template-columns: minmax(300px, 420px) 1fr;
+  grid-template-columns: minmax(340px, 1fr) minmax(260px, 320px);
   gap: 36px;
   align-items: start;
 }
@@ -893,16 +893,22 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
   color: var(--red);
   margin-bottom: 10px;
 }
-.price-big { display: flex; align-items: baseline; gap: 10px; }
-.price-amount {
+/* GL-66: three COUNT cards for one product — the price per account drops with the count (never plan tiers). */
+.price-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 4px 0 12px; }
+.price-card { padding: 14px 14px 12px; }
+.price-card .cap-ref { margin-bottom: 4px; }
+.price-card-amount {
   font-family: var(--serif);
-  font-size: 54px;
+  font-size: 30px;
   line-height: 1;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
-.price-per { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
-.price-alt { font-size: 13px; color: var(--ink-soft); margin-top: 8px; }
+.price-card-per { display: block; font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); margin-top: 5px; }
+.price-card-year { font-size: 12px; color: var(--ink-soft); border-top: 1px dashed var(--rule); padding-top: 6px; margin-top: 8px; }
+.price-card-year strong { color: var(--ok); }
+.price-rule { font-size: 13px; color: var(--ink-soft); border-inline-start: 3px solid var(--red); background: var(--paper-alt); padding: 8px 12px; margin: 0 0 6px; }
+@media (max-width: 720px) { .price-cards { grid-template-columns: 1fr; } }
 .price-facts { margin: 16px 0 18px; padding: 0; }
 .price-facts li {
   font-size: 13px;
