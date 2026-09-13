@@ -72,7 +72,10 @@ img { max-width: 100%; display: block; }
   z-index: 50;
 }
 .header-inner {
-  max-width: var(--max-w);
+  /* Wider than the 920px content column: the header row (logo + 8-item nav + language
+     toggle + CTA) needs ~1000px, especially in Hebrew. The min-width floor below is set
+     so this always fits without the logo shrinking or the CTA clipping. */
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -88,6 +91,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--ink);
+  flex-shrink: 0; /* never shrink/clip the wordmark (it must not overlap the nav) */
 }
 .logo-mark {
   width: 42px;
@@ -125,7 +129,10 @@ img { max-width: 100%; display: block; }
   padding: 5px 14px;
   border-radius: var(--radius);
   transition: background 0.15s, color 0.15s;
+  white-space: nowrap; /* never wrap "Launch App" / "כניסה לאפליקציה" to two lines */
+  flex-shrink: 0;
 }
+.lang-toggle { flex-shrink: 0; }
 .nav-cta:hover {
   background: var(--red);
   color: #fff;
@@ -578,7 +585,20 @@ img { max-width: 100%; display: block; }
   padding-top: 16px;
   font-size: 11px;
   color: var(--ink-faint);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
+.footer-lang {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--rule);
+}
+.footer-lang:hover { color: var(--ink); border-bottom-color: var(--ink-faint); }
 
 /* ── FAQ ── */
 .faq-list {
@@ -648,9 +668,11 @@ img { max-width: 100%; display: block; }
 }
 
 /* ── Minimum width (desktop-only, per Director's rule) ── */
-/* Floor raised to 1000px so the 8-item nav never overflows (GL-22). */
-@media (max-width: 1000px) {
-  body { min-width: 1000px; }
+/* Floor set to 1080px so the full header row — logo + 8-item nav + language toggle + CTA —
+   always fits (it needs ~1000px in Hebrew) without the logo shrinking or the CTA clipping.
+   Was 1000px before the bilingual toggle was added (GL-22). */
+@media (max-width: 1080px) {
+  body { min-width: 1080px; }
 }
 
 /* ── Standalone sub-pages (Guides / FAQ / Changelog) ── */
@@ -990,7 +1012,10 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 }
 .cta-field.is-invalid input, .cta-field.is-invalid textarea { border-color: var(--red); background: color-mix(in srgb, var(--red) 8%, var(--paper)); }
 .cta-field-error { font-family: var(--mono); font-size: 11.5px; color: var(--red-deep); margin: 0; }
-.cta-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+/* Hidden from people, present for bots. Uses the clip technique, NOT left:-10000px — an
+   off-screen negative offset is harmless in LTR but creates huge horizontal overflow in RTL
+   (it pushed the whole Hebrew home off-screen; caught in the RTL browser walk). */
+.cta-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; margin: -1px; padding: 0; border: 0; }
 .cf-turnstile { margin: 4px 0 14px; min-height: 65px; }
 .cta-form-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .cta-form-actions .btn-large:disabled { opacity: 0.6; cursor: progress; }
@@ -1026,3 +1051,81 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 .cta-received-text { font-size: 14px; color: var(--ink-soft); margin: 0; max-width: 44ch; margin-left: auto; margin-right: auto; }
 .cta-fallback { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin: 0; }
 .cta-fallback a { color: var(--ink-faint); }
+
+/* ═══════════════════════════════════════════════════════════
+   Bilingual — the language toggle, the "view in Hebrew" nudge,
+   and the RTL (Hebrew) direction layer. LTR output is unchanged;
+   everything here is a new component or a [dir="rtl"] override.
+   ═══════════════════════════════════════════════════════════ */
+
+/* — Language toggle (a compact pill in the header, sits before the CTA) — */
+.lang-toggle {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  padding: 5px 12px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.lang-toggle:hover { background: var(--ink); color: var(--paper); }
+
+/* — "View in Hebrew" nudge (hidden until lang-banner.js reveals it for Israeli visitors) — */
+.lang-nudge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 9px 40px;
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink);
+}
+.lang-nudge[hidden] { display: none; } /* author display:flex would otherwise beat the [hidden] UA rule */
+.lang-nudge-msg { letter-spacing: 0.02em; }
+.lang-nudge-cta {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+.lang-nudge-cta:hover { color: var(--ink); }
+.lang-nudge-x {
+  margin-inline-start: 4px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-faint);
+  cursor: pointer;
+  padding: 0 4px;
+}
+.lang-nudge-x:hover { color: var(--ink); }
+
+/* — RTL direction layer (Hebrew). Mirrors the handful of physical properties the
+     LTR sheet uses; the pricing section already uses logical properties. — */
+[dir="rtl"] .class-stripe { right: auto; left: 0; }
+[dir="rtl"] .page { padding-right: 0; padding-left: 5px; }
+[dir="rtl"] .nav { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .hero-meta-right { text-align: left; }
+[dir="rtl"] .meta-label { margin-right: 0; margin-left: 10px; }
+[dir="rtl"] .specs-table thead th { text-align: right; }
+[dir="rtl"] .ops-connector { margin-left: 0; margin-right: 24px; }
+[dir="rtl"] .cap-specs,
+[dir="rtl"] .changelog-list { padding-left: 0; padding-right: 16px; }
+[dir="rtl"] .note-meta { text-align: left; }
+[dir="rtl"] .note-body p:first-of-type::first-letter { float: right; padding: 6px 0 0 12px; }
+[dir="rtl"] .note-filed .nf-cta { margin-left: 0; margin-right: auto; }
+/* The LTR-only typewriter caret on the hero doc-ref reads wrong mirrored — show the text plainly in RTL. */
+[dir="rtl"] .hero .doc-ref { width: auto; border-right: none; animation: none; }
+/* Hebrew body copy reads a touch larger; keep the serif article measure comfortable. */
+[dir="rtl"] .note-body { font-size: 18.5px; }
+/* Directional arrows mirror in RTL (the app's rtl:-scale-x-100 pattern): the notes-index
+   "read" arrow and the more-notes markers point the other way in Hebrew. */
+[dir="rtl"] .note-arrow,
+[dir="rtl"] .mfn { display: inline-block; transform: scaleX(-1); }

@@ -19,6 +19,32 @@
   };
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
+  // The form's user-facing strings follow the page language (the app's rule: every string in EN + HE).
+  var HE = document.documentElement.lang === 'he';
+  var T = HE ? {
+    pending: 'רגע — בדיקת האנוש עדיין פועלת. נסו שוב עוד רגע.',
+    sending: 'שולח…',
+    request: 'בקשת גישה',
+    invalid: 'בדקו את השדות המסומנים.',
+    turnstile: 'בדיקת האנוש לא עברה — נסו שוב.',
+    rate_limited: 'יותר מדי בקשות מהחיבור הזה — נסו שוב בעוד כמה דקות, או כתבו לנו לכתובת hello@gearlogs.com.',
+    not_configured: 'הטופס אינו זמין כרגע — כתבו לנו ישירות לכתובת hello@gearlogs.com.',
+    delivery_failed: 'לא הצלחנו למסור את הודעתכם — כתבו לנו ישירות לכתובת hello@gearlogs.com.',
+    generic: 'משהו השתבש — כתבו לנו ישירות לכתובת hello@gearlogs.com.',
+    network: 'לא הצלחנו להגיע לשרת — כתבו לנו ישירות לכתובת hello@gearlogs.com.',
+  } : {
+    pending: 'One moment — the human check is still running. Try again in a second.',
+    sending: 'Sending…',
+    request: 'Request Access',
+    invalid: 'Please check the highlighted fields.',
+    turnstile: 'The human check did not pass — please try again.',
+    rate_limited: 'Too many requests from this connection — please try again in a few minutes, or email hello@gearlogs.com.',
+    not_configured: 'The form is not available right now — please email hello@gearlogs.com directly.',
+    delivery_failed: 'We could not deliver your message — please email hello@gearlogs.com directly.',
+    generic: 'Something went wrong — please email hello@gearlogs.com directly.',
+    network: 'We could not reach the server — please email hello@gearlogs.com directly.',
+  };
+
   function errorEl(input) {
     return form.querySelector('[data-error-for="' + input.id + '"]');
   }
@@ -70,11 +96,11 @@
     }
     var token = turnstileToken();
     if (!token) {
-      say('One moment — the human check is still running. Try again in a second.', 'warn');
+      say(T.pending, 'warn');
       return;
     }
     submit.disabled = true;
-    submit.textContent = 'Sending…';
+    submit.textContent = T.sending;
 
     var body = {
       name: fields.name.value.trim(),
@@ -106,20 +132,20 @@
       }
       var code = (out.data && out.data.error) || 'failed';
       var messages = {
-        invalid: 'Please check the highlighted fields.',
-        turnstile: 'The human check did not pass — please try again.',
-        rate_limited: 'Too many requests from this connection — please try again in a few minutes, or email hello@gearlogs.com.',
-        not_configured: 'The form is not available right now — please email hello@gearlogs.com directly.',
-        delivery_failed: 'We could not deliver your message — please email hello@gearlogs.com directly.',
+        invalid: T.invalid,
+        turnstile: T.turnstile,
+        rate_limited: T.rate_limited,
+        not_configured: T.not_configured,
+        delivery_failed: T.delivery_failed,
       };
-      say(messages[code] || 'Something went wrong — please email hello@gearlogs.com directly.', 'error');
+      say(messages[code] || T.generic, 'error');
       resetTurnstile();
     }).catch(function () {
-      say('We could not reach the server — please email hello@gearlogs.com directly.', 'error');
+      say(T.network, 'error');
       resetTurnstile();
     }).then(function () {
       submit.disabled = false;
-      submit.textContent = 'Request Access';
+      submit.textContent = T.request;
     });
   });
 })();

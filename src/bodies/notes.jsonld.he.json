@@ -1,0 +1,102 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://gearlogs.com/notes#blog",
+      "name": "רשומות מהשטח",
+      "description": "רשומות קצרות ומעשיות על מעקב אחר ציוד ואחר האנשים שמשתמשים בו.",
+      "url": "https://gearlogs.com/notes",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "אצל מי המקדחה עכשיו?",
+          "url": "https://gearlogs.com/notes/track-who-has-equipment",
+          "description": "השאלה הכי זולה לשאול, והכי יקרה לענות עליה על המקום."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "לאן נעלמים ה-5 עד 15 אחוזים",
+          "url": "https://gearlogs.com/notes/equipment-shrinkage",
+          "description": "אף אחד לא מתקצב פחת. כולם משלמים עליו."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "הגיליון האלקטרוני שנשבר ב-200 נכסים",
+          "url": "https://gearlogs.com/notes/inventory-spreadsheet-limits",
+          "description": "גיליונות אלקטרוניים לא קורסים ברעש. הם פשוט מפסיקים בשקט להיות נכונים."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "שרשרת החזקה לציוד",
+          "url": "https://gearlogs.com/notes/chain-of-custody-equipment",
+          "description": "חתימה על טופס מסירה מודפס מוכיחה שמישהו חתם. היא לא מוכיחה אצל מי מכשיר הקשר היום."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "מעקב לפי מספר סידורי, כשגיליונות אלקטרוניים מפסיקים לעבוד",
+          "url": "https://gearlogs.com/notes/serial-number-tracking",
+          "description": "לספור כמה יש לכם זו משימה אחרת מלדעת איזו יחידה נמצאת איפה."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "רישום אובדנים ומעקב אחריהם, כמו שצריך",
+          "url": "https://gearlogs.com/notes/equipment-write-offs",
+          "description": "שורה חסרה בגיליון אלקטרוני אינה תיעוד לכך שמשהו נעלם. היא היעדרו של תיעוד כזה."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "הכיסוי ששכחתם שיש לכם",
+          "url": "https://gearlogs.com/notes/equipment-warranty-tracking",
+          "description": "אחריות משתלמת רק אם זוכרים שהיא קיימת ברגע שמשהו מתקלקל."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "תוכנה שמסבירה את עצמה",
+          "url": "https://gearlogs.com/notes/software-that-explains-itself",
+          "description": "עזרה שצריך לתפוס היא עזרה שאין לכם."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "הכפתור שאומר לא",
+          "url": "https://gearlogs.com/notes/the-button-that-says-no",
+          "description": "סירוב שאפשר לקרוא עדיף על הצלחה שאי אפשר לסמוך עליה."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "למדף יש תקרה",
+          "url": "https://gearlogs.com/notes/storage-capacity-held-gear",
+          "description": "למה ציוד שנמצא בידיו של מישהו עדיין תופס מקום."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "עמודה אינה שאלה",
+          "url": "https://gearlogs.com/notes/a-column-is-not-a-question",
+          "description": "עמודה מאחסנת נתונים. שאלה נושאת משמעות."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "בית",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "רשומות מהשטח",
+          "item": "https://gearlogs.com/notes"
+        }
+      ]
+    }
+  ]
+}

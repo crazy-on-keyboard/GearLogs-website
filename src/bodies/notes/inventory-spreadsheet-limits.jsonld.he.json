@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "הגיליון שנשבר ב-200 פריטים",
+      "description": "גיליונות לא נכשלים בקול רם. הם פשוט חדלים, בשקט, לשקף את המציאות.",
+      "articleSection": "מערכות",
+      "url": "https://gearlogs.com/notes/inventory-spreadsheet-limits",
+      "mainEntityOfPage": "https://gearlogs.com/notes/inventory-spreadsheet-limits",
+      "author": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://gearlogs.com/notes#blog",
+        "name": "רשומות מהשטח"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "דף הבית",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "רשומות מהשטח",
+          "item": "https://gearlogs.com/notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "הגיליון שנשבר ב-200 פריטים",
+          "item": "https://gearlogs.com/notes/inventory-spreadsheet-limits"
+        }
+      ]
+    }
+  ]
+}

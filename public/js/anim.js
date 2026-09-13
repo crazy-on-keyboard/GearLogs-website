@@ -70,13 +70,17 @@
       }
       var btn = document.getElementById('actpause');
       if (btn) {
+        var he = document.documentElement.lang === 'he';
+        var L = he
+          ? { play: 'הפעל', pause: 'השהה', playAria: 'הפעלת הזנת הפעילות לדוגמה', pauseAria: 'השהיית הזנת הפעילות לדוגמה' }
+          : { play: 'Play', pause: 'Pause', playAria: 'Play the sample activity feed', pauseAria: 'Pause the sample activity feed' };
         btn.addEventListener('click', function () {
           userPaused = !userPaused;
           btn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
-          btn.textContent = userPaused ? 'Play' : 'Pause';
+          btn.textContent = userPaused ? L.play : L.pause;
           // The accessible name follows the visible word (WCAG 2.5.3 Label in Name): a voice-control
           // user says what they see — "click Play" must resolve while the label reads Play.
-          btn.setAttribute('aria-label', userPaused ? 'Play the sample activity feed' : 'Pause the sample activity feed');
+          btn.setAttribute('aria-label', userPaused ? L.playAria : L.pauseAria);
           apply();
         });
       }

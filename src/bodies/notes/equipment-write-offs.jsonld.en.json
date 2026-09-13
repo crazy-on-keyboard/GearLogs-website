@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Equipment Write-Offs and Loss Tracking: Building a Record That Holds Up",
+      "description": "Lost or damaged equipment needs more than a deleted spreadsheet row. How to build a write-off and loss record that actually holds up to audit.",
+      "articleSection": "Losses",
+      "url": "https://gearlogs.com/notes/equipment-write-offs",
+      "mainEntityOfPage": "https://gearlogs.com/notes/equipment-write-offs",
+      "author": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://gearlogs.com/notes#blog",
+        "name": "Field Notes"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field Notes",
+          "item": "https://gearlogs.com/notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Equipment Write-Offs and Loss Tracking",
+          "item": "https://gearlogs.com/notes/equipment-write-offs"
+        }
+      ]
+    }
+  ]
+}
