@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Equipment Software Your Team Can Learn Without a Manual: Software That Explains Itself",
+      "description": "Hover tooltips vanish, manuals go stale, and the one person who knows the system is on leave. What help inside equipment software should look like, and why it saves more than training hours.",
+      "articleSection": "Systems",
+      "url": "https://gearlogs.com/notes/software-that-explains-itself",
+      "mainEntityOfPage": "https://gearlogs.com/notes/software-that-explains-itself",
+      "author": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://gearlogs.com/notes#blog",
+        "name": "Field Notes"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field Notes",
+          "item": "https://gearlogs.com/notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Software That Explains Itself",
+          "item": "https://gearlogs.com/notes/software-that-explains-itself"
+        }
+      ]
+    }
+  ]
+}

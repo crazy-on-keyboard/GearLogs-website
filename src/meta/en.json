@@ -1,0 +1,156 @@
+{
+  "index": {
+    "title": "GearLogs — Inventory & Personnel Management System",
+    "description": "GearLogs is an inventory and personnel management system for organizations that need to know exactly what they have and who has it. By RAQIOM.",
+    "ogTitle": "GearLogs — Inventory & Personnel Management",
+    "ogDescription": "Track every piece of equipment. Know who has what. Manage personnel, assets, and operations across your organization.",
+    "twitterTitle": "GearLogs — Inventory & Personnel Management",
+    "twitterDescription": "Track every piece of equipment. Know who has what."
+  },
+  "pricing": {
+    "title": "Pricing — GearLogs",
+    "description": "GearLogs pricing: one price per account that drops as you grow — $49, $39 or $29 per account a month; yearly two months free; no minimum; up to 3,000 emails a month included. Every capability, no tiers. Billed by Paddle.",
+    "ogTitle": "Pricing — GearLogs",
+    "ogDescription": "One price per account, and it drops as you grow: $49, $39 or $29 a month. Every capability, every future capability, no tiers, no minimum.",
+    "twitterTitle": "Pricing — GearLogs",
+    "twitterDescription": "One price per account, and it drops as you grow: $49, $39 or $29 a month. No tiers, no minimum."
+  },
+  "faq": {
+    "title": "FAQ — GearLogs",
+    "description": "Frequently asked questions about GearLogs — the inventory and personnel management system by RAQIOM.",
+    "ogTitle": "FAQ — GearLogs",
+    "ogDescription": "Answers to common questions about GearLogs.",
+    "twitterTitle": "FAQ — GearLogs"
+  },
+  "guides": {
+    "title": "Guides — GearLogs",
+    "description": "How to use GearLogs — set up your board, assign and return equipment, build your dashboard, control access, and review your history.",
+    "ogTitle": "Guides — GearLogs",
+    "ogDescription": "How to get things done in GearLogs.",
+    "twitterTitle": "Guides — GearLogs"
+  },
+  "notes": {
+    "title": "Field Notes — GearLogs",
+    "description": "Field Notes from GearLogs — short, practical notes on tracking equipment and the people who use it. No jargon, no sales pitch, just what tends to work.",
+    "ogTitle": "Field Notes — GearLogs",
+    "ogDescription": "Short, practical notes on tracking equipment and the people who use it.",
+    "twitterTitle": "Field Notes — GearLogs",
+    "twitterDescription": "Short, practical notes on tracking equipment and the people who use it."
+  },
+  "changelog": {
+    "title": "Changelog — GearLogs",
+    "description": "Release notes for GearLogs — the inventory and personnel management system by RAQIOM. What's new, in plain language.",
+    "ogTitle": "Changelog — GearLogs",
+    "ogDescription": "What's new in GearLogs, in plain language.",
+    "twitterTitle": "Changelog — GearLogs"
+  },
+  "privacy": {
+    "title": "Privacy Policy — GearLogs",
+    "description": "How GearLogs collects, uses, protects, and shares data — with named sub-processors and your data rights.",
+    "ogTitle": "Privacy Policy — GearLogs",
+    "ogDescription": "How GearLogs collects, uses, protects, and shares data — with named sub-processors and your data rights.",
+    "twitterTitle": "Privacy Policy — GearLogs"
+  },
+  "terms": {
+    "title": "Terms of Service — GearLogs",
+    "description": "The terms that govern your use of GearLogs, a RAQIOM product.",
+    "ogTitle": "Terms of Service — GearLogs",
+    "ogDescription": "The terms that govern your use of GearLogs, a RAQIOM product.",
+    "twitterTitle": "Terms of Service — GearLogs"
+  },
+  "refunds": {
+    "title": "Refund Policy — GearLogs",
+    "description": "How trials, cancellations and refunds work for GearLogs subscriptions billed through Paddle.",
+    "ogTitle": "Refund Policy — GearLogs",
+    "ogDescription": "How trials, cancellations and refunds work for GearLogs subscriptions billed through Paddle.",
+    "twitterTitle": "Refund Policy — GearLogs"
+  },
+  "notes/track-who-has-equipment": {
+    "title": "Who has the drill right now? — GearLogs Field Notes",
+    "description": "The most expensive question in any operation is the one nobody can answer on the spot. How to track who has company equipment without a clipboard that fails by Friday.",
+    "ogTitle": "Who has the drill right now?",
+    "ogDescription": "The cheapest question to ask, and the most expensive to answer on the spot.",
+    "twitterTitle": "Who has the drill right now?",
+    "twitterDescription": "The cheapest question to ask, and the most expensive to answer on the spot."
+  },
+  "notes/equipment-shrinkage": {
+    "title": "Where the 5 to 15 percent goes — GearLogs Field Notes",
+    "description": "Nobody budgets for equipment shrinkage; everybody pays for it. The three ordinary ways inventory quietly goes missing — and how to make the loss visible while it's still small.",
+    "ogTitle": "Where the 5 to 15 percent goes",
+    "ogDescription": "Nobody budgets for shrinkage. Everybody pays for it.",
+    "twitterTitle": "Where the 5 to 15 percent goes",
+    "twitterDescription": "Nobody budgets for shrinkage. Everybody pays for it."
+  },
+  "notes/inventory-spreadsheet-limits": {
+    "title": "The spreadsheet that breaks at 200 assets — GearLogs Field Notes",
+    "description": "An inventory spreadsheet doesn't fail at a row count — it fails the moment a second person edits it. The tells, why it's dangerous, and what actually replaces it.",
+    "ogTitle": "The spreadsheet that breaks at 200 assets",
+    "ogDescription": "Spreadsheets don't fail loudly. They quietly stop being true.",
+    "twitterTitle": "The spreadsheet that breaks at 200 assets",
+    "twitterDescription": "Spreadsheets don't fail loudly. They quietly stop being true."
+  },
+  "notes/chain-of-custody-equipment": {
+    "title": "Chain of Custody for Equipment: Digital Hand Receipts — GearLogs Field Notes",
+    "description": "Paper hand receipts and sign-out sheets break down under real use. What a real equipment custody trail needs to hold up — and how to build one.",
+    "ogTitle": "Chain of Custody for Equipment: Digital Hand Receipts",
+    "ogDescription": "A signature on a paper hand receipt proves someone signed. It doesn't prove who has the radio today.",
+    "twitterTitle": "Chain of Custody for Equipment",
+    "twitterDescription": "A signature on a paper hand receipt proves someone signed. It doesn't prove who has the radio today."
+  },
+  "notes/serial-number-tracking": {
+    "title": "Serial Number Tracking for Equipment: When Spreadsheets Stop Working — GearLogs Field Notes",
+    "description": "How to track equipment by serial number instead of a spreadsheet — what to capture, when to make the switch, and how to stay audit-ready.",
+    "ogTitle": "Serial Number Tracking for Equipment",
+    "ogDescription": "Counting how many you have is a different job from knowing which one is where. At some point, the difference starts costing you.",
+    "twitterTitle": "Serial Number Tracking for Equipment",
+    "twitterDescription": "Counting how many you have is a different job from knowing which one is where."
+  },
+  "notes/equipment-write-offs": {
+    "title": "Equipment Write-Offs and Loss Tracking: A Defensible Record — GearLogs Field Notes",
+    "description": "Lost or damaged equipment needs more than a deleted spreadsheet row. How to build a write-off and loss record that actually holds up to audit.",
+    "ogTitle": "Equipment Write-Offs and Loss Tracking",
+    "ogDescription": "A missing row in a spreadsheet isn't a record that something is gone. It's the absence of one.",
+    "twitterTitle": "Equipment Write-Offs and Loss Tracking",
+    "twitterDescription": "A missing row in a spreadsheet isn't a record that something is gone. It's the absence of one."
+  },
+  "notes/equipment-warranty-tracking": {
+    "title": "Equipment Warranty &amp; Service Contract Tracking: The Coverage You Forgot You Had — GearLogs Field Notes",
+    "description": "Warranties and service contracts only pay out if you remember them at the right moment. How to track coverage per unit and get warned before it lapses.",
+    "ogTitle": "The Coverage You Forgot You Had",
+    "ogDescription": "A warranty only pays out if you remember it exists at the moment something breaks. Most equipment coverage dies quietly.",
+    "twitterTitle": "The Coverage You Forgot You Had",
+    "twitterDescription": "A warranty only pays out if you remember it exists at the moment something breaks."
+  },
+  "notes/software-that-explains-itself": {
+    "title": "Equipment Software Your Team Can Learn Without a Manual: Software That Explains Itself — GearLogs Field Notes",
+    "description": "Hover tooltips vanish, manuals go stale, and the one person who knows the system is on leave. What help inside equipment software should look like, and why it saves more than training hours.",
+    "ogTitle": "Software That Explains Itself",
+    "ogDescription": "Help you have to catch is help you don't have. What good in-app help looks like, and what it saves.",
+    "twitterTitle": "Software That Explains Itself",
+    "twitterDescription": "Help you have to catch is help you don't have. What good in-app help looks like, and what it saves."
+  },
+  "notes/the-button-that-says-no": {
+    "title": "Why Equipment Software Should Refuse Out Loud: The Button That Says No — GearLogs Field Notes",
+    "description": "A refusal that flashes in a corner and vanishes costs more than the mistake it prevented. What a system owes you when the answer is no: the reason, in place, with the door left open.",
+    "ogTitle": "The Button That Says No",
+    "ogDescription": "A refusal you can read beats a success you cannot trust. Three rules for software that has to say no at a busy counter.",
+    "twitterTitle": "The Button That Says No",
+    "twitterDescription": "A refusal you can read beats a success you cannot trust. Three rules for software that has to say no at a busy counter."
+  },
+  "notes/storage-capacity-held-gear": {
+    "title": "Storage Capacity for Equipment: Why In-Use Gear Counts as Held — GearLogs Field Notes",
+    "description": "An empty shelf is not free room. What a store-room ceiling should count — the shelf, the hands and the repair bench — and why the number should ask before it blocks.",
+    "ogTitle": "The shelf has a ceiling",
+    "ogDescription": "Why gear in someone’s hands still takes up room, and what to count before you order more.",
+    "twitterTitle": "The shelf has a ceiling",
+    "twitterDescription": "Why gear in someone’s hands still takes up room, and what to count before you order more."
+  },
+  "notes/a-column-is-not-a-question": {
+    "title": "Dashboards That Answer: A Column Is Not a Question — GearLogs Field Notes",
+    "description": "Why a chart built from a raw column shows 340 categories and no answer. What a real question needs — a finite vocabulary, a human label, one meaning — and how to build one.",
+    "ogTitle": "A column is not a question",
+    "ogDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.",
+    "twitterTitle": "A column is not a question",
+    "twitterDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead."
+  }
+}

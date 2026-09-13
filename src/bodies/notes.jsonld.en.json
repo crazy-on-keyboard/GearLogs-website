@@ -1,0 +1,102 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "@id": "https://gearlogs.com/notes#blog",
+      "name": "Field Notes",
+      "description": "Short, practical notes on tracking equipment and the people who use it.",
+      "url": "https://gearlogs.com/notes",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Who has the drill right now?",
+          "url": "https://gearlogs.com/notes/track-who-has-equipment",
+          "description": "The cheapest question to ask, and the most expensive to answer on the spot."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Where the 5 to 15 percent goes",
+          "url": "https://gearlogs.com/notes/equipment-shrinkage",
+          "description": "Nobody budgets for shrinkage. Everybody pays for it."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The spreadsheet that breaks at 200 assets",
+          "url": "https://gearlogs.com/notes/inventory-spreadsheet-limits",
+          "description": "Spreadsheets don't fail loudly. They quietly stop being true."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Chain of custody for equipment",
+          "url": "https://gearlogs.com/notes/chain-of-custody-equipment",
+          "description": "A signature on a paper hand receipt proves someone signed. It doesn't prove who has the radio today."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Serial number tracking, when spreadsheets stop working",
+          "url": "https://gearlogs.com/notes/serial-number-tracking",
+          "description": "Counting how many you have is a different job from knowing which one is where."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Write-offs and loss tracking, done properly",
+          "url": "https://gearlogs.com/notes/equipment-write-offs",
+          "description": "A missing row in a spreadsheet isn't a record that something is gone. It's the absence of one."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The coverage you forgot you had",
+          "url": "https://gearlogs.com/notes/equipment-warranty-tracking",
+          "description": "A warranty only pays out if you remember it exists at the moment something breaks."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Software that explains itself",
+          "url": "https://gearlogs.com/notes/software-that-explains-itself",
+          "description": "Help you have to catch is help you don’t have."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The button that says no",
+          "url": "https://gearlogs.com/notes/the-button-that-says-no",
+          "description": "A refusal you can read beats a success you cannot trust."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The shelf has a ceiling",
+          "url": "https://gearlogs.com/notes/storage-capacity-held-gear",
+          "description": "Why gear in someone’s hands still takes up room."
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "A column is not a question",
+          "url": "https://gearlogs.com/notes/a-column-is-not-a-question",
+          "description": "A column stores. A question means."
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field Notes",
+          "item": "https://gearlogs.com/notes"
+        }
+      ]
+    }
+  ]
+}

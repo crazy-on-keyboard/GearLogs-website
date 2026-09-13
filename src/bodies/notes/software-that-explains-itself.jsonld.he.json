@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "תוכנת ציוד שהצוות שלכם ילמד בלי מדריך: תוכנה שמסבירה את עצמה",
+      "description": "תוויות ריחוף נעלמות, מדריכים מתיישנים, והאדם היחיד שמכיר את המערכת יוצא לחופשה. איך צריכה להיראות עזרה בתוך תוכנת ציוד, ולמה היא חוסכת יותר משעות הדרכה.",
+      "articleSection": "מערכות",
+      "url": "https://gearlogs.com/notes/software-that-explains-itself",
+      "mainEntityOfPage": "https://gearlogs.com/notes/software-that-explains-itself",
+      "author": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://gearlogs.com/notes#blog",
+        "name": "רשומות מהשטח"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "בית",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "רשומות מהשטח",
+          "item": "https://gearlogs.com/notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "תוכנה שמסבירה את עצמה",
+          "item": "https://gearlogs.com/notes/software-that-explains-itself"
+        }
+      ]
+    }
+  ]
+}

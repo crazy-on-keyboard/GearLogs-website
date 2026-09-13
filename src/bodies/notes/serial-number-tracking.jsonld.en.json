@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Serial Number Tracking for Equipment: When Spreadsheets Stop Working",
+      "description": "How to track equipment by serial number instead of a spreadsheet — what to capture, when to make the switch, and how to stay audit-ready.",
+      "articleSection": "Inventory",
+      "url": "https://gearlogs.com/notes/serial-number-tracking",
+      "mainEntityOfPage": "https://gearlogs.com/notes/serial-number-tracking",
+      "author": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GearLogs",
+        "url": "https://gearlogs.com"
+      },
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://gearlogs.com/notes#blog",
+        "name": "Field Notes"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://gearlogs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Field Notes",
+          "item": "https://gearlogs.com/notes"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Serial Number Tracking for Equipment",
+          "item": "https://gearlogs.com/notes/serial-number-tracking"
+        }
+      ]
+    }
+  ]
+}
