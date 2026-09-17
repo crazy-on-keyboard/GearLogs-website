@@ -3,7 +3,7 @@
         <div class="doc-ref" style="--tw: 19.5em;">מפרט GL-P01 &mdash; תנאים מסחריים</div>
         <div class="hero-divider" style="margin-top: 12px;"></div>
         <h1 class="hero-title" style="font-size: 30px;">המחיר הוא כל הסיפור.</h1>
-        <p class="hero-desc" style="max-width: 700px;">תוכנית אחת. כל היכולות, וכל מה שנוסיף אי־פעם. בלי דרגות, בלי מודולים, בלי שיחות מכירה &mdash; החיוב גדל רק לפי מספר החשבונות ומכסת הדוא״ל. אנחנו מעדיפים שתדעו בדיוק כמה תשלמו בשנה השלישית: בדיוק מה ששילמתם ביום הראשון, כפול מספר האנשים שבאמת יש לכם &mdash; וככל שמצטרפים עוד אנשים, המחיר לאדם יורד.</p>
+        <p class="hero-desc" style="max-width: 700px;">תוכנית אחת, והיא יציבה. <bdi>$199</bdi> לחודש מכסים את חמשת החשבונות הראשונים שלכם עם כל היכולות &mdash; וכל יכולת שנוסיף אי־פעם. צריכים עוד אנשים? כל אדם נוסף שיכול להיכנס הוא <bdi>$39</bdi> קבוע לחודש. רוצים תשובה מהירה כשמשהו דחוף? הוסיפו תמיכה בעדיפות גבוהה. בלי דרגות, בלי מודולים, בלי שיחות מכירה &mdash; בנו את התוכנית למטה, והסכום הכולל הוא כל החשבון.</p>
       </div>
     </section>
 
@@ -11,29 +11,46 @@
       <div class="section-inner">
         <div class="price-wrap">
           <div class="price-panel">
-            <div class="price-headline">מחיר אחד לכל חשבון. והוא יורד ככל שאתם גדלים.</div>
-            <div class="price-cards">
-              <div class="cap-card price-card">
-                <div class="cap-ref">1&ndash;2 חשבונות</div>
-                <div class="price-card-amount">$49<span class="price-card-per">למשתמש לחודש</span></div>
-                <div class="price-card-year">או $490 לשנה &middot; חודשיים חינם &middot; <strong>חיסכון של $98</strong></div>
+            <div class="price-headline">בנו את התוכנית שלכם</div>
+            <div class="price-calc" id="price-calc"
+                 data-base-month="199" data-base-year="1990"
+                 data-seat-month="39" data-seat-year="390"
+                 data-sla-month="99" data-sla-year="990">
+              <div class="price-baseline">
+                <span class="price-baseline-amount" data-price-base dir="ltr">$199</span>
+                <span class="price-baseline-per" data-price-base-per>לחודש &middot; חמישה חשבונות כלולים</span>
               </div>
-              <div class="cap-card price-card">
-                <div class="cap-ref">3&ndash;4 חשבונות</div>
-                <div class="price-card-amount">$39<span class="price-card-per">למשתמש לחודש</span></div>
-                <div class="price-card-year">או $390 לשנה &middot; חודשיים חינם &middot; <strong>חיסכון של $78</strong></div>
+              <div class="price-row">
+                <span class="price-row-label">חיוב</span>
+                <span class="price-seg" role="group" aria-label="מחזור חיוב" data-price-cycle>
+                  <button type="button" class="price-seg-btn" data-cycle="month" aria-pressed="true">חודשי</button>
+                  <button type="button" class="price-seg-btn" data-cycle="year" aria-pressed="false">שנתי</button>
+                </span>
+                <span class="price-save" data-price-save hidden>חודשיים חינם</span>
               </div>
-              <div class="cap-card price-card">
-                <div class="cap-ref">5 ומעלה</div>
-                <div class="price-card-amount">$29<span class="price-card-per">למשתמש לחודש</span></div>
-                <div class="price-card-year">או $290 לשנה &middot; חודשיים חינם &middot; <strong>חיסכון של $58</strong></div>
+              <div class="price-row">
+                <span class="price-row-label">מקומות הרחבה</span>
+                <span class="price-step" data-price-step>
+                  <button type="button" class="price-step-btn" data-step="-1" aria-label="פחות מקומות הרחבה" disabled>&minus;</button>
+                  <span class="price-step-val" data-price-seats aria-live="polite">0</span>
+                  <button type="button" class="price-step-btn" data-step="1" aria-label="עוד מקומות הרחבה">+</button>
+                </span>
+                <span class="price-hint"><span class="price-hint-amt" data-price-seat-amt dir="ltr">$39</span> <span data-price-seat-words>כל אחד לחודש, מעבר לחמישה הכלולים</span></span>
+              </div>
+              <div class="price-row">
+                <span class="price-row-label">תמיכה בעדיפות גבוהה</span>
+                <button type="button" class="price-toggle" data-price-sla aria-pressed="false" aria-label="תוסף תמיכה בעדיפות גבוהה"><span class="price-toggle-track" aria-hidden="true"></span></button>
+                <span class="price-hint"><span class="price-hint-amt" data-price-sla-amt dir="ltr">+$99</span> <span data-price-sla-words>לחודש &middot; תגובה ראשונה תוך 4 שעות עבודה (ראשון&ndash;חמישי 09:00&ndash;18:00, שעון ישראל)</span></span>
+              </div>
+              <div class="price-total">
+                <span class="price-total-label">התוכנית שלכם</span>
+                <span class="price-total-amount"><span data-price-total dir="ltr">$199</span> <span class="price-total-per" data-price-total-per>לחודש</span></span>
               </div>
             </div>
-            <p class="price-rule">אותו מוצר בכל כרטיס. כל יכולת, של היום ושל מחר, כלולה במחיר &mdash; בלי דרגות, בלי מודולים. החיוב גדל רק לפי מספר החשבונות ומכסת הדוא״ל.</p>
             <ul class="price-facts">
-              <li>בלי מינימום. חשבון אחד הוא סביבת עבודה. ארבעה חשבונות לעולם לא יעלו יותר מחמישה: את המושב החמישי אנחנו נותנים לכם. משלמים על כל אדם שיכול להיכנס &mdash; השביתו מישהו, והמושב שלו מתפנה מיד.</li>
-              <li>עד 5,000 הודעות דוא״ל בחודש כלולות עבור ההתראות שלכם; חבילות של 1,000 ב-<bdi>$5</bdi> לחודש ($48 לשנה בתוכנית שנתית), כמה שתצטרכו.</li>
-              <li>כל היכולות, וכל אחת שנוסיף.</li>
+              <li>חמישה חשבונות כלולים בתוכנית הבסיס; מעבר להם, כל אדם שיכול להיכנס הוא <bdi>$39</bdi> קבוע לחודש. משלמים על כל אדם &mdash; השביתו מישהו, והמושב שלו מתפנה מיד.</li>
+              <li>עד 5,000 הודעות דוא״ל בחודש כלולות עבור ההתראות שלכם; חבילות של 1,000 ב-<bdi>$5</bdi> לחודש (<bdi>$48</bdi> לשנה בתוכנית שנתית), כמה שתצטרכו.</li>
+              <li>כל היכולות, וכל אחת שנוסיף. בלי דרגות, בלי מודולים.</li>
               <li>המחירים ב-USD. Paddle, ספק הסליקה שלנו (Merchant of Record), מטפלת במיסים ובחשבוניות.</li>
             </ul>
             <div class="price-ctas">
@@ -78,12 +95,12 @@
           <div class="cap-card">
             <div class="cap-ref">B.1</div>
             <h3 class="cap-name">לפי אדם, בהגינות</h3>
-            <p class="cap-desc">אתם משלמים על אנשים שיכולים להיכנס &mdash; לא על שורות בטבלה. השביתו חבר צוות, והמושב שלו מתפנה מיד; כשמפעילים אותו מחדש, פשוט בודקים שוב את המגבלה. אם מוסיפים מושבים באמצע התקופה, מחייבים רק על החלק היחסי; הפחתה של מושבים מתעדכנת בחידוש הבא שלכם &mdash; ואם מספר קטן יותר היה עולה לכם יותר, אתם משלמים את הזול. נרשמים ומשלמים בכרטיס אשראי בתוך האפליקציה, דרך הגדרות &rsaquo; חיוב; חלון התשלום שייך ל-Paddle, ופרטי הכרטיס אף פעם לא נוגעים ב-GearLogs.</p>
+            <p class="cap-desc">אתם משלמים על אנשים שיכולים להיכנס &mdash; לא על שורות בטבלה. חמישה חשבונות כלולים בתוכנית הבסיס; מעבר להם, כל אדם נוסף הוא <bdi>$39</bdi> קבוע לחודש. השביתו חבר צוות, והמושב שלו מתפנה מיד; כשמפעילים אותו מחדש, פשוט בודקים שוב את המגבלה. אם מוסיפים מושבים באמצע התקופה, מחייבים רק על החלק היחסי; הפחתה של מושבים מתעדכנת בחידוש הבא שלכם. נרשמים ומשלמים בכרטיס אשראי בתוך האפליקציה, דרך הגדרות &rsaquo; חיוב; חלון התשלום שייך ל-Paddle, ופרטי הכרטיס אף פעם לא נוגעים ב-GearLogs.</p>
           </div>
           <div class="cap-card">
             <div class="cap-ref">B.2</div>
-            <h3 class="cap-name">התנסו כמו שצריך קודם</h3>
-            <p class="cap-desc">הגישה בהזמנה, ואת תקופת ההתנסות קובעים בתהליך ההצטרפות &mdash; בלי צורך בפרטי תשלום. טענו את המלאי האמיתי שלכם, הריצו חודש אמיתי, ואז החליטו.</p>
+            <h3 class="cap-name">תמיכה בעדיפות גבוהה, אם תרצו</h3>
+            <p class="cap-desc">תוסף לבחירה ב-<bdi>$99</bdi> לחודש (<bdi>$990</bdi> לשנה): אנחנו עונים ראשונים לפניות התמיכה שלכם, תוך 4 שעות עבודה (ראשון&ndash;חמישי 09:00&ndash;18:00, שעון ישראל). אפשר להפעיל או לכבות דרך הגדרות &rsaquo; חיוב בכל עת &mdash; החיוב היחסי מוצג לפני שמחויב דבר, וכיבוי מזכה את הזמן שלא נוצל בחשבונית הבאה. כל שאר GearLogs זהה אתו או בלעדיו.</p>
           </div>
           <div class="cap-card">
             <div class="cap-ref">B.3</div>

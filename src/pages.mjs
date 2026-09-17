@@ -41,7 +41,7 @@ export const PAGES = [
   },
   {
     slug: 'pricing', path: '/pricing', chrome: 'full', footer: 'full', activeNav: '/pricing', bilingual: true,
-    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/anim.js'],
+    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/anim.js', '/js/pricing.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
