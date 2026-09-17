@@ -969,6 +969,39 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
 }
 .price-included li::before { content: "\2713"; color: var(--ok); position: absolute; inset-inline-start: 0; }
 
+/* ── Pricing calculator (PRICE-2 stage 3 · his pick A · Spec-sheet calculator) ──
+   The Unified Scale, built from the panel's own tokens: a base line, the monthly/annual
+   switch, a seat stepper and the Priority Operations toggle, with a live total. The page
+   ships with a correct resting state; /js/pricing.js makes the controls live. */
+.price-calc { margin: 2px 0 4px; }
+.price-baseline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; margin-bottom: 4px; }
+.price-baseline-amount { font-family: var(--serif); font-size: 34px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+.price-baseline-per { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); }
+.price-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; padding: 10px 0; border-top: 1px dashed var(--rule); }
+.price-row-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); min-width: 108px; }
+.price-hint { font-size: 12px; color: var(--ink-soft); flex: 1 1 190px; line-height: 1.4; }
+.price-hint-amt { font-weight: 600; color: var(--ink); }
+.price-seg { display: inline-flex; border: 1px solid var(--rule-strong); border-radius: var(--radius); overflow: hidden; }
+.price-seg-btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; background: transparent; color: var(--ink-soft); border: 0; padding: 6px 14px; cursor: pointer; transition: background 0.15s, color 0.15s; }
+.price-seg-btn[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.price-save { font-family: var(--mono); font-size: 11px; color: var(--ok); }
+.price-step { display: inline-flex; align-items: center; border: 1px solid var(--rule-strong); border-radius: var(--radius); overflow: hidden; }
+.price-step-btn { font-family: var(--serif); font-size: 17px; background: transparent; color: var(--ink); border: 0; width: 34px; height: 30px; line-height: 1; cursor: pointer; transition: background 0.15s; }
+.price-step-btn:hover:not(:disabled) { background: var(--paper-alt); }
+.price-step-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.price-step-val { font-family: var(--mono); font-size: 13px; min-width: 2.6ch; text-align: center; font-variant-numeric: tabular-nums; }
+.price-toggle { position: relative; width: 44px; height: 24px; border-radius: 12px; border: 1px solid var(--rule-strong); background: var(--paper-alt); cursor: pointer; padding: 0; flex: none; transition: background 0.15s, border-color 0.15s; }
+.price-toggle-track { position: absolute; top: 2px; inset-inline-start: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink-faint); transition: inset-inline-start 0.15s, background 0.15s; }
+.price-toggle[aria-pressed="true"] { background: var(--red-light); border-color: var(--red); }
+.price-toggle[aria-pressed="true"] .price-toggle-track { inset-inline-start: 22px; background: var(--red); }
+.price-total { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 12px; border-top: 2px solid var(--rule-strong); }
+.price-total-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-faint); }
+.price-total-amount { font-family: var(--serif); font-size: 32px; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; display: inline-flex; align-items: baseline; gap: 6px; }
+.price-total-per { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+@media (prefers-reduced-motion: reduce) {
+  .price-seg-btn, .price-step-btn, .price-toggle, .price-toggle-track { transition: none; }
+}
+
 /* ── Contact band: the Request-access form (comms S3) ──
    A paper panel with the cap-card corner brackets, inside the ink band. */
 .cta-form {
