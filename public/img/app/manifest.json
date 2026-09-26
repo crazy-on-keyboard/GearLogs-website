@@ -1,0 +1,185 @@
+{
+  "view": {
+    "width": 1440,
+    "height": 900,
+    "deviceScaleFactor": 2
+  },
+  "shots": [
+    {
+      "id": "board",
+      "lang": "en",
+      "file": "board.en.webp",
+      "alt": "The Logistics board: every item with its stock, who holds it and its storage limit",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "registry",
+      "lang": "en",
+      "file": "registry.en.webp",
+      "alt": "The Registry: every serial-numbered unit, its condition and who holds it",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "personnel",
+      "lang": "en",
+      "file": "personnel.en.webp",
+      "alt": "The Personnel board: every person with the gear they hold",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals",
+      "lang": "en",
+      "file": "approvals.en.webp",
+      "alt": "Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard",
+      "lang": "en",
+      "file": "dashboard.en.webp",
+      "alt": "The dashboard: stock, hand-outs, receipts and kits at a glance",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "logs",
+      "lang": "en",
+      "file": "logs.en.webp",
+      "alt": "System logs: every action, who did it and when",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "board",
+      "lang": "he",
+      "file": "board.he.webp",
+      "alt": "לוח הלוגיסטיקה: כל פריט עם המלאי, מי מחזיק בו ומגבלת האחסון",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "registry",
+      "lang": "he",
+      "file": "registry.he.webp",
+      "alt": "המרשם: כל יחידה עם מספר סידורי, מצבה ומי מחזיק בה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "personnel",
+      "lang": "he",
+      "file": "personnel.he.webp",
+      "alt": "לוח כוח האדם: כל אדם עם הציוד שבידיו",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals",
+      "lang": "he",
+      "file": "approvals.he.webp",
+      "alt": "אישורים: כל קבלה לפי מצב — ממתינה, נחתמה, במחלוקת, אושרה בשם האדם, בוטלה, פגה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard",
+      "lang": "he",
+      "file": "dashboard.he.webp",
+      "alt": "לוח המחוונים: מלאי, מסירות, קבלות וערכות במבט אחד",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "logs",
+      "lang": "he",
+      "file": "logs.he.webp",
+      "alt": "יומני המערכת: כל פעולה, מי ביצע אותה ומתי",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals-receipt",
+      "lang": "en",
+      "file": "approvals-receipt.en.webp",
+      "alt": "A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "item-card",
+      "lang": "en",
+      "file": "item-card.en.webp",
+      "alt": "An item opened on the board: its serial-numbered units, who holds each one, its condition and its history",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "person-card",
+      "lang": "en",
+      "file": "person-card.en.webp",
+      "alt": "A person opened on the Personnel board: everything they hold, their kits and their history",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "handout-window",
+      "lang": "en",
+      "file": "handout-window.en.webp",
+      "alt": "Handing an item to several people at once: pick the people, set how many each gets, see the stock after",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-approvals",
+      "lang": "en",
+      "file": "dashboard-approvals.en.webp",
+      "alt": "The dashboard's receipt cards: receipts by state, who is waiting to sign, and how fast people confirm",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals-receipt",
+      "lang": "he",
+      "file": "approvals-receipt.he.webp",
+      "alt": "קבלה שהאדם חלק עליה ומנהל אישר בשמו: הפריטים שבמחלוקת, ציר הזמן ושתי ההערות",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "item-card",
+      "lang": "he",
+      "file": "item-card.he.webp",
+      "alt": "פריט פתוח בלוח: היחידות עם מספר סידורי, מי מחזיק בכל אחת, המצב וההיסטוריה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "person-card",
+      "lang": "he",
+      "file": "person-card.he.webp",
+      "alt": "אדם פתוח בלוח כוח האדם: כל מה שבידיו, הערכות וההיסטוריה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "handout-window",
+      "lang": "he",
+      "file": "handout-window.he.webp",
+      "alt": "מסירת פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-approvals",
+      "lang": "he",
+      "file": "dashboard-approvals.he.webp",
+      "alt": "כרטיסי הקבלות בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    }
+  ]
+}
