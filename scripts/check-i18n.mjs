@@ -2,7 +2,7 @@
 // Bilingual integrity guard for the built site (runs after build-site.mjs on dist/).
 // Catches the mistakes check-links can't: broken hreflang reciprocity, a Hebrew page that
 // forgot dir="rtl" or links back into the English tree, CSP that drifted between the four
-// home blocks, and invalid JSON-LD. Zero dependencies.
+// contact-page blocks (or leaked back onto the home page), and invalid JSON-LD. Zero dependencies.
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
@@ -51,7 +51,7 @@ for (const p of PAGES.filter((x) => x.bilingual)) {
         .replace(/<a class="footer-lang"[\s\S]*?<\/a>/g, '');
       const bad = [...stripped.matchAll(/href="(\/(?!he\/|he"|img\/|styles\/|js\/|favicon|\.well-known\/|api\/)[^"]*)"/g)]
         .map((m) => m[1])
-        .filter((h) => h === '/' || /^\/(pricing|guides|faq|notes|changelog|privacy|terms|refunds)(\/|#|$)/.test(h));
+        .filter((h) => h === '/' || /^\/(pricing|guides|faq|notes|changelog|privacy|terms|refunds|contact)(\/|#|\?|$)/.test(h));
       for (const h of [...new Set(bad)]) fail(`HE-LINK    he:${p.slug} links into the English tree: ${h}`);
     }
 
@@ -62,7 +62,8 @@ for (const p of PAGES.filter((x) => x.bilingual)) {
   }
 }
 
-// The four home CSP blocks (/, /index.html, /he/, /he/index.html) must be byte-identical.
+// The contact form's relaxed CSP (Turnstile + the contact function) lives on the four /contact paths ONLY, and the four
+// blocks must be byte-identical; the home page is back on the strict site-wide policy (Stage 1, 2026-09-26).
 const headersFile = join(DIST, '_headers');
 if (existsSync(headersFile)) {
   const text = readFileSync(headersFile, 'utf8').replace(/\r\n/g, '\n'); // _headers is CRLF
@@ -71,12 +72,15 @@ if (existsSync(headersFile)) {
     const m = text.match(re);
     return m ? m[1].trim() : null;
   };
-  const selectors = ['/', '/index.html', '/he/', '/he/index.html'];
+  const selectors = ['/contact', '/contact.html', '/he/contact', '/he/contact.html'];
   const csps = selectors.map((s) => [s, cspFor(s)]);
   const missing = csps.filter(([, v]) => !v).map(([s]) => s);
   if (missing.length) fail(`CSP        missing Content-Security-Policy block(s) for: ${missing.join(', ')}`);
   const uniq = new Set(csps.filter(([, v]) => v).map(([, v]) => v));
-  if (uniq.size > 1) fail(`CSP        the four home CSP blocks are not identical (${uniq.size} distinct) — EN/HE home drifted`);
+  if (uniq.size > 1) fail(`CSP        the four contact CSP blocks are not identical (${uniq.size} distinct) — EN/HE contact drifted`);
+  for (const home of ['/', '/index.html', '/he/', '/he/index.html']) {
+    if (cspFor(home)) fail(`CSP        ${home} carries its own CSP block — the home page must stay on the strict site-wide policy`);
+  }
 } else {
   fail('CSP        dist/_headers not found');
 }
@@ -85,4 +89,4 @@ if (problems.length) {
   console.error(`check-i18n: ${problems.length} problem(s)\n` + problems.map((p) => '  ' + p).join('\n'));
   process.exit(1);
 }
-console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, JSON-LD and the four home CSP blocks all pass');
+console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, JSON-LD and the four contact CSP blocks all pass');

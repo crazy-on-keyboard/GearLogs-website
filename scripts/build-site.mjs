@@ -12,6 +12,10 @@ import { join, dirname } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
 import { LANGS, SITE_ORIGIN } from '../src/i18n.mjs';
 import { renderPage, canonicalUrl } from '../src/chrome.mjs';
+import { buildSync } from 'esbuild';
+
+/** Typed script entry (under src/) → the file the pages load (under dist/). */
+const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js']];
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, 'src');
@@ -83,6 +87,12 @@ rmSync(DIST, { recursive: true, force: true });
 mkdirSync(DIST, { recursive: true });
 // Static assets first; generated pages overwrite any stale copies.
 cpSync(PUBLIC, DIST, { recursive: true });
+
+// The typed browser scripts (Q8 · A): each entry is bundled into one plain file under dist/js/. `npm run check`
+// type-checks them with tsc; esbuild only strips the types here.
+for (const [entry, out] of SCRIPT_BUNDLES) {
+  buildSync({ entryPoints: [join(SRC, entry)], outfile: join(DIST, out), bundle: true, format: 'iife', target: 'es2020', charset: 'utf8', legalComments: 'none', minify: true });
+}
 
 const langs = EN_ONLY ? ['en'] : LANGS;
 let written = 0;

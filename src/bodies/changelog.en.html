@@ -753,7 +753,7 @@
                 <li>Coverage shows up everywhere as colour-coded chips (green, amber as it approaches, red once expired), an &ldquo;Expiring&rdquo; widget on your dashboard that lists the most urgent first, and a clock signal right on the board when a serialized item has units that need attention</li>
                 <li>You set the early-warning window yourself &mdash; how many days out counts as &ldquo;expiring soon&rdquo; &mdash; and every signal follows it</li>
                 <li>Full service-contract records &mdash; provider, coverage type, contract number, dates, and cost &mdash; attach to specific units or to a whole lot, so you always know exactly which gear each contract covers</li>
-                <li>Contract cost is visible to managers only, and every coverage-date change is kept as a tamper-proof history line</li>
+                <li>Contract cost is visible to managers only, and every coverage-date change is written to the activity log, which no account can edit</li>
               </ul>
             </div>
           </div>
@@ -788,7 +788,7 @@
               <h2 class="changelog-title">Audited and Hardened</h2>
               <ul class="changelog-list">
                 <li>Before this release, GearLogs went through several rounds of independent expert review and an in-depth security check &mdash; here is what that means for you</li>
-                <li>Your records can&rsquo;t be quietly tampered with: the history of who had what, and when, is protected and can&rsquo;t be altered or forged by anyone who shouldn&rsquo;t touch it</li>
+                <li>Your records can&rsquo;t be quietly rewritten: no account can edit the history of who had what, and when, and everyday access cannot delete from it</li>
                 <li>The numbers you see are honest &mdash; no item can be handed to two people at once, an action that fails tells you so instead of pretending it worked, and lost-gear counts never include gear you&rsquo;ve since recovered</li>
                 <li>Nothing disappears silently: removing, importing, or reorganizing large amounts of data always reports exactly what happened, including anything it couldn&rsquo;t do</li>
                 <li>Your backups are complete and safe to restore &mdash; a backup carries the full history, and GearLogs refuses to restore a file that has been truncated or altered</li>

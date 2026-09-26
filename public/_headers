@@ -27,26 +27,22 @@
   ! Cross-Origin-Opener-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://*.paddle.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-# The home page carries the Request-access form: Turnstile (script + its iframe) and one
-# cross-origin POST to the contact-inbound function. Everything else stays strict, COOP is
-# kept. BOTH forms declared for the same reason as /pay: /index.html 308s to /, and the
-# page actually SERVES at /.
-/
+# The /contact page (Stage 1, 2026-09-26) is the ONE page with the contact form: Turnstile (script + its iframe)
+# and one cross-origin POST to the contact-inbound function. Everything else stays strict, COOP is kept, and the
+# home page is back on the site-wide policy (its form became a band with one button). BOTH forms of each path are
+# declared for the same reason as /pay: /contact.html 308s to /contact, and the page actually SERVES at /contact.
+/contact
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://kfowbpvlejfnntaeljsf.supabase.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-/index.html
+/contact.html
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://kfowbpvlejfnntaeljsf.supabase.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-# The Hebrew home page (/he/) carries the same Request-access form as / — Turnstile + the
-# Supabase contact POST — so it needs the same relaxed CSP. BOTH the clean path and the
-# .html form are declared, exactly as the English home pair above (the .html 308s to the clean
-# path, and the strict site-wide CSP would otherwise block Turnstile and the Supabase fetch).
-/he/
+/he/contact
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://kfowbpvlejfnntaeljsf.supabase.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-/he/index.html
+/he/contact.html
   ! Content-Security-Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com https://challenges.cloudflare.com https://kfowbpvlejfnntaeljsf.supabase.co; frame-src https://challenges.cloudflare.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests

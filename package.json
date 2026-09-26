@@ -10,9 +10,13 @@
     "preview": "vite preview",
     "check:links": "node scripts/check-links.mjs",
     "check:i18n": "node scripts/check-i18n.mjs",
-    "check": "npm run build && npm run check:links && npm run check:i18n"
+    "check:types": "tsc -p .",
+    "check:contact": "node scripts/check-contact.mjs",
+    "check": "npm run check:types && npm run check:contact && npm run build && npm run check:links && npm run check:i18n"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2",
     "vite": "^6.2.0"
   }
 }

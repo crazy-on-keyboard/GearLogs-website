@@ -1,0 +1,169 @@
+    <section class="section section-alt page-lead-section contact-page">
+      <div class="section-inner contact-inner">
+        <div class="section-head">
+          <div class="section-num">Contact</div>
+          <h1 class="section-title">Request access or ask a question</h1>
+          <div class="section-rule"></div>
+          <p class="page-lead">A person at GearLogs reads every request. Sending this form creates no account.</p>
+          <p class="contact-customer">Already a customer? Use Support inside the app.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-main">
+            <form class="contact-card" id="contact-form" action="/contact" method="post" novalidate aria-describedby="contact-status">
+              <div class="contact-field" id="cf-reason-field">
+                <fieldset class="contact-reasons" id="cf-reason-set">
+                  <legend class="contact-label">What is this about?</legend>
+                  <div class="contact-chips">
+                    <label class="contact-chip"><input type="radio" name="reason" value="access"><span>Request access</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="purchase"><span>Purchasing</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="product"><span>How it works</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="security"><span>Security</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="legal"><span>Legal and privacy</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="partner"><span>Partnership or reselling</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="other"><span>Something else</span></label>
+                  </div>
+                  <p class="contact-note" id="cf-reason-note">Choose one so we answer the right question.</p>
+                  <p class="contact-error" id="cf-reason-error" hidden></p>
+                </fieldset>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-field" id="cf-first-name-field">
+                  <label class="contact-label" for="cf-first-name">First name</label>
+                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto">
+                  <p class="contact-error" id="cf-first-name-error" hidden></p>
+                </div>
+                <div class="contact-field" id="cf-last-name-field">
+                  <label class="contact-label" for="cf-last-name">Last name</label>
+                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto">
+                  <p class="contact-error" id="cf-last-name-error" hidden></p>
+                </div>
+              </div>
+
+              <div class="contact-field" id="cf-email-field">
+                <label class="contact-label" for="cf-email">Work email</label>
+                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-describedby="cf-email-help">
+                <p class="contact-help" id="cf-email-help">We reply to this address.</p>
+                <p class="contact-info" id="cf-email-info" role="status" hidden></p>
+                <p class="contact-error" id="cf-email-error" hidden></p>
+              </div>
+
+              <div class="contact-field" id="cf-company-field">
+                <label class="contact-label" for="cf-company">Organisation</label>
+                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-describedby="cf-company-help">
+                <p class="contact-help" id="cf-company-help">Company, hospital, unit or authority</p>
+                <p class="contact-error" id="cf-company-error" hidden></p>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-field" id="cf-job-title-field">
+                  <label class="contact-label" for="cf-job-title">Job title <span class="contact-optional">(optional)</span></label>
+                  <input class="contact-input" id="cf-job-title" name="job_title" type="text" autocomplete="organization-title" dir="auto">
+                  <p class="contact-error" id="cf-job-title-error" hidden></p>
+                </div>
+                <div class="contact-field" id="cf-company-website-field">
+                  <label class="contact-label" for="cf-website">Website <span class="contact-optional">(optional)</span></label>
+                  <input class="contact-input" id="cf-website" name="company_website" type="text" inputmode="url" autocomplete="url" dir="ltr" spellcheck="false">
+                  <p class="contact-error" id="cf-company-website-error" hidden></p>
+                </div>
+              </div>
+
+              <div class="contact-field" id="cf-message-field">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="cf-message">Message <span class="contact-optional" id="cf-message-need">(optional)</span></label>
+                  <span class="contact-count" id="cf-message-count" dir="ltr">0 / 4,000</span>
+                </div>
+                <textarea class="contact-input" id="cf-message" name="message" rows="4" dir="auto" aria-describedby="cf-message-help"></textarea>
+                <p class="contact-help" id="cf-message-help">A line or two is enough.</p>
+                <p class="contact-error" id="cf-message-error" hidden></p>
+              </div>
+
+              <div class="contact-honeypot" aria-hidden="true">
+                <label for="cf-form-extra">Leave this field empty</label>
+                <input id="cf-form-extra" name="form_extra" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAEXrTkhtxROIhlJQ" data-theme="light" data-size="flexible" data-language="en"></div>
+
+              <div class="contact-actions">
+                <button type="submit" class="btn-primary contact-send" id="contact-submit">Send request</button>
+                <p class="contact-status" id="contact-status" role="status" aria-live="polite" hidden></p>
+              </div>
+              <p class="contact-privacy">We use these details only to answer you and keep them for 12 months. <a href="/privacy">Privacy policy</a></p>
+            </form>
+
+            <div class="contact-received" id="contact-received" hidden>
+              <h2 class="contact-stamp" id="cr-stamp" tabindex="-1">Received</h2>
+              <dl class="contact-rows">
+                <dt>About</dt><dd id="cr-about"></dd>
+                <dt>From</dt><dd id="cr-from"></dd>
+                <dt>We reply to</dt><dd id="cr-reply"></dd>
+              </dl>
+              <p class="contact-received-text">A person reads every request and replies from <b>hello@gearlogs.com</b>, usually within one business day.</p>
+              <p class="contact-received-wrong">Wrong address? Write to <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
+            </div>
+
+            <p class="contact-fallback">Prefer email? Write to <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
+          </div>
+
+          <aside class="contact-panel" id="contact-panel" aria-label="About your request">
+            <div data-panel="access">
+              <h2 class="contact-panel-title">What happens next</h2>
+              <ol class="contact-steps">
+                <li>A person reads your request.</li>
+                <li>We set up your workspace.</li>
+                <li>You evaluate with your real gear.</li>
+              </ol>
+              <p>No payment details are needed to start.</p>
+            </div>
+            <div data-panel="purchase" hidden>
+              <h2 class="contact-panel-title">The price, in full</h2>
+              <dl class="contact-prices">
+                <dt>Base plan, 5 accounts</dt><dd><bdi dir="ltr">$199</bdi> a month</dd>
+                <dt>Each extra account</dt><dd><bdi dir="ltr">$39</bdi> a month</dd>
+                <dt>Priority Operations (optional)</dt><dd><bdi dir="ltr">$99</bdi> a month</dd>
+                <dt>Yearly</dt><dd>2 months free</dd>
+              </dl>
+              <p>An evaluation period is arranged during onboarding, with no payment details required.</p>
+              <p><a href="/pricing">Build your plan &rarr;</a></p>
+            </div>
+            <div data-panel="product" hidden>
+              <h2 class="contact-panel-title">How it works</h2>
+              <ul class="contact-list">
+                <li><a href="/guides">Guides</a>: how to do each task in GearLogs</li>
+                <li><a href="/faq">FAQ</a>: the questions people ask most</li>
+              </ul>
+              <p>Or ask here, and a person answers.</p>
+            </div>
+            <div data-panel="security" hidden>
+              <h2 class="contact-panel-title">Security, in short</h2>
+              <ul class="contact-list">
+                <li>A workspace can require two-factor sign-in, to sign in and to make changes.</li>
+                <li>No account can edit the history. Routine accounts cannot delete from it.</li>
+                <li>Encrypted backups only your own passphrase can open.</li>
+                <li>Data in the EU (Frankfurt).</li>
+              </ul>
+              <p>Reporting a vulnerability? Write to <a href="mailto:ops@gearlogs.com">ops@gearlogs.com</a> or see <a href="/.well-known/security.txt">security.txt</a>.</p>
+            </div>
+            <div data-panel="legal" hidden>
+              <h2 class="contact-panel-title">Legal and privacy</h2>
+              <ul class="contact-list">
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/terms">Terms of Service</a></li>
+                <li><a href="/refunds">Refund Policy</a></li>
+              </ul>
+              <p>A Data Processing Addendum can be provided on request. We aim to respond to data requests within 30 days.</p>
+            </div>
+            <div data-panel="partner" hidden>
+              <h2 class="contact-panel-title">Partnership or reselling</h2>
+              <p>Tell us who you serve and where. A person replies to talk it through.</p>
+            </div>
+            <div data-panel="other" hidden>
+              <h2 class="contact-panel-title">Or write to us</h2>
+              <p><a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a> reaches the same person.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
