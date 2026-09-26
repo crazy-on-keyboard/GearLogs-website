@@ -175,16 +175,24 @@ function start(form: HTMLFormElement): void {
     const box = fieldBox(key);
     const el = errorEl(key);
     box.classList.toggle('is-invalid', !!code);
-    el.replaceChildren();
-    if (code) {
-      // One text box beside the icon: the hidden "Error:" for screen readers, then the sentence.
-      const text = document.createElement('span');
-      text.className = 'contact-error-text';
-      const prefix = document.createElement('span');
-      prefix.className = 'contact-vh';
-      prefix.textContent = W.errorPrefix + ' ';
-      text.append(prefix, errorText(key, code));
-      el.append(text);
+    // Redraw ONLY when the sentence changes. Leaving a field re-checks it, and a press on a button inside its error
+    // (the typo fix, the hello@ way out) blurs the field first: a redraw then would replace the button under the
+    // pointer and the click would be lost (the qa gate's DEF-1).
+    const content = code ? errorText(key, code) : null;
+    const sig = content ? `${code}|${content.textContent ?? ''}` : '';
+    if (el.dataset.sig !== sig) {
+      el.dataset.sig = sig;
+      el.replaceChildren();
+      if (content) {
+        // One text box beside the icon: the hidden "Error:" for screen readers, then the sentence.
+        const text = document.createElement('span');
+        text.className = 'contact-error-text';
+        const prefix = document.createElement('span');
+        prefix.className = 'contact-vh';
+        prefix.textContent = W.errorPrefix + ' ';
+        text.append(prefix, content);
+        el.append(text);
+      }
     }
     el.hidden = !code;
     const help = box.querySelector<HTMLElement>('.contact-help');
@@ -207,11 +215,13 @@ function start(form: HTMLFormElement): void {
   // The domain check on leaving the e-mail field (the list checks only — the server asks DNS). A mistyped ending is
   // a hint first ("Did you mean acme.com?"); on Send it is refused.
   function drawTypo(show: boolean): void {
-    emailInfo.replaceChildren();
     const v = classifyEmail(inputs.email.value);
-    if (!show || v.k !== 'typo' || errors.email) { emailInfo.hidden = true; return; }
-    emailInfo.append(sentence(W.typo, { s: typoFix(v.suggestion) }));
-    emailInfo.hidden = false;
+    const suggestion = show && v.k === 'typo' && !errors.email ? v.suggestion : '';
+    if (emailInfo.dataset.sig === suggestion) return; // the same hint stays the same node (see DEF-1 above)
+    emailInfo.dataset.sig = suggestion;
+    emailInfo.replaceChildren();
+    emailInfo.hidden = !suggestion;
+    if (suggestion) emailInfo.append(sentence(W.typo, { s: typoFix(suggestion) }));
   }
   /** The "Did you mean …?" button: it rewrites the ending, clears a standing refusal and returns to the field. */
   function typoFix(suggestion: string): HTMLButtonElement {
@@ -254,6 +264,7 @@ function start(form: HTMLFormElement): void {
   function say(kind: 'count' | 'wait' | 'error' | '', content?: Node | string): void {
     status.replaceChildren();
     status.dataset.kind = kind;
+    status.dataset.sig = '';
     status.className = 'contact-status' + (kind === 'error' || kind === 'count' ? ' is-error' : '');
     if (content) status.append(content);
     status.hidden = !kind;
@@ -261,6 +272,9 @@ function start(form: HTMLFormElement): void {
   function drawCount(): void {
     const bad = FIELD_ORDER.filter((k) => errors[k]);
     if (!bad.length) { say(''); return; }
+    // The same list keeps the same line, so "Go to the first" is never replaced under a press (DEF-1).
+    const sig = bad.join(',');
+    if (status.dataset.kind === 'count' && status.dataset.sig === sig) return;
     const frag = document.createDocumentFragment();
     frag.append(bad.length === 1 ? W.countOne : sentence(W.countMany, { n: formatCount(bad.length) }), ' · ');
     const go = document.createElement('button');
@@ -270,6 +284,7 @@ function start(form: HTMLFormElement): void {
     go.addEventListener('click', () => { const first = bad[0]; if (first) focusTarget(first).focus(); });
     frag.append(go);
     say('count', frag);
+    status.dataset.sig = sig;
   }
   function showErrors(next: FieldErrors): void {
     errors = next;
