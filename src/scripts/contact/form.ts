@@ -7,7 +7,7 @@
 // Nothing a visitor typed is ever written as HTML: every value goes in through textContent.
 
 import {
-  FIELD_ORDER, classifyEmail, cleanLine, codePoints, countLinks, fieldCode, fromServer, isFromPage, isReason, validateAll,
+  FIELD_ORDER, classifyEmail, cleanBody, cleanLine, codePoints, countLinks, fieldCode, fromServer, isFromPage, isReason, validateAll,
   CAPS, type ContactInput, type FieldErrors, type FieldKey, type FromPage, type Reason,
 } from './rules';
 import { WORDS, type Lang } from './words';
@@ -98,15 +98,23 @@ function start(form: HTMLFormElement): void {
   };
   function drawReason(): void {
     const reason = currentReason();
+    // The note keeps its row (empty after the visitor's own pick), so choosing a chip never moves the form below it.
     reasonNote.replaceChildren();
     if (!reason) reasonNote.append(W.noteNone);
     else if (!userPicked && from === 'header') reasonNote.append(sentence(W.noteButton, { p: bold(W.buttonName) }));
     else if (!userPicked && from) reasonNote.append(sentence(W.notePage, { p: bold(W.from[from]) }));
-    reasonNote.hidden = !reasonNote.textContent;
+    describeReason();
     const shown = reason ?? 'access';
     for (const p of panels) p.hidden = p.dataset.panel !== shown;
     messageHelp.textContent = W.messageHelp[reason ?? 'none'];
     messageNeed.textContent = reason === 'other' ? W.required : W.optional;
+    inputs.message.setAttribute('aria-required', reason === 'other' ? 'true' : 'false');
+  }
+  /** The reason group is described by its note (why a reason was chosen) and, after a refusal, by its error. */
+  function describeReason(): void {
+    const set = byId<HTMLElement>('cf-reason-set');
+    const ids = [errors.reason ? 'cf-reason-error' : '', reasonNote.textContent ? reasonNote.id : ''].filter(Boolean).join(' ');
+    if (ids) set.setAttribute('aria-describedby', ids); else set.removeAttribute('aria-describedby');
   }
   function bold(text: string): HTMLElement {
     const b = document.createElement('b');
@@ -143,15 +151,22 @@ function start(form: HTMLFormElement): void {
     const template = W.errors[key][code] ?? W.checkField;
     const input = readInput();
     const domain = (() => { const v = classifyEmail(input.email); return 'domain' in v ? v.domain : cleanLine(input.email).split('@').pop() ?? ''; })();
-    const message = cleanLine(input.message);
+    const message = cleanBody(input.message);
     const n = code === 'long' && key === 'message' ? codePoints(message) - CAPS.message
       : code === 'links' ? countLinks(message) : codePoints(message);
     const out = sentence(template, { d: isolate(domain, 'b'), n: formatCount(n) });
-    if (key === 'email' && code === 'personal') {
-      const way = document.createElement('span');
-      way.className = 'contact-way';
-      way.append(sentence(W.wayOut, { m: mailLink() }));
-      out.append(way);
+    const addLine = (line: DocumentFragment): void => {
+      const span = document.createElement('span');
+      span.className = 'contact-way';
+      span.append(line);
+      out.append(span);
+    };
+    // A refused personal or temporary inbox always carries the way out (W1: write to hello@ from any address).
+    if (key === 'email' && (code === 'personal' || code === 'temporary')) addLine(sentence(W.wayOut, { m: mailLink() }));
+    // A mistyped ending refused on Send still offers its one-click fix.
+    if (key === 'email' && code === 'not_found') {
+      const v = classifyEmail(input.email);
+      if (v.k === 'typo') addLine(sentence(W.typo, { s: typoFix(v.suggestion) }));
     }
     return out;
   }
@@ -174,11 +189,11 @@ function start(form: HTMLFormElement): void {
     el.hidden = !code;
     const help = box.querySelector<HTMLElement>('.contact-help');
     if (help) help.hidden = !!code;
-    // The reason group is described by its note and its error; a text field also carries aria-invalid.
-    const target = key === 'reason' ? byId<HTMLElement>('cf-reason-set') : inputs[key];
-    if (key !== 'reason') target.setAttribute('aria-invalid', code ? 'true' : 'false');
-    const hint = key === 'reason' ? (reasonNote.hidden ? null : reasonNote) : help && !code ? help : null;
-    const described = [code ? el.id : '', hint ? hint.id : ''].filter(Boolean).join(' ');
+    if (key === 'reason') { describeReason(); return; }
+    // A text field carries aria-invalid, and is described by its error, or by its help while it has none.
+    const target = inputs[key];
+    target.setAttribute('aria-invalid', code ? 'true' : 'false');
+    const described = code ? el.id : help ? help.id : '';
     if (described) target.setAttribute('aria-describedby', described); else target.removeAttribute('aria-describedby');
   }
   function check(key: FieldKey): void {
@@ -195,18 +210,23 @@ function start(form: HTMLFormElement): void {
     emailInfo.replaceChildren();
     const v = classifyEmail(inputs.email.value);
     if (!show || v.k !== 'typo' || errors.email) { emailInfo.hidden = true; return; }
+    emailInfo.append(sentence(W.typo, { s: typoFix(v.suggestion) }));
+    emailInfo.hidden = false;
+  }
+  /** The "Did you mean …?" button: it rewrites the ending, clears a standing refusal and returns to the field. */
+  function typoFix(suggestion: string): HTMLButtonElement {
     const fix = document.createElement('button');
     fix.type = 'button';
     fix.className = 'contact-typo-fix';
-    fix.append(isolate(v.suggestion));
+    fix.append(isolate(suggestion));
     fix.addEventListener('click', () => {
       const raw = inputs.email.value.trim();
-      inputs.email.value = raw.slice(0, raw.lastIndexOf('@') + 1) + v.suggestion;
+      inputs.email.value = raw.slice(0, raw.lastIndexOf('@') + 1) + suggestion;
+      if (errors.email) check('email');
       drawTypo(false);
       inputs.email.focus();
     });
-    emailInfo.append(sentence(W.typo, { s: fix }));
-    emailInfo.hidden = false;
+    return fix;
   }
   inputs.email.addEventListener('blur', () => {
     const v = classifyEmail(inputs.email.value);
@@ -224,7 +244,7 @@ function start(form: HTMLFormElement): void {
     });
   }
   function drawMessageCount(): void {
-    const n = codePoints(inputs.message.value.trim());
+    const n = codePoints(cleanBody(inputs.message.value));
     messageCount.textContent = `${formatCount(n)} / ${formatCount(CAPS.message)}`;
     messageCount.classList.toggle('is-over', n > CAPS.message);
   }
@@ -335,7 +355,9 @@ function start(form: HTMLFormElement): void {
     const org = document.createElement('bdi');
     org.textContent = cleanLine(input.company);
     who.replaceChildren(name, ' · ', org);
-    byId<HTMLElement>('cr-reply').replaceChildren(isolate(cleanLine(input.email)));
+    // The receipt shows the address the reply will go to: the checked one the server sends on.
+    const verdict = classifyEmail(input.email);
+    byId<HTMLElement>('cr-reply').replaceChildren(isolate(verdict.k === 'ok' ? verdict.address : cleanLine(input.email)));
     // The receipt keeps the card's height, so a second click lands on nothing that scrolled up.
     received.style.minHeight = `${form.offsetHeight}px`;
     form.hidden = true;

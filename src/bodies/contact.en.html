@@ -31,19 +31,19 @@
               <div class="contact-row">
                 <div class="contact-field" id="cf-first-name-field">
                   <label class="contact-label" for="cf-first-name">First name</label>
-                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto">
+                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto" aria-required="true">
                   <p class="contact-error" id="cf-first-name-error" hidden></p>
                 </div>
                 <div class="contact-field" id="cf-last-name-field">
                   <label class="contact-label" for="cf-last-name">Last name</label>
-                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto">
+                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto" aria-required="true">
                   <p class="contact-error" id="cf-last-name-error" hidden></p>
                 </div>
               </div>
 
               <div class="contact-field" id="cf-email-field">
                 <label class="contact-label" for="cf-email">Work email</label>
-                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-describedby="cf-email-help">
+                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-required="true" aria-describedby="cf-email-help">
                 <p class="contact-help" id="cf-email-help">We reply to this address.</p>
                 <p class="contact-info" id="cf-email-info" role="status" hidden></p>
                 <p class="contact-error" id="cf-email-error" hidden></p>
@@ -51,7 +51,7 @@
 
               <div class="contact-field" id="cf-company-field">
                 <label class="contact-label" for="cf-company">Organisation</label>
-                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-describedby="cf-company-help">
+                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-required="true" aria-describedby="cf-company-help">
                 <p class="contact-help" id="cf-company-help">Company, hospital, unit or authority</p>
                 <p class="contact-error" id="cf-company-error" hidden></p>
               </div>

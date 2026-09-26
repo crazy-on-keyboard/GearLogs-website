@@ -56,12 +56,20 @@ const LOCAL_RE = /^[A-Za-z0-9!#$%&'*+/=?^_`{|}~.-]+$/;
 const LABEL_RE = /^(?!-)[a-z0-9-]{1,63}(?<!-)$/;
 const NOREPLY_RE = /^(no-?reply|do-?not-?reply|donotreply|mailer-daemon)$/;
 const LINK_RE = /https?:\/\/|www\./gi;
-// Invisible direction marks and zero-width characters: the server removes them before any rule, so the page does too.
-const INVISIBLE_RANGES: ReadonlyArray<readonly [number, number]> = [[0x200b, 0x200f], [0x202a, 0x202e], [0x2066, 0x2069], [0xfeff, 0xfeff]];
-const INVISIBLE_RE = new RegExp('[' + INVISIBLE_RANGES.map(([a, b]) => String.fromCharCode(a) + '-' + String.fromCharCode(b)).join('') + ']', 'g');
+// The server's ONE scrub (GearLogs _shared/bidi.ts), mirrored: control characters, bidi overrides and isolates,
+// zero-width marks, the soft hyphen and the word joiner go from every value; a single line also loses the Unicode
+// line and paragraph separators, while a body keeps them with its tabs and line breaks. Built from char codes, so no
+// invisible character or escape sequence sits in source.
+type Range = readonly [number, number];
+const ALWAYS_STRIPPED: readonly Range[] = [[0x7f, 0x9f], [0xad, 0xad], [0x200b, 0x200f], [0x202a, 0x202e], [0x2060, 0x2060], [0x2066, 0x2069], [0xfeff, 0xfeff]];
+const classOf = (ranges: readonly Range[]): RegExp =>
+  new RegExp('[' + ranges.map(([a, b]) => String.fromCharCode(a) + '-' + String.fromCharCode(b)).join('') + ']', 'g');
+const LINE_STRIP = classOf([[0x00, 0x1f], [0x2028, 0x2029], ...ALWAYS_STRIPPED]);
+const BODY_STRIP = classOf([[0x00, 0x08], [0x0b, 0x0c], [0x0e, 0x1f], ...ALWAYS_STRIPPED]);
 
 export const codePoints = (s: string): number => Array.from(s).length;
-export const cleanLine = (s: string): string => s.normalize('NFC').replace(INVISIBLE_RE, '').trim();
+export const cleanLine = (s: string): string => s.normalize('NFC').replace(LINE_STRIP, '').trim();
+export const cleanBody = (s: string): string => s.normalize('NFC').replace(BODY_STRIP, '').trim();
 export const countLinks = (s: string): number => (s.match(LINK_RE) ?? []).length;
 
 const matchesDomain = (domain: string, set: ReadonlySet<string>): boolean => {
@@ -87,7 +95,12 @@ export type EmailVerdict =
   | { k: 'empty' | 'shape' }
   | { k: 'noreply' | 'own' | 'personal' | 'temporary'; domain: string }
   | { k: 'typo'; domain: string; suggestion: string }
-  | { k: 'ok'; domain: string; always: boolean };
+  | { k: 'ok'; domain: string; always: boolean; address: string };
+
+// A path, port, query, fragment, percent-escape or space after the domain would be DROPPED by the URL parser and the
+// raw text would travel on; the server refuses them before parsing, so the page does too (the security gate's L1).
+const HOST_JUNK: ReadonlySet<string> = new Set(['/', '?', '#', ':', '[', ']', '%', '@', String.fromCharCode(92)]);
+const hasHostJunk = (domain: string): boolean => Array.from(domain).some((c) => HOST_JUNK.has(c) || c.trim() === '');
 
 export function classifyEmail(raw: string): EmailVerdict {
   const v = cleanLine(raw);
@@ -95,17 +108,20 @@ export function classifyEmail(raw: string): EmailVerdict {
   const at = v.lastIndexOf('@');
   if (at < 1 || at === v.length - 1 || codePoints(v) > CAPS.email) return { k: 'shape' };
   const local = v.slice(0, at);
+  if (hasHostJunk(v.slice(at + 1))) return { k: 'shape' };
   const domain = asciiDomain(v.slice(at + 1).toLowerCase());
   if (!domain || local.length > CAPS.local || !LOCAL_RE.test(local) || local.startsWith('.') || local.endsWith('.') || local.includes('..')) return { k: 'shape' };
   if (NOREPLY_RE.test(local.toLowerCase())) return { k: 'noreply', domain };
   if (matchesDomain(domain, OWN_DOMAINS)) return { k: 'own', domain };
-  if (ALWAYS_SUFFIXES.some((s) => domain === s || domain.endsWith('.' + s))) return { k: 'ok', domain, always: true };
+  // What the server sends on is built from the checked parts; the receipt shows the same.
+  const address = `${local}@${domain}`;
+  if (ALWAYS_SUFFIXES.some((s) => domain === s || domain.endsWith('.' + s))) return { k: 'ok', domain, always: true, address };
   if (matchesDomain(domain, PERSONAL_DOMAINS)) return { k: 'personal', domain };
   if (matchesDomain(domain, TEMP_DOMAINS)) return { k: 'temporary', domain };
   const ending = domain.slice(domain.lastIndexOf('.') + 1);
   const meant = TYPO_ENDINGS[ending];
   if (meant) return { k: 'typo', domain, suggestion: domain.slice(0, domain.length - ending.length) + meant };
-  return { k: 'ok', domain, always: false };
+  return { k: 'ok', domain, always: false, address };
 }
 
 /** The error code for the e-mail field, or null. A typo'd ending is refused on Send as "not found" (it takes no mail). */
@@ -168,7 +184,7 @@ export function fieldCode(key: FieldKey, input: ContactInput): string | null {
       return /^(https?:\/\/)?[^\s/]+\.[^\s/]{2,}(\/\S*)?$/i.test(v) ? null : 'shape';
     }
     case 'message': {
-      const v = input.message.normalize('NFC').replace(INVISIBLE_RE, '').trim();
+      const v = cleanBody(input.message);
       const n = codePoints(v);
       if (n > CAPS.message) return 'long';
       if (countLinks(v) > MAX_LINKS) return 'links';

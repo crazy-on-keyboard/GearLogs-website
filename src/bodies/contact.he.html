@@ -4,7 +4,7 @@
           <div class="section-num">צור קשר</div>
           <h1 class="section-title">בקשת גישה או שאלה</h1>
           <div class="section-rule"></div>
-          <p class="page-lead">אדם ב־GearLogs קורא כל בקשה. שליחת הטופס לא יוצרת חשבון.</p>
+          <p class="page-lead">כל בקשה נקראת בידי אדם אמיתי ב־GearLogs. שליחת הטופס לא יוצרת חשבון.</p>
           <p class="contact-customer">כבר לקוחות? פנו לתמיכה מתוך האפליקציה.</p>
         </div>
 
@@ -31,19 +31,19 @@
               <div class="contact-row">
                 <div class="contact-field" id="cf-first-name-field">
                   <label class="contact-label" for="cf-first-name">שם פרטי</label>
-                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto">
+                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto" aria-required="true">
                   <p class="contact-error" id="cf-first-name-error" hidden></p>
                 </div>
                 <div class="contact-field" id="cf-last-name-field">
                   <label class="contact-label" for="cf-last-name">שם משפחה</label>
-                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto">
+                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto" aria-required="true">
                   <p class="contact-error" id="cf-last-name-error" hidden></p>
                 </div>
               </div>
 
               <div class="contact-field" id="cf-email-field">
                 <label class="contact-label" for="cf-email">אימייל ארגוני</label>
-                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-describedby="cf-email-help">
+                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-required="true" aria-describedby="cf-email-help">
                 <p class="contact-help" id="cf-email-help">לכתובת הזו נשיב.</p>
                 <p class="contact-info" id="cf-email-info" role="status" hidden></p>
                 <p class="contact-error" id="cf-email-error" hidden></p>
@@ -51,7 +51,7 @@
 
               <div class="contact-field" id="cf-company-field">
                 <label class="contact-label" for="cf-company">ארגון</label>
-                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-describedby="cf-company-help">
+                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-required="true" aria-describedby="cf-company-help">
                 <p class="contact-help" id="cf-company-help">חברה, בית חולים, יחידה או רשות</p>
                 <p class="contact-error" id="cf-company-error" hidden></p>
               </div>
@@ -104,14 +104,14 @@
               <p class="contact-received-wrong">הכתובת שגויה? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
             </div>
 
-            <p class="contact-fallback">מעדיפים דוא״ל? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
+            <p class="contact-fallback">מעדיפים אימייל? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
           </div>
 
           <aside class="contact-panel" id="contact-panel" aria-label="על הפנייה שלכם">
             <div data-panel="access">
               <h2 class="contact-panel-title">מה קורה אחר כך</h2>
               <ol class="contact-steps">
-                <li>אדם קורא את הבקשה שלכם.</li>
+                <li>אחד מאיתנו קורא את הבקשה שלכם.</li>
                 <li>אנחנו מקימים לכם סביבת עבודה.</li>
                 <li>אתם מתנסים עם הציוד האמיתי שלכם.</li>
               </ol>
@@ -134,7 +134,7 @@
                 <li><a href="/guides">מדריכים</a>: איך מבצעים כל משימה ב־GearLogs</li>
                 <li><a href="/faq">שאלות נפוצות</a>: השאלות שנשאלות הכי הרבה</li>
               </ul>
-              <p>או שאלו כאן, ואדם יענה.</p>
+              <p>או שאלו כאן, ואחד מאיתנו יענה.</p>
             </div>
             <div data-panel="security" hidden>
               <h2 class="contact-panel-title">אבטחה, בקצרה</h2>
@@ -153,15 +153,15 @@
                 <li><a href="/terms">תנאי שימוש</a></li>
                 <li><a href="/refunds">מדיניות החזרים</a></li>
               </ul>
-              <p>נספח עיבוד נתונים ניתן לספק לפי בקשה. אנו שואפים להשיב לבקשות מידע בתוך 30 יום.</p>
+              <p>לפי בקשה נספק נספח עיבוד נתונים. אנו שואפים להשיב לבקשות מידע בתוך 30 יום.</p>
             </div>
             <div data-panel="partner" hidden>
               <h2 class="contact-panel-title">שיתוף פעולה או הפצה</h2>
-              <p>ספרו לנו את מי אתם משרתים והיכן, ואדם יחזור אליכם כדי לדבר על כך.</p>
+              <p>ספרו לנו את מי אתם משרתים והיכן, ואחד מאיתנו יחזור אליכם כדי לדבר על כך.</p>
             </div>
             <div data-panel="other" hidden>
               <h2 class="contact-panel-title">או כתבו לנו</h2>
-              <p>הכתובת <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a> מגיעה לאותו אדם.</p>
+              <p>הכתובת <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a> מגיעה לאותו מקום.</p>
             </div>
           </aside>
         </div>

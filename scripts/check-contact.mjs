@@ -77,6 +77,24 @@ t('invisible direction and zero-width marks are removed before a rule runs', () 
   assert.equal(R.cleanLine(rlo + 'Dana' + zw), 'Dana');
 });
 
+t("the server's ONE scrub, mirrored: soft hyphen, word joiner and controls go; a single line also loses the line separators; a body keeps its breaks", () => {
+  const c = (cp) => String.fromCharCode(cp);
+  assert.equal(R.cleanLine('Da' + c(0xad) + 'na' + c(0x2060) + c(0x2028) + c(0x2029) + c(0x07) + c(0x85)), 'Dana');
+  assert.deepEqual(errs({ first_name: 'Da' + c(0xad) + 'na' }), {});
+  assert.equal(R.cleanBody('one' + c(0x0a) + c(0x09) + 'two' + c(0x2028) + 'three' + c(0x07) + c(0xad)), 'one' + c(0x0a) + c(0x09) + 'two' + c(0x2028) + 'three');
+});
+
+t('a path, port, query, fragment, percent-escape or space after the domain is refused (the security gate L1, mirrored)', () => {
+  for (const bad of ['x@example.com/ <evil>', 'x@example.com:80', 'x@example.com?a,b', 'x@example.com#y', 'x@exa mple.com', 'x@example.com%2f', 'x@[1.2.3.4]']) {
+    assert.equal(R.classifyEmail(bad).k, 'shape', bad);
+  }
+});
+
+t('the address shown on the receipt is the checked one the server sends: the domain in its ASCII form', () => {
+  assert.equal(R.classifyEmail('Dana@Bücher.de').address, 'Dana@xn--bcher-kva.de');
+  assert.equal(R.classifyEmail('  dana@ACME.co.il ').address, 'dana@acme.co.il');
+});
+
 t("the server's codes land on the page's fields; an unknown key is dropped", () => {
   assert.deepEqual(R.fromServer({ email: 'not_found', name: 'long', bogus: 'x', company: 3 }), { email: 'not_found', last_name: 'name_long' });
   assert.deepEqual(R.fromServer(null), {});

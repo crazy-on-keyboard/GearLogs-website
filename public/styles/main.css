@@ -1074,7 +1074,10 @@ a:focus-visible, button:focus-visible, .btn-primary:focus-visible, .btn-secondar
   transition: border-color var(--d1) var(--ease), box-shadow var(--d1) var(--ease);
 }
 textarea.contact-input { height: auto; min-height: 104px; padding: 9px 11px; resize: vertical; }
-.contact-input:focus-visible { outline: none; border-color: var(--c-go); box-shadow: 0 0 0 3px var(--c-tint); }
+/* ONE focus look for everything in the component — a 2 px accent outline just outside the control. It survives the
+   error state (an invalid field keeps its red edge AND shows the outline) and never reads as the error red. */
+.contact-page :is(a, button, .contact-input):focus-visible { outline: 2px solid var(--c-go); outline-offset: 2px; }
+.contact-input:focus-visible { border-color: var(--c-go); }
 .contact-field.is-invalid .contact-input { border: 2px solid var(--c-take); padding: 0 10px; }
 .contact-field.is-invalid textarea.contact-input { padding: 8px 10px; }
 
@@ -1101,7 +1104,7 @@ textarea.contact-input { height: auto; min-height: 104px; padding: 9px 11px; res
 .contact-chip input:checked + span { background: var(--c-tint); border-color: var(--c-go); box-shadow: inset 0 0 0 1px var(--c-go); }
 .contact-chip input:checked + span::before { border: 4px solid var(--c-go); }
 .contact-chip input:focus-visible + span { outline: 2px solid var(--c-go); outline-offset: 2px; }
-.contact-note { margin: 8px 0 0; font-size: 13px; color: var(--c-soft); }
+.contact-note { margin: 8px 0 0; min-height: 1.6em; font-size: 13px; line-height: 1.6; color: var(--c-soft); }
 .contact-note b { font-weight: 600; color: var(--c-ink); }
 
 .contact-help { margin: 0; font-size: 13px; color: var(--c-soft); }
@@ -1119,7 +1122,7 @@ textarea.contact-input { height: auto; min-height: 104px; padding: 9px 11px; res
 .contact-card .cf-turnstile { margin: 0; min-height: 65px; }
 
 .contact-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-.contact-send.btn-primary { padding: 12px 28px; color: #fff; background: var(--c-go); border-color: var(--c-go); }
+.contact-send.btn-primary { padding: 12px 28px; color: #fff; background: var(--c-go); border-color: var(--c-go); border-radius: var(--c-radius); }
 .contact-send.btn-primary:hover { color: #fff; background: var(--c-go-hover); border-color: var(--c-go-hover); }
 .contact-send.btn-primary:active { background: var(--c-go-press); border-color: var(--c-go-press); }
 .contact-send.btn-primary:disabled { opacity: 0.65; cursor: progress; }
