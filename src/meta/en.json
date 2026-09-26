@@ -22,6 +22,13 @@
     "ogDescription": "Answers to common questions about GearLogs.",
     "twitterTitle": "FAQ — GearLogs"
   },
+  "contact": {
+    "title": "Contact — GearLogs",
+    "description": "Request access to GearLogs or ask a question. A person reads every request and replies from hello@gearlogs.com, usually within one business day.",
+    "ogTitle": "Contact — GearLogs",
+    "ogDescription": "Request access to GearLogs or ask a question. A person reads every request.",
+    "twitterTitle": "Contact — GearLogs"
+  },
   "guides": {
     "title": "Guides — GearLogs",
     "description": "How to use GearLogs — set up your board, assign and return equipment, build your dashboard, control access, and review your history.",

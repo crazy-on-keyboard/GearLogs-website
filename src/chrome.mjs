@@ -189,7 +189,7 @@ export function renderFooter(page, lang) {
     `            <a href="${c('/faq')}">${t(lang, 'nav_faq')}</a>\n` +
     `            <a href="${c('/notes')}">${t(lang, 'nav_notes')}</a>\n` +
     `            <a href="${c('/changelog')}">${t(lang, 'nav_changelog')}</a>\n` +
-    `            <a href="${c('/#contact')}">${t(lang, 'nav_contact')}</a>\n` +
+    `            <a href="${c('/contact')}">${t(lang, 'nav_contact')}</a>\n` +
     `          </div>\n` +
     `          <div class="footer-col">\n` +
     `            <div class="footer-col-title">${t(lang, 'footer_col_suite')}</div>\n` +

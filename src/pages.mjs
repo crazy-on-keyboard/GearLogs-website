@@ -36,7 +36,7 @@ export const PAGES = [
   {
     slug: 'index', path: '/', chrome: 'full', footer: 'full', activeNav: null, bilingual: true,
     sitemap: { changefreq: 'weekly', priority: '1.0' },
-    scripts: ['/js/anim.js', '/js/activity.js', '/js/contact.js', { src: 'https://challenges.cloudflare.com/turnstile/v0/api.js', attrs: 'async defer' }],
+    scripts: ['/js/anim.js', '/js/activity.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false, logoPriority: true },
   },
   {
@@ -58,6 +58,14 @@ export const PAGES = [
     slug: 'notes', path: '/notes', chrome: 'full', footer: 'full', activeNav: '/notes', bilingual: true,
     sitemap: { changefreq: 'weekly', priority: '0.7' }, scripts: ['/js/anim.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: true },
+  },
+  {
+    // Stage 1 (2026-09-26): the ONE contact form. The only page that loads Turnstile and posts to the contact
+    // function, so the relaxed CSP in public/_headers covers its four paths alone.
+    slug: 'contact', path: '/contact', chrome: 'full', footer: 'full', activeNav: null, bilingual: true,
+    sitemap: { changefreq: 'monthly', priority: '0.6' },
+    scripts: ['/js/contact.js', { src: 'https://challenges.cloudflare.com/turnstile/v0/api.js', attrs: 'async defer' }],
+    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
     slug: 'changelog', path: '/changelog', chrome: 'full', footer: 'full', activeNav: '/changelog', bilingual: true,

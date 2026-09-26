@@ -1,0 +1,169 @@
+    <section class="section section-alt page-lead-section contact-page">
+      <div class="section-inner contact-inner">
+        <div class="section-head">
+          <div class="section-num">צור קשר</div>
+          <h1 class="section-title">בקשת גישה או שאלה</h1>
+          <div class="section-rule"></div>
+          <p class="page-lead">כל בקשה נקראת בידי אדם אמיתי ב־GearLogs. שליחת הטופס לא יוצרת חשבון.</p>
+          <p class="contact-customer">כבר לקוחות? פנו לתמיכה מתוך האפליקציה.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-main">
+            <form class="contact-card" id="contact-form" action="/he/contact" method="post" novalidate aria-describedby="contact-status">
+              <div class="contact-field" id="cf-reason-field">
+                <fieldset class="contact-reasons" id="cf-reason-set">
+                  <legend class="contact-label">נושא הפנייה</legend>
+                  <div class="contact-chips">
+                    <label class="contact-chip"><input type="radio" name="reason" value="access"><span>בקשת גישה</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="purchase"><span>רכישה</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="product"><span>איך זה עובד</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="security"><span>אבטחה</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="legal"><span>משפטי ופרטיות</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="partner"><span>שיתוף פעולה או הפצה</span></label>
+                    <label class="contact-chip"><input type="radio" name="reason" value="other"><span>משהו אחר</span></label>
+                  </div>
+                  <p class="contact-note" id="cf-reason-note">בחרו נושא, כדי שנענה בדיוק על מה ששאלתם.</p>
+                  <p class="contact-error" id="cf-reason-error" hidden></p>
+                </fieldset>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-field" id="cf-first-name-field">
+                  <label class="contact-label" for="cf-first-name">שם פרטי</label>
+                  <input class="contact-input" id="cf-first-name" name="first_name" type="text" autocomplete="given-name" dir="auto" aria-required="true">
+                  <p class="contact-error" id="cf-first-name-error" hidden></p>
+                </div>
+                <div class="contact-field" id="cf-last-name-field">
+                  <label class="contact-label" for="cf-last-name">שם משפחה</label>
+                  <input class="contact-input" id="cf-last-name" name="last_name" type="text" autocomplete="family-name" dir="auto" aria-required="true">
+                  <p class="contact-error" id="cf-last-name-error" hidden></p>
+                </div>
+              </div>
+
+              <div class="contact-field" id="cf-email-field">
+                <label class="contact-label" for="cf-email">אימייל ארגוני</label>
+                <input class="contact-input" id="cf-email" name="email" type="email" autocomplete="work email" dir="ltr" spellcheck="false" aria-required="true" aria-describedby="cf-email-help">
+                <p class="contact-help" id="cf-email-help">לכתובת הזו נשיב.</p>
+                <p class="contact-info" id="cf-email-info" role="status" hidden></p>
+                <p class="contact-error" id="cf-email-error" hidden></p>
+              </div>
+
+              <div class="contact-field" id="cf-company-field">
+                <label class="contact-label" for="cf-company">ארגון</label>
+                <input class="contact-input" id="cf-company" name="company" type="text" autocomplete="organization" dir="auto" aria-required="true" aria-describedby="cf-company-help">
+                <p class="contact-help" id="cf-company-help">חברה, בית חולים, יחידה או רשות</p>
+                <p class="contact-error" id="cf-company-error" hidden></p>
+              </div>
+
+              <div class="contact-row">
+                <div class="contact-field" id="cf-job-title-field">
+                  <label class="contact-label" for="cf-job-title">תפקיד <span class="contact-optional">(לא חובה)</span></label>
+                  <input class="contact-input" id="cf-job-title" name="job_title" type="text" autocomplete="organization-title" dir="auto">
+                  <p class="contact-error" id="cf-job-title-error" hidden></p>
+                </div>
+                <div class="contact-field" id="cf-company-website-field">
+                  <label class="contact-label" for="cf-website">אתר אינטרנט <span class="contact-optional">(לא חובה)</span></label>
+                  <input class="contact-input" id="cf-website" name="company_website" type="text" inputmode="url" autocomplete="url" dir="ltr" spellcheck="false">
+                  <p class="contact-error" id="cf-company-website-error" hidden></p>
+                </div>
+              </div>
+
+              <div class="contact-field" id="cf-message-field">
+                <div class="contact-label-row">
+                  <label class="contact-label" for="cf-message">הודעה <span class="contact-optional" id="cf-message-need">(לא חובה)</span></label>
+                  <span class="contact-count" id="cf-message-count" dir="ltr">0 / 4,000</span>
+                </div>
+                <textarea class="contact-input" id="cf-message" name="message" rows="4" dir="auto" aria-describedby="cf-message-help"></textarea>
+                <p class="contact-help" id="cf-message-help">שורה או שתיים מספיקות.</p>
+                <p class="contact-error" id="cf-message-error" hidden></p>
+              </div>
+
+              <div class="contact-honeypot" aria-hidden="true">
+                <label for="cf-form-extra">השאירו את השדה הזה ריק</label>
+                <input id="cf-form-extra" name="form_extra" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAEXrTkhtxROIhlJQ" data-theme="light" data-size="flexible" data-language="he"></div>
+
+              <div class="contact-actions">
+                <button type="submit" class="btn-primary contact-send" id="contact-submit">שליחת הבקשה</button>
+                <p class="contact-status" id="contact-status" role="status" aria-live="polite" hidden></p>
+              </div>
+              <p class="contact-privacy">נשתמש בפרטים רק כדי להשיב לכם, ונשמור אותם 12 חודשים. <a href="/privacy">מדיניות הפרטיות</a></p>
+            </form>
+
+            <div class="contact-received" id="contact-received" hidden>
+              <h2 class="contact-stamp" id="cr-stamp" tabindex="-1">התקבל</h2>
+              <dl class="contact-rows">
+                <dt>נושא</dt><dd id="cr-about"></dd>
+                <dt>מאת</dt><dd id="cr-from"></dd>
+                <dt>נשיב אל</dt><dd id="cr-reply"></dd>
+              </dl>
+              <p class="contact-received-text">אדם קורא כל בקשה ומשיב מ־<b>hello@gearlogs.com</b>, בדרך כלל בתוך יום עסקים אחד.</p>
+              <p class="contact-received-wrong">הכתובת שגויה? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
+            </div>
+
+            <p class="contact-fallback">מעדיפים אימייל? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
+          </div>
+
+          <aside class="contact-panel" id="contact-panel" aria-label="על הפנייה שלכם">
+            <div data-panel="access">
+              <h2 class="contact-panel-title">מה קורה אחר כך</h2>
+              <ol class="contact-steps">
+                <li>אחד מאיתנו קורא את הבקשה שלכם.</li>
+                <li>אנחנו מקימים לכם סביבת עבודה.</li>
+                <li>אתם מתנסים עם הציוד האמיתי שלכם.</li>
+              </ol>
+              <p>לא צריך פרטי תשלום כדי להתחיל.</p>
+            </div>
+            <div data-panel="purchase" hidden>
+              <h2 class="contact-panel-title">המחיר, במלואו</h2>
+              <dl class="contact-prices">
+                <dt>תוכנית בסיס, 5 חשבונות</dt><dd><bdi dir="ltr">$199</bdi> לחודש</dd>
+                <dt>כל חשבון נוסף</dt><dd><bdi dir="ltr">$39</bdi> לחודש</dd>
+                <dt>תמיכה בעדיפות גבוהה (לא חובה)</dt><dd><bdi dir="ltr">$99</bdi> לחודש</dd>
+                <dt>שנתי</dt><dd>חודשיים חינם</dd>
+              </dl>
+              <p>תקופת התנסות מתואמת בזמן ההצטרפות, בלי צורך בפרטי תשלום.</p>
+              <p><a href="/pricing">בנו את התוכנית שלכם &larr;</a></p>
+            </div>
+            <div data-panel="product" hidden>
+              <h2 class="contact-panel-title">איך זה עובד</h2>
+              <ul class="contact-list">
+                <li><a href="/guides">מדריכים</a>: איך מבצעים כל משימה ב־GearLogs</li>
+                <li><a href="/faq">שאלות נפוצות</a>: השאלות שנשאלות הכי הרבה</li>
+              </ul>
+              <p>או שאלו כאן, ואחד מאיתנו יענה.</p>
+            </div>
+            <div data-panel="security" hidden>
+              <h2 class="contact-panel-title">אבטחה, בקצרה</h2>
+              <ul class="contact-list">
+                <li>סביבת עבודה יכולה לדרוש אימות דו־שלבי, כדי להיכנס וכדי לבצע שינויים.</li>
+                <li>אף חשבון אינו יכול לערוך את ההיסטוריה. חשבונות רגילים אינם יכולים למחוק ממנה.</li>
+                <li>גיבוי מוצפן שרק משפט־הסיסמה שלכם יכול לפתוח.</li>
+                <li>הנתונים נשמרים באיחוד האירופי (פרנקפורט).</li>
+              </ul>
+              <p>מדווחים על חולשת אבטחה? כתבו אל <a href="mailto:ops@gearlogs.com">ops@gearlogs.com</a> או ראו את <a href="/.well-known/security.txt">security.txt</a>.</p>
+            </div>
+            <div data-panel="legal" hidden>
+              <h2 class="contact-panel-title">משפטי ופרטיות</h2>
+              <ul class="contact-list">
+                <li><a href="/privacy">מדיניות פרטיות</a></li>
+                <li><a href="/terms">תנאי שימוש</a></li>
+                <li><a href="/refunds">מדיניות החזרים</a></li>
+              </ul>
+              <p>לפי בקשה נספק נספח עיבוד נתונים. אנו שואפים להשיב לבקשות מידע בתוך 30 יום.</p>
+            </div>
+            <div data-panel="partner" hidden>
+              <h2 class="contact-panel-title">שיתוף פעולה או הפצה</h2>
+              <p>ספרו לנו את מי אתם משרתים והיכן, ואחד מאיתנו יחזור אליכם כדי לדבר על כך.</p>
+            </div>
+            <div data-panel="other" hidden>
+              <h2 class="contact-panel-title">או כתבו לנו</h2>
+              <p>הכתובת <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a> מגיעה לאותו מקום.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
