@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   build-and-check:
-    name: build · link integrity
+    name: the full check
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,8 +30,7 @@ jobs:
       - name: Install (clean, lockfile-exact)
         run: npm ci
 
-      - name: Build
-        run: npm run build
-
-      - name: Internal links + sitemap resolve, clean-URL form only
-        run: npm run check:links
+      # the same gauntlet as local: the typed scripts, the contact rules, the build (which refuses inline code and writes
+      # _headers from the policies), links + anchors, the bilingual check (Stage 2 PR-1)
+      - name: The full check
+        run: npm run check

@@ -1255,3 +1255,29 @@ textarea.contact-input { height: auto; min-height: 104px; padding: 9px 11px; res
    "read" arrow and the more-notes markers point the other way in Hebrew. */
 [dir="rtl"] .note-arrow,
 [dir="rtl"] .mfn { display: inline-block; transform: scaleX(-1); }
+
+/* ── The former inline styles (Stage 2 PR-1, 2026-09-27): each shape as ONE class with identical declarations, so the
+   site can drop style-src 'unsafe-inline'. Placed last so an equal-specificity rule never outranks them. ── */
+.mb-16 { margin-bottom: 16px; }
+.legal-h { font-family: var(--mono); font-size: 16px; margin-bottom: 12px; color: #2a2520; }
+.legal-mark { color: #c4392d; }
+.mb-8 { margin-bottom: 8px; }
+.mt-12 { margin-top: 12px; }
+.pb-32 { padding-bottom: 32px; }
+.mw-700 { max-width: 700px; }
+.fs-28 { font-size: 28px; }
+.legal-lede { max-width: 720px; font-size: 14px; line-height: 1.7; color: #5a5040; }
+.legal-note { margin-bottom: 20px; font-style: italic; color: #7a705c; }
+.legal-caps { margin-bottom: 16px; text-transform: uppercase; font-size: 13px; letter-spacing: 0.02em; }
+.legal-list { margin: 0 0 16px 20px; padding: 0; }
+.legal-list-disc { margin: 0 0 16px 20px; list-style: disc; }
+.mb-12 { margin-bottom: 12px; }
+.mb-10 { margin-bottom: 10px; }
+.fs-30 { font-size: 30px; }
+.tw-195 { --tw: 19.5em; }
+.tw-150 { --tw: 15em; }
+.tw-140 { --tw: 14em; }
+.tw-135 { --tw: 13.5em; }
+.tw-120 { --tw: 12em; }
+.pb-40 { padding-bottom: 40px; }
+.mw-640 { max-width: 640px; }

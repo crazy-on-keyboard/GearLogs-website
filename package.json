@@ -13,6 +13,7 @@
     "check:types": "tsc -p .",
     "check:contact": "node scripts/check-contact.mjs",
     "capture": "node scripts/capture/capture.mjs",
+    "perf": "node scripts/perf/record.mjs",
     "check": "npm run check:types && npm run check:contact && npm run build && npm run check:links && npm run check:i18n"
   },
   "devDependencies": {
