@@ -13,6 +13,8 @@ import { PAGES } from '../src/pages.mjs';
 import { LANGS, SITE_ORIGIN } from '../src/i18n.mjs';
 import { renderPage, canonicalUrl } from '../src/chrome.mjs';
 import { buildSync } from 'esbuild';
+import { renderHeaders } from './lib/headers.mjs';
+import { inlineCodeIn } from './lib/inline-code.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
 const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js']];
@@ -130,6 +132,24 @@ for (const p of smPages) {
   entries.push(sitemapEntry(p, 'en'));
   if (!EN_ONLY && p.bilingual) entries.push(sitemapEntry(p, 'he'));
 }
+// ---- the headers: generated from the named policies (scripts/lib/headers.mjs), never hand-copied per path ----------
+writeFileSync(join(DIST, '_headers'), renderHeaders(), 'utf8');
+
+// ---- no inline code in any page: the policy has no 'unsafe-inline' (scripts/lib/inline-code.mjs holds the rule) ----------
+const inlineProblems = [];
+(function scan(dir) {
+  for (const name of readdirSync(dir)) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) { scan(path); continue; }
+    if (!name.endsWith('.html')) continue;
+    for (const what of inlineCodeIn(readFileSync(path, 'utf8'))) inlineProblems.push(`${path.slice(DIST.length + 1)}: ${what}`);
+  }
+})(DIST);
+if (inlineProblems.length) {
+  console.error(`build-site: inline code refused (the CSP has no 'unsafe-inline') —\n  ${inlineProblems.join('\n  ')}`);
+  process.exit(1);
+}
+
 const sitemap =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +

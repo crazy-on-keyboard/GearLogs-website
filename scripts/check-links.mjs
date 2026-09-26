@@ -5,7 +5,8 @@
 // and checks that the target exists as a file — in the clean-URL form Cloudflare Pages serves
 // (`/pricing` → pricing.html, `/notes/x` → notes/x.html or notes/x/index.html). A broken
 // internal link, a sitemap URL with no page behind it, or an `.html` link that should be
-// clean all fail the build. Run after `npm run build`.
+// clean all fail the build — and so does a #fragment the target page has no id for (Stage 2 PR-1: the home's anchors
+// must survive the rebuild; the fragment was never checked before). Run after `npm run build`.
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, relative, posix } from 'node:path';
 
@@ -24,10 +25,28 @@ function walk(dir, out = []) {
   return out;
 }
 
-const SKIP = /^(https?:|mailto:|tel:|#|data:|javascript:)/i;
+const SKIP = /^(https?:|mailto:|tel:|data:|javascript:)/i;
 const ATTR = /\b(?:href|src|action)\s*=\s*["']([^"']+)["']/gi;
 const problems = [];
 let checked = 0;
+
+/** The page file a clean internal path serves. */
+function pageFile(target) {
+  const clean = target.replace(/[?#].*$/, '').replace(/\/+$/, '') || '/';
+  if (clean === '/') return join(DIST, 'index.html');
+  const rel = clean.replace(/^\//, '');
+  for (const f of [join(DIST, `${rel}.html`), join(DIST, rel, 'index.html'), join(DIST, rel)]) if (existsSync(f) && f.endsWith('.html')) return f;
+  return null;
+}
+const idCache = new Map();
+/** Every id (and legacy name=) a page carries. */
+function idsOf(file) {
+  if (!idCache.has(file)) {
+    const html = readFileSync(file, 'utf8');
+    idCache.set(file, new Set([...html.matchAll(/\s(?:id|name)\s*=\s*["']([^"']+)["']/g)].map((m) => m[1])));
+  }
+  return idCache.get(file);
+}
 
 function resolves(target) {
   const clean = target.replace(/[?#].*$/, '').replace(/\/+$/, '') || '/';
@@ -47,9 +66,18 @@ for (const file of walk(DIST)) {
   for (const m of html.matchAll(ATTR)) {
     const raw = m[1].trim();
     if (!raw || SKIP.test(raw)) continue;
+    const shown = `${relFile} → ${raw}`;
+    // a fragment: the target page (this page for a bare #x) must carry that id
+    const hash = raw.indexOf('#');
+    if (hash >= 0 && raw.length > hash + 1) {
+      const frag = decodeURIComponent(raw.slice(hash + 1));
+      const target = hash === 0 ? file : pageFile(raw.startsWith('/') ? raw : posix.normalize(posix.join(here, raw)));
+      checked++;
+      if (target && !idsOf(target).has(frag)) problems.push(`NO-ANCHOR  ${shown} (no id="${frag}" on the target page)`);
+      if (hash === 0) continue;
+    } else if (raw.startsWith('#')) continue;
     const abs = raw.startsWith('/') ? raw : posix.normalize(posix.join(here, raw));
     checked++;
-    const shown = `${relFile} → ${raw}`;
     if (/\.html([?#]|$)/.test(abs) && !/^\/(404)\.html/.test(abs)) {
       problems.push(`NOT-CLEAN  ${shown} (internal links use the clean URL form)`);
     }
