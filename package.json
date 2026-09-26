@@ -12,9 +12,11 @@
     "check:i18n": "node scripts/check-i18n.mjs",
     "check:types": "tsc -p .",
     "check:contact": "node scripts/check-contact.mjs",
+    "check:guard": "node scripts/check-inline-guard.mjs",
+    "check:csp": "node scripts/check-csp.mjs",
     "capture": "node scripts/capture/capture.mjs",
     "perf": "node scripts/perf/record.mjs",
-    "check": "npm run check:types && npm run check:contact && npm run build && npm run check:links && npm run check:i18n"
+    "check": "npm run check:types && npm run check:contact && npm run check:guard && npm run build && npm run check:links && npm run check:i18n && npm run check:csp"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",

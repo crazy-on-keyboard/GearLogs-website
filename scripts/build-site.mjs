@@ -14,6 +14,7 @@ import { LANGS, SITE_ORIGIN } from '../src/i18n.mjs';
 import { renderPage, canonicalUrl } from '../src/chrome.mjs';
 import { buildSync } from 'esbuild';
 import { renderHeaders } from './lib/headers.mjs';
+import { inlineCodeIn } from './lib/inline-code.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
 const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js']];
@@ -134,22 +135,14 @@ for (const p of smPages) {
 // ---- the headers: generated from the named policies (scripts/lib/headers.mjs), never hand-copied per path ----------
 writeFileSync(join(DIST, '_headers'), renderHeaders(), 'utf8');
 
-// ---- no inline code in any page: the policy has no 'unsafe-inline' for styles, and scripts were never inline ----------
-// (a style attribute, a <style> block, an on…= handler or a javascript: URL fails the build — generated AND static pages)
-const INLINE = [
-  [/<[a-zA-Z][^>]*\sstyle\s*=/, 'a style="" attribute'],
-  [/<style[\s>]/i, 'a <style> block'],
-  [/<[a-zA-Z][^>]*\son[a-z]+\s*=\s*["']/, 'an on…= handler'],
-  [/\bjavascript:/i, 'a javascript: URL'],
-];
+// ---- no inline code in any page: the policy has no 'unsafe-inline' (scripts/lib/inline-code.mjs holds the rule) ----------
 const inlineProblems = [];
 (function scan(dir) {
   for (const name of readdirSync(dir)) {
     const path = join(dir, name);
     if (statSync(path).isDirectory()) { scan(path); continue; }
     if (!name.endsWith('.html')) continue;
-    const html = readFileSync(path, 'utf8');
-    for (const [re, what] of INLINE) if (re.test(html)) inlineProblems.push(`${path.slice(DIST.length + 1)}: ${what}`);
+    for (const what of inlineCodeIn(readFileSync(path, 'utf8'))) inlineProblems.push(`${path.slice(DIST.length + 1)}: ${what}`);
   }
 })(DIST);
 if (inlineProblems.length) {

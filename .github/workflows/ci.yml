@@ -34,3 +34,5 @@ jobs:
       # _headers from the policies), links + anchors, the bilingual check (Stage 2 PR-1)
       - name: The full check
         run: npm run check
+        env:
+          CHROME: /usr/bin/google-chrome   # the CSP walk drives the runner's Chrome (it never skips silently)
