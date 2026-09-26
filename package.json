@@ -12,10 +12,12 @@
     "check:i18n": "node scripts/check-i18n.mjs",
     "check:types": "tsc -p .",
     "check:contact": "node scripts/check-contact.mjs",
+    "capture": "node scripts/capture/capture.mjs",
     "check": "npm run check:types && npm run check:contact && npm run build && npm run check:links && npm run check:i18n"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",
+    "playwright-core": "^1.63.0",
     "typescript": "^7.0.2",
     "vite": "^6.2.0"
   }
