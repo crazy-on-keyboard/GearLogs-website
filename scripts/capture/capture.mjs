@@ -52,11 +52,14 @@ async function ensureChrome({ cdp, profile }) {
   if (!(await reachable(`${cdp}/json/version`))) throw new Error(`capture: the capture Chrome did not open (${CHROME})`);
 }
 
-/** The app's merged dictionary ({ en, he }), read from its own source — so a shot names a button by its key, never by one language's words. */
+/** The app's and My Gear's merged dictionaries ({ en, he }), read from their own source — so a shot names a button by its key,
+ *  never by one language's words (the app's word wins where both define a key). */
 async function appWords() {
-  const out = await build({ entryPoints: [join(APP_REPO, 'services', 'i18n', 'appTables.ts')], bundle: true, format: 'esm', platform: 'neutral', write: false, logLevel: 'silent' });
+  const entry = "import { APP_TRANSLATIONS as A } from './services/i18n/appTables'; import { STAFF_TRANSLATIONS as S } from './services/i18n/staff';"
+    + ' export const WORDS = { en: { ...S.en, ...A.en }, he: { ...S.he, ...A.he } };';
+  const out = await build({ stdin: { contents: entry, resolveDir: APP_REPO, loader: 'ts' }, bundle: true, format: 'esm', platform: 'neutral', write: false, logLevel: 'silent' });
   const mod = await import(`data:text/javascript;base64,${Buffer.from(out.outputFiles[0].text).toString('base64')}`);
-  return mod.APP_TRANSLATIONS;
+  return mod.WORDS;
 }
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -72,7 +75,14 @@ function helpers(page, words) {
       if (!word) throw new Error(`capture: the app has no word "${key}" in ${lang}`);
       return word;
     },
-    async idle(ms = 600) { await page.waitForLoadState('networkidle').catch(() => {}); await sleep(ms); },
+    async idle(ms = 600) { await page.waitForLoadState('networkidle', { timeout: 5_000 }).catch(() => {}); await sleep(ms); },
+    /** Back to the app after a My Gear shot, signed in and ready. */
+    async backToApp() {
+      await page.goto(APP, { waitUntil: 'load' });
+      const settings = new RegExp(`^(${escapeRe(words.en.tab_settings)}|${escapeRe(words.he.tab_settings)})$`, 'i');
+      await page.getByRole('button', { name: settings }).first().waitFor({ timeout: 15_000 });
+      await app.idle(600);
+    },
     /** A sidebar screen by its dictionary key (tab_logistics, tab_approvals, …); a badge after the name is allowed. */
     async nav(key) { await page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t(key))}`, 'i') }).first().click(); await app.idle(); },
     async lang(want) {
@@ -84,6 +94,8 @@ function helpers(page, words) {
     },
     /** One of the app's themes by its key (office · light · dark · army · medical), pressed by its own label. */
     async theme(key) {
+      // My Gear (the staff page) has no theme switch — a theme is the app's alone
+      if (!page.url().startsWith(APP)) return;
       if ((await page.evaluate(() => document.documentElement.dataset.theme)) === key) return;
       await page.getByRole('button', { name: await app.t(`theme_${key}`), exact: true }).first().click();
       await page.waitForFunction((k) => document.documentElement.dataset.theme === k, key, { timeout: 10_000 });

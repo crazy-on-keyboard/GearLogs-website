@@ -10,6 +10,22 @@
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
+/** My Gear, the staff page (served locally on :4175); its session lives in the same capture window as the demo account's. */
+const STAFF = process.env.CAPTURE_STAFF ?? 'http://localhost:4175';
+
+/** Open My Gear in the language of the run (the page keeps its own language switch) and wait for its rail. */
+async function openMyGear(app, lang) {
+  if (!app.page.url().startsWith(STAFF)) await app.page.goto(STAFF, { waitUntil: 'load' });
+  await app.page.waitForTimeout(1500);
+  if (!(await app.page.evaluate(() => document.documentElement.lang || 'en')).startsWith(lang)) {
+    await app.page.getByRole('button', { name: lang === 'he' ? 'HE' : 'EN', exact: true }).first().click();
+    await app.page.waitForFunction((w) => (document.documentElement.lang || 'en').startsWith(w), lang);
+  }
+  const rail = (key) => app.t(key).then((w) => app.page.getByRole('option', { name: new RegExp(`^${escapeRe(w)}`, 'i') }).first());
+  await (await rail('staff_rail_gear')).waitFor({ timeout: 15_000 });
+  return rail;
+}
+
 /** The demo's own names in each workspace (the Hebrew Logistics demo is the same workspace in Hebrew words). */
 const NAMES = {
   serialItem: { en: 'Barcode Scanner', he: 'סורק ברקוד' },
@@ -135,5 +151,27 @@ export default [
     id: 'logs',
     alt: { en: 'System logs: every action, who did it and when', he: 'יומני המערכת: כל פעולה, מי ביצע אותה ומתי' },
     run: async (app) => { await app.nav('tab_logs'); },
+  },
+  {
+    id: 'mygear',
+    alt: { en: 'My Gear, the page each person signs in to: everything they hold, their notices and their history', he: 'הציוד שלי, הדף שכל אדם נכנס אליו: כל מה שבידיו, ההודעות וההיסטוריה' },
+    run: async (app, lang) => {
+      const rail = await openMyGear(app, lang);
+      await (await rail('staff_rail_gear')).click();
+      await app.page.waitForTimeout(1000);
+    },
+  },
+  {
+    id: 'mygear-sign',
+    alt: { en: 'A person reads their receipt on My Gear and signs it, or says what is wrong', he: 'אדם קורא את הקבלה שלו בהציוד שלי וחותם עליה, או מציין מה לא בסדר' },
+    run: async (app, lang) => {
+      const rail = await openMyGear(app, lang);
+      await (await rail('staff_rail_approvals')).click();
+      await app.page.waitForTimeout(900);
+      // the test person's own receipt (a real hand-out, never demo data — demo people cannot sign in)
+      await app.page.getByText('HO-048', { exact: true }).first().click();
+      await app.page.waitForTimeout(1200);
+    },
+    after: async (app) => app.backToApp(),
   },
 ];

@@ -180,6 +180,38 @@
       "alt": "כרטיסי הקבלות בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear",
+      "lang": "en",
+      "file": "mygear.en.webp",
+      "alt": "My Gear, the page each person signs in to: everything they hold, their notices and their history",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-sign",
+      "lang": "en",
+      "file": "mygear-sign.en.webp",
+      "alt": "A person reads their receipt on My Gear and signs it, or says what is wrong",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear",
+      "lang": "he",
+      "file": "mygear.he.webp",
+      "alt": "הציוד שלי, הדף שכל אדם נכנס אליו: כל מה שבידיו, ההודעות וההיסטוריה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-sign",
+      "lang": "he",
+      "file": "mygear-sign.he.webp",
+      "alt": "אדם קורא את הקבלה שלו בהציוד שלי וחותם עליה, או מציין מה לא בסדר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
     }
   ]
 }
