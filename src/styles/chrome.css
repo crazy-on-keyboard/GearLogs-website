@@ -1,0 +1,163 @@
+/* The chrome (Stage 2, the approved Home Mock): the header floats transparent over the page's first band — a photo band or
+   the home's hero — and the footer is an ink band. ONE source: src/chrome.mjs renders both on every page. */
+
+/* ── Header ── */
+.site-header { position: absolute; inset-inline: 0; top: 0; z-index: 20; color: var(--on-ink); }
+/* A page that opens without a photo band gets the same header on a plain ink ground. */
+.site-header.is-solid { position: relative; background: var(--ink); }
+.site-header .bar { display: flex; align-items: center; gap: 18px; height: var(--header-h); }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-19);
+  font-weight: 700;
+  letter-spacing: var(--track-logo);
+  white-space: nowrap;
+  direction: ltr;
+  color: var(--on-ink);
+}
+.logo span { color: var(--brand-on-ink); }
+
+.nav-links {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius);
+}
+.nav-links a, .nav-links summary {
+  display: block;
+  padding: 7px 13px;
+  border-block: 2px solid transparent;
+  border-radius: var(--radius);
+  color: var(--on-ink-2);
+  cursor: pointer;
+  transition: background-color var(--d-control), color var(--d-control);
+}
+.nav-links a:hover, .nav-links summary:hover { background: var(--glass-hover); color: var(--on-ink); }
+/* the current page: the pale GO tint with a 2 px GO edge, so it reads without colour too */
+.nav-links a[aria-current], .nav-menu.is-current > summary {
+  background: var(--glass-select);
+  border-bottom-color: var(--go-soft);
+  color: var(--on-ink);
+}
+
+/* The Help menu: a click-open disclosure (never hover-only); src/scripts/nav/menu.ts closes it on Escape and outside clicks. */
+.nav-menu { position: relative; }
+.nav-menu > summary { display: flex; align-items: center; gap: 8px; list-style: none; }
+.nav-menu > summary::-webkit-details-marker { display: none; }
+.nav-menu > summary::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  /* physical sides on purpose: the chevron points down in both directions */
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--d-control);
+}
+.nav-menu[open] > summary::after { transform: translateY(1px) rotate(-135deg); }
+.nav-menu-list {
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-start: -5px;
+  min-width: 220px;
+  display: grid;
+  padding: 6px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+}
+.nav-links .nav-menu-list a {
+  padding: 10px 12px;
+  border: 0;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.nav-links .nav-menu-list a:hover { background: var(--fog); color: var(--text); }
+/* the menu is paper, not ink: its focus ring goes back to the GO (7:1 on white) */
+.site-header .nav-menu-list :focus-visible { outline-color: var(--go); }
+/* the current page ("page") and the section a page belongs to ("true", a Field Note under Field Notes) */
+.nav-links .nav-menu-list a[aria-current] {
+  background: var(--go-tint);
+  border-inline-start: 2px solid var(--go);
+  color: var(--go);
+}
+
+.navr { display: flex; align-items: center; gap: 10px; }
+.lang-toggle {
+  padding: 7px 10px;
+  border: 1px solid var(--ghost-line);
+  border-radius: var(--radius);
+  font-size: var(--fs-13);
+  color: var(--on-ink);
+  transition: background-color var(--d-control);
+}
+.lang-toggle:hover { background: var(--glass-hover); }
+.signin { padding: 8px; font-size: var(--fs-14); font-weight: 500; color: var(--on-ink); }
+.signin:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── The "view in Hebrew" nudge (EN pages; lang-banner.js reveals it for visitors in Israel) — above the header, in flow ── */
+.lang-nudge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 9px var(--gutter);
+  background: var(--go-tint);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-14);
+  color: var(--text);
+}
+.lang-nudge-cta { color: var(--go); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.lang-nudge-cta:hover { color: var(--go-hover); }
+.lang-nudge-x {
+  appearance: none;
+  margin-inline-start: 4px;
+  padding: 0 6px;
+  background: transparent;
+  border: 0;
+  font-size: var(--fs-19);
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.lang-nudge-x:hover { color: var(--text); }
+
+/* ── Footer ── */
+.site-footer { background: var(--ink); color: var(--on-ink-2); padding-block: 56px 36px; font-size: var(--fs-15); }
+.foot-cols { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 28px; }
+.foot-tag { margin-top: 12px; max-width: 28ch; }
+.foot-h { margin-bottom: 12px; color: var(--on-ink); }
+[dir="rtl"] .foot-h { font-weight: 600; }
+.foot-list { display: grid; gap: 7px; }
+.site-footer a { transition: color var(--d-control); }
+.site-footer a:hover { color: var(--on-ink); }
+.foot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-ink);
+}
+.site-footer.is-minimal .foot-row { margin-top: 0; border-top: 0; padding-top: 0; }
+.foot-row a { text-decoration: underline; text-underline-offset: 3px; }
+.foot-end { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; }
+.foot-legal { display: flex; gap: 16px; }
+.footer-lang { padding: 5px 9px; border: 1px solid var(--ghost-line); border-radius: var(--radius); color: var(--on-ink); font-size: var(--fs-13); }
+.site-footer .footer-lang { text-decoration: none; }
+.site-footer .footer-lang:hover { background: var(--glass-hover); }

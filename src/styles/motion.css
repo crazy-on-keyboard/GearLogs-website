@@ -1,0 +1,7 @@
+/* Motion (until PR-3's motion script): scroll reveals are hidden only once /js/anim.js confirms it runs, so the page is
+   complete without it; reduced motion shows everything at once. */
+html.anim-ready .reveal { opacity: 0; transform: translateY(18px); transition: opacity var(--d-reveal) var(--ease), transform var(--d-reveal) var(--ease); }
+html.anim-ready .reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html.anim-ready .reveal { opacity: 1 !important; transform: none !important; }
+}

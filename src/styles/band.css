@@ -1,0 +1,30 @@
+/* The inner-page photo band (the Director's pick F3 · C "option C - but new more fitting photo."): every inner page opens
+   with a slim band — its own photo under a veil, the header floating over it, then the kicker, the title and the lede.
+   Bodies write <gl-band photo="…">; scripts/lib/band.mjs expands it (ONE source for the markup). Its height is set by its
+   content. In Hebrew the photo mirrors, so its subject stays on the side away from the text, and the veil turns with it. */
+.band { position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--on-ink); }
+.band-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+[dir="rtl"] .band-photo { transform: scaleX(-1); }
+.band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--veil-band); }
+[dir="rtl"] .band::before { background: var(--veil-band-rtl); }
+
+.band-in { padding-block: calc(var(--header-h) + 44px) 52px; }
+.band-trail { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; color: var(--on-ink-3); }
+.band .band-trail a { color: var(--on-ink-2); text-decoration: underline; text-underline-offset: 3px; }
+.band .band-trail a:hover { color: var(--on-ink); }
+.band-kicker { margin-bottom: 14px; color: var(--on-ink-3); }
+.band-kicker .sep, .band-trail .sep { margin-inline: 8px; }
+.band-title {
+  max-width: 24ch;
+  font-size: var(--fs-56);
+  font-weight: 300;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--track-tight);
+  text-wrap: balance;
+}
+.band--article .band-title { max-width: 30ch; font-size: var(--fs-44); }
+.band-lede { max-width: 60ch; margin-top: 18px; font-size: var(--fs-19); color: var(--on-ink-2); text-wrap: pretty; }
+/* links inside the band stay light on the ink (they outrank the body's GO text-link rule) */
+.band :is(.band-lede, .band-note) a { color: var(--on-ink); text-decoration: underline; text-underline-offset: 3px; }
+.band :is(.band-lede, .band-note) a:hover { color: var(--go-soft); }
+.band-note { margin-top: 10px; font-size: var(--fs-15); color: var(--on-ink-3); }

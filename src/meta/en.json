@@ -159,5 +159,13 @@
     "ogDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.",
     "twitterTitle": "A column is not a question",
     "twitterDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead."
+  },
+  "pay": {
+    "title": "Secure Checkout — GearLogs",
+    "description": "GearLogs secure checkout, processed by Paddle.",
+    "twitterTitle": "Secure Checkout — GearLogs"
+  },
+  "404": {
+    "title": "Page not found — GearLogs"
   }
 }

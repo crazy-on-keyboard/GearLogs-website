@@ -19,6 +19,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 import SHOTS from './shots.mjs';
+import { encodeWebp } from '../images/encode.mjs';
 
 const APP = process.env.CAPTURE_APP ?? 'http://localhost:4174';
 /** Each language's own window: the two demo accounts cannot share a profile (both sign in to the same local address). */
@@ -109,20 +110,6 @@ function helpers(page, words) {
   return app;
 }
 
-/** PNG → WebP inside the browser itself (no image library to install). */
-async function toWebp(page, png) {
-  const b64 = await page.evaluate(async ({ data, q }) => {
-    const img = new Image();
-    img.src = `data:image/png;base64,${data}`;
-    await img.decode();
-    const c = document.createElement('canvas');
-    c.width = img.naturalWidth; c.height = img.naturalHeight;
-    c.getContext('2d').drawImage(img, 0, 0);
-    return c.toDataURL('image/webp', q).split(',')[1];
-  }, { data: png.toString('base64'), q: WEBP_QUALITY });
-  return Buffer.from(b64, 'base64');
-}
-
 /** One language's run in its own window: open it, picture every shot, leave the app as found, close the window. */
 async function captureLanguage(lang, words, index) {
   const win = WINDOWS[lang];
@@ -156,7 +143,7 @@ async function captureLanguage(lang, words, index) {
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     const file = `${shot.id}.${lang}.webp`;
-    writeFileSync(join(OUT, file), await toWebp(page, png));
+    writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
     index.set(`${shot.id}.${lang}`, { id: shot.id, lang, file, alt: shot.alt?.[lang] ?? '', theme: shot.theme ?? BASE_THEME, app: bundle });
     console.log(`capture: ${file}`);
     if (shot.after) await shot.after(app, lang);

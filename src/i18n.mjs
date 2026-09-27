@@ -17,51 +17,66 @@ export const dirOf = (lang) => (lang === 'he' ? 'rtl' : 'ltr');
 /** The public URL prefix for a language ('' for English at the root, '/he' for Hebrew). */
 export const prefixOf = (lang) => (lang === 'he' ? '/he' : '');
 
-// The eight primary nav items, in order. `key` is the string key; `href` is the target
-// WITHOUT a language prefix (the renderer adds /he and turns "/#x" into "#x" on the home page).
+// The header bar (Stage 2, the approved Home Mock; Q15 · A): Product · Security · Pricing · a click-open Help menu.
+// `href` is the target WITHOUT a language prefix (the renderer adds /he and turns "/#x" into "#x" on the home page).
+// "Who it's for" and /product join in Stage 2's home PR; pages that do not exist yet are never linked (F1 · A).
 export const NAV_ITEMS = [
-  { key: 'nav_capabilities', href: '/#capabilities' },
-  { key: 'nav_how', href: '/#how-it-works' },
+  { key: 'nav_product', href: '/#capabilities' },
   { key: 'nav_security', href: '/#security' },
   { key: 'nav_pricing', href: '/pricing' },
-  { key: 'nav_guides', href: '/guides' },
-  { key: 'nav_faq', href: '/faq' },
-  { key: 'nav_notes', href: '/notes' },
-  { key: 'nav_changelog', href: '/changelog' },
+  {
+    key: 'nav_help',
+    menu: [
+      { key: 'nav_guides', href: '/guides' },
+      { key: 'nav_faq', href: '/faq' },
+      { key: 'nav_notes', href: '/notes' },
+      { key: 'nav_changelog', href: '/changelog' },
+    ],
+  },
+];
+
+// The footer's link columns (the mock's, minus links to pages that do not exist yet — F1 · A).
+export const FOOTER_COLUMNS = [
+  { key: 'footer_col_product', links: [['nav_how', '/#how-it-works'], ['nav_security', '/#security'], ['nav_pricing', '/pricing']] },
+  { key: 'footer_col_help', links: [['nav_guides', '/guides'], ['nav_faq', '/faq'], ['nav_notes', '/notes'], ['nav_changelog', '/changelog']] },
+  { key: 'footer_col_legal', links: [['footer_privacy', '/privacy'], ['footer_terms', '/terms'], ['footer_refunds', '/refunds'], ['nav_contact', '/contact']] },
 ];
 
 export const CHROME = {
   en: {
     html_lang: 'en',
     logo_aria: 'GearLogs home',
+    skip_link: 'Skip to content',
+    nav_aria: 'Main',
 
-    nav_capabilities: 'Capabilities',
-    nav_how: 'How It Works',
+    nav_product: 'Product',
+    nav_how: 'How it works',
     nav_security: 'Security',
     nav_pricing: 'Pricing',
+    nav_help: 'Help',
     nav_guides: 'Guides',
     nav_faq: 'FAQ',
     nav_notes: 'Field Notes',
     nav_changelog: 'Changelog',
     nav_home: 'Home',
     nav_contact: 'Contact',
-    nav_cta: 'Launch App',
+    nav_signin: 'Sign in',
+    nav_request: 'Request access',
 
     // Language toggle — the link points at the OTHER language's copy of this page.
     lang_switch_to: 'עברית',
     lang_switch_aria: 'צפייה בעמוד זה בעברית / View this page in Hebrew',
 
-    // Footer
-    footer_by: 'by',
-    footer_tagline: 'Software for the people who run things',
+    // Footer (the mock's words)
+    footer_tagline: 'Custody records for the gear you hand out.',
     footer_col_product: 'Product',
-    footer_col_resources: 'Resources',
-    footer_col_suite: 'RAQIOM Suite',
+    footer_col_help: 'Help',
     footer_col_legal: 'Legal',
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms of Service',
     footer_refunds: 'Refund Policy',
-    footer_copyright: '&copy; RAQIOM. All rights reserved.',
+    footer_made: 'GearLogs is made by RAQIOM',
+    footer_facts: 'Invite-only &middot; Data in the EU (Frankfurt)',
 
     // "View in Hebrew" banner (shown to visitors detected as being in Israel, on EN pages)
     banner_msg: 'It looks like you&rsquo;re in Israel &mdash; view this page in Hebrew?',
@@ -72,32 +87,35 @@ export const CHROME = {
   he: {
     html_lang: 'he',
     logo_aria: 'GearLogs — לדף הבית',
+    skip_link: 'דילוג לתוכן',
+    nav_aria: 'ראשי',
 
-    nav_capabilities: 'יכולות',
+    nav_product: 'המוצר',
     nav_how: 'איך זה עובד',
     nav_security: 'אבטחה',
     nav_pricing: 'תמחור',
+    nav_help: 'עזרה',
     nav_guides: 'מדריכים',
     nav_faq: 'שאלות נפוצות',
     nav_notes: 'רשומות מהשטח',
     nav_changelog: 'יומן שינויים',
     nav_home: 'דף הבית',
     nav_contact: 'צור קשר',
-    nav_cta: 'כניסה לאפליקציה',
+    nav_signin: 'כניסה',
+    nav_request: 'בקשת גישה',
 
     lang_switch_to: 'English',
     lang_switch_aria: 'View this page in English / צפייה בעמוד זה באנגלית',
 
-    footer_by: 'מאת',
-    footer_tagline: 'תוכנה לאנשים שמנהלים דברים',
+    footer_tagline: 'רישום החזקה לציוד שאתם מנפיקים.',
     footer_col_product: 'המוצר',
-    footer_col_resources: 'משאבים',
-    footer_col_suite: 'מגוון RAQIOM',
+    footer_col_help: 'עזרה',
     footer_col_legal: 'משפטי',
     footer_privacy: 'מדיניות פרטיות',
     footer_terms: 'תנאי שימוש',
     footer_refunds: 'מדיניות החזרים',
-    footer_copyright: '&copy; RAQIOM. כל הזכויות שמורות.',
+    footer_made: 'GearLogs נוצר על ידי RAQIOM',
+    footer_facts: 'בהזמנה בלבד &middot; הנתונים באיחוד האירופי (פרנקפורט)',
 
     banner_msg: 'נראה שאתם גולשים מישראל &mdash; לצפות בעמוד בעברית?',
     banner_cta: 'למעבר לעברית',

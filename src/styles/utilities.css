@@ -1,0 +1,5 @@
+/* The spacing utilities the legal bodies still carry (PR-1 moved them out of inline styles). Last, so they win ties. */
+.mb-8 { margin-bottom: 8px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-16 { margin-bottom: 16px; }

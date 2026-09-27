@@ -1,0 +1,9 @@
+/* The legal pages (Privacy · Terms · Refunds): a reading column under the legal photo band. Their words are unchanged. */
+.legal-lede > * { max-width: 760px; }
+.legal-lede { font-size: var(--fs-17); line-height: 1.7; color: var(--text-body); }
+.legal-h { margin-block: 36px 12px; font-size: var(--fs-22); font-weight: 500; line-height: 1.3; color: var(--text); }
+/* the notice that the policy is still being finalised: standing information (the violet info tone) */
+.legal-note { margin-bottom: 8px; padding: 14px 18px; background: var(--info-bg); border-inline-start: 2px solid var(--info); border-radius: var(--radius); font-size: var(--fs-15); color: var(--text); }
+.legal-caps { text-transform: var(--case-label); font-size: var(--fs-14); }
+.legal-list { margin-block-end: 16px; padding-inline-start: 20px; }
+.legal-list-disc { margin-block-end: 16px; padding-inline-start: 20px; list-style: disc; }

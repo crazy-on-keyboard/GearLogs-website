@@ -3,7 +3,8 @@
 // chrome source (src/chrome.mjs) + per-language head metadata (src/meta/*.json), body
 // fragments (src/bodies/<slug>.<lang>.html) and JSON-LD (src/bodies/<slug>.jsonld.<lang>.json),
 // writing English to dist/ and Hebrew to dist/he/. Then it copies the static assets from
-// public/ and writes sitemap.xml with reciprocal hreflang alternates.
+// public/ and writes sitemap.xml with reciprocal hreflang alternates. Stage 2: the stylesheet is bundled from the
+// partials in src/styles/, the Plex fonts are copied from node_modules, and each body's <gl-band> becomes the photo band.
 //
 //   node scripts/build-site.mjs            full build (fails if any page lacks Hebrew)
 //   node scripts/build-site.mjs --en-only  English only (for verifying EN output pre-translation)
@@ -15,9 +16,17 @@ import { renderPage, canonicalUrl } from '../src/chrome.mjs';
 import { buildSync } from 'esbuild';
 import { renderHeaders } from './lib/headers.mjs';
 import { inlineCodeIn } from './lib/inline-code.mjs';
+import { expandBand } from './lib/band.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
-const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js']];
+const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js'], ['scripts/nav/menu.ts', 'js/menu.js']];
+
+/** The self-hosted fonts (src/styles/fonts.css names them): package folder → the files served from /fonts/, with each licence. */
+const FONT_FILES = {
+  '@fontsource-variable/ibm-plex-sans': ['ibm-plex-sans-latin-wght-normal.woff2', 'ibm-plex-sans-latin-ext-wght-normal.woff2'],
+  '@fontsource/ibm-plex-sans-hebrew': [300, 400, 500, 600].map((w) => `ibm-plex-sans-hebrew-hebrew-${w}-normal.woff2`),
+  '@fontsource/ibm-plex-mono': ['ibm-plex-mono-latin-500-normal.woff2', 'ibm-plex-mono-latin-700-normal.woff2'],
+};
 
 const ROOT = process.cwd();
 const SRC = join(ROOT, 'src');
@@ -26,6 +35,8 @@ const PUBLIC = join(ROOT, 'public');
 const EN_ONLY = process.argv.includes('--en-only');
 
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
+/** Every served photo's widths and sizes (written by `npm run photos`). */
+const photos = readJson(join(PUBLIC, 'img', 'photos', 'manifest.json'));
 const meta = {
   en: readJson(join(SRC, 'meta', 'en.json')),
   he: existsSync(join(SRC, 'meta', 'he.json')) ? readJson(join(SRC, 'meta', 'he.json')) : {},
@@ -96,14 +107,37 @@ for (const [entry, out] of SCRIPT_BUNDLES) {
   buildSync({ entryPoints: [join(SRC, entry)], outfile: join(DIST, out), bundle: true, format: 'iife', target: 'es2020', charset: 'utf8', legalComments: 'none', minify: true });
 }
 
+// The stylesheet: the partials in src/styles/ bundled into ONE minified /styles/main.css (fonts and images stay absolute URLs).
+buildSync({ entryPoints: [join(SRC, 'styles', 'main.css')], outfile: join(DIST, 'styles', 'main.css'), bundle: true, minify: true, charset: 'utf8', legalComments: 'none', external: ['/fonts/*', '/img/*'] });
+
+// The fonts and their licences (SIL OFL 1.1 asks that the licence travel with the files).
+mkdirSync(join(DIST, 'fonts'), { recursive: true });
+for (const [pkg, files] of Object.entries(FONT_FILES)) {
+  const dir = join(ROOT, 'node_modules', ...pkg.split('/'));
+  for (const file of files) cpSync(join(dir, 'files', file), join(DIST, 'fonts', file));
+  cpSync(join(dir, 'LICENSE'), join(DIST, 'fonts', `LICENSE-${pkg.split('/')[1]}.txt`));
+}
+const cssText = readFileSync(join(DIST, 'styles', 'main.css'), 'utf8');
+const missingFonts = [...cssText.matchAll(/url\("?(\/fonts\/[^")]+)"?\)/g)].map((m) => m[1]).filter((u) => !existsSync(join(DIST, u)));
+if (missingFonts.length) {
+  console.error(`build-site: the stylesheet names font files the build did not copy —\n  ${missingFonts.join('\n  ')}`);
+  process.exit(1);
+}
+
 const langs = EN_ONLY ? ['en'] : LANGS;
 let written = 0;
 for (const page of PAGES) {
-  for (const lang of langs) {
+  for (const lang of page.bilingual ? langs : ['en']) {
     const p = { ...page, head: { en: meta.en[page.slug], he: meta.he[page.slug] } };
     p.jsonld = { en: loadJsonld(p, 'en'), he: loadJsonld(p, 'he') };
-    const body = readFileSync(bodyPath(page.slug, lang), 'utf8');
-    const html = renderPage(p, lang, body);
+    const band = expandBand(readFileSync(bodyPath(page.slug, lang), 'utf8'), photos, `${lang}:${page.slug}`);
+    p.opensWithBand = band.opensWithBand;
+    // every page but the home opens with its photo band (the Director's pick F3 · C) — the home opens with its own hero
+    if (page.slug !== 'index' && !band.opensWithBand) {
+      console.error(`build-site: ${lang}:${page.slug} does not open with a <gl-band> — every inner page opens with its photo band`);
+      process.exit(1);
+    }
+    const html = renderPage(p, lang, band.html);
     const out = outPath(page, lang);
     mkdirSync(dirname(out), { recursive: true });
     writeFileSync(out, html, 'utf8');
