@@ -19,9 +19,10 @@ import { headersFor } from './lib/headers.mjs';
 const DIST = join(process.cwd(), 'dist');
 const ORIGIN = 'http://gearlogs.test';   // a reserved name (RFC 6761): nothing leaves this machine for it
 const HOST = new URL(ORIGIN).host;
-/** /pay's refusals already known and decided: Paddle's stylesheet (the open question SEC-PR1-3) and Paddle's retain script
- *  (ProfitWell — blocked on purpose; it belongs to the shared Paddle account's other product). Anything else on /pay fails. */
-const PAY_KNOWN = [/^style-src-elem ← https:\/\/cdn\.paddle\.com\//, /^script-src-elem ← https:\/\/public\.profitwell\.com\//];
+/** /pay's one refusal known and decided: Paddle's retain script (ProfitWell — blocked on purpose; it belongs to the shared
+ *  Paddle account's other product). Paddle's stylesheet is allowed since his pick "/pay styles · A" (SEC-PR1-3), so a refusal of
+ *  it now fails the walk like anything else on /pay. */
+const PAY_KNOWN = [/^script-src-elem ← https:\/\/public\.profitwell\.com\//];
 const CHROME = process.env.CHROME ?? (process.platform === 'win32' ? 'C:/Program Files/Google/Chrome/Application/chrome.exe' : '/usr/bin/google-chrome');
 const TYPES = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain' };

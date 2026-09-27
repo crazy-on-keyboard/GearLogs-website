@@ -22,8 +22,6 @@ const CHROME = process.env.CHROME ?? 'C:/Program Files/Google/Chrome/Application
 const WIDE = [2752, 1536];
 const FOUR_THREE = [2400, 1792];
 const band = (file, size, y, extra = {}) => ({ file, size, ratio: 3, x: 0.5, y, widths: [1440, 2160, size[0]], quality: 0.72, ...extra });
-/** paper.jpg's sign-out sheet carries date-like scribbles: blurred in every served copy (the original stays untouched). */
-const PAPER_SOFTEN = [{ x: 440, y: 380, w: 1300, h: 900, px: 7, feather: 70 }];
 
 /** Every served photo: the manifest key → how it is made. */
 const PHOTOS = {
@@ -36,7 +34,9 @@ const PHOTOS = {
   'contact-band': band('contact.jpg', WIDE, 0.4),
   // the strip stays above the open binder, so the form's date-like pseudo-writing is never served (no dates on the site)
   'legal-band': band('legal.jpg', WIDE, 0.08),
-  'paper-band': band('paper.jpg', FOUR_THREE, 0.35, { soften: PAPER_SOFTEN }),
+  // the clipboard stays sharp, as in the approved mock (his pick "Clipboard · A · Crisp, as in the mock"): its scribbles are
+  // made-up pseudo-dates on a staged sheet and say nothing about when the site changed
+  'paper-band': band('paper.jpg', FOUR_THREE, 0.35),
   // the home's hero (<gl-band photo="hero" variant="hero">): the whole frame, the headline over its empty left third
   'hero-band': { file: 'hero.jpg', size: WIDE, ratio: null, x: 0.5, y: 0.5, widths: [1440, 2160, 2752], quality: 0.78 },
   // the home's sector tiles (<gl-photo>): two wide, three tall — each cut keeps its handover in frame
@@ -46,7 +46,7 @@ const PHOTOS = {
   depot: { file: 'depot.jpg', size: WIDE, ratio: 0.8, x: 0.57, y: 0.5, widths: [600, 1000], quality: 0.78 },
   office: { file: 'office.jpg', size: WIDE, ratio: 0.8, x: 0.45, y: 0.5, widths: [600, 1000], quality: 0.78 },
   // the home's section photos: the problem, the repair and consumables pair, the security handover
-  paper: { file: 'paper.jpg', size: FOUR_THREE, ratio: null, x: 0.5, y: 0.5, widths: [800, 1400], quality: 0.78, soften: PAPER_SOFTEN },
+  paper: { file: 'paper.jpg', size: FOUR_THREE, ratio: null, x: 0.5, y: 0.5, widths: [800, 1400], quality: 0.78 },
   repair: { file: 'repair.jpg', size: FOUR_THREE, ratio: null, x: 0.5, y: 0.5, widths: [800, 1400], quality: 0.78 },
   consumables: { file: 'consumables.jpg', size: FOUR_THREE, ratio: null, x: 0.5, y: 0.5, widths: [800, 1400], quality: 0.78 },
   handover: { file: 'handover.jpg', size: FOUR_THREE, ratio: 0.8, x: 0.5, y: 0.5, widths: [600, 1000], quality: 0.78 },

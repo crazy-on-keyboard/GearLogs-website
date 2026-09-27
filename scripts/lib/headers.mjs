@@ -41,7 +41,7 @@ const CONTACT = csp(withAdded({
 
 /** The /pay page runs Paddle.js (the overlay checkout for vendor payment links): Paddle's own set, its styles and images
  *  included — the ONE page that keeps 'unsafe-inline' and https: images, because the overlay injects both. */
-const PAY_CSP = "default-src 'self'; script-src 'self' https://*.paddle.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
+const PAY_CSP = "default-src 'self'; script-src 'self' https://*.paddle.com; style-src 'self' 'unsafe-inline' https://cdn.paddle.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://*.paddle.com; frame-src https://*.paddle.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests";
 
 /** Every rule, in the order Pages applies them. `detach` removes a header an earlier matching rule set (`! Name`). */
 export const RULES = [

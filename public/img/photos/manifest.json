@@ -167,19 +167,19 @@
         "file": "paper-band.1440.webp",
         "width": 1440,
         "height": 480,
-        "bytes": 36540
+        "bytes": 65702
       },
       {
         "file": "paper-band.2160.webp",
         "width": 2160,
         "height": 720,
-        "bytes": 60600
+        "bytes": 108390
       },
       {
         "file": "paper-band.2400.webp",
         "width": 2400,
         "height": 800,
-        "bytes": 78400
+        "bytes": 142032
       }
     ]
   },
@@ -298,13 +298,13 @@
         "file": "paper.800.webp",
         "width": 800,
         "height": 597,
-        "bytes": 31836
+        "bytes": 44864
       },
       {
         "file": "paper.1400.webp",
         "width": 1400,
         "height": 1045,
-        "bytes": 66092
+        "bytes": 97184
       }
     ]
   },
