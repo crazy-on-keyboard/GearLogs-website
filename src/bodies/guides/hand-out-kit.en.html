@@ -1,0 +1,114 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.22</p>
+        <p class="band-kicker">Guide 4.22 <span class="sep">&middot;</span> Kits</p>
+        <h1 class="band-title">Hand out a kit</h1>
+        <p class="band-lede">Make a kit once, with its items and how many of each. Then hand it to a whole group, a tab or a few people in one go.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>A kit is a named list of items, with how many of each go in one kit. Its code starts with KT-.</li>
+            <li><em>ISSUE</em> is for anyone who holds the right <em>Assign/Return Assets</em>. To build or change a kit you need <em>Manage kits</em>.</li>
+            <li>If the kit has a sensitive item, you also need <em>Assign Sensitive Gear</em>.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open the kits.</h2>
+            <ol class="guide-marks">
+              <li>Open <em>Logistics</em> from the side menu.</li>
+              <li>Switch the area to <em>Kits</em>. This browser remembers your choice.</li>
+              <li><em>ISSUE</em> hands this kit out. It shows only on a kit that has at least one line.</li>
+              <li>The kit&rsquo;s lines: each item, and how many go in one kit. <em>ISSUED TO</em> counts the people who have received the kit.</li>
+            </ol>
+            <gl-shot id="kits" caption="The Kits area of Logistics: each kit with its lines, and ISSUE on its card." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Build a kit, or change one.</h2>
+            <p>This needs <em>Manage kits</em>.</p>
+            <ol class="guide-marks">
+              <li><em>+ KIT</em> makes a new kit.</li>
+              <li><em>LINE</em> adds an item to the kit, with how many go in one kit.</li>
+              <li>A line can be a plain item, a consumable or a serialized item. The <em>Type</em> column says which.</li>
+            </ol>
+            <p>An item can be on a kit only once, and an archived item cannot join a kit.</p>
+            <gl-shot id="kits-build" caption="+ KIT after the kits, LINE on the kit&rsquo;s card, and a consumable line in the Type column." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Press ISSUE, and pick who receives it.</h2>
+            <p><em>Issue kit</em> opens with two panes: <em>Who receives it</em> and <em>What will happen</em>.</p>
+            <ol class="guide-marks">
+              <li>The pane counts the people on the list.</li>
+              <li>Search for a person, a group or a tab. The search narrows the rows, and your ticks stay.</li>
+              <li>Tick a group to take everyone in it. A tick on a tab takes the whole tab.</li>
+              <li>Untick one name to leave that person out.</li>
+            </ol>
+            <p>The list is fixed when you press Issue. Someone added to the group later is not included.</p>
+            <gl-shot id="kit-issue-who" caption="The Cold Chain group, found by a search and ticked: four people on the list." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Check what will happen, then issue.</h2>
+            <ol class="guide-marks">
+              <li>How many people are selected.</li>
+              <li>Every line: how many each person gets, how many the whole list needs, and how many are in stock.</li>
+              <li>How many people will get a notice. Only people linked to a login get one.</li>
+              <li>The green button says how many people will receive the kit. Press it to issue.</li>
+            </ol>
+            <p>On a serialized line, the pane also shows which unit each person gets. The oldest unit in stock comes first. <em>Change</em> picks another unit for that person.</p>
+            <gl-shot id="kit-issue-what" caption="The maths for four people: every line fits the stock, and the button says Issue kit to 4 people." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">If a line is short.</h2>
+            <p>The stock is checked for the whole list at once.</p>
+            <ol class="guide-marks">
+              <li>Here the whole <em>Crew</em> tab is ticked.</li>
+              <li>A line turns red when <em>Needed</em> is more than <em>In stock</em>. If you press Issue now, nothing is issued, and the refusal names every short line.</li>
+            </ol>
+            <p>Take people off the list, or add stock, until no line is red.</p>
+            <gl-shot id="kit-issue-short" caption="The whole Crew tab ticked: two lines are short, in red." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">See the kit on the person&rsquo;s card.</h2>
+            <p>Each person holds the kit as one row, at the top of the gear they hold.</p>
+            <ol class="guide-marks">
+              <li>The kit&rsquo;s name and code, the day it was issued, how many lines are still out, and the next date promised back.</li>
+              <li><em>Return</em> takes the kit back from this person.</li>
+              <li>Open the row to see each item and its state. Consumables are not listed, because they do not come back.</li>
+            </ol>
+            <p>The row keeps the kit&rsquo;s name and lines as they were issued, even if the kit changes later. Each person also gets a hand-over receipt to sign, as with any hand-out.</p>
+            <gl-shot id="person-card-kit" caption="Carlos Mendez holds the Driver Kit: three lines are still out." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Everyone on the list holds the kit&rsquo;s lines, the stock goes down by exactly what went out, and the kit card counts who received it. On <em>Analytics</em>, the <em>Kits</em> source gives three cards: <em>Kit lines out</em>, <em>Kit lines out, by person</em> and <em>Kits issued vs returned</em>. Under <em>Data Ops</em> › <em>Exports</em>, <em>Logistics Reports</em> holds <em>Kit Contents</em> and <em>Kit Issues &amp; Returns</em>.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Not enough stock for one line — take people off the list or add stock</q> A red line is still short. When more lines are short, the sentence counts them, and the short lines are listed under it.</li>
+            <li><q>Pick at least one person</q> Nobody is ticked.</li>
+            <li><q>At most 300 people in one issue — split the list</q> One issue takes at most 300 people.</li>
+            <li><q>This item is sensitive — you need the Assign Sensitive Gear permission to hand it out.</q> The kit holds a sensitive item, and you do not hold that right.</li>
+            <li><q>&hellip; is archived — remove the line from the kit first</q> An item on the kit was archived. The sentence starts with the item&rsquo;s code and name.</li>
+            <li><q>Today&rsquo;s sending limit reached</q> Issue asks first: the people on the list get their notice in the app, not by email, until tomorrow. <em>Issue with in-app notices</em> goes ahead.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/take-kit-back">Take a Kit Back</a></li>
+            <li><a href="/guides/approvals">Approvals &mdash; Reading a Receipt</a></li>
+            <li><a href="/guides/assign-return">Assign &amp; Return Equipment</a></li>
+            <li><a href="/guides#guide-4-8">Track Serial Numbers in the Registry</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

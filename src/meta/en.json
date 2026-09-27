@@ -183,5 +183,45 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Approvals: read a receipt and act on it",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/assign-return": {
+    "title": "Hand-outs and Returns: Hand Out Gear, and Take It Back — GearLogs Guide",
+    "description": "Hand gear to one person or to many, and take it back when it comes in. The stock follows every step. Step by step, with real screens.",
+    "ogTitle": "Hand-outs and returns: hand out gear, and take it back",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Hand-outs and returns: hand out gear, and take it back",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/team-sign-out": {
+    "title": "Hand-outs: Sign Out Gear for a Team — GearLogs Guide",
+    "description": "Give a department head a whole batch of gear in one act. They hold it for the team and sign for it once. Step by step, with real screens.",
+    "ogTitle": "Hand-outs: sign out gear for a team",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Hand-outs: sign out gear for a team",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/write-offs": {
+    "title": "Write-offs: Write Off Lost Gear, and Retire a Leaver — GearLogs Guide",
+    "description": "Record gear that is lost, stolen or broken, retire someone who left with gear in one step, and find every loss in the Archive. Step by step, with real screens.",
+    "ogTitle": "Write-offs: write off lost gear, and retire a leaver",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Write-offs: write off lost gear, and retire a leaver",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/hand-out-kit": {
+    "title": "Kits: Hand Out a Kit — GearLogs Guide",
+    "description": "Make a kit once, with its items and how many of each. Then hand it to a whole group, a tab or a few people in one go. Step by step, with real screens.",
+    "ogTitle": "Kits: hand out a kit",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Kits: hand out a kit",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/take-kit-back": {
+    "title": "Kits: Take a Kit Back — GearLogs Guide",
+    "description": "See who still holds a kit, and take their lines back in one go: returned, kept out for later, lost or damaged. Step by step, with real screens.",
+    "ogTitle": "Kits: take a kit back",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Kits: take a kit back",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }

@@ -147,7 +147,7 @@ async function captureLanguage(lang, words, index) {
     const marks = [];
     for (const [i, entry] of (shot.marks ? await shot.marks(app, lang) : []).entries()) {
       // (told apart by `badge`: a list has its own .at, a locator has neither)
-      const { at, badge } = !Array.isArray(entry) && entry?.badge ? entry : { at: entry, badge: undefined };
+      const { at, badge = shot.badge } = !Array.isArray(entry) && entry?.badge ? entry : { at: entry };
       const places = Array.isArray(at) ? at : [at];
       if (places.length === 0) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} found nothing on the screen`);
       for (const locator of places) {

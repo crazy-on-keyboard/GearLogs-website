@@ -1,0 +1,101 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.23</p>
+        <p class="band-kicker">Guide 4.23 <span class="sep">&middot;</span> Kits</p>
+        <h1 class="band-title">Take a kit back</h1>
+        <p class="band-lede">See who still holds a kit, and take their lines back in one go: returned, kept out for later, lost or damaged.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Taking a kit back needs the right <em>Assign/Return Assets</em>. Administrators, operators and users have it.</li>
+            <li>Marking a line <em>Lost</em> or <em>Damaged</em> also needs <em>Write Off / Report Lost Gear</em>. Administrators and operators have it, and so does anyone it was given to.</li>
+            <li>The kit must have been handed out first. See <a href="/guides/hand-out-kit">Hand Out a Kit</a>.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open the people who hold a kit.</h2>
+            <ol class="guide-marks">
+              <li>On Logistics, switch to <em>Kits</em>.</li>
+              <li>The <em>OPEN</em> plate counts the kit&rsquo;s lines still out, across everyone.</li>
+              <li>The people button opens <em>Who holds this kit</em>. It appears once the kit has been handed out.</li>
+            </ol>
+            <gl-shot id="kits-board" caption="The Kits area and a kit card: the OPEN plate and the people button." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Find the person.</h2>
+            <ol class="guide-marks">
+              <li>Search people, groups or tabs.</li>
+              <li>The people tree: <em>All people</em> at the top, then each tab and group with its count. Someone who has left the board sits under <em>Not on the board</em>.</li>
+              <li>One row per hand-out and person: when it was issued, its state, what is still out with the next promised date, and what was returned, lost, damaged or consumed.</li>
+              <li><em>Return</em> on a row that still has something out.</li>
+            </ol>
+            <gl-shot id="kit-people" caption="Who holds this kit: the search, the people tree, the columns of every hand-out, and Return on one person&rsquo;s row." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Check the lines.</h2>
+            <p><em>Return kit</em> opens with that person&rsquo;s lines on one side, and one decision on the other.</p>
+            <ol class="guide-marks">
+              <li>Every line starts as <em>Returned</em>.</li>
+              <li><em>What happened</em>: <em>Returned</em>, <em>Later</em>, <em>Lost</em> or <em>Damaged</em>, for the line you picked.</li>
+              <li>Consumables show <em>CONSUMED</em>. They are used up and do not come back.</li>
+              <li>The button says what will happen, such as <em>Return 3 items</em>. If everything came back, press it.</li>
+            </ol>
+            <p>Changed your mind? <em>Return all</em> puts every line back to <em>Returned</em>.</p>
+            <gl-shot id="kit-return" caption="Return kit: three lines that start as Returned, the four choices, two consumables, and the button that says what will happen." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Mark what did not come back.</h2>
+            <p>Pick the line in the list, then choose what happened to it.</p>
+            <ol class="guide-marks">
+              <li><em>Lost</em> or <em>Damaged</em> writes the line off.</li>
+              <li>Pick the reason. For <em>Lost</em>: <em>Lost</em>, <em>Stolen</em>, <em>Left with it (unreturned)</em> or <em>Other</em>. For <em>Damaged</em>: <em>Damaged</em>, <em>Destroyed</em> or <em>Worn out</em>.</li>
+              <li><em>Date of the loss</em> starts at today and cannot be later. A note is optional, except for <em>Other</em>.</li>
+              <li>The button now counts both: <em>Return 2 &middot; write off 1</em>.</li>
+            </ol>
+            <p><em>Later</em> keeps a line out. It needs the date in <em>Expected back on</em>, and takes an optional note for the storeman. A write-off always asks first: <q>Write off one item?</q> <q>One line is written off to the ledger under your name and leaves the stock for good.</q></p>
+            <gl-shot id="kit-return-lost" caption="The Fuel Card marked Lost: the reason, the date of the loss, and the button that now names the write-off." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Or start from the person&rsquo;s card.</h2>
+            <p>A kit someone holds has its own row on their card.</p>
+            <ol class="guide-marks">
+              <li>The kit&rsquo;s row: its name and code, when it was issued, and how many lines are still out.</li>
+              <li><em>Return</em> opens the same <em>Return kit</em> window, for that person&rsquo;s lines.</li>
+              <li>Open the row to see every line of the kit, with its state.</li>
+            </ol>
+            <gl-shot id="person-card-kit" caption="The kit&rsquo;s row on a person&rsquo;s card, open: its facts, Return and its lines." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>The returned lines are back in stock, the losses are in the ledger under your name, and a line kept out waits with its date. The kit&rsquo;s OPEN plate drops, the Activity Log records the return, and the person&rsquo;s notice says what happened.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>1 field needs fixing</q> A line marked <em>Later</em> with no date, or a loss with the reason <em>Other</em> and no note, still needs a word. The list marks it <em>needs a word</em>, and <em>Go to the first</em> takes you to its field. With more lines the banner counts them.</li>
+            <li><q>Writing off needs the Write off gear right — return the lines and ask an administrator to write off the loss</q> You marked a line <em>Lost</em> or <em>Damaged</em> without the right <em>Write Off / Report Lost Gear</em>.</li>
+            <li><q>A line was already settled — the list was refreshed</q> Someone settled that line in the meantime. Check the list and save again.</li>
+            <li><q>&hellip; is no longer held by this person — the list was refreshed</q> The item named at the start has left this person since the window opened.</li>
+            <li><q>Denied: Assign Assets</q> On a person&rsquo;s card, <em>Return</em> is dimmed without the right <em>Assign/Return Assets</em>, and says so when pressed. In <em>Who holds this kit</em> the button does not show at all.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/hand-out-kit">Hand Out a Kit</a></li>
+            <li><a href="/guides/write-offs">Retire People &amp; Write Off Gear</a></li>
+            <li><a href="/guides/approvals">Approvals &mdash; Reading a Receipt</a></li>
+            <li><a href="/guides/assign-return">Assign &amp; Return Equipment</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

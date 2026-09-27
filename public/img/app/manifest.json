@@ -299,7 +299,48 @@
       "file": "handout-window.en.webp",
       "alt": "Handing an item to several people at once: pick the people, set how many each gets, see the stock after",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 419,
+          "y": 305,
+          "w": 18,
+          "h": 18
+        },
+        {
+          "n": 2,
+          "x": 877,
+          "y": 274,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 987,
+          "y": 245,
+          "w": 64,
+          "h": 25
+        },
+        {
+          "n": 3,
+          "x": 987,
+          "y": 433,
+          "w": 64,
+          "h": 24
+        },
+        {
+          "n": 4,
+          "x": 908,
+          "y": 758,
+          "w": 174,
+          "h": 30
+        }
+      ]
     },
     {
       "id": "dashboard-approvals",
@@ -427,7 +468,48 @@
       "file": "handout-window.he.webp",
       "alt": "ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1003,
+          "y": 305,
+          "w": 18,
+          "h": 18
+        },
+        {
+          "n": 2,
+          "x": 466,
+          "y": 274,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 389,
+          "y": 245,
+          "w": 68,
+          "h": 25
+        },
+        {
+          "n": 3,
+          "x": 389,
+          "y": 433,
+          "w": 68,
+          "h": 24
+        },
+        {
+          "n": 4,
+          "x": 358,
+          "y": 758,
+          "w": 146,
+          "h": 30
+        }
+      ]
     },
     {
       "id": "dashboard-approvals",
@@ -618,6 +700,2212 @@
           "y": 546,
           "w": 218,
           "h": 24
+        }
+      ]
+    },
+    {
+      "id": "assign-item",
+      "lang": "en",
+      "file": "assign-item.en.webp",
+      "alt": "Assign Item opened on the Hand Truck card: pick the person, set the quantity, press OK",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 640,
+          "y": 558,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 651,
+          "y": 639,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 711,
+          "y": 682,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 4,
+          "x": 928,
+          "y": 747,
+          "w": 41,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "assign-person",
+      "lang": "en",
+      "file": "assign-person.en.webp",
+      "alt": "Assign Item opened on a person's card on the Personnel board: pick the item, set the quantity, press OK",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 643,
+          "y": 348,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 654,
+          "y": 429,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 714,
+          "y": 471,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 4,
+          "x": 931,
+          "y": 536,
+          "w": 41,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "assign-unit",
+      "lang": "en",
+      "file": "assign-unit.en.webp",
+      "alt": "Assign Unit opened on the Barcode Scanner card: pick the unit and the person, then assign, or open the window for more people",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 651,
+          "y": 494,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 651,
+          "y": 536,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 651,
+          "y": 646,
+          "w": 78,
+          "h": 24
+        },
+        {
+          "n": 4,
+          "x": 901,
+          "y": 643,
+          "w": 68,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "person-card-return",
+      "lang": "en",
+      "file": "person-card-return.en.webp",
+      "alt": "A person opened on the Personnel board: the count of everything they hold, and a Return button on each held item",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 767,
+          "y": 363,
+          "w": 112,
+          "h": 14
+        },
+        {
+          "n": 2,
+          "x": 1372,
+          "y": 755,
+          "w": 24,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "return-dialog",
+      "lang": "en",
+      "file": "return-dialog.en.webp",
+      "alt": "Returning two cargo nets: the quantity to return, the ALL button and Confirm Return",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 580,
+          "y": 158,
+          "w": 275,
+          "h": 38
+        },
+        {
+          "n": 2,
+          "x": 580,
+          "y": 230,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 815,
+          "y": 270,
+          "w": 40,
+          "h": 26
+        },
+        {
+          "n": 4,
+          "x": 744,
+          "y": 354,
+          "w": 123,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "person-form-head",
+      "lang": "en",
+      "file": "person-form-head.en.webp",
+      "alt": "Editing a person: the Department Head tick that gives their card the Issue Batch button",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 410,
+          "w": 383,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 843,
+          "y": 712,
+          "w": 77,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "personnel-head",
+      "lang": "en",
+      "file": "personnel-head.en.webp",
+      "alt": "The Personnel board: a department head's card in gold, with its Issue Batch button",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 198,
+          "y": 372,
+          "w": 165,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 668,
+          "y": 348,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "batch-pick",
+      "lang": "en",
+      "file": "batch-pick.en.webp",
+      "alt": "The team head's batch: the head held as custodian, the items tree with one group ticked, and a row for every item",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 365,
+          "y": 158,
+          "w": 705,
+          "h": 15
+        },
+        {
+          "n": 2,
+          "x": 419,
+          "y": 691,
+          "w": 115,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 672,
+          "y": 255,
+          "w": 378,
+          "h": 384
+        }
+      ]
+    },
+    {
+      "id": "batch-qty",
+      "lang": "en",
+      "file": "batch-qty.en.webp",
+      "alt": "The batch's rows: a typed quantity per item, All in stock for one row or every row, and the running total",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 777,
+          "y": 225,
+          "w": 156,
+          "h": 24
+        },
+        {
+          "n": 2,
+          "x": 871,
+          "y": 284,
+          "w": 108,
+          "h": 34
+        },
+        {
+          "n": 3,
+          "x": 887,
+          "y": 320,
+          "w": 91,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 672,
+          "y": 615,
+          "w": 378,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "batch-issue",
+      "lang": "en",
+      "file": "batch-issue.en.webp",
+      "alt": "The batch ready to issue: who gets the notice, and the one button that issues every row",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 672,
+          "y": 646,
+          "w": 378,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 943,
+          "y": 758,
+          "w": 139,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kits",
+      "lang": "en",
+      "file": "kits.en.webp",
+      "alt": "The Kits area of Logistics: every kit with its lines, how many of each per kit, and the ISSUE button on its card",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 64,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 1340,
+          "y": 67,
+          "w": 46,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 616,
+          "y": 458,
+          "w": 58,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 96,
+          "y": 497,
+          "w": 637,
+          "h": 121
+        }
+      ]
+    },
+    {
+      "id": "kits-build",
+      "lang": "en",
+      "file": "kits-build.en.webp",
+      "alt": "Building a kit: the + KIT tile, the LINE button on a kit, and the kind of each line — plain, consumable or serialized",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 755,
+          "y": 416,
+          "w": 655,
+          "h": 180
+        },
+        {
+          "n": 2,
+          "x": 678,
+          "y": 458,
+          "w": 52,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 504,
+          "y": 594,
+          "w": 67,
+          "h": 17,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-who",
+      "lang": "en",
+      "file": "kit-issue-who.en.webp",
+      "alt": "Issuing a kit: a group found by a search and ticked in the Who receives it pane, with the number of people on the list",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 366,
+          "y": 185,
+          "w": 276,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 403,
+          "y": 231,
+          "w": 223,
+          "h": 19
+        },
+        {
+          "n": 3,
+          "x": 419,
+          "y": 305,
+          "w": 135,
+          "h": 18
+        },
+        {
+          "n": 4,
+          "x": 409,
+          "y": 329,
+          "w": 142,
+          "h": 18
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-what",
+      "lang": "en",
+      "file": "kit-issue-what.en.webp",
+      "alt": "Issuing a kit: the What will happen pane — each line per person, needed and in stock, the notice count and the green Issue button",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 672,
+          "y": 225,
+          "w": 378,
+          "h": 13,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 672,
+          "y": 245,
+          "w": 378,
+          "h": 133
+        },
+        {
+          "n": 3,
+          "x": 672,
+          "y": 386,
+          "w": 378,
+          "h": 17
+        },
+        {
+          "n": 4,
+          "x": 888,
+          "y": 758,
+          "w": 194,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-short",
+      "lang": "en",
+      "file": "kit-issue-short.en.webp",
+      "alt": "Issuing a kit to a whole tab: the lines without enough stock turn red — needed is more than in stock",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 406,
+          "y": 269,
+          "w": 106,
+          "h": 18
+        },
+        {
+          "n": 2,
+          "x": 672,
+          "y": 311,
+          "w": 378,
+          "h": 25
+        },
+        {
+          "n": 2,
+          "x": 672,
+          "y": 270,
+          "w": 378,
+          "h": 40
+        }
+      ]
+    },
+    {
+      "id": "person-card-kit",
+      "lang": "en",
+      "file": "person-card-kit.en.webp",
+      "alt": "A person's card with a kit row open: the kit's name and code, when it was issued, the lines still out, each line with its state, and Return",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 121,
+          "y": 358,
+          "w": 439,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 692,
+          "y": 361,
+          "w": 64,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 121,
+          "y": 393,
+          "w": 660,
+          "h": 93,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "kits-board",
+      "lang": "en",
+      "file": "kits-board.en.webp",
+      "alt": "The Kits area of Logistics: each kit card with its lines, how many people it was issued to and how many lines are still out",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1340,
+          "y": 67,
+          "w": 46,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 482,
+          "y": 205,
+          "w": 50,
+          "h": 17,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 535,
+          "y": 202,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "kit-people",
+      "lang": "en",
+      "file": "kit-people.en.webp",
+      "alt": "Who holds this kit: the people tree with a search and counts, and a table of every hand-out with what is still out and what came back",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 81,
+          "y": 199,
+          "w": 381,
+          "h": 19
+        },
+        {
+          "n": 2,
+          "x": 51,
+          "y": 230,
+          "w": 421,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 502,
+          "y": 186,
+          "w": 882,
+          "h": 25
+        },
+        {
+          "n": 4,
+          "x": 1312,
+          "y": 254,
+          "w": 64,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "kit-return",
+      "lang": "en",
+      "file": "kit-return.en.webp",
+      "alt": "Return kit: the person's lines, each starting as Returned, the consumables that do not come back, and the choice for the selected line",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 373,
+          "y": 279,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 1,
+          "x": 373,
+          "y": 338,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 1,
+          "x": 373,
+          "y": 398,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 672,
+          "y": 328,
+          "w": 378,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 568,
+          "y": 485,
+          "w": 56,
+          "h": 17
+        },
+        {
+          "n": 3,
+          "x": 568,
+          "y": 545,
+          "w": 56,
+          "h": 17
+        },
+        {
+          "n": 4,
+          "x": 936,
+          "y": 776,
+          "w": 146,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kit-return-lost",
+      "lang": "en",
+      "file": "kit-return-lost.en.webp",
+      "alt": "Return kit with one line marked Lost: the reason, the date of the loss and a note, and the button that now names the write-off",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 672,
+          "y": 328,
+          "w": 378,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 672,
+          "y": 387,
+          "w": 378,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 672,
+          "y": 473,
+          "w": 184,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 881,
+          "y": 776,
+          "w": 201,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "writeoff-card",
+      "lang": "en",
+      "file": "writeoff-card.en.webp",
+      "alt": "A person opened on the Personnel board: the Write off button on an item's row, and Write off items and Archive at the foot of the card",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 799,
+          "y": 357,
+          "w": 24,
+          "h": 24
+        },
+        {
+          "n": 2,
+          "x": 141,
+          "y": 805,
+          "w": 340,
+          "h": 24
+        },
+        {
+          "n": 3,
+          "x": 488,
+          "y": 805,
+          "w": 340,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "writeoff-item",
+      "lang": "en",
+      "file": "writeoff-item.en.webp",
+      "alt": "Writing off one item: the reason, the quantity, the date it happened and a note",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 263,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 396,
+          "w": 102,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 724,
+          "y": 396,
+          "w": 185,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 526,
+          "y": 496,
+          "w": 383,
+          "h": 53,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "writeoff-batch",
+      "lang": "en",
+      "file": "writeoff-batch.en.webp",
+      "alt": "Writing off several of a person's items at once: tick the lines, pick one reason, confirm them together",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 844,
+          "y": 276,
+          "w": 64,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 534,
+          "y": 315,
+          "w": 18,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 463,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 793,
+          "y": 755,
+          "w": 127,
+          "h": 31
+        }
+      ]
+    },
+    {
+      "id": "writeoff-depart",
+      "lang": "en",
+      "file": "writeoff-depart.en.webp",
+      "alt": "Retiring a person who left with gear: everything they hold, one reason for all, and the word to type before it archives them",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 269,
+          "w": 383,
+          "h": 83,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 385,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 631,
+          "w": 383,
+          "h": 42,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 711,
+          "y": 708,
+          "w": 210,
+          "h": 31
+        }
+      ]
+    },
+    {
+      "id": "archive-writeoffs",
+      "lang": "en",
+      "file": "archive-writeoffs.en.webp",
+      "alt": "The Archive's write-offs: every loss with its reason, who reported it and whether it was recovered",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1320,
+          "y": 67,
+          "w": 100,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 505,
+          "y": 168,
+          "w": 134,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 650,
+          "y": 168,
+          "w": 121,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 87,
+          "y": 228,
+          "w": 1333,
+          "h": 67
+        },
+        {
+          "n": 4,
+          "x": 1345,
+          "y": 368,
+          "w": 24,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "archive-personnel",
+      "lang": "en",
+      "file": "archive-personnel.en.webp",
+      "alt": "The Archive's retired people: who they were, when they left, what was written off, and Restore",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 888,
+          "y": 67,
+          "w": 141,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 869,
+          "y": 168,
+          "w": 134,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 1180,
+          "y": 281,
+          "w": 67,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 1180,
+          "y": 329,
+          "w": 67,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 1180,
+          "y": 376,
+          "w": 67,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 1345,
+          "y": 277,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "person-card-losses",
+      "lang": "en",
+      "file": "person-card-losses.en.webp",
+      "alt": "A person's card with a loss: the red mark, and the Written Off list — what, how many times, how many still lost",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 129,
+          "y": 229,
+          "w": 20,
+          "h": 20
+        },
+        {
+          "n": 2,
+          "x": 111,
+          "y": 589,
+          "w": 675,
+          "h": 56
+        }
+      ]
+    },
+    {
+      "id": "assign-item",
+      "lang": "he",
+      "file": "assign-item.he.webp",
+      "alt": "שייך ציוד פתוח בכרטיס של עגלת יד: בוחרים אדם, קובעים כמות ולוחצים על אישור",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 777,
+          "y": 558,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 471,
+          "y": 639,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 651,
+          "y": 682,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 4,
+          "x": 471,
+          "y": 747,
+          "w": 61,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "assign-person",
+      "lang": "he",
+      "file": "assign-person.he.webp",
+      "alt": "שייך ציוד פתוח בכרטיס של אדם בלוח כוח האדם: בוחרים פריט, קובעים כמות ולוחצים על אישור",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 773,
+          "y": 348,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 468,
+          "y": 429,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 648,
+          "y": 471,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 4,
+          "x": 468,
+          "y": 536,
+          "w": 61,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "assign-unit",
+      "lang": "he",
+      "file": "assign-unit.he.webp",
+      "alt": "שיוך יחידה פתוח בכרטיס של סורק ברקוד: בוחרים יחידה ואדם ומשייכים, או פותחים את החלון לעוד אנשים",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 471,
+          "y": 435,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 471,
+          "y": 478,
+          "w": 318,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 723,
+          "y": 587,
+          "w": 66,
+          "h": 24
+        },
+        {
+          "n": 4,
+          "x": 471,
+          "y": 584,
+          "w": 54,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "person-card-return",
+      "lang": "he",
+      "file": "person-card-return.he.webp",
+      "alt": "אדם פתוח בלוח כוח האדם: ספירת כל מה שבידיו, וכפתור החזר בכל פריט שבידיו",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 573,
+          "y": 363,
+          "w": 89,
+          "h": 14
+        },
+        {
+          "n": 2,
+          "x": 81,
+          "y": 439,
+          "w": 24,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "return-dialog",
+      "lang": "he",
+      "file": "return-dialog.he.webp",
+      "alt": "החזרה של שתי רשתות מטען: הכמות להחזרה, הכפתור הכל ואשר החזרה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 585,
+          "y": 158,
+          "w": 275,
+          "h": 19
+        },
+        {
+          "n": 2,
+          "x": 758,
+          "y": 211,
+          "w": 102,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 585,
+          "y": 251,
+          "w": 40,
+          "h": 26
+        },
+        {
+          "n": 4,
+          "x": 573,
+          "y": 335,
+          "w": 89,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "person-form-head",
+      "lang": "he",
+      "file": "person-form-head.he.webp",
+      "alt": "עריכת אדם: הסימון ראש מחלקה שמוסיף לכרטיס את הכפתור הנפקה מרוכזת",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 410,
+          "w": 383,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 519,
+          "y": 712,
+          "w": 77,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "personnel-head",
+      "lang": "he",
+      "file": "personnel-head.he.webp",
+      "alt": "לוח כוח האדם: הכרטיס של ראש מחלקה בזהב, עם הכפתור הנפקה מרוכזת",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1091,
+          "y": 372,
+          "w": 151,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 748,
+          "y": 348,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "batch-pick",
+      "lang": "he",
+      "file": "batch-pick.he.webp",
+      "alt": "האצווה של ראש הצוות: ראש המחלקה כאחראי, עץ הפריטים עם קבוצה אחת מסומנת, ושורה לכל פריט",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 370,
+          "y": 158,
+          "w": 705,
+          "h": 15
+        },
+        {
+          "n": 2,
+          "x": 920,
+          "y": 691,
+          "w": 101,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 389,
+          "y": 255,
+          "w": 378,
+          "h": 384
+        }
+      ]
+    },
+    {
+      "id": "batch-qty",
+      "lang": "he",
+      "file": "batch-qty.he.webp",
+      "alt": "שורות האצווה: כמות מוקלדת לכל פריט, הכול במלאי לשורה אחת או לכל השורות, והסיכום המתעדכן",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 225,
+          "w": 144,
+          "h": 24
+        },
+        {
+          "n": 2,
+          "x": 462,
+          "y": 284,
+          "w": 108,
+          "h": 34
+        },
+        {
+          "n": 3,
+          "x": 462,
+          "y": 320,
+          "w": 79,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 389,
+          "y": 615,
+          "w": 378,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "batch-issue",
+      "lang": "he",
+      "file": "batch-issue.he.webp",
+      "alt": "האצווה מוכנה להנפקה: מי מקבל את ההודעה, והכפתור האחד שמנפיק את כל השורות",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 389,
+          "y": 646,
+          "w": 378,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 358,
+          "y": 758,
+          "w": 146,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kits",
+      "lang": "he",
+      "file": "kits.he.webp",
+      "alt": "אזור הערכות בלוגיסטיקה: כל ערכה עם השורות שלה, כמה מכל פריט לערכה, והכפתור הנפקה בכרטיס שלה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 64,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 54,
+          "y": 67,
+          "w": 52,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 766,
+          "y": 458,
+          "w": 58,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 707,
+          "y": 497,
+          "w": 637,
+          "h": 121
+        }
+      ]
+    },
+    {
+      "id": "kits-build",
+      "lang": "he",
+      "file": "kits-build.he.webp",
+      "alt": "בניית ערכה: האריח + ערכה, הכפתור שורה בערכה, והסוג של כל שורה — רגיל, מתכלה או עם מספר סידורי",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 30,
+          "y": 416,
+          "w": 655,
+          "h": 180
+        },
+        {
+          "n": 2,
+          "x": 710,
+          "y": 458,
+          "w": 52,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 886,
+          "y": 594,
+          "w": 39,
+          "h": 17,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-who",
+      "lang": "he",
+      "file": "kit-issue-who.he.webp",
+      "alt": "הנפקת ערכה: קבוצה שנמצאה בחיפוש וסומנה בחלונית מי מקבל, עם מספר האנשים ברשימה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 798,
+          "y": 185,
+          "w": 276,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 814,
+          "y": 231,
+          "w": 223,
+          "h": 19
+        },
+        {
+          "n": 3,
+          "x": 879,
+          "y": 305,
+          "w": 142,
+          "h": 18
+        },
+        {
+          "n": 4,
+          "x": 896,
+          "y": 329,
+          "w": 135,
+          "h": 18
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-what",
+      "lang": "he",
+      "file": "kit-issue-what.he.webp",
+      "alt": "הנפקת ערכה: החלונית מה יקרה — כל שורה לאדם, נדרש ובמלאי, מספר ההודעות והכפתור הירוק להנפקה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 389,
+          "y": 225,
+          "w": 378,
+          "h": 13,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 389,
+          "y": 245,
+          "w": 378,
+          "h": 117
+        },
+        {
+          "n": 3,
+          "x": 389,
+          "y": 369,
+          "w": 378,
+          "h": 17
+        },
+        {
+          "n": 4,
+          "x": 358,
+          "y": 758,
+          "w": 194,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kit-issue-short",
+      "lang": "he",
+      "file": "kit-issue-short.he.webp",
+      "alt": "הנפקת ערכה לכרטיסייה שלמה: השורות שאין להן מספיק מלאי נצבעות באדום — נדרש גדול ממה שיש במלאי",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 896,
+          "y": 269,
+          "w": 138,
+          "h": 18
+        },
+        {
+          "n": 2,
+          "x": 389,
+          "y": 294,
+          "w": 378,
+          "h": 25
+        },
+        {
+          "n": 2,
+          "x": 389,
+          "y": 270,
+          "w": 378,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "person-card-kit",
+      "lang": "he",
+      "file": "person-card-kit.he.webp",
+      "alt": "כרטיס אדם עם שורת ערכה פתוחה: שם הערכה והקוד שלה, מתי הונפקה, השורות שעדיין בחוץ, כל שורה עם המצב שלה, והכפתור החזרה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 933,
+          "y": 358,
+          "w": 385,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 749,
+          "y": 361,
+          "w": 58,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 724,
+          "y": 393,
+          "w": 595,
+          "h": 93,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "kits-board",
+      "lang": "he",
+      "file": "kits-board.he.webp",
+      "alt": "אזור הערכות בלוגיסטיקה: כל כרטיס ערכה עם השורות שלו, לכמה אנשים הונפקה וכמה שורות עדיין בחוץ",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 54,
+          "y": 67,
+          "w": 52,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 908,
+          "y": 205,
+          "w": 62,
+          "h": 17,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 881,
+          "y": 202,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "kit-people",
+      "lang": "he",
+      "file": "kit-people.he.webp",
+      "alt": "מי מחזיק בערכה: עץ האנשים עם חיפוש ומונים, וטבלה של כל ניפוק עם מה שעדיין בחוץ ומה שחזר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 978,
+          "y": 199,
+          "w": 381,
+          "h": 19
+        },
+        {
+          "n": 2,
+          "x": 968,
+          "y": 230,
+          "w": 421,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 56,
+          "y": 186,
+          "w": 882,
+          "h": 25
+        },
+        {
+          "n": 4,
+          "x": 64,
+          "y": 254,
+          "w": 58,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "kit-return",
+      "lang": "he",
+      "file": "kit-return.he.webp",
+      "alt": "החזרת ערכה: השורות של האדם, כל אחת מתחילה כהוחזר, המתכלים שלא חוזרים, והבחירה לשורה שנבחרה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 805,
+          "y": 279,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 1,
+          "x": 805,
+          "y": 338,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 1,
+          "x": 805,
+          "y": 398,
+          "w": 263,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 389,
+          "y": 328,
+          "w": 378,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 816,
+          "y": 485,
+          "w": 33,
+          "h": 17
+        },
+        {
+          "n": 3,
+          "x": 816,
+          "y": 545,
+          "w": 33,
+          "h": 17
+        },
+        {
+          "n": 4,
+          "x": 358,
+          "y": 776,
+          "w": 146,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "kit-return-lost",
+      "lang": "he",
+      "file": "kit-return-lost.he.webp",
+      "alt": "החזרת ערכה עם שורה אחת שסומנה אבד: הסיבה, תאריך האובדן והערה, והכפתור שמציין עכשיו את רישום האובדן",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 389,
+          "y": 328,
+          "w": 378,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 389,
+          "y": 387,
+          "w": 378,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 584,
+          "y": 473,
+          "w": 184,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 358,
+          "y": 776,
+          "w": 208,
+          "h": 30
+        }
+      ]
+    },
+    {
+      "id": "writeoff-card",
+      "lang": "he",
+      "file": "writeoff-card.he.webp",
+      "alt": "אדם פתוח בלוח כוח האדם: הכפתור רישום אובדן בשורת פריט, ובתחתית הכרטיס רישום פריטים כאובדן והעבר לארכיון",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 724,
+          "y": 357,
+          "w": 24,
+          "h": 24
+        },
+        {
+          "n": 2,
+          "x": 1012,
+          "y": 805,
+          "w": 287,
+          "h": 24
+        },
+        {
+          "n": 3,
+          "x": 718,
+          "y": 805,
+          "w": 287,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "writeoff-item",
+      "lang": "he",
+      "file": "writeoff-item.he.webp",
+      "alt": "גריעת פריט אחד: הסיבה, הכמות, תאריך האירוע והערה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 263,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 812,
+          "y": 396,
+          "w": 102,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 396,
+          "w": 185,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 531,
+          "y": 496,
+          "w": 383,
+          "h": 53,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "writeoff-batch",
+      "lang": "he",
+      "file": "writeoff-batch.he.webp",
+      "alt": "גריעת כמה מהפריטים של אדם בבת אחת: מסמנים שורות, בוחרים סיבה אחת ומאשרים את כולן יחד",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 260,
+          "w": 45,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 888,
+          "y": 298,
+          "w": 18,
+          "h": 18
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 446,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 739,
+          "w": 141,
+          "h": 31
+        }
+      ]
+    },
+    {
+      "id": "writeoff-depart",
+      "lang": "he",
+      "file": "writeoff-depart.he.webp",
+      "alt": "העברה לארכיון של אדם שעזב עם ציוד: כל מה שבידיו, סיבה אחת לכולם והמילה שמקלידים לפני ההעברה",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 269,
+          "w": 383,
+          "h": 83,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 385,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 631,
+          "w": 383,
+          "h": 42,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 708,
+          "w": 203,
+          "h": 31
+        }
+      ]
+    },
+    {
+      "id": "archive-writeoffs",
+      "lang": "he",
+      "file": "archive-writeoffs.he.webp",
+      "alt": "האובדנים בארכיון: כל אובדן עם הסיבה, מי דיווח ואם שוחזר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 20,
+          "y": 67,
+          "w": 82,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 794,
+          "y": 168,
+          "w": 134,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 663,
+          "y": 168,
+          "w": 121,
+          "h": 32,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 20,
+          "y": 228,
+          "w": 1333,
+          "h": 67
+        },
+        {
+          "n": 4,
+          "x": 72,
+          "y": 368,
+          "w": 24,
+          "h": 24
+        }
+      ]
+    },
+    {
+      "id": "archive-personnel",
+      "lang": "he",
+      "file": "archive-personnel.he.webp",
+      "alt": "אנשים בארכיון: מי הם, מתי עזבו, מה נרשם כאובדן, והכפתור שחזר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 323,
+          "y": 67,
+          "w": 117,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 431,
+          "y": 168,
+          "w": 134,
+          "h": 32
+        },
+        {
+          "n": 3,
+          "x": 187,
+          "y": 293,
+          "w": 73,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 187,
+          "y": 338,
+          "w": 73,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 187,
+          "y": 384,
+          "w": 73,
+          "h": 16,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 72,
+          "y": 289,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "person-card-losses",
+      "lang": "he",
+      "file": "person-card-losses.he.webp",
+      "alt": "כרטיס של אדם עם אובדן: הסימון האדום, והרשימה נרשם כאובדן — מה, כמה פעמים וכמה עדיין אבודים",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1291,
+          "y": 229,
+          "w": 20,
+          "h": 20
+        },
+        {
+          "n": 2,
+          "x": 719,
+          "y": 589,
+          "w": 610,
+          "h": 56
         }
       ]
     }

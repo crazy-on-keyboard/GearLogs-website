@@ -3,83 +3,20 @@
 // a screen is named by the app's dictionary key (`app.nav('tab_approvals')`), so the same shot works in English and Hebrew.
 // `target` (a CSS selector) pictures one element instead of the whole window, and `clip` a rectangle the shot measures itself
 // (from one element's top to another's bottom); `marks` lists what a guide step points at (their boxes land in the manifest, and
-// the site outlines them — they follow the app on every re-capture). Add a shot here, run `npm run capture`,
-// and the site's picture is the app as it is today.
+// the site outlines them — they follow the app on every re-capture). Add a shot here (a guide's screens go in ./guides/), run
+// `npm run capture`, and the site's picture is the app as it is today. Shared helpers and the demo's names: ./helpers.mjs.
 // Never pictured (the council's law): weapons — the Army demo's Weapons Vault tab stays out of every shot.
 
 /** @typedef {{ id: string, alt: { en: string, he: string }, theme?: 'office' | 'light' | 'dark' | 'army' | 'medical', target?: string, settle?: number,
  *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void>,
  *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }>,
- *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: 'start' | 'end' | 'corner' }>> }} Shot */
+ *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: 'start' | 'end' | 'corner' }>>,
+ *    badge?: 'start' | 'end' | 'corner' }} Shot */
 
-const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-/** My Gear, the staff page (served locally on :4175); its session lives in the same capture window as the demo account's. */
-const STAFF = process.env.CAPTURE_STAFF ?? 'http://localhost:4175';
-
-/** Open My Gear in the language of the run (the page keeps its own language switch) and wait for its rail. */
-async function openMyGear(app, lang) {
-  if (!app.page.url().startsWith(STAFF)) await app.page.goto(STAFF, { waitUntil: 'load' });
-  await app.page.waitForTimeout(1500);
-  if (!(await app.page.evaluate(() => document.documentElement.lang || 'en')).startsWith(lang)) {
-    await app.page.getByRole('button', { name: lang === 'he' ? 'HE' : 'EN', exact: true }).first().click();
-    await app.page.waitForFunction((w) => (document.documentElement.lang || 'en').startsWith(w), lang);
-  }
-  const rail = (key) => app.t(key).then((w) => app.page.getByRole('option', { name: new RegExp(`^${escapeRe(w)}`, 'i') }).first());
-  await (await rail('staff_rail_gear')).waitFor({ timeout: 15_000 });
-  return rail;
-}
-
-/** The demo's own names in each workspace (the Hebrew Logistics demo is the same workspace in Hebrew words). */
-const NAMES = {
-  serialItem: { en: 'Barcode Scanner', he: 'סורק ברקוד' },
-  serialTab: { en: 'Fleet', he: 'צי רכב' },
-  homeTab: { en: 'Warehouse', he: 'מחסן' },
-  team: { en: 'Warehouse — Days', he: 'מחסן — יום' },
-  plainItem: { en: 'Hand Truck', he: 'עגלת יד' },
-  person: { en: 'Carlos Mendez', he: 'יוסי אברהם' },
-};
-
-/** A board control by its label "<word> — [role ]<name>" (a person's label carries the role before the name). */
-const control = async (app, key, name) => app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t(key))} — (.+ )?${escapeRe(name)}$`) }).first();
-
-/** Bring an element to the top of its scrolling pane, with a little room above it. */
-const toTop = (locator) => locator.evaluate((el) => {
-  el.scrollIntoView({ block: 'start' });
-  let p = el.parentElement;
-  while (p && !(p.scrollHeight > p.clientHeight && /auto|scroll/.test(getComputedStyle(p).overflowY))) p = p.parentElement;
-  p?.scrollBy(0, -28);
-});
-
-/** The places of a locator that sit wholly inside the picture (a group mark numbers every one of them). */
-async function onScreen(app, locator) {
-  const { width, height } = app.page.viewportSize();
-  const inside = [];
-  for (const place of await locator.all()) {
-    const b = await place.boundingBox();
-    if (b && b.x >= 0 && b.y >= 0 && b.x + b.width <= width && b.y + b.height <= height) inside.push(place);
-  }
-  return inside;
-}
-
-/** Approvals with its Waiting list open (the app remembers the last list picked, so a shot never trusts it). */
-async function openWaiting(app) {
-  await app.nav('tab_approvals');
-  await app.page.getByRole('option', { name: new RegExp(`^${escapeRe(await app.t('apr_tab_waiting'))}`, 'i') }).first().click();
-  await app.idle(800);
-}
-
-/** A dashboard card by its title (the card is the rounded box that holds the title). */
-const dashboardCard = async (app, key) => app.page.locator('.rounded-xl').filter({ has: app.page.getByRole('heading', { name: await app.t(key), exact: true }) }).first();
-
-/** Open a board card by its own "Show details" button and bring the whole open card into view. */
-async function openCard(app, name) {
-  await (await control(app, 'show_details', name)).click();
-  await app.idle(900);
-  await toTop(await control(app, 'tooltip_edit', name));
-  await app.idle(400);
-}
-const closeCard = async (app, name) => { await (await control(app, 'hide_details', name)).click().catch(() => {}); await app.idle(300); };
+import { NAMES, control, dashboardCard, escapeRe, onScreen, openCard, openMyGear, openWaiting, closeCard, slotted, toTop } from './helpers.mjs';
+import HANDOUT_SHOTS from './guides/handout.mjs';
+import KIT_SHOTS from './guides/kits.mjs';
+import WRITEOFF_SHOTS from './guides/writeoffs.mjs';
 
 /** @type {Shot[]} */
 export default [
@@ -199,6 +136,17 @@ export default [
     },
     // nothing is handed out: the window closes the way a person would close it
     after: async (app) => { await app.page.keyboard.press('Escape'); await app.idle(400); },
+    // the hand-out guide's step 3: the ticked group, a row's own quantity, the After column with what is left, the act
+    marks: async (app, lang) => {
+      const dialog = app.page.getByRole('dialog').last();
+      return [
+        dialog.getByRole('checkbox', { name: new RegExp(escapeRe(NAMES.team[lang])) }).first(),
+        dialog.getByRole('group', { name: new RegExp(`^${escapeRe(await app.t('handout_col_qty'))} · `) }).first(),
+        [dialog.getByRole('columnheader', { name: await app.t('handout_col_after'), exact: true }).first(),
+          dialog.getByText(slotted(await app.t('handout_left'))).first()],
+        app.page.getByRole('button', { name: slotted(await app.t('handout_submit')) }).first(),
+      ];
+    },
   },
   {
     id: 'dashboard-approvals',
@@ -283,4 +231,8 @@ export default [
     },
     after: async (app) => app.backToApp(),
   },
+  // the guides' own screens, one file per guide area
+  ...HANDOUT_SHOTS,
+  ...KIT_SHOTS,
+  ...WRITEOFF_SHOTS,
 ];

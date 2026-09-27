@@ -46,18 +46,20 @@ function marksLayer(shot, lang, maskId) {
 
 /**
  * Where a mark's number sits: a number never hides the thing it points at, and never leaves the picture. A large target
- * (a card, a list, a button row) carries it on its start corner; a small one (a chip, an icon) beside it on the start side,
- * or the end side when the start side is the picture's edge — or where the shot says (`badge`: start · end · corner).
+ * (a card, a list, a button row) carries it on its start corner, raised so it only touches the outline (text starts right at
+ * that corner); a small one (a chip, an icon, a one-line label) beside it on the start side, or the end side when the start
+ * side is the picture's edge — or where the shot says (`badge`: start · end · corner).
  */
 function badgeAt(b, lang, w, h, size) {
   const GAP = 4;
+  const TOUCH = 8;
   const rtl = lang === 'he';
   const startX = rtl ? b.x + b.w + GAP : b.x - GAP - size;
   const endX = rtl ? b.x - GAP - size : b.x + b.w + GAP;
-  let side = b.badge ?? (b.w < 3 * size ? 'start' : 'corner');
+  let side = b.badge ?? (b.w < 3 * size || b.h <= size ? 'start' : 'corner');
   if (side === 'start' && (startX < 0 || startX + size > w)) side = 'end';
   const midY = b.y + b.h / 2 - size / 2;
-  const [x, y] = side === 'start' ? [startX, midY] : side === 'end' ? [endX, midY] : [(rtl ? b.x + b.w : b.x) - size / 2, b.y - size / 2];
+  const [x, y] = side === 'start' ? [startX, midY] : side === 'end' ? [endX, midY] : [(rtl ? b.x + b.w : b.x) - size / 2, b.y - size + TOUCH];
   const clamp = (v, max) => Math.round(Math.min(Math.max(v, 0), max));
   return [clamp(x, w - size), clamp(y, h - size)];
 }
