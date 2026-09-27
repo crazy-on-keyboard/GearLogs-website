@@ -24,23 +24,42 @@ function marksLayer(shot, lang, maskId) {
   // the approved board's measures, in the app's own pixels: 6 around each target, a 30 square number on its start corner
   const PAD = 6;
   const BADGE = 30;
-  const boxes = shot.marks.map((m) => ({ x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
+  // one number may stand in several places (every "No code" mark on screen is the step's "2")
+  const boxes = shot.marks.map((m, i) => ({ n: m.n ?? i + 1, badge: m.badge, x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
   const rect = (b, cls) => `<rect class="${cls}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="none"/>`;
   const holes = boxes.map((b) => `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="#000"/>`).join('');
-  const badges = boxes.map((b, i) => {
-    const x = (lang === 'he' ? b.x + b.w : b.x) - BADGE / 2;
-    const y = b.y - BADGE / 2;
-    return `<rect class="marks-badge" x="${x}" y="${y}" width="${BADGE}" height="${BADGE}" rx="2"/><text class="marks-num" x="${x + BADGE / 2}" y="${y + BADGE / 2}" text-anchor="middle" dominant-baseline="central">${i + 1}</text>`;
+  const badges = boxes.map((b) => {
+    const [x, y] = badgeAt(b, lang, w, h, BADGE);
+    return `<rect class="marks-badge" x="${x}" y="${y}" width="${BADGE}" height="${BADGE}" rx="2"/><text class="marks-num" x="${x + BADGE / 2}" y="${y + BADGE / 2}" text-anchor="middle" dominant-baseline="central">${b.n}</text>`;
   }).join('');
-  // the mask covers the whole picture (its default region hugs the masked shapes and would cut the pulse off above and below)
+  // the mask covers the whole picture (its default region hugs the masked shapes and would cut the pulse off above and below);
+  // the outlines and numbers form one group, so the page can tell when the things the step points at are really in view
   return (
     `<svg class="frame-marks" viewBox="0 0 ${w} ${h}" aria-hidden="true" focusable="false">` +
     `<defs><mask id="${maskId}" maskUnits="userSpaceOnUse" x="0" y="0" width="${w}" height="${h}"><rect width="${w}" height="${h}" fill="#fff"/>${holes}</mask></defs>` +
     `<rect class="marks-dim" width="${w}" height="${h}" fill-opacity="0.5" mask="url(#${maskId})"/>` +
     `<g mask="url(#${maskId})">${boxes.map((b) => rect(b, 'marks-pulse')).join('')}</g>` +
-    boxes.map((b) => rect(b, 'marks-ring')).join('') + badges +
+    `<g class="marks-zone">${boxes.map((b) => rect(b, 'marks-ring')).join('')}${badges}</g>` +
     `</svg>`
   );
+}
+
+/**
+ * Where a mark's number sits: a number never hides the thing it points at, and never leaves the picture. A large target
+ * (a card, a list, a button row) carries it on its start corner; a small one (a chip, an icon) beside it on the start side,
+ * or the end side when the start side is the picture's edge — or where the shot says (`badge`: start · end · corner).
+ */
+function badgeAt(b, lang, w, h, size) {
+  const GAP = 4;
+  const rtl = lang === 'he';
+  const startX = rtl ? b.x + b.w + GAP : b.x - GAP - size;
+  const endX = rtl ? b.x - GAP - size : b.x + b.w + GAP;
+  let side = b.badge ?? (b.w < 3 * size ? 'start' : 'corner');
+  if (side === 'start' && (startX < 0 || startX + size > w)) side = 'end';
+  const midY = b.y + b.h / 2 - size / 2;
+  const [x, y] = side === 'start' ? [startX, midY] : side === 'end' ? [endX, midY] : [(rtl ? b.x + b.w : b.x) - size / 2, b.y - size / 2];
+  const clamp = (v, max) => Math.round(Math.min(Math.max(v, 0), max));
+  return [clamp(x, w - size), clamp(y, h - size)];
 }
 
 /** Text for an HTML attribute (an alt that quotes a label, "Expiring", must not cut the attribute short). */

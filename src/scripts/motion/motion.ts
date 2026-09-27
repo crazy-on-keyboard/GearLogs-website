@@ -28,18 +28,20 @@ function show(el: HTMLElement): void {
   el.querySelectorAll<HTMLElement>('[data-to]').forEach(countUp);
 }
 
-/** A guide step's outlines pulse once their screen is well in view (the CSS runs the three pulses, then they rest). */
+/** A guide step's outlines pulse when the things they point at are wholly in view — not merely the picture, whose targets can
+ *  sit below the fold — and again each time the reader comes back to the step (the CSS runs three pulses, then they rest). */
 function wireMarks(): void {
-  const layers = Array.from(document.querySelectorAll<SVGSVGElement>('.frame-marks'));
-  if (layers.length === 0) return;
+  const zones = Array.from(document.querySelectorAll<SVGGElement>('.frame-marks .marks-zone'));
+  if (zones.length === 0) return;
   const io = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add('is-live');
-      io.unobserve(entry.target);
+      const layer = (entry.target as SVGGElement).ownerSVGElement;
+      if (!layer) continue;
+      if (entry.intersectionRatio >= 0.95) layer.classList.add('is-live');
+      else if (!entry.isIntersecting) layer.classList.remove('is-live');
     }
-  }, { threshold: 0.6 });
-  layers.forEach((el) => io.observe(el));
+  }, { threshold: [0, 0.95] });
+  zones.forEach((el) => io.observe(el));
 }
 
 function wire(): void {

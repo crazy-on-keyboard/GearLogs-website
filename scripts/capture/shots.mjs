@@ -10,7 +10,7 @@
 /** @typedef {{ id: string, alt: { en: string, he: string }, theme?: 'office' | 'light' | 'dark' | 'army' | 'medical', target?: string, settle?: number,
  *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void>,
  *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }>,
- *    marks?: (app: any) => Promise<any[]> }} Shot */
+ *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: 'start' | 'end' | 'corner' }>> }} Shot */
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -51,6 +51,27 @@ const toTop = (locator) => locator.evaluate((el) => {
   p?.scrollBy(0, -28);
 });
 
+/** The places of a locator that sit wholly inside the picture (a group mark numbers every one of them). */
+async function onScreen(app, locator) {
+  const { width, height } = app.page.viewportSize();
+  const inside = [];
+  for (const place of await locator.all()) {
+    const b = await place.boundingBox();
+    if (b && b.x >= 0 && b.y >= 0 && b.x + b.width <= width && b.y + b.height <= height) inside.push(place);
+  }
+  return inside;
+}
+
+/** Approvals with its Waiting list open (the app remembers the last list picked, so a shot never trusts it). */
+async function openWaiting(app) {
+  await app.nav('tab_approvals');
+  await app.page.getByRole('option', { name: new RegExp(`^${escapeRe(await app.t('apr_tab_waiting'))}`, 'i') }).first().click();
+  await app.idle(800);
+}
+
+/** A dashboard card by its title (the card is the rounded box that holds the title). */
+const dashboardCard = async (app, key) => app.page.locator('.rounded-xl').filter({ has: app.page.getByRole('heading', { name: await app.t(key), exact: true }) }).first();
+
 /** Open a board card by its own "Show details" button and bring the whole open card into view. */
 async function openCard(app, name) {
   await (await control(app, 'show_details', name)).click();
@@ -76,11 +97,23 @@ export default [
     id: 'personnel',
     alt: { en: 'The Personnel board: every person with the gear they hold', he: 'לוח כוח האדם: כל אדם עם הציוד שבידיו' },
     run: async (app) => { await app.nav('tab_personnel'); },
+    // the Approvals guide's step 5: the filter that lists who cannot receive a code, and the No code mark on each of them
+    marks: async (app) => [
+      // the filter's own words with its count ("Cannot receive a code · 16"); the (i) beside it names the same idea, never a count
+      app.page.getByRole('button', { name: new RegExp(`${escapeRe((await app.t('apr_filter_no_code')).split(' · ')[0])} · \\d+`) }).first(),
+      // the number on the mark's far side: its near side holds the person's code
+      { at: await onScreen(app, app.page.getByText(await app.t('apr_no_code'), { exact: true })), badge: 'end' },
+    ],
   },
   {
     id: 'approvals',
     alt: { en: 'Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired', he: 'אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף' },
-    run: async (app) => { await app.nav('tab_approvals'); },
+    run: openWaiting,
+    // the Approvals guide's step 1: the screen in the side menu, and the rail that counts every state
+    marks: async (app) => [
+      app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_approvals'))}`, 'i') }).first(),
+      app.page.getByRole('listbox', { name: await app.t('apr_rail'), exact: true }).first(),
+    ],
   },
   {
     id: 'dashboard',
@@ -102,14 +135,20 @@ export default [
       await app.page.getByRole('button', { name: await app.t('apr_words_read'), exact: true }).first().click();
       await app.idle(1000);
     },
+    // the Approvals guide's step 2: the receipt picked in the list, its lines, its timeline and its notes
+    marks: async (app) => [
+      app.page.getByRole('option', { name: /HO-005/ }).first(),
+      app.page.getByRole('region', { name: await app.t('apr_lines_title'), exact: true }).first(),
+      app.page.getByRole('region', { name: await app.t('apr_timeline_title'), exact: true }).first(),
+      app.page.getByRole('heading', { name: await app.t('apr_words_title'), exact: true }).first().locator('xpath=..'),
+    ],
   },
   {
     // the Approvals guide's step 3: a receipt still waiting, open, with the three acts under it (nothing is pressed)
     id: 'approvals-open',
     alt: { en: 'An open receipt waiting for its signature, with the three actions under it: confirm on behalf, cancel the receipt, resend the reminder', he: 'אישור מסירה פתוח שממתין לחתימה, ומתחתיו שלוש הפעולות: אישור בשם האדם, ביטול אישור המסירה ושליחת תזכורת מחדש' },
     run: async (app) => {
-      await app.nav('tab_approvals');
-      await app.idle(800);
+      await openWaiting(app);
       await app.page.getByRole('option', { name: /HO-\d+/ }).first().click();
       await app.idle(1200);
     },
@@ -137,6 +176,12 @@ export default [
     alt: { en: 'A person opened on the Personnel board: everything they hold, their kits and their history', he: 'אדם פתוח בלוח כוח האדם: כל מה שבידיו, הערכות וההיסטוריה' },
     run: async (app, lang) => { await app.nav('tab_personnel'); await openCard(app, NAMES.person[lang]); },
     after: async (app, lang) => closeCard(app, NAMES.person[lang]),
+    // the Approvals guide's step 4: the receipt's mark on the person's card, then on the kit's row inside it
+    marks: async (app, lang) => {
+      const card = app.page.locator('.card-base').filter({ has: await control(app, 'tooltip_edit', NAMES.person[lang]) }).first();
+      const receipts = card.getByRole('button', { name: new RegExp(`${escapeRe(await app.t('apr_mark_open'))}$`) });
+      return [receipts.nth(0), receipts.nth(1)];
+    },
   },
   {
     id: 'handout-window',
@@ -164,6 +209,8 @@ export default [
       await toTop(app.page.getByText(await app.t('preset_apr_state'), { exact: true }).first());
     },
     settle: 1500,
+    // the Approvals guide's step 6: the four cards of the Approvals source, in the order the guide names them
+    marks: async (app) => Promise.all(['preset_apr_state', 'preset_apr_waiting', 'preset_apr_confirm', 'preset_apr_flow'].map((key) => dashboardCard(app, key))),
   },
   {
     // /product "how much is in stock, how full, what to reorder": the demo dashboard's own stock cards (demo/dashboard.ts)

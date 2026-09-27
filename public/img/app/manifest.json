@@ -27,7 +27,36 @@
       "file": "personnel.en.webp",
       "alt": "The Personnel board: every person with the gear they hold",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 342,
+          "y": 134,
+          "w": 208,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 891,
+          "y": 487,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 891,
+          "y": 857,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        }
+      ]
     },
     {
       "id": "approvals",
@@ -35,7 +64,27 @@
       "file": "approvals.en.webp",
       "alt": "Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 195,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 88,
+          "y": 265,
+          "w": 150,
+          "h": 227
+        }
+      ]
     },
     {
       "id": "dashboard",
@@ -75,7 +124,52 @@
       "file": "personnel.he.webp",
       "alt": "לוח כוח האדם: כל אדם עם הציוד שבידיו",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 846,
+          "y": 134,
+          "w": 190,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 1167,
+          "y": 289,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 1167,
+          "y": 857,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 499,
+          "y": 487,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 499,
+          "y": 757,
+          "w": 50,
+          "h": 15,
+          "badge": "end"
+        }
+      ]
     },
     {
       "id": "approvals",
@@ -83,7 +177,27 @@
       "file": "approvals.he.webp",
       "alt": "אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 195,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 1202,
+          "y": 265,
+          "w": 150,
+          "h": 227
+        }
+      ]
     },
     {
       "id": "dashboard",
@@ -107,7 +221,41 @@
       "file": "approvals-receipt.en.webp",
       "alt": "A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 275,
+          "y": 383,
+          "w": 415,
+          "h": 52
+        },
+        {
+          "n": 2,
+          "x": 731,
+          "y": 318,
+          "w": 673,
+          "h": 160
+        },
+        {
+          "n": 3,
+          "x": 731,
+          "y": 492,
+          "w": 673,
+          "h": 91
+        },
+        {
+          "n": 4,
+          "x": 731,
+          "y": 668,
+          "w": 673,
+          "h": 117
+        }
+      ]
     },
     {
       "id": "item-card",
@@ -123,7 +271,27 @@
       "file": "person-card.en.webp",
       "alt": "A person opened on the Personnel board: everything they hold, their kits and their history",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 627,
+          "y": 224,
+          "w": 67,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 567,
+          "y": 365,
+          "w": 67,
+          "h": 15
+        }
+      ]
     },
     {
       "id": "handout-window",
@@ -139,7 +307,41 @@
       "file": "dashboard-approvals.en.webp",
       "alt": "The dashboard's receipt cards: receipts by state, who is waiting to sign, and how fast people confirm",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 87,
+          "y": 157,
+          "w": 318,
+          "h": 248
+        },
+        {
+          "n": 2,
+          "x": 422,
+          "y": 157,
+          "w": 318,
+          "h": 512
+        },
+        {
+          "n": 3,
+          "x": 756,
+          "y": 157,
+          "w": 318,
+          "h": 248
+        },
+        {
+          "n": 4,
+          "x": 756,
+          "y": 421,
+          "w": 652,
+          "h": 248
+        }
+      ]
     },
     {
       "id": "approvals-receipt",
@@ -147,7 +349,41 @@
       "file": "approvals-receipt.he.webp",
       "alt": "אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 750,
+          "y": 383,
+          "w": 415,
+          "h": 52
+        },
+        {
+          "n": 2,
+          "x": 36,
+          "y": 318,
+          "w": 673,
+          "h": 160
+        },
+        {
+          "n": 3,
+          "x": 36,
+          "y": 492,
+          "w": 673,
+          "h": 91
+        },
+        {
+          "n": 4,
+          "x": 36,
+          "y": 668,
+          "w": 673,
+          "h": 117
+        }
+      ]
     },
     {
       "id": "item-card",
@@ -163,7 +399,27 @@
       "file": "person-card.he.webp",
       "alt": "אדם פתוח בלוח כוח האדם: כל מה שבידיו, הערכות וההיסטוריה",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 810,
+          "y": 224,
+          "w": 67,
+          "h": 17
+        },
+        {
+          "n": 2,
+          "x": 859,
+          "y": 365,
+          "w": 67,
+          "h": 15
+        }
+      ]
     },
     {
       "id": "handout-window",
@@ -179,7 +435,41 @@
       "file": "dashboard-approvals.he.webp",
       "alt": "כרטיסי הקבלות בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1034,
+          "y": 157,
+          "w": 318,
+          "h": 248
+        },
+        {
+          "n": 2,
+          "x": 700,
+          "y": 157,
+          "w": 318,
+          "h": 512
+        },
+        {
+          "n": 3,
+          "x": 366,
+          "y": 157,
+          "w": 318,
+          "h": 248
+        },
+        {
+          "n": 4,
+          "x": 32,
+          "y": 421,
+          "w": 652,
+          "h": 248
+        }
+      ]
     },
     {
       "id": "mygear",
@@ -274,18 +564,21 @@
       },
       "marks": [
         {
+          "n": 1,
           "x": 734,
           "y": 546,
           "w": 218,
           "h": 24
         },
         {
+          "n": 2,
           "x": 958,
           "y": 546,
           "w": 218,
           "h": 24
         },
         {
+          "n": 3,
           "x": 1183,
           "y": 546,
           "w": 218,
@@ -306,18 +599,21 @@
       },
       "marks": [
         {
+          "n": 1,
           "x": 488,
           "y": 546,
           "w": 218,
           "h": 24
         },
         {
+          "n": 2,
           "x": 264,
           "y": 546,
           "w": 218,
           "h": 24
         },
         {
+          "n": 3,
           "x": 40,
           "y": 546,
           "w": 218,

@@ -141,12 +141,20 @@ async function captureLanguage(lang, words, index) {
     await app.idle(shot.settle ?? 800);
     // Chrome's own screenshot honours the 2× density set above (a connected browser's Playwright screenshot does not)
     const box = shot.clip ? await shot.clip(app) : shot.target ? await page.locator(shot.target).first().boundingBox() : null;
-    // what a guide step points at: each mark's box in the picture's own CSS pixels (the site draws the outline over it)
+    // what a guide step points at: each mark's box in the picture's own CSS pixels, with its number (the site draws the
+    // outline over it); an entry that is a list is ONE numbered thing seen in several places (every "No code" mark on screen),
+    // and { at, badge: 'end' } puts its number on the side that hides nothing the reader needs
     const marks = [];
-    for (const locator of shot.marks ? await shot.marks(app) : []) {
-      const m = await locator.boundingBox();
-      if (!m) throw new Error(`capture: ${shot.id} (${lang}) — a mark is not on the screen`);
-      marks.push({ x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height) });
+    for (const [i, entry] of (shot.marks ? await shot.marks(app, lang) : []).entries()) {
+      // (told apart by `badge`: a list has its own .at, a locator has neither)
+      const { at, badge } = !Array.isArray(entry) && entry?.badge ? entry : { at: entry, badge: undefined };
+      const places = Array.isArray(at) ? at : [at];
+      if (places.length === 0) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} found nothing on the screen`);
+      for (const locator of places) {
+        const m = await locator.boundingBox();
+        if (!m) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} is not on the screen`);
+        marks.push({ n: i + 1, x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height), ...(badge ? { badge } : {}) });
+      }
     }
     const frame = { w: Math.round(box?.width ?? VIEW.width), h: Math.round(box?.height ?? VIEW.height) };
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
