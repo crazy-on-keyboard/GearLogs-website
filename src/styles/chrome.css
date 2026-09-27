@@ -42,7 +42,7 @@
 }
 .nav-links a:hover, .nav-links summary:hover { background: var(--glass-hover); color: var(--on-ink); }
 /* the current page: the pale GO tint with a 2 px GO edge, so it reads without colour too */
-.nav-links a[aria-current="page"], .nav-menu.is-current > summary {
+.nav-links a[aria-current], .nav-menu.is-current > summary {
   background: var(--glass-select);
   border-bottom-color: var(--go-soft);
   color: var(--on-ink);
@@ -86,7 +86,10 @@
   text-transform: none;
 }
 .nav-links .nav-menu-list a:hover { background: var(--fog); color: var(--text); }
-.nav-links .nav-menu-list a[aria-current="page"] {
+/* the menu is paper, not ink: its focus ring goes back to the GO (7:1 on white) */
+.site-header .nav-menu-list :focus-visible { outline-color: var(--go); }
+/* the current page ("page") and the section a page belongs to ("true", a Field Note under Field Notes) */
+.nav-links .nav-menu-list a[aria-current] {
   background: var(--go-tint);
   border-inline-start: 2px solid var(--go);
   color: var(--go);

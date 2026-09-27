@@ -40,6 +40,8 @@ main .page-lead a:hover, main .legal-mark:hover { color: var(--go-hover); }
 /* Focus is focus-visible only: the GO outline on paper, the soft GO on ink. */
 :focus-visible { outline: 2px solid var(--go); outline-offset: 2px; border-radius: var(--radius); }
 :is(.site-header, .band, .site-footer, .on-ink) :focus-visible { outline-color: var(--go-soft); }
+/* on the GO band the ring is white (7:1) — the GO ring would vanish into it */
+.cta-section :focus-visible { outline-color: var(--on-ink); }
 
 /* The skip link: out of sight until the keyboard reaches it. */
 .skip {
