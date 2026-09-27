@@ -1,6 +1,6 @@
 # GearLogs Website
 
-The marketing site for GearLogs — inventory and personnel management by RAQIOM — at `gearlogs.com`. English only, by this repo's own rule; a multi-page Vite site deployed by Cloudflare Pages from `main`.
+The marketing site for GearLogs — inventory and personnel management by RAQIOM — at `gearlogs.com`, in English and native Hebrew (RTL): a generated static site (`scripts/build-site.mjs`, previewed with Vite) deployed by Cloudflare Pages from `main`. The rules live in `CLAUDE.md`.
 
 ## Where things live
 
@@ -15,7 +15,9 @@ The marketing site for GearLogs — inventory and personnel management by RAQIOM
 ```
 npm install
 npm run dev      # local preview
-npm run check    # build + check-links (every internal reference must resolve)
+npm run check    # types · rule tests · the look laws · build · links · bilingual · the pinned CSP walk
+npm run photos   # re-cut the served photos from assets/photos/
+npm run capture  # re-take the app screenshots (needs the local app and the signed-in capture windows)
 ```
 
-Edit copy in the page files and styles in `public/styles/main.css`; inline scripts are refused by the CSP. The changelog page lists OUTCOMES with GL-NN ids and no dates; every claim on the public site is checked against the app's own strings before it is published.
+Edit copy in the page bodies (`src/bodies/`, every page in English AND Hebrew) and styles in the partials under `src/styles/` (tokens first); inline code of any kind is refused by the build and the CSP. The changelog page lists OUTCOMES with GL-NN ids and no dates; every claim on the public site is checked against the app's own strings before it is published.

@@ -57,6 +57,19 @@
     linear-gradient(90deg, rgb(11 16 22 / 0.92) 0%, rgb(11 16 22 / 0.86) 45%, rgb(11 16 22 / 0.78) 65%, rgb(11 16 22 / 0.4) 100%);
   --veil-band-rtl: linear-gradient(180deg, rgb(11 16 22 / 0.55) 0, rgb(11 16 22 / 0) 140px),
     linear-gradient(270deg, rgb(11 16 22 / 0.92) 0%, rgb(11 16 22 / 0.86) 45%, rgb(11 16 22 / 0.78) 65%, rgb(11 16 22 / 0.4) 100%);
+  /* the home's hero (the mock's): dark on the reading side, a fade into the ink at the foot, and the same dark top as the
+     bands so the header reads over the photo's bright windows (measured: "Sign in" 3.30:1 and the Hebrew switch 1.42:1 without it) */
+  --veil-hero: linear-gradient(180deg, rgb(11 16 22 / 0.7) 0, rgb(11 16 22 / 0) 170px),
+    linear-gradient(0deg, rgb(11 16 22 / 1) 0%, rgb(11 16 22 / 0) 30%),
+    linear-gradient(90deg, rgb(7 10 15 / 0.92) 0%, rgb(7 10 15 / 0.72) 34%, rgb(7 10 15 / 0.18) 66%, rgb(7 10 15 / 0.1) 100%);
+  --veil-hero-rtl: linear-gradient(180deg, rgb(11 16 22 / 0.7) 0, rgb(11 16 22 / 0) 170px),
+    linear-gradient(0deg, rgb(11 16 22 / 1) 0%, rgb(11 16 22 / 0) 30%),
+    linear-gradient(270deg, rgb(7 10 15 / 0.92) 0%, rgb(7 10 15 / 0.72) 34%, rgb(7 10 15 / 0.18) 66%, rgb(7 10 15 / 0.1) 100%);
+  /* a sector tile's shade: the words sit on the dark foot of the photo */
+  --veil-tile: linear-gradient(0deg, rgb(7 10 15 / 0.92) 0%, rgb(7 10 15 / 0.35) 50%, rgb(7 10 15 / 0.05) 100%);
+  /* the hero's glass fact panels */
+  --glass-panel: rgb(255 255 255 / 0.07);
+  --glass-panel-line: rgb(255 255 255 / 0.18);
 
   /* type: Plex (self-hosted, src/styles/fonts.css) */
   --font-sans: "IBM Plex Sans", "IBM Plex Sans Hebrew", system-ui, "Segoe UI", sans-serif;
@@ -78,19 +91,28 @@
   --fs-38: 38px;
   --fs-44: 44px;
   --fs-56: 56px;
+  /* the display sizes (the home's hero, section heads and big numbers) scale with the window between the floor and the wrap */
+  --fs-display: clamp(46px, 6.2vw, 88px);
+  --fs-h2: clamp(34px, 4vw, 58px);
+  --fs-h3: clamp(30px, 3.1vw, 44px);
+  --fs-num: clamp(56px, 6vw, 96px);
 
   /* labels (mono, tracked, capitals) and headings (light, tight) — Hebrew redefines these below */
   --fs-label: var(--fs-12);
   --track-label: 0.12em;
   --case-label: uppercase;
   --track-tight: -0.02em;
+  --track-display: -0.025em;
   --lh-tight: 1.1;
+  --lh-display: 1;
   --lh-body: 1.6;
   /* the Latin wordmark keeps its tracking in both languages (it is always set left-to-right) */
   --track-logo: 0.06em;
 
   /* shape: ONE radius for controls and containers; data surfaces are square */
   --radius: 2px;
+  /* the square list mark (the mock's), one size everywhere */
+  --bullet: 7px;
 
   /* layout: the desktop floor is 1080 px (web-only), the content wrap 1240 px */
   --floor: 1080px;
@@ -105,6 +127,8 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --d-control: 160ms;
   --d-reveal: 600ms;
+  --d-stagger: 70ms;
+  --d-hero: 10s;
   /* a side panel slides in from the reading side */
   --slide-from: -6px;
 }
@@ -117,7 +141,9 @@
   --track-label: 0;
   --case-label: none;
   --track-tight: 0;
+  --track-display: 0;
   --lh-tight: 1.2;
+  --lh-display: 1.1;
   --lh-body: 1.7;
   --slide-from: 6px;
 }

@@ -11,7 +11,8 @@
 //   2. one capture Chrome PER LANGUAGE — each its own profile and control port, outside every repo, signed in ONCE by the Director
 //      as that language's demo account (English: Noa Bar-Lev in TN-076 · Hebrew: נועה בר-לב in TN-077, the Hebrew Logistics demo —
 //      his pick "Hebrew data · B"). This script opens each when it is not running; the sessions live in those profiles, never in git.
-// The shots themselves live in ./shots.mjs; the pictures land in public/img/app/<id>.<lang>.webp with an index (manifest.json).
+// The shots themselves live in ./shots.mjs; the pictures land in public/img/app/<id>.<lang>.webp (plus a 1600-px copy, <id>.<lang>.1600.webp)
+// with an index (manifest.json).
 import { chromium } from 'playwright-core';
 import { build } from 'esbuild';
 import { spawn } from 'node:child_process';
@@ -139,11 +140,13 @@ async function captureLanguage(lang, words, index) {
     await app.tidy();
     await app.idle(shot.settle ?? 800);
     // Chrome's own screenshot honours the 2× density set above (a connected browser's Playwright screenshot does not)
-    const box = shot.target ? await page.locator(shot.target).first().boundingBox() : null;
+    const box = shot.clip ? await shot.clip(app) : shot.target ? await page.locator(shot.target).first().boundingBox() : null;
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     const file = `${shot.id}.${lang}.webp`;
     writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
+    // the smaller copy the site's frames load first (scripts/lib/shots.mjs: 1600w, then the full 2× picture)
+    writeFileSync(join(OUT, file.replace(/\.webp$/, '.1600.webp')), (await encodeWebp(page, png, { quality: WEBP_QUALITY, width: 1600 })).data);
     index.set(`${shot.id}.${lang}`, { id: shot.id, lang, file, alt: shot.alt?.[lang] ?? '', theme: shot.theme ?? BASE_THEME, app: bundle });
     console.log(`capture: ${file}`);
     if (shot.after) await shot.after(app, lang);

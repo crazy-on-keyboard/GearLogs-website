@@ -1,12 +1,14 @@
 // The shot list: every app picture the website shows. One entry = one picture per language, taken by ./capture.mjs.
 // Each `run` drives the app by its own labels (never a remembered click position) and leaves the screen to be pictured;
 // a screen is named by the app's dictionary key (`app.nav('tab_approvals')`), so the same shot works in English and Hebrew.
-// `target` (a CSS selector) pictures one element instead of the whole window. Add a shot here, run `npm run capture`,
+// `target` (a CSS selector) pictures one element instead of the whole window, and `clip` a rectangle the shot measures itself
+// (from one element's top to another's bottom). Add a shot here, run `npm run capture`,
 // and the site's picture is the app as it is today.
 // Never pictured (the council's law): weapons — the Army demo's Weapons Vault tab stays out of every shot.
 
 /** @typedef {{ id: string, alt: { en: string, he: string }, theme?: 'office' | 'light' | 'dark' | 'army' | 'medical', target?: string, settle?: number,
- *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void> }} Shot */
+ *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void>,
+ *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }> }} Shot */
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -75,7 +77,7 @@ export default [
   },
   {
     id: 'approvals',
-    alt: { en: 'Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired', he: 'אישורים: כל קבלה לפי מצב — ממתינה, נחתמה, במחלוקת, אושרה בשם האדם, בוטלה, פגה' },
+    alt: { en: 'Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired', he: 'אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף' },
     run: async (app) => { await app.nav('tab_approvals'); },
   },
   {
@@ -86,7 +88,7 @@ export default [
   },
   {
     id: 'approvals-receipt',
-    alt: { en: 'A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes', he: 'קבלה שהאדם חלק עליה ומנהל אישר בשמו: הפריטים שבמחלוקת, ציר הזמן ושתי ההערות' },
+    alt: { en: 'A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes', he: 'אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות' },
     run: async (app) => {
       await app.nav('tab_approvals');
       const onBehalf = new RegExp(`^(${escapeRe(await app.t('apr_tab_on_behalf'))}|${escapeRe(await app.t('apr_state_on_behalf'))})`, 'i');
@@ -122,7 +124,7 @@ export default [
   },
   {
     id: 'handout-window',
-    alt: { en: 'Handing an item to several people at once: pick the people, set how many each gets, see the stock after', he: 'מסירת פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי' },
+    alt: { en: 'Handing an item to several people at once: pick the people, set how many each gets, see the stock after', he: 'ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי' },
     run: async (app, lang) => {
       await app.nav('tab_logistics');
       await (await control(app, 'assign_item', NAMES.plainItem[lang])).click();
@@ -148,6 +150,28 @@ export default [
     settle: 1500,
   },
   {
+    // /product "how much is in stock, how full, what to reorder": the demo dashboard's own stock cards (demo/dashboard.ts)
+    id: 'dashboard-stock',
+    alt: { en: 'The dashboard\'s stock cards: storage fill against capacity, the low-stock list, what is over capacity and how much more fits', he: 'כרטיסי המלאי בלוח המחוונים: מילוי האחסון מול הקיבולת, רשימת המלאי הנמוך, מה מעל הקיבולת וכמה עוד נכנס' },
+    run: async (app) => {
+      await app.nav('tab_analytics');
+      await app.idle(800);
+      await toTop(app.page.getByText(await app.t('w_title_storage_fill'), { exact: true }).first());
+    },
+    settle: 1500,
+  },
+  {
+    // /product "warranty" and "broken": the Registry cards — units in repair and the warranties and contracts about to end
+    id: 'dashboard-registry',
+    alt: { en: 'The dashboard\'s Registry cards: units that need attention, units by status, units in repair and the warranties and contracts that have ended or are about to', he: 'כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שהסתיימו או עומדים להסתיים' },
+    run: async (app) => {
+      await app.nav('tab_analytics');
+      await app.idle(800);
+      await toTop(app.page.getByText(await app.t('w_title_reg_attention'), { exact: true }).first());
+    },
+    settle: 1500,
+  },
+  {
     id: 'logs',
     alt: { en: 'System logs: every action, who did it and when', he: 'יומני המערכת: כל פעולה, מי ביצע אותה ומתי' },
     run: async (app) => { await app.nav('tab_logs'); },
@@ -163,7 +187,7 @@ export default [
   },
   {
     id: 'mygear-sign',
-    alt: { en: 'A person reads their receipt on My Gear and signs it, or says what is wrong', he: 'אדם קורא את הקבלה שלו בהציוד שלי וחותם עליה, או מציין מה לא בסדר' },
+    alt: { en: 'A person reads their receipt on My Gear and signs it, or says what is wrong', he: 'אדם קורא את אישור המסירה שלו ב״הציוד שלי״ וחותם עליו, או מציין מה לא בסדר' },
     run: async (app, lang) => {
       const rail = await openMyGear(app, lang);
       await (await rail('staff_rail_approvals')).click();
@@ -171,6 +195,28 @@ export default [
       // the test person's own receipt (a real hand-out, never demo data — demo people cannot sign in)
       await app.page.getByText('HO-048', { exact: true }).first().click();
       await app.page.waitForTimeout(1200);
+    },
+    after: async (app) => app.backToApp(),
+  },
+  {
+    // the same receipt, pictured close: the panel from its title down to the question the person answers (the frame's inset)
+    id: 'mygear-receipt',
+    alt: { en: 'A receipt on My Gear: the items, and the question the person answers — I received these, or something is wrong', he: 'אישור מסירה ב״הציוד שלי״: הפריטים, והשאלה שהאדם עונה עליה — קיבלתי אותם, או שמשהו לא בסדר' },
+    run: async (app, lang) => {
+      const rail = await openMyGear(app, lang);
+      await (await rail('staff_rail_approvals')).click();
+      await app.page.waitForTimeout(900);
+      await app.page.getByText('HO-048', { exact: true }).first().click();
+      await app.page.waitForTimeout(1200);
+    },
+    clip: async (app) => {
+      const card = app.page.getByRole('group', { name: await app.t('staff_apr_decision'), exact: true }).first();
+      await card.waitFor();
+      return card.evaluate((el) => {
+        const pane = el.parentElement.parentElement.getBoundingClientRect(); // the decision card sits in the receipt pane's body
+        const c = el.getBoundingClientRect();
+        return { x: pane.left, y: pane.top, width: pane.width, height: c.bottom - pane.top + 12 };
+      });
     },
     after: async (app) => app.backToApp(),
   },

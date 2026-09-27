@@ -25,9 +25,9 @@
 .cap-desc { font-size: var(--fs-15); line-height: var(--lh-body); color: var(--text-body); }
 .cap-specs { display: grid; gap: 6px; margin-top: 14px; }
 .cap-specs li { font-size: var(--fs-14); color: var(--text-body); }
-/* square GO bullets (the mock's list mark); the text runs freely beside it, links and emphasis included */
-.cap-specs li, .changelog-list li { position: relative; padding-inline-start: 22px; }
-.cap-specs li::before, .changelog-list li::before { content: ""; position: absolute; inset-inline-start: 2px; top: 0.66em; width: 6px; height: 6px; background: var(--go); }
+/* square GO bullets (the mock's list mark, ONE recipe); the text runs freely beside it, links and emphasis included */
+.cap-specs li, .changelog-list li, .pts li { position: relative; padding-inline-start: 24px; }
+.cap-specs li::before, .changelog-list li::before, .pts li::before { content: ""; position: absolute; inset-inline-start: 2px; top: 0.62em; width: var(--bullet); height: var(--bullet); background: var(--go); }
 
 /* ── FAQ: a hairline list ── */
 .faq-list { max-width: 880px; border-top: 1px solid var(--line); }

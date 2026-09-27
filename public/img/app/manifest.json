@@ -81,7 +81,7 @@
       "id": "approvals",
       "lang": "he",
       "file": "approvals.he.webp",
-      "alt": "אישורים: כל קבלה לפי מצב — ממתינה, נחתמה, במחלוקת, אושרה בשם האדם, בוטלה, פגה",
+      "alt": "אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -145,7 +145,7 @@
       "id": "approvals-receipt",
       "lang": "he",
       "file": "approvals-receipt.he.webp",
-      "alt": "קבלה שהאדם חלק עליה ומנהל אישר בשמו: הפריטים שבמחלוקת, ציר הזמן ושתי ההערות",
+      "alt": "אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -169,7 +169,7 @@
       "id": "handout-window",
       "lang": "he",
       "file": "handout-window.he.webp",
-      "alt": "מסירת פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
+      "alt": "ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -210,6 +210,54 @@
       "lang": "he",
       "file": "mygear-sign.he.webp",
       "alt": "אדם קורא את הקבלה שלו בהציוד שלי וחותם עליה, או מציין מה לא בסדר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-stock",
+      "lang": "en",
+      "file": "dashboard-stock.en.webp",
+      "alt": "The dashboard's stock cards: storage fill against capacity, the low-stock list, what is over capacity and how much more fits",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-registry",
+      "lang": "en",
+      "file": "dashboard-registry.en.webp",
+      "alt": "The dashboard's Registry cards: units that need attention, units by status, units in repair and the warranties and contracts that have ended or are about to",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-stock",
+      "lang": "he",
+      "file": "dashboard-stock.he.webp",
+      "alt": "כרטיסי המלאי בלוח המחוונים: מילוי האחסון מול הקיבולת, רשימת המלאי הנמוך, מה מעל הקיבולת וכמה עוד נכנס",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-registry",
+      "lang": "he",
+      "file": "dashboard-registry.he.webp",
+      "alt": "כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שהסתיימו או עומדים להסתיים",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-receipt",
+      "lang": "en",
+      "file": "mygear-receipt.en.webp",
+      "alt": "A receipt on My Gear: the items, and the question the person answers — I received these, or something is wrong",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-receipt",
+      "lang": "he",
+      "file": "mygear-receipt.he.webp",
+      "alt": "אישור מסירה ב״הציוד שלי״: הפריטים, והשאלה שהאדם עונה עליה — קיבלתי אותם, או שמשהו לא בסדר",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     }
