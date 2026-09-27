@@ -17,11 +17,12 @@ export const dirOf = (lang) => (lang === 'he' ? 'rtl' : 'ltr');
 /** The public URL prefix for a language ('' for English at the root, '/he' for Hebrew). */
 export const prefixOf = (lang) => (lang === 'he' ? '/he' : '');
 
-// The header bar (Stage 2, the approved Home Mock; Q15 · A): Product · Security · Pricing · a click-open Help menu.
-// `href` is the target WITHOUT a language prefix (the renderer adds /he and turns "/#x" into "#x" on the home page).
-// "Who it's for" and /product join in Stage 2's home PR; pages that do not exist yet are never linked (F1 · A).
+// The header bar (Stage 2, the approved Home Mock; Q15 · A): Product · Who it's for · Security · Pricing · a click-open Help
+// menu. `href` is the target WITHOUT a language prefix (the renderer adds /he and turns "/#x" into "#x" on the home page).
+// Pages that do not exist yet are never linked (F1 · A): "Who it's for" is the home's sector tiles until Stage 3.
 export const NAV_ITEMS = [
-  { key: 'nav_product', href: '/#capabilities' },
+  { key: 'nav_product', href: '/product' },
+  { key: 'nav_who', href: '/#who' },
   { key: 'nav_security', href: '/#security' },
   { key: 'nav_pricing', href: '/pricing' },
   {
@@ -37,7 +38,7 @@ export const NAV_ITEMS = [
 
 // The footer's link columns (the mock's, minus links to pages that do not exist yet — F1 · A).
 export const FOOTER_COLUMNS = [
-  { key: 'footer_col_product', links: [['nav_how', '/#how-it-works'], ['nav_security', '/#security'], ['nav_pricing', '/pricing']] },
+  { key: 'footer_col_product', links: [['nav_how', '/product'], ['nav_who', '/#who'], ['nav_security', '/#security'], ['nav_pricing', '/pricing']] },
   { key: 'footer_col_help', links: [['nav_guides', '/guides'], ['nav_faq', '/faq'], ['nav_notes', '/notes'], ['nav_changelog', '/changelog']] },
   { key: 'footer_col_legal', links: [['footer_privacy', '/privacy'], ['footer_terms', '/terms'], ['footer_refunds', '/refunds'], ['nav_contact', '/contact']] },
 ];
@@ -50,6 +51,7 @@ export const CHROME = {
     nav_aria: 'Main',
 
     nav_product: 'Product',
+    nav_who: 'Who it’s for',
     nav_how: 'How it works',
     nav_security: 'Security',
     nav_pricing: 'Pricing',
@@ -91,6 +93,7 @@ export const CHROME = {
     nav_aria: 'ראשי',
 
     nav_product: 'המוצר',
+    nav_who: 'למי זה מתאים',
     nav_how: 'איך זה עובד',
     nav_security: 'אבטחה',
     nav_pricing: 'תמחור',

@@ -167,5 +167,13 @@
   },
   "404": {
     "title": "Page not found — GearLogs"
+  },
+  "product": {
+    "title": "How GearLogs works — GearLogs",
+    "description": "From the shelf to the person and back: how GearLogs records every hand-out, return, repair and write-off, with real screens from the app.",
+    "ogTitle": "How GearLogs works",
+    "ogDescription": "Every step of the store on the record: hand-outs, receipts people sign, warranty, repair and each person’s and item’s full history. Real screens from the app.",
+    "twitterTitle": "How GearLogs works",
+    "twitterDescription": "Every step of the store on the record, with real screens from the app."
   }
 }

@@ -1,0 +1,77 @@
+/* The product pictures (Stage 2): ONE frame for every real app screen (<gl-shot>, scripts/lib/shots.mjs) — the address
+   strip, the picture, an optional inset (My Gear beside Approvals), the caption — and ONE viewer that opens a picture full
+   size (the Director's pick F2 · A; src/scripts/lightbox/lightbox.ts). Both float, so they carry the one shadow. */
+.frame { position: relative; margin: 0; }
+.frame-open {
+  display: block;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+  cursor: zoom-in;
+}
+.frame-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding-inline: 12px;
+  background: var(--fog);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  color: var(--text-muted);
+  direction: ltr;
+}
+.frame-strip b { font-weight: 500; color: var(--text); }
+.frame-img { display: block; width: 100%; height: auto; }
+/* the inset hangs off the frame's outer edge (the frame sits on the reading side of its row) */
+.frame-inset {
+  position: absolute;
+  inset-inline-start: -6%;
+  bottom: -9%;
+  width: 60%;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+  cursor: zoom-in;
+}
+.frame-cap { display: flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--text-muted); }
+.frame.has-inset .frame-cap { margin-top: 12%; }
+.frame-cap::before { content: ""; width: 18px; height: 1px; background: currentColor; }
+
+/* The viewer: a native modal dialog over a dark surround; the picture fits the window. */
+.lightbox {
+  max-width: min(96vw, 2880px);
+  max-height: 94vh;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+}
+.lightbox::backdrop { background: var(--glass); backdrop-filter: blur(4px); }
+.lightbox-img { display: block; max-width: min(96vw, 2880px); max-height: 94vh; width: auto; height: auto; }
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 10px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  border: 1px solid var(--glass-line);
+  border-radius: var(--radius);
+  font-size: var(--fs-26);
+  line-height: 1;
+  color: var(--on-ink);
+  cursor: pointer;
+}
+.lightbox-close:hover { background: var(--ink-3); }
+.lightbox-close:focus-visible { outline-color: var(--go-soft); }

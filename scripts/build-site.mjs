@@ -4,7 +4,8 @@
 // fragments (src/bodies/<slug>.<lang>.html) and JSON-LD (src/bodies/<slug>.jsonld.<lang>.json),
 // writing English to dist/ and Hebrew to dist/he/. Then it copies the static assets from
 // public/ and writes sitemap.xml with reciprocal hreflang alternates. Stage 2: the stylesheet is bundled from the
-// partials in src/styles/, the Plex fonts are copied from node_modules, and each body's <gl-band> becomes the photo band.
+// partials in src/styles/, the Plex fonts are copied from node_modules, and each body's photo and picture tags (<gl-band>,
+// <gl-photo>, <gl-shot>) become their one markup.
 //
 //   node scripts/build-site.mjs            full build (fails if any page lacks Hebrew)
 //   node scripts/build-site.mjs --en-only  English only (for verifying EN output pre-translation)
@@ -16,10 +17,16 @@ import { renderPage, canonicalUrl } from '../src/chrome.mjs';
 import { buildSync } from 'esbuild';
 import { renderHeaders } from './lib/headers.mjs';
 import { inlineCodeIn } from './lib/inline-code.mjs';
-import { expandBand } from './lib/band.mjs';
+import { expandBand, expandPhotos } from './lib/photo-tags.mjs';
+import { expandShots, strayAppImages, webpSize } from './lib/shots.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
-const SCRIPT_BUNDLES = [['scripts/contact/form.ts', 'js/contact.js'], ['scripts/nav/menu.ts', 'js/menu.js']];
+const SCRIPT_BUNDLES = [
+  ['scripts/contact/form.ts', 'js/contact.js'],
+  ['scripts/nav/menu.ts', 'js/menu.js'],
+  ['scripts/lightbox/lightbox.ts', 'js/lightbox.js'],
+  ['scripts/motion/motion.ts', 'js/motion.js'],
+];
 
 /** The self-hosted fonts (src/styles/fonts.css names them): package folder → the files served from /fonts/, with each licence. */
 const FONT_FILES = {
@@ -37,6 +44,13 @@ const EN_ONLY = process.argv.includes('--en-only');
 const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 /** Every served photo's widths and sizes (written by `npm run photos`). */
 const photos = readJson(join(PUBLIC, 'img', 'photos', 'manifest.json'));
+/** Every app picture, per language, with its alt text (written by `npm run capture`); a picture's size is read from its file. */
+const appShots = readJson(join(PUBLIC, 'img', 'app', 'manifest.json'));
+const appSizes = new Map();
+const appSizeOf = (file) => {
+  if (!appSizes.has(file)) appSizes.set(file, webpSize(readFileSync(join(PUBLIC, 'img', 'app', file))));
+  return appSizes.get(file);
+};
 const meta = {
   en: readJson(join(SRC, 'meta', 'en.json')),
   he: existsSync(join(SRC, 'meta', 'he.json')) ? readJson(join(SRC, 'meta', 'he.json')) : {},
@@ -130,14 +144,27 @@ for (const page of PAGES) {
   for (const lang of page.bilingual ? langs : ['en']) {
     const p = { ...page, head: { en: meta.en[page.slug], he: meta.he[page.slug] } };
     p.jsonld = { en: loadJsonld(p, 'en'), he: loadJsonld(p, 'he') };
-    const band = expandBand(readFileSync(bodyPath(page.slug, lang), 'utf8'), photos, `${lang}:${page.slug}`);
+    const where = `${lang}:${page.slug}`;
+    const band = expandBand(readFileSync(bodyPath(page.slug, lang), 'utf8'), photos, where);
     p.opensWithBand = band.opensWithBand;
-    // every page but the home opens with its photo band (the Director's pick F3 · C) — the home opens with its own hero
-    if (page.slug !== 'index' && !band.opensWithBand) {
-      console.error(`build-site: ${lang}:${page.slug} does not open with a <gl-band> — every inner page opens with its photo band`);
+    // every page opens with its photo band (the Director's pick F3 · C; the home's is its hero)
+    if (!band.opensWithBand) {
+      console.error(`build-site: ${where} does not open with a <gl-band> — every page opens with its photo band`);
       process.exit(1);
     }
-    const html = renderPage(p, lang, band.html);
+    const body = expandShots(expandPhotos(band.html, photos, where), lang, appShots, appSizeOf, where);
+    const html = renderPage(p, lang, body);
+    // S2-02: every app picture on the site is a real capture, in the page's language, placed by a <gl-shot> — nothing else
+    const stray = strayAppImages(html);
+    if (stray.length) {
+      console.error(`build-site: ${where} shows app pictures outside a <gl-shot> frame — ${stray.join(', ')}`);
+      process.exit(1);
+    }
+    const wrongLang = [...html.matchAll(/\/img\/app\/[a-z0-9-]+\.(en|he)\./g)].filter((m) => m[1] !== lang);
+    if (wrongLang.length) {
+      console.error(`build-site: ${where} shows an app picture in the other language — ${wrongLang[0][0]}`);
+      process.exit(1);
+    }
     const out = outPath(page, lang);
     mkdirSync(dirname(out), { recursive: true });
     writeFileSync(out, html, 'utf8');

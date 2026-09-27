@@ -30,7 +30,7 @@ const article = (name) => ({
   activeNav: '/notes',
   bilingual: true,
   sitemap: { changefreq: 'monthly', priority: '0.6' },
-  scripts: ['/js/anim.js'],
+  scripts: [],
   opts: { ogType: 'article', twitterCard: 'summary', ogImage: false, jsonld: true },
 });
 
@@ -38,12 +38,19 @@ export const PAGES = [
   {
     slug: 'index', path: '/', chrome: 'full', footer: 'full', activeNav: null, bilingual: true,
     sitemap: { changefreq: 'weekly', priority: '1.0' },
-    scripts: ['/js/anim.js', '/js/activity.js'],
+    scripts: ['/js/motion.js', '/js/lightbox.js'],
+    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+  },
+  {
+    // Stage 2 (2026-09-27): how GearLogs works, section by section, every screen a real capture; the old home's capability
+    // and security cards live here now, word for word (nothing the site said was lost)
+    slug: 'product', path: '/product', chrome: 'full', footer: 'full', activeNav: '/product', bilingual: true,
+    sitemap: { changefreq: 'monthly', priority: '0.9' }, scripts: ['/js/motion.js', '/js/lightbox.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
     slug: 'pricing', path: '/pricing', chrome: 'full', footer: 'full', activeNav: '/pricing', bilingual: true,
-    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/anim.js', '/js/pricing.js'],
+    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/pricing.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
@@ -58,7 +65,7 @@ export const PAGES = [
   },
   {
     slug: 'notes', path: '/notes', chrome: 'full', footer: 'full', activeNav: '/notes', bilingual: true,
-    sitemap: { changefreq: 'weekly', priority: '0.7' }, scripts: ['/js/anim.js'],
+    sitemap: { changefreq: 'weekly', priority: '0.7' }, scripts: ['/js/motion.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: true },
   },
   {

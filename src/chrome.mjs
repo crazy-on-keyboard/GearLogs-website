@@ -60,6 +60,18 @@ const OG_IMAGE_BLOCK = [
   '  <meta property="og:image:alt" content="GearLogs — Know what you have. Know who has it.">',
 ].join('\n');
 
+/** Who publishes the site, on every listed page (Stage 2 SEO basics — entity markup only, never ratings or claims). */
+const ORGANIZATION_LD = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'GearLogs',
+  url: `${SITE_ORIGIN}/`,
+  logo: `${SITE_ORIGIN}/img/logo-mark.png`,
+  parentOrganization: { '@type': 'Organization', name: 'RAQIOM', url: 'https://raqiom.com' },
+});
+/** The site itself, on the home page (no SearchAction: the site has no search). */
+const WEBSITE_LD = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'GearLogs', url: `${SITE_ORIGIN}/`, inLanguage: ['en', 'he'] });
+
 /** The font files every page of a language paints its first screen with, fetched before the stylesheet asks for them (the
  *  rest load on demand through unicode-range). Two at most, so they never compete with the stylesheet. Measured 2026-09-27
  *  (CPU ×4, fast 4G): /he/faq still shifts 0.058 — below 0.1, "good" — when the Latin face lands, because a Hebrew line takes
@@ -94,6 +106,8 @@ export function renderHead(page, lang) {
   for (const font of PRELOAD_FONTS[lang]) L.push(`  <link rel="preload" href="/fonts/${font}" as="font" type="font/woff2" crossorigin>`);
   L.push('  <link rel="stylesheet" href="/styles/main.css">');
   if (o.extraHead) L.push(o.extraHead);
+  if (page.sitemap) L.push(`  <script type="application/ld+json">${ORGANIZATION_LD}</script>`);
+  if (page.path === '/') L.push(`  <script type="application/ld+json">${WEBSITE_LD}</script>`);
   if (o.jsonld && page.jsonld?.[lang]) {
     L.push('  <script type="application/ld+json">');
     L.push(page.jsonld[lang]);

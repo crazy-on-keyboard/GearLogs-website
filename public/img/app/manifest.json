@@ -212,6 +212,54 @@
       "alt": "אדם קורא את הקבלה שלו בהציוד שלי וחותם עליה, או מציין מה לא בסדר",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-stock",
+      "lang": "en",
+      "file": "dashboard-stock.en.webp",
+      "alt": "The dashboard's stock cards: storage fill against capacity, the low-stock list, what is over capacity and how much more fits",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-registry",
+      "lang": "en",
+      "file": "dashboard-registry.en.webp",
+      "alt": "The dashboard's Registry cards: units that need attention, units by status, units in repair and the warranties and contracts about to end",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-stock",
+      "lang": "he",
+      "file": "dashboard-stock.he.webp",
+      "alt": "כרטיסי המלאי בלוח המחוונים: מילוי האחסון מול הקיבולת, רשימת המלאי הנמוך, מה מעל הקיבולת וכמה עוד נכנס",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "dashboard-registry",
+      "lang": "he",
+      "file": "dashboard-registry.he.webp",
+      "alt": "כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שעומדים להסתיים",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-receipt",
+      "lang": "en",
+      "file": "mygear-receipt.en.webp",
+      "alt": "A receipt on My Gear: the items, and the question the person answers — I received these, or something is wrong",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "mygear-receipt",
+      "lang": "he",
+      "file": "mygear-receipt.he.webp",
+      "alt": "אישור מסירה ב״הציוד שלי״: הפריטים, והשאלה שהאדם עונה עליה — קיבלתי אותם, או שמשהו לא בסדר",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
     }
   ]
 }

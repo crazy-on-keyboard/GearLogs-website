@@ -8,13 +8,15 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const DIR = join(process.cwd(), 'src', 'styles');
-/** Files outside the laws: the tokens define the values, the fonts are @font-face only, and the home's interim sheet is
- *  deleted when the home is rebuilt (Stage 2 PR-4). */
-const EXEMPT = new Set(['tokens.css', 'fonts.css', 'home-legacy.css']);
-/** The things that float (menus, popovers, the lightbox…): the only selectors that may carry the shadow — by name. */
-const FLOATING = ['.nav-menu-list'];
+/** Files outside the laws: the tokens define the values and the fonts are @font-face only. */
+const EXEMPT = new Set(['tokens.css', 'fonts.css']);
+/** The things that float — the Help menu, the product pictures' frames and inset, the picture viewer: the only selectors
+ *  that may carry the shadow, by name. */
+const FLOATING = ['.nav-menu-list', '.frame-open', '.frame-inset', '.lightbox'];
 /** The named true circles besides .dot (pseudo-elements cannot wear a class): the contact form's radio mark and error icon. */
 const CIRCLES = ['.contact-chip span::before', '.contact-error::before'];
+/** Local variables that are positions, not design values: a block's place in a staggered sequence (motion.css, motion.ts). */
+const LOCAL_VARS = new Set(['--i']);
 
 /** Every rule as { selector, decls: [[prop, value]], context } — context is the enclosing at-rules. */
 export function rulesOf(css) {
@@ -53,7 +55,7 @@ export function problemsIn(css, file) {
     const reduced = /prefers-reduced-motion/.test(context);
     if (/:focus(?![-\w])/.test(selector)) say(selector, 'a :focus rule (focus-visible only — a click must not draw a ring)');
     for (const [prop, value] of decls) {
-      if (prop.startsWith('--')) { say(selector, `a token defined outside tokens.css (${prop})`); continue; }
+      if (prop.startsWith('--')) { if (!LOCAL_VARS.has(prop)) say(selector, `a token defined outside tokens.css (${prop})`); continue; }
       if (COLOUR.test(value)) say(selector, `a colour literal in ${prop} (colours come from tokens.css)`);
       if (prop === 'font-size' && !/^var\(--fs-[\w-]+\)$/.test(value) && value !== 'inherit') say(selector, `font-size ${value} (the type scale's var(--fs-*) only)`);
       if (prop === 'font' && !/var\(--fs-[\w-]+\)/.test(value) && value !== 'inherit') say(selector, `a font shorthand without a scale size (${value})`);
