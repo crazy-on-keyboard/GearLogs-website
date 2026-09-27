@@ -81,7 +81,7 @@
       "id": "approvals",
       "lang": "he",
       "file": "approvals.he.webp",
-      "alt": "אישורים: כל קבלה לפי מצב — ממתינה, נחתמה, במחלוקת, אושרה בשם האדם, בוטלה, פגה",
+      "alt": "אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -145,7 +145,7 @@
       "id": "approvals-receipt",
       "lang": "he",
       "file": "approvals-receipt.he.webp",
-      "alt": "קבלה שהאדם חלק עליה ומנהל אישר בשמו: הפריטים שבמחלוקת, ציר הזמן ושתי ההערות",
+      "alt": "אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -169,7 +169,7 @@
       "id": "handout-window",
       "lang": "he",
       "file": "handout-window.he.webp",
-      "alt": "מסירת פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
+      "alt": "ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -225,7 +225,7 @@
       "id": "dashboard-registry",
       "lang": "en",
       "file": "dashboard-registry.en.webp",
-      "alt": "The dashboard's Registry cards: units that need attention, units by status, units in repair and the warranties and contracts about to end",
+      "alt": "The dashboard's Registry cards: units that need attention, units by status, units in repair and the warranties and contracts that have ended or are about to",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },
@@ -241,7 +241,7 @@
       "id": "dashboard-registry",
       "lang": "he",
       "file": "dashboard-registry.he.webp",
-      "alt": "כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שעומדים להסתיים",
+      "alt": "כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שהסתיימו או עומדים להסתיים",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
     },

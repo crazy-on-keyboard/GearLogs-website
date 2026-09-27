@@ -77,7 +77,7 @@ export default [
   },
   {
     id: 'approvals',
-    alt: { en: 'Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired', he: 'אישורים: כל קבלה לפי מצב — ממתינה, נחתמה, במחלוקת, אושרה בשם האדם, בוטלה, פגה' },
+    alt: { en: 'Approvals: every receipt by state — waiting, signed, disputed, confirmed on behalf, cancelled, expired', he: 'אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף' },
     run: async (app) => { await app.nav('tab_approvals'); },
   },
   {
@@ -88,7 +88,7 @@ export default [
   },
   {
     id: 'approvals-receipt',
-    alt: { en: 'A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes', he: 'קבלה שהאדם חלק עליה ומנהל אישר בשמו: הפריטים שבמחלוקת, ציר הזמן ושתי ההערות' },
+    alt: { en: 'A receipt the person disputed and a manager confirmed on their behalf: the lines named in the dispute, the timeline and both notes', he: 'אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות' },
     run: async (app) => {
       await app.nav('tab_approvals');
       const onBehalf = new RegExp(`^(${escapeRe(await app.t('apr_tab_on_behalf'))}|${escapeRe(await app.t('apr_state_on_behalf'))})`, 'i');
@@ -124,7 +124,7 @@ export default [
   },
   {
     id: 'handout-window',
-    alt: { en: 'Handing an item to several people at once: pick the people, set how many each gets, see the stock after', he: 'מסירת פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי' },
+    alt: { en: 'Handing an item to several people at once: pick the people, set how many each gets, see the stock after', he: 'ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי' },
     run: async (app, lang) => {
       await app.nav('tab_logistics');
       await (await control(app, 'assign_item', NAMES.plainItem[lang])).click();
@@ -163,7 +163,7 @@ export default [
   {
     // /product "warranty" and "broken": the Registry cards — units in repair and the warranties and contracts about to end
     id: 'dashboard-registry',
-    alt: { en: 'The dashboard\'s Registry cards: units that need attention, units by status, units in repair and the warranties and contracts about to end', he: 'כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שעומדים להסתיים' },
+    alt: { en: 'The dashboard\'s Registry cards: units that need attention, units by status, units in repair and the warranties and contracts that have ended or are about to', he: 'כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שהסתיימו או עומדים להסתיים' },
     run: async (app) => {
       await app.nav('tab_analytics');
       await app.idle(800);

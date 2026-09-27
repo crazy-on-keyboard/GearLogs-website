@@ -9,6 +9,9 @@
 
 const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?\s*><\/gl-shot>/g;
 
+/** Text for an HTML attribute (an alt that quotes a label, "Expiring", must not cut the attribute short). */
+const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+
 /** The words a frame carries, per language. */
 export const SHOT_WORDS = {
   en: { caption: 'Real screen &middot; sample workspace', open: 'Open the full-size picture' },
@@ -34,7 +37,7 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
     const full = sizeOf(shot.file);
     const small = shot.file.replace(/\.webp$/, '.1600.webp');
     const h = Math.round((full.height * 1600) / full.width);
-    return `<img class="${cls}" src="/img/app/${small}" srcset="/img/app/${small} 1600w, /img/app/${shot.file} ${full.width}w" sizes="(min-width: 1240px) 820px, 66vw" width="1600" height="${h}" alt="${shot.alt}" loading="lazy" decoding="async">`;
+    return `<img class="${cls}" src="/img/app/${small}" srcset="/img/app/${small} 1600w, /img/app/${shot.file} ${full.width}w" sizes="(min-width: 1240px) 820px, 66vw" width="1600" height="${h}" alt="${attr(shot.alt)}" loading="lazy" decoding="async">`;
   };
   const html = body.replace(SHOT, (_, id, insetId) => {
     const shot = find(id);
@@ -42,11 +45,11 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
     // the inset opens full size too (the same viewer), so its small picture can be read
     const insetShot = insetId ? find(insetId) : null;
     const inset = insetShot
-      ? `\n        <a class="frame-inset" href="/img/app/${insetShot.file}" data-lightbox aria-label="${W.open}: ${insetShot.alt}">${img(insetShot, 'frame-img')}</a>`
+      ? `\n        <a class="frame-inset" href="/img/app/${insetShot.file}" data-lightbox aria-label="${W.open}: ${attr(insetShot.alt)}">${img(insetShot, 'frame-img')}</a>`
       : '';
     return (
       `<figure class="frame${insetId ? ' has-inset' : ''}">\n` +
-      `        <a class="frame-open" href="/img/app/${shot.file}" data-lightbox aria-label="${W.open}: ${shot.alt}">\n` +
+      `        <a class="frame-open" href="/img/app/${shot.file}" data-lightbox aria-label="${W.open}: ${attr(shot.alt)}">\n` +
       `          <span class="frame-strip" aria-hidden="true"><b>app.gearlogs.com</b></span>\n` +
       `          ${img(shot, 'frame-img')}\n` +
       `        </a>${inset}\n` +

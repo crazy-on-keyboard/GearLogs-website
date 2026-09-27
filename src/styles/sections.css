@@ -32,7 +32,7 @@
 .gp-tick:nth-child(2) { top: 8px; inset-inline-end: 8px; }
 .gp-tick:nth-child(3) { bottom: 8px; inset-inline-start: 8px; }
 .gp-tick:nth-child(4) { bottom: 8px; inset-inline-end: 8px; }
-.gp .gp-n { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-44); font-weight: 300; line-height: 1; letter-spacing: var(--track-tight); }
+.gp .gp-n { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-44); font-weight: 300; line-height: 1; letter-spacing: var(--track-tight); color: var(--on-ink); }
 .gp-unit { color: var(--on-ink-2); }
 .gp p { font-size: var(--fs-14); line-height: 1.45; color: var(--on-ink-2); }
 
@@ -73,7 +73,7 @@
 .nums > div { display: grid; gap: 10px; padding-block: 34px 10px; padding-inline-end: 28px; border-inline-end: 1px solid var(--line-ink); }
 .nums > div + div { padding-inline-start: 28px; }
 .nums > div:last-child { border-inline-end: 0; }
-.num-v { display: flex; align-items: baseline; gap: 10px; font-size: var(--fs-num); font-weight: 300; line-height: 1; letter-spacing: var(--track-tight); }
+.nums .num-v { display: flex; align-items: baseline; gap: 10px; max-width: none; font-size: var(--fs-num); font-weight: 300; line-height: 1; letter-spacing: var(--track-tight); color: var(--on-ink); }
 .num-unit { color: var(--on-ink-2); }
 .nums p { max-width: 24ch; font-size: var(--fs-15); color: var(--on-ink-2); }
 
