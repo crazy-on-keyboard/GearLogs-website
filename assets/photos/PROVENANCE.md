@@ -33,5 +33,8 @@ Made the same way (the Gemini app, Nano Banana 2, Pro, 16:9, his signed-in brows
 | contact.jpg | 16:9 · 2752×1536 | An operations coordinator on a headset at a depot-office desk, warm lamp light, the warehouse through an interior window | /contact |
 | legal.jpg | 16:9 · 2752×1536 | A records room: plain archive binders and box files, one binder open with a signed form and a pen, handwriting illegible (second take: the first take's boxes carried readable words) | /privacy · /terms · /refunds |
 
-Field Notes keeps paper.jpg. **One edit to record:** legal.jpg's open form carries date-like pseudo-writing; the served copies soften that patch (the site shows no dates — the Director's rule) — the original here stays untouched.
+Field Notes keeps paper.jpg. **Edits to record in the served copies** (the site shows no dates — the Director's rule; the originals here stay untouched): legal.jpg's open form carries date-like pseudo-writing, so its served strip is cut ABOVE the binder (the form is not in the file at all); paper.jpg's sign-out sheet carries date-like scribbles, so its served strip blurs the handwriting through a feathered mask.
+
+## The served copies (Stage 2 PR-2, 2026-09-27)
+`npm run photos` (`scripts/images/photos.mjs`, the one in-browser encoder `scripts/images/encode.mjs`) writes each inner-page band photo as a 3:1 strip in three widths (1440 · 2160 · the source width) to `public/img/photos/<name>-band.<width>.webp`, WebP q0.72 with the metadata dropped, and indexes them in `public/img/photos/manifest.json`. Where each strip sits is set per photo in the script.
 

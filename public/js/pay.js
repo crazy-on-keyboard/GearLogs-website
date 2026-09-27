@@ -9,7 +9,7 @@
     if (!hasTxn) {
       var state = document.getElementById('paystate');
       var missing = document.getElementById('paymissing');
-      if (state) state.style.display = 'none';
+      if (state) state.hidden = true;
       if (missing) missing.hidden = false;   // the notice ships hidden (no inline style — the CSP drops 'unsafe-inline')
     }
   }

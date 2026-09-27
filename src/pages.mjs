@@ -4,7 +4,9 @@
 //   - JSON-LD lives in src/bodies/<slug>.jsonld.<lang>.json
 // The build (scripts/build-site.mjs) merges these by slug.
 //
-// EN-only / static pages (pay, 404, assets) are handled by the build directly, not here.
+// Unlisted pages (Stage 2): /pay (English only — Paddle's checkout) and the 404 (both languages: Cloudflare Pages serves
+// the nearest 404.html, so /he/404.html answers every missing Hebrew address) carry `sitemap: null` — no sitemap entry,
+// no canonical or hreflang, no language switch.
 
 const NOTE_SLUGS = [
   'track-who-has-equipment',
@@ -37,7 +39,7 @@ export const PAGES = [
     slug: 'index', path: '/', chrome: 'full', footer: 'full', activeNav: null, bilingual: true,
     sitemap: { changefreq: 'weekly', priority: '1.0' },
     scripts: ['/js/anim.js', '/js/activity.js'],
-    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false, logoPriority: true },
+    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
     slug: 'pricing', path: '/pricing', chrome: 'full', footer: 'full', activeNav: '/pricing', bilingual: true,
@@ -88,4 +90,14 @@ export const PAGES = [
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   ...NOTE_SLUGS.map(article),
+  {
+    slug: 'pay', path: '/pay', chrome: 'minimal', footer: 'minimal', activeNav: null, bilingual: false, sitemap: null,
+    // Paddle.js v2 is the ONLY external script here; it reads ?_ptxn= and opens the overlay checkout itself (headers.mjs PAY_CSP)
+    scripts: [{ src: 'https://cdn.paddle.com/paddle/v2/paddle.js', attrs: 'defer' }, '/js/pay.js'],
+    opts: { robots: 'noindex, nofollow', canonical: false, twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+  },
+  {
+    slug: '404', path: '/404', chrome: 'full', footer: 'full', activeNav: null, bilingual: true, sitemap: null, scripts: [],
+    opts: { robots: 'noindex', canonical: false, jsonld: false },
+  },
 ];

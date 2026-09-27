@@ -19,7 +19,8 @@ const heFile = (p) => join(DIST, 'he', p.path === '/' ? 'index.html' : `${p.path
 
 const has = (html, needle) => html.includes(needle);
 
-for (const p of PAGES.filter((x) => x.bilingual)) {
+// every listed bilingual page (the unlisted ones — the 404 — carry no hreflang or canonical by design)
+for (const p of PAGES.filter((x) => x.bilingual && x.sitemap)) {
   for (const [file, label] of [[enFile(p), 'en'], [heFile(p), 'he']]) {
     if (!existsSync(file)) { fail(`MISSING page  ${label}:${p.slug}`); continue; }
     const html = readFileSync(file, 'utf8');

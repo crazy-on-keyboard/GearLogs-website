@@ -1,0 +1,123 @@
+/* GearLogs website — the design tokens (Stage 2, 2026-09-27: the approved Home Mock's palette under role names).
+   Every colour, size, radius, shadow and duration in the site's CSS comes from here (scripts/check-uistd.mjs pins it).
+   The site is one committed look — white paper and ink bands — so there is no dark theme to switch. */
+:root {
+  color-scheme: light;
+
+  /* surfaces */
+  --paper: #ffffff;
+  --fog: #f4f6f8;
+  --ink: #0b1016;
+  --ink-2: #121922;
+  --ink-3: #1a2330;
+
+  /* text on paper (all ≥ 4.5:1 on --paper and --fog) */
+  --text: #18212c;
+  --text-body: #465262;
+  --text-muted: #5f6b7a;
+
+  /* text on ink */
+  --on-ink: #ffffff;
+  --on-ink-2: #b9c3d0;
+  --on-ink-3: #8e9aab;
+
+  /* lines and edges: --edge is a control's resting border (≥ 3:1 on --paper and --fog) */
+  --line: #dfe4ea;
+  --line-ink: rgb(255 255 255 / 0.14);
+  --edge: #7b8794;
+
+  /* the GO — the one accent: links, the current selection and the single GO of a flow */
+  --go: #345a8a;
+  --go-hover: #2b4b73;
+  --go-press: #223c5d;
+  --go-soft: #a9c3e4;
+  --go-tint: #e8eef6;
+
+  /* meaning: give = green · take = red · caution = amber · standing information = violet (the app's info tone) */
+  --give: #1e6f4e;
+  --give-bg: #e3f1ea;
+  --take: #a3342d;
+  --take-bg: #f8e7e5;
+  --caution: #8f5b12;
+  --caution-bg: #f6ecd9;
+  --info: #5b4a9e;
+  --info-bg: #ece9f7;
+
+  /* the brand mark's red ("LOGS" in the wordmark) */
+  --brand: #c4392d;
+  --brand-on-ink: #e2574a;
+
+  /* glass and veils over photographs */
+  --glass: rgb(10 14 20 / 0.5);
+  --glass-line: rgb(255 255 255 / 0.14);
+  --glass-hover: rgb(255 255 255 / 0.1);
+  --glass-select: rgb(169 195 228 / 0.18);
+  --ghost-line: rgb(255 255 255 / 0.34);
+  --veil-band: linear-gradient(180deg, rgb(11 16 22 / 0.55) 0, rgb(11 16 22 / 0) 140px),
+    linear-gradient(90deg, rgb(11 16 22 / 0.92) 0%, rgb(11 16 22 / 0.86) 45%, rgb(11 16 22 / 0.78) 65%, rgb(11 16 22 / 0.4) 100%);
+  --veil-band-rtl: linear-gradient(180deg, rgb(11 16 22 / 0.55) 0, rgb(11 16 22 / 0) 140px),
+    linear-gradient(270deg, rgb(11 16 22 / 0.92) 0%, rgb(11 16 22 / 0.86) 45%, rgb(11 16 22 / 0.78) 65%, rgb(11 16 22 / 0.4) 100%);
+
+  /* type: Plex (self-hosted, src/styles/fonts.css) */
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Hebrew", system-ui, "Segoe UI", sans-serif;
+  --font-he: "IBM Plex Sans Hebrew", "IBM Plex Sans", system-ui, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --font-body: var(--font-sans);
+  --font-label: var(--font-mono);
+
+  /* the ONE type scale (no in-between sizes) */
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-17: 17px;
+  --fs-19: 19px;
+  --fs-22: 22px;
+  --fs-26: 26px;
+  --fs-30: 30px;
+  --fs-38: 38px;
+  --fs-44: 44px;
+  --fs-56: 56px;
+
+  /* labels (mono, tracked, capitals) and headings (light, tight) — Hebrew redefines these below */
+  --fs-label: var(--fs-12);
+  --track-label: 0.12em;
+  --case-label: uppercase;
+  --track-tight: -0.02em;
+  --lh-tight: 1.1;
+  --lh-body: 1.6;
+  /* the Latin wordmark keeps its tracking in both languages (it is always set left-to-right) */
+  --track-logo: 0.06em;
+
+  /* shape: ONE radius for controls and containers; data surfaces are square */
+  --radius: 2px;
+
+  /* layout: the desktop floor is 1080 px (web-only), the content wrap 1240 px */
+  --floor: 1080px;
+  --wrap: 1240px;
+  --gutter: 32px;
+  --header-h: 72px;
+
+  /* depth: flat — the one shadow belongs to things that float (named in scripts/check-uistd.mjs) */
+  --shadow-float: 0 18px 40px -18px rgb(11 16 22 / 0.45), 0 4px 12px -6px rgb(11 16 22 / 0.2);
+
+  /* motion: control feedback ≤ 200 ms (the Director's Q11 · A) */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --d-control: 160ms;
+  --d-reveal: 600ms;
+  /* a side panel slides in from the reading side */
+  --slide-from: -6px;
+}
+
+/* Hebrew: its own face, no tracking, no capitals, a little more line height (the Director's Hebrew standard) */
+[dir="rtl"] {
+  --font-body: var(--font-he);
+  --font-label: var(--font-he);
+  --fs-label: var(--fs-14);
+  --track-label: 0;
+  --case-label: none;
+  --track-tight: 0;
+  --lh-tight: 1.2;
+  --lh-body: 1.7;
+  --slide-from: 6px;
+}

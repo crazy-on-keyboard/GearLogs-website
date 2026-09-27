@@ -1,0 +1,134 @@
+/* The contact page (Stage 1, 2026-09-26 — the Director's picks A · one page with a side panel, R1 chips), on the site
+   tokens since Stage 2. Send is the GO of the flow; an error is the take red with an icon and a 2 px edge; the receipt is
+   the give green; the typo hint is information (violet, the app's info tone). 2 px corners, flat. */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 600px) minmax(0, 1fr); gap: 48px; align-items: start; }
+.contact-main { min-width: 0; }
+
+.contact-card, .contact-received {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.contact-card { display: grid; gap: 18px; }
+
+.contact-field { display: grid; gap: 6px; min-width: 0; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-reasons { border: 0; margin: 0; padding: 0; min-width: 0; }
+.contact-label { display: block; padding: 0; font: 600 var(--fs-14)/1.4 var(--font-body); color: var(--text); }
+.contact-reasons .contact-label { margin-bottom: 8px; }
+.contact-optional { font-weight: 400; color: var(--text-muted); }
+.contact-label-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.contact-count { font: var(--fs-12) var(--font-mono); color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.contact-count.is-over { color: var(--take); }
+
+.contact-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 11px;
+  font: var(--fs-15)/1.5 var(--font-body);
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  transition: border-color var(--d-control) var(--ease);
+}
+textarea.contact-input { height: auto; min-height: 104px; padding: 9px 11px; resize: vertical; }
+/* ONE focus look for everything in the component — a 2 px accent outline just outside the control. It survives the
+   error state (an invalid field keeps its red edge AND shows the outline) and never reads as the error red. */
+.contact-page :is(a, button, .contact-input):focus-visible { outline: 2px solid var(--go); outline-offset: 2px; }
+.contact-input:focus-visible { border-color: var(--go); }
+.contact-field.is-invalid .contact-input { border: 2px solid var(--take); padding: 0 10px; }
+.contact-field.is-invalid textarea.contact-input { padding: 8px 10px; }
+
+.contact-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.contact-chip { position: relative; display: block; cursor: pointer; }
+.contact-chip input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.contact-chip span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding-inline: 12px;
+  font-size: var(--fs-14);
+  white-space: nowrap;
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  transition: background-color var(--d-control), border-color var(--d-control), box-shadow var(--d-control);
+}
+.contact-chip span::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--edge); background: var(--paper); }
+.contact-chip:hover span { border-color: var(--go); }
+/* The chosen reason: the pale tint with a 2 px accent edge (the app's selection recipe), and the radio filled. */
+.contact-chip input:checked + span { background: var(--go-tint); border-color: var(--go); box-shadow: inset 0 0 0 1px var(--go); }
+.contact-chip input:checked + span::before { border: 4px solid var(--go); }
+.contact-chip input:focus-visible + span { outline: 2px solid var(--go); outline-offset: 2px; }
+.contact-note { margin: 8px 0 0; min-height: 1.6em; font-size: var(--fs-13); line-height: 1.6; color: var(--text-body); }
+.contact-note b { font-weight: 600; color: var(--text); }
+
+.contact-help { margin: 0; font-size: var(--fs-13); color: var(--text-body); }
+.contact-error { display: flex; gap: 8px; align-items: flex-start; margin: 0; font-size: var(--fs-13); color: var(--take); }
+.contact-reasons .contact-error { margin-top: 8px; }
+.contact-error::before { content: "!"; flex: none; width: 16px; height: 16px; margin-top: 2px; border-radius: 50%; background: var(--take); color: var(--on-ink); font: 700 var(--fs-12)/16px var(--font-body); text-align: center; }
+.contact-error-text { min-width: 0; }
+.contact-error a { color: inherit; text-decoration: underline; }
+.contact-way { display: block; margin-top: 2px; color: var(--text); }
+.contact-way a { color: var(--go); }
+.contact-info { margin: 0; padding: 6px 10px; font-size: var(--fs-13); color: var(--info); background: var(--info-bg); border-inline-start: 2px solid var(--info); border-radius: var(--radius); }
+.contact-typo-fix { appearance: none; padding: 0; border: 0; background: none; font: 600 var(--fs-13) var(--font-body); color: inherit; text-decoration: underline; cursor: pointer; }
+.contact-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.contact-honeypot { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.contact-card .cf-turnstile { margin: 0; min-height: 65px; }
+
+.contact-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.contact-status { margin: 0; font-size: var(--fs-13); color: var(--text-body); }
+.contact-status.is-error { color: var(--take); }
+.contact-status-go { appearance: none; padding: 0; border: 0; background: none; font: inherit; color: var(--go); text-decoration: underline; cursor: pointer; }
+.contact-privacy, .contact-fallback { margin: 0; font-size: var(--fs-13); color: var(--text-body); }
+.contact-fallback { margin-top: 14px; }
+.contact-privacy a, .contact-fallback a, .contact-received-wrong a { color: var(--go); text-decoration: underline; text-underline-offset: 2px; }
+
+.contact-received { display: grid; gap: 14px; align-content: start; }
+.contact-stamp {
+  justify-self: start;
+  margin: 0 0 6px;
+  padding: 4px 12px;
+  font: 700 var(--fs-19) var(--font-mono);
+  letter-spacing: var(--track-label);
+  text-transform: var(--case-label);
+  color: var(--give);
+  border: 2px solid var(--give);
+  transform: rotate(-4deg);
+  outline: none;
+  animation: contact-stamp var(--d-control) var(--ease);
+}
+@keyframes contact-stamp { from { transform: rotate(-4deg) scale(1.15); } }
+.contact-rows { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 0; font-size: var(--fs-15); }
+.contact-rows dt { color: var(--text-muted); }
+.contact-rows dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.contact-received-text { margin: 0; font-size: var(--fs-14); color: var(--text-body); }
+.contact-received-wrong { margin: 0; font-size: var(--fs-13); color: var(--text-body); }
+
+.contact-panel { border-inline-start: 2px solid var(--line); padding-inline-start: 24px; }
+.contact-panel > div { display: grid; gap: 12px; animation: contact-slide var(--d-control) var(--ease); }
+@keyframes contact-slide { from { opacity: 0; transform: translateX(var(--slide-from)); } to { opacity: 1; transform: none; } }
+.contact-panel-title { margin: 0; font: 500 var(--fs-label) var(--font-label); letter-spacing: var(--track-label); text-transform: var(--case-label); color: var(--text-body); }
+.contact-panel p, .contact-panel li { margin: 0; font-size: var(--fs-14); color: var(--text-body); }
+.contact-panel a { color: var(--go); text-decoration: underline; text-underline-offset: 2px; }
+.contact-steps { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; list-style: decimal; }
+.contact-list { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; list-style: disc; }
+.contact-prices { display: grid; grid-template-columns: 1fr auto; margin: 0; }
+.contact-prices dt, .contact-prices dd { margin: 0; padding-block: 8px; font-size: var(--fs-14); border-bottom: 1px solid var(--line); }
+.contact-prices dt { color: var(--text-body); }
+.contact-prices dd { font-weight: 600; text-align: end; white-space: nowrap; color: var(--text); }
+.contact-prices bdi { font-family: var(--font-mono); }
+
+/* Hebrew: the stamp in the Hebrew face (the label tokens already drop capitals and tracking). */
+[dir="rtl"] .contact-stamp { font-family: var(--font-he); }
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-panel > div, .contact-stamp { animation: none; }
+  .contact-chip span, .contact-input { transition: none; }
+}

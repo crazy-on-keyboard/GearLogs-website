@@ -25,6 +25,9 @@ const median = (xs) => { const s = [...xs].sort((a, b) => a - b); const m = Math
 
 async function measure(browser, path) {
   const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  // The AdGuard app on the Director's PC injects its own script into every plain-HTTP local page; under the throttled line it
+  // stalls the first paint by ~10 s (measured 2026-09-27: /faq 11,756 ms with it, 1,264 ms without). It is not the site's.
+  await ctx.route('https://local.adguard.org/**', (route) => route.abort());
   const page = await ctx.newPage();
   const cdp = await ctx.newCDPSession(page);
   await cdp.send('Network.enable');

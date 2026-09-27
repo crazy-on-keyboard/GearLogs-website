@@ -1,0 +1,108 @@
+/* Base: the reset, the page frame, text links, focus, the desktop floor, the label look and the button primitive. */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-17);
+  line-height: var(--lh-body);
+  color: var(--text);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+/* Web-only (the Director's rule): below the floor the page scrolls sideways; it never re-flows into a phone layout. */
+@media (max-width: 1080px) { body { min-width: var(--floor); } }
+
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+img { max-width: 100%; display: block; }
+button, input, textarea, select { font: inherit; color: inherit; }
+/* An author display rule would otherwise beat the [hidden] default. */
+[hidden] { display: none !important; }
+
+/* The page frame: the header floats over the first band; the footer sits at the bottom of a short page. */
+.page { position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+.page > main { flex: 1 0 auto; }
+.wrap, .section-inner, .hero-inner { width: min(var(--wrap), 100% - 2 * var(--gutter)); margin-inline: auto; }
+
+/* Text links inside running copy take the GO colour, underlined — every body's links, one recipe. */
+main :is(p, li, dd, td) a:not([class]),
+main .page-lead a, main .legal-mark {
+  color: var(--go);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--d-control);
+}
+main :is(p, li, dd, td) a:not([class]):hover,
+main .page-lead a:hover, main .legal-mark:hover { color: var(--go-hover); }
+
+/* Focus is focus-visible only: the GO outline on paper, the soft GO on ink. */
+:focus-visible { outline: 2px solid var(--go); outline-offset: 2px; border-radius: var(--radius); }
+:is(.site-header, .band, .site-footer, .on-ink) :focus-visible { outline-color: var(--go-soft); }
+
+/* The skip link: out of sight until the keyboard reaches it. */
+.skip {
+  position: absolute; inset-inline-start: 16px; top: -60px; z-index: 30;
+  background: var(--paper); color: var(--text); padding: 10px 14px; border-radius: var(--radius);
+  font-size: var(--fs-15); font-weight: 500;
+}
+.skip:focus-visible { top: 12px; }
+
+/* The label look — ONE recipe for every small uppercase label (mono in English; the Hebrew face, no capitals, no tracking in Hebrew). */
+:is(.band-kicker, .band-trail, .section-num, .cap-ref, .note-cat, .note-fn, .note-more-t, .note-meta,
+    .price-headline, .price-row-label, .price-total-label, .price-baseline-per, .price-card-per,
+    .changelog-ver, .foot-h, .nav-links a, .nav-links summary, .doc-ref, .summary-label, .meta-label, .nf-t, .cta-stamp) {
+  font-family: var(--font-label);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: var(--case-label);
+}
+
+/* The button primitive: one recipe, variants by what the button does (GO · line · ghost on ink), sizes as modifiers. */
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: var(--fs-15);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--d-control), border-color var(--d-control), color var(--d-control);
+}
+.btn-go { background: var(--go); border-color: var(--go); color: var(--on-ink); }
+.btn-go:hover { background: var(--go-hover); border-color: var(--go-hover); }
+.btn-go:active { background: var(--go-press); border-color: var(--go-press); }
+.btn-line { background: transparent; border-color: var(--edge); color: var(--text); }
+.btn-line:hover { border-color: var(--text); }
+.btn-ghost { background: transparent; border-color: var(--ghost-line); color: var(--on-ink); }
+.btn-ghost:hover { background: var(--glass-hover); }
+.btn-sm { padding: 10px 16px; font-size: var(--fs-14); }
+.btn-lg { padding: 15px 28px; font-size: var(--fs-17); }
+.btn:disabled { opacity: 0.65; cursor: progress; }
+/* the arrow inside a button moves toward where it leads */
+.btn .ar { display: inline-block; transition: transform var(--d-control) var(--ease); }
+.btn:hover .ar { transform: translateX(4px); }
+[dir="rtl"] .btn .ar { transform: scaleX(-1); }
+[dir="rtl"] .btn:hover .ar { transform: scaleX(-1) translateX(4px); }
+
+/* True circles are named and rare: they wear .dot. */
+.dot { border-radius: 50%; }
+
+/* Reduced motion: every transition and animation finishes at once. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transition-delay: 0s !important; }
+  html { scroll-behavior: auto !important; }
+}
+
+/* A row of actions (buttons side by side). */
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
