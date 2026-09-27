@@ -2,13 +2,15 @@
 // Each `run` drives the app by its own labels (never a remembered click position) and leaves the screen to be pictured;
 // a screen is named by the app's dictionary key (`app.nav('tab_approvals')`), so the same shot works in English and Hebrew.
 // `target` (a CSS selector) pictures one element instead of the whole window, and `clip` a rectangle the shot measures itself
-// (from one element's top to another's bottom). Add a shot here, run `npm run capture`,
+// (from one element's top to another's bottom); `marks` lists what a guide step points at (their boxes land in the manifest, and
+// the site outlines them — they follow the app on every re-capture). Add a shot here, run `npm run capture`,
 // and the site's picture is the app as it is today.
 // Never pictured (the council's law): weapons — the Army demo's Weapons Vault tab stays out of every shot.
 
 /** @typedef {{ id: string, alt: { en: string, he: string }, theme?: 'office' | 'light' | 'dark' | 'army' | 'medical', target?: string, settle?: number,
  *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void>,
- *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }> }} Shot */
+ *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }>,
+ *    marks?: (app: any) => Promise<any[]> }} Shot */
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -111,6 +113,9 @@ export default [
       await app.page.getByRole('option', { name: /HO-\d+/ }).first().click();
       await app.idle(1200);
     },
+    // the three acts in the screen's reading order (Confirm · Resend · Cancel) — the guide's list numbers them the same way
+    marks: async (app) => Promise.all(['apr_act_on_behalf', 'apr_act_resend', 'apr_act_cancel'].map(async (key) =>
+      app.page.getByRole('button', { name: new RegExp(escapeRe(await app.t(key))) }).first())),
   },
   {
     id: 'item-card',

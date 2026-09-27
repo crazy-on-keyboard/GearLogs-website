@@ -267,7 +267,31 @@
       "file": "approvals-open.en.webp",
       "alt": "An open receipt waiting for its signature, with the three actions under it: confirm on behalf, cancel the receipt, resend the reminder",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "x": 734,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        },
+        {
+          "x": 958,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        },
+        {
+          "x": 1183,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        }
+      ]
     },
     {
       "id": "approvals-open",
@@ -275,7 +299,31 @@
       "file": "approvals-open.he.webp",
       "alt": "אישור מסירה פתוח שממתין לחתימה, ומתחתיו שלוש הפעולות: אישור בשם האדם, ביטול אישור המסירה ושליחת תזכורת מחדש",
       "theme": "office",
-      "app": "index-BR7nFHjJ.js"
+      "app": "index-BR7nFHjJ.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "x": 488,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        },
+        {
+          "x": 264,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        },
+        {
+          "x": 40,
+          "y": 546,
+          "w": 218,
+          "h": 24
+        }
+      ]
     }
   ]
 }

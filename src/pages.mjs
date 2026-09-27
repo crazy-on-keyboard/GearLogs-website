@@ -32,7 +32,7 @@ const guide = (name) => ({
   activeNav: '/guides',
   bilingual: true,
   sitemap: { changefreq: 'monthly', priority: '0.6' },
-  scripts: ['/js/lightbox.js'],
+  scripts: ['/js/motion.js', '/js/lightbox.js'],
   opts: { ogType: 'article', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
 });
 

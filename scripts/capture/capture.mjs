@@ -141,13 +141,21 @@ async function captureLanguage(lang, words, index) {
     await app.idle(shot.settle ?? 800);
     // Chrome's own screenshot honours the 2× density set above (a connected browser's Playwright screenshot does not)
     const box = shot.clip ? await shot.clip(app) : shot.target ? await page.locator(shot.target).first().boundingBox() : null;
+    // what a guide step points at: each mark's box in the picture's own CSS pixels (the site draws the outline over it)
+    const marks = [];
+    for (const locator of shot.marks ? await shot.marks(app) : []) {
+      const m = await locator.boundingBox();
+      if (!m) throw new Error(`capture: ${shot.id} (${lang}) — a mark is not on the screen`);
+      marks.push({ x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height) });
+    }
+    const frame = { w: Math.round(box?.width ?? VIEW.width), h: Math.round(box?.height ?? VIEW.height) };
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     const file = `${shot.id}.${lang}.webp`;
     writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
     // the smaller copy the site's frames load first (scripts/lib/shots.mjs: 1600w, then the full 2× picture)
     writeFileSync(join(OUT, file.replace(/\.webp$/, '.1600.webp')), (await encodeWebp(page, png, { quality: WEBP_QUALITY, width: 1600 })).data);
-    index.set(`${shot.id}.${lang}`, { id: shot.id, lang, file, alt: shot.alt?.[lang] ?? '', theme: shot.theme ?? BASE_THEME, app: bundle });
+    index.set(`${shot.id}.${lang}`, { id: shot.id, lang, file, alt: shot.alt?.[lang] ?? '', theme: shot.theme ?? BASE_THEME, app: bundle, ...(marks.length ? { frame, marks } : {}) });
     console.log(`capture: ${file}`);
     if (shot.after) await shot.after(app, lang);
   }

@@ -1,6 +1,7 @@
 // The product pictures (Stage 2 PR-3 — the Director's rule that every product picture is the REAL app, S2-02): a body writes
 //   <gl-shot id="board"></gl-shot>   ·   <gl-shot id="approvals" inset="mygear"></gl-shot>
 //   <gl-shot id="approvals-open" caption="What the reader should notice"></gl-shot>   (a guide step's frame)
+//   <gl-shot id="approvals-open" caption="…" marks></gl-shot>   (…with the numbered outlines the capture recorded)
 // and the build expands it here into the ONE frame markup from public/img/app/manifest.json (written by `npm run capture`):
 // the picture in the page's own language, its alt text in that language, two widths with their sizes (no layout shift),
 // lazy loading, a link that opens the full-size picture (the lightbox takes it over when scripts run — F2 · A), and the
@@ -9,7 +10,38 @@
 // The build refuses an unknown id, a picture missing in the page's language, and any leftover or malformed <gl-shot>;
 // refusing an app picture that did not come from a <gl-shot> is `strayAppImages` below.
 
-const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?(?:\s+caption="([^"<>]+)")?\s*><\/gl-shot>/g;
+const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?(?:\s+caption="([^"<>]+)")?(?:\s+(marks))?\s*><\/gl-shot>/g;
+
+/**
+ * The highlight a guide step draws over its screen (his pick "A · Spotlight + numbers", the outline pulsing): the rest of the
+ * picture dims, each thing the step points at gets a GO outline, a square number equal to the step's own list number, and a
+ * ring that grows outward and fades (src/styles/frame.css; /js/motion.js starts it when the screen comes into view, three
+ * times). Drawn from the boxes the capture recorded, in the picture's own pixels, so it follows every re-capture and mirrors
+ * in Hebrew by itself. SVG attributes only — no inline style under the site's CSP.
+ */
+function marksLayer(shot, lang, maskId) {
+  const { w, h } = shot.frame;
+  // the approved board's measures, in the app's own pixels: 6 around each target, a 30 square number on its start corner
+  const PAD = 6;
+  const BADGE = 30;
+  const boxes = shot.marks.map((m) => ({ x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
+  const rect = (b, cls) => `<rect class="${cls}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="none"/>`;
+  const holes = boxes.map((b) => `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="#000"/>`).join('');
+  const badges = boxes.map((b, i) => {
+    const x = (lang === 'he' ? b.x + b.w : b.x) - BADGE / 2;
+    const y = b.y - BADGE / 2;
+    return `<rect class="marks-badge" x="${x}" y="${y}" width="${BADGE}" height="${BADGE}" rx="2"/><text class="marks-num" x="${x + BADGE / 2}" y="${y + BADGE / 2}" text-anchor="middle" dominant-baseline="central">${i + 1}</text>`;
+  }).join('');
+  // the mask covers the whole picture (its default region hugs the masked shapes and would cut the pulse off above and below)
+  return (
+    `<svg class="frame-marks" viewBox="0 0 ${w} ${h}" aria-hidden="true" focusable="false">` +
+    `<defs><mask id="${maskId}" maskUnits="userSpaceOnUse" x="0" y="0" width="${w}" height="${h}"><rect width="${w}" height="${h}" fill="#fff"/>${holes}</mask></defs>` +
+    `<rect class="marks-dim" width="${w}" height="${h}" fill-opacity="0.5" mask="url(#${maskId})"/>` +
+    `<g mask="url(#${maskId})">${boxes.map((b) => rect(b, 'marks-pulse')).join('')}</g>` +
+    boxes.map((b) => rect(b, 'marks-ring')).join('') + badges +
+    `</svg>`
+  );
+}
 
 /** Text for an HTML attribute (an alt that quotes a label, "Expiring", must not cut the attribute short). */
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -41,7 +73,8 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
     const h = Math.round((full.height * 1600) / full.width);
     return `<img class="${cls}" src="/img/app/${small}" srcset="/img/app/${small} 1600w, /img/app/${shot.file} ${full.width}w" sizes="(min-width: 1240px) 820px, 66vw" width="1600" height="${h}" alt="${attr(shot.alt)}" loading="lazy" decoding="async">`;
   };
-  const html = body.replace(SHOT, (_, id, insetId, caption) => {
+  let frames = 0;
+  const html = body.replace(SHOT, (_, id, insetId, caption, withMarks) => {
     const shot = find(id);
     const W = SHOT_WORDS[lang];
     // the inset opens full size too (the same viewer), so its small picture can be read
@@ -49,11 +82,13 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
     const inset = insetShot
       ? `\n        <a class="frame-inset" href="/img/app/${insetShot.file}" data-lightbox aria-label="${W.open}: ${attr(insetShot.alt)}">${img(insetShot, 'frame-img')}</a>`
       : '';
+    if (withMarks && !shot.marks?.length) throw new Error(`shots: ${where} asks for the marks of "${id}", but its ${lang} picture has none (add \`marks\` to the shot and run npm run capture)`);
+    const marks = withMarks ? marksLayer(shot, lang, `marks-${id}-${lang}-${++frames}`) : '';
     return (
       `<figure class="frame${insetId ? ' has-inset' : ''}">\n` +
       `        <a class="frame-open" href="/img/app/${shot.file}" data-lightbox aria-label="${W.open}: ${attr(shot.alt)}">\n` +
       `          <span class="frame-strip" aria-hidden="true"><b>app.gearlogs.com</b></span>\n` +
-      `          ${img(shot, 'frame-img')}\n` +
+      `          <span class="frame-shot">${img(shot, 'frame-img')}${marks}</span>\n` +
       `        </a>${inset}\n` +
       `        <figcaption class="frame-cap">${caption ?? W.caption}</figcaption>\n` +
       `      </figure>`

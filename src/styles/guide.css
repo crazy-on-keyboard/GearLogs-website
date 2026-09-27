@@ -7,7 +7,7 @@
 .guide .section-inner { display: grid; gap: 64px; }
 .guide-h { margin-bottom: 14px; font-size: var(--fs-22); font-weight: 500; line-height: 1.3; color: var(--text); }
 .guide-prose, .guide-before, .guide-result, .guide-trouble, .guide-related { max-width: 680px; }
-.guide p, .guide-list li { font-size: var(--fs-17); line-height: var(--lh-body); color: var(--text-body); }
+.guide p, .guide-list li, .guide-marks li { font-size: var(--fs-17); line-height: var(--lh-body); color: var(--text-body); }
 .guide p + p { margin-top: 16px; }
 [dir="rtl"] .guide { word-spacing: 0.05em; }
 
@@ -15,7 +15,29 @@
 .guide-list { display: grid; gap: 10px; }
 .guide-list li { position: relative; padding-inline-start: 24px; }
 .guide-list li::before { content: ""; position: absolute; inset-inline-start: 2px; top: 0.66em; width: var(--bullet); height: var(--bullet); background: var(--go); }
-* + .guide-list, .guide-list + p { margin-top: 14px; }
+* + .guide-list, .guide-list + p, * + .guide-marks, .guide-marks + p { margin-top: 14px; }
+
+/* a step whose screen carries numbered outlines lists its targets with the same GO squares as the picture's numbers
+   (callout number = list number — the reading spec) */
+.guide-marks { display: grid; gap: 10px; counter-reset: gmark; }
+.guide-marks li { position: relative; padding-inline-start: 38px; counter-increment: gmark; }
+.guide-marks li::before {
+  content: counter(gmark);
+  position: absolute;
+  inset-inline-start: 0;
+  top: calc((var(--lh-body) * var(--fs-17) - 24px) / 2);
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  background: var(--go);
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-13);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--on-ink);
+}
 
 /* the numbered steps: each number is a small "next commitment" (the reading research), the screen sits right under its words */
 .gsteps { display: grid; gap: 64px; counter-reset: gstep; }
@@ -37,7 +59,7 @@
 .gstep > * { grid-column: 2; max-width: 680px; }
 .gstep > .frame { max-width: 1100px; margin-top: 26px; }
 .gstep-t { margin-bottom: 10px; font-size: var(--fs-22); font-weight: 500; line-height: 1.3; color: var(--text); }
-.gstep-t em, .guide p em, .guide-list em { font-style: normal; font-weight: 500; color: var(--text); }
+.gstep-t em, .guide p em, .guide-list em, .guide-marks em { font-style: normal; font-weight: 500; color: var(--text); }
 
 /* the result closes the loop the goal opened (a positive outcome: the give green edge) */
 .guide-result { padding-inline-start: 22px; border-inline-start: 2px solid var(--give); }
