@@ -1,13 +1,15 @@
 // The product pictures (Stage 2 PR-3 — the Director's rule that every product picture is the REAL app, S2-02): a body writes
 //   <gl-shot id="board"></gl-shot>   ·   <gl-shot id="approvals" inset="mygear"></gl-shot>
+//   <gl-shot id="approvals-open" caption="What the reader should notice"></gl-shot>   (a guide step's frame)
 // and the build expands it here into the ONE frame markup from public/img/app/manifest.json (written by `npm run capture`):
 // the picture in the page's own language, its alt text in that language, two widths with their sizes (no layout shift),
 // lazy loading, a link that opens the full-size picture (the lightbox takes it over when scripts run — F2 · A), and the
-// caption "Real screen · sample workspace". Pure module: the caller passes the manifest and the picture sizes.
+// caption: "Real screen · sample workspace", or on a guide step what the reader should notice (the reading spec: a caption
+// says what changed, never "a screenshot of…"). Pure module: the caller passes the manifest and the picture sizes.
 // The build refuses an unknown id, a picture missing in the page's language, and any leftover or malformed <gl-shot>;
 // refusing an app picture that did not come from a <gl-shot> is `strayAppImages` below.
 
-const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?\s*><\/gl-shot>/g;
+const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?(?:\s+caption="([^"<>]+)")?\s*><\/gl-shot>/g;
 
 /** Text for an HTML attribute (an alt that quotes a label, "Expiring", must not cut the attribute short). */
 const attr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -39,7 +41,7 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
     const h = Math.round((full.height * 1600) / full.width);
     return `<img class="${cls}" src="/img/app/${small}" srcset="/img/app/${small} 1600w, /img/app/${shot.file} ${full.width}w" sizes="(min-width: 1240px) 820px, 66vw" width="1600" height="${h}" alt="${attr(shot.alt)}" loading="lazy" decoding="async">`;
   };
-  const html = body.replace(SHOT, (_, id, insetId) => {
+  const html = body.replace(SHOT, (_, id, insetId, caption) => {
     const shot = find(id);
     const W = SHOT_WORDS[lang];
     // the inset opens full size too (the same viewer), so its small picture can be read
@@ -53,7 +55,7 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
       `          <span class="frame-strip" aria-hidden="true"><b>app.gearlogs.com</b></span>\n` +
       `          ${img(shot, 'frame-img')}\n` +
       `        </a>${inset}\n` +
-      `        <figcaption class="frame-cap">${W.caption}</figcaption>\n` +
+      `        <figcaption class="frame-cap">${caption ?? W.caption}</figcaption>\n` +
       `      </figure>`
     );
   });

@@ -175,5 +175,13 @@
     "ogDescription": "Every step of the store on the record: hand-outs, receipts people sign, warranty, repair and each person’s and item’s full history. Real screens from the app.",
     "twitterTitle": "How GearLogs works",
     "twitterDescription": "Every step of the store on the record, with real screens from the app."
+  },
+  "guides/approvals": {
+    "title": "Approvals: Read a Receipt and Act on It — GearLogs Guide",
+    "description": "Read every receipt your people sign on My Gear, act on the open ones — confirm on behalf, cancel, resend the reminder — and follow them on the dashboard. Step by step, with real screens.",
+    "ogTitle": "Approvals: read a receipt and act on it",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Approvals: read a receipt and act on it",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }

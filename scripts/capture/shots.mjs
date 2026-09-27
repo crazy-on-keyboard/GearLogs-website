@@ -102,6 +102,17 @@ export default [
     },
   },
   {
+    // the Approvals guide's step 3: a receipt still waiting, open, with the three acts under it (nothing is pressed)
+    id: 'approvals-open',
+    alt: { en: 'An open receipt waiting for its signature, with the three actions under it: confirm on behalf, cancel the receipt, resend the reminder', he: 'אישור מסירה פתוח שממתין לחתימה, ומתחתיו שלוש הפעולות: אישור בשם האדם, ביטול אישור המסירה ושליחת תזכורת מחדש' },
+    run: async (app) => {
+      await app.nav('tab_approvals');
+      await app.idle(800);
+      await app.page.getByRole('option', { name: /HO-\d+/ }).first().click();
+      await app.idle(1200);
+    },
+  },
+  {
     id: 'item-card',
     alt: { en: 'An item opened on the board: its serial-numbered units, who holds each one, its condition and its history', he: 'פריט פתוח בלוח: היחידות עם מספר סידורי, מי מחזיק בכל אחת, המצב וההיסטוריה' },
     run: async (app, lang) => {

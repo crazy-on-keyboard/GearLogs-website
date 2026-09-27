@@ -22,6 +22,20 @@ const NOTE_SLUGS = [
   'a-column-is-not-a-question',
 ];
 
+// Guides with their own page (the Director's ask: guides reworked — steps with space, a real screen per step).
+const GUIDE_SLUGS = ['approvals'];
+const guide = (name) => ({
+  slug: `guides/${name}`,
+  path: `/guides/${name}`,
+  chrome: 'full',
+  footer: 'full',
+  activeNav: '/guides',
+  bilingual: true,
+  sitemap: { changefreq: 'monthly', priority: '0.6' },
+  scripts: ['/js/lightbox.js'],
+  opts: { ogType: 'article', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+});
+
 const article = (name) => ({
   slug: `notes/${name}`,
   path: `/notes/${name}`,
@@ -97,6 +111,7 @@ export const PAGES = [
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   ...NOTE_SLUGS.map(article),
+  ...GUIDE_SLUGS.map(guide),
   {
     slug: 'pay', path: '/pay', chrome: 'minimal', footer: 'minimal', activeNav: null, bilingual: false, sitemap: null,
     // Paddle.js v2 is the ONLY external script here; it reads ?_ptxn= and opens the overlay checkout itself (headers.mjs PAY_CSP)

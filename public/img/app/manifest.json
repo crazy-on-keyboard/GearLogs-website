@@ -260,6 +260,22 @@
       "alt": "אישור מסירה ב״הציוד שלי״: הפריטים, והשאלה שהאדם עונה עליה — קיבלתי אותם, או שמשהו לא בסדר",
       "theme": "office",
       "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals-open",
+      "lang": "en",
+      "file": "approvals-open.en.webp",
+      "alt": "An open receipt waiting for its signature, with the three actions under it: confirm on behalf, cancel the receipt, resend the reminder",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
+    },
+    {
+      "id": "approvals-open",
+      "lang": "he",
+      "file": "approvals-open.he.webp",
+      "alt": "אישור מסירה פתוח שממתין לחתימה, ומתחתיו שלוש הפעולות: אישור בשם האדם, ביטול אישור המסירה ושליחת תזכורת מחדש",
+      "theme": "office",
+      "app": "index-BR7nFHjJ.js"
     }
   ]
 }
