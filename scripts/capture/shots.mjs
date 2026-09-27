@@ -13,7 +13,7 @@
  *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: 'start' | 'end' | 'corner' }>>,
  *    badge?: 'start' | 'end' | 'corner' }} Shot */
 
-import { NAMES, control, dashboardCard, escapeRe, onScreen, openCard, openMyGear, openWaiting, closeCard, slotted, toTop } from './helpers.mjs';
+import { NAMES, control, dashboardCard, escapeRe, onScreen, openCard, openLogistics, openMyGear, openWaiting, closeCard, slotted, toTop } from './helpers.mjs';
 import HANDOUT_SHOTS from './guides/handout.mjs';
 import KIT_SHOTS from './guides/kits.mjs';
 import WRITEOFF_SHOTS from './guides/writeoffs.mjs';
@@ -23,7 +23,7 @@ export default [
   {
     id: 'board',
     alt: { en: 'The Logistics board: every item with its stock, who holds it and its storage limit', he: 'לוח הלוגיסטיקה: כל פריט עם המלאי, מי מחזיק בו ומגבלת האחסון' },
-    run: async (app) => { await app.nav('tab_logistics'); },
+    run: async (app) => { await openLogistics(app); },
   },
   {
     id: 'registry',
@@ -97,7 +97,7 @@ export default [
     id: 'item-card',
     alt: { en: 'An item opened on the board: its serial-numbered units, who holds each one, its condition and its history', he: 'פריט פתוח בלוח: היחידות עם מספר סידורי, מי מחזיק בכל אחת, המצב וההיסטוריה' },
     run: async (app, lang) => {
-      await app.nav('tab_logistics');
+      await openLogistics(app);
       await app.page.getByRole('button', { name: NAMES.serialTab[lang], exact: true }).first().click();
       await app.idle(800);
       await openCard(app, NAMES.serialItem[lang]);
@@ -124,7 +124,7 @@ export default [
     id: 'handout-window',
     alt: { en: 'Handing an item to several people at once: pick the people, set how many each gets, see the stock after', he: 'ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי' },
     run: async (app, lang) => {
-      await app.nav('tab_logistics');
+      await openLogistics(app);
       await (await control(app, 'assign_item', NAMES.plainItem[lang])).click();
       await app.idle(600);
       await app.page.getByRole('button', { name: await app.t('handout_more_people'), exact: true }).first().click();

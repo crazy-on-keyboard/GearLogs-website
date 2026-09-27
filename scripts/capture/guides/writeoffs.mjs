@@ -1,7 +1,7 @@
 // The write-off guide's screens: 4.7 (write off lost gear, and retire a leaver). Nothing is written off or archived: every
 // window opens untouched (one line ticked at most — the window's own state), no confirm is ever pressed, the departing window's
 // confirm stays locked because its word is never typed, and each window closes by Escape or its own Cancel.
-import { NAMES, boardCard, control, escape, escapeRe, onScreen, openCard, closeCard, side } from '../helpers.mjs';
+import { NAMES, boardCard, control, escape, escapeRe, onScreen, openCard, closeCard, side, slotted } from '../helpers.mjs';
 
 /** A person's own window, open over the board (found by its title). */
 const dialogNamed = async (app, key) => app.page.getByRole('dialog', { name: await app.t(key), exact: true });
@@ -15,7 +15,7 @@ export default [
   {
     // step 1: the holder's card open — Write off on an item's row, Write off items and Archive at its foot (nothing pressed)
     id: 'writeoff-card',
-    alt: { en: 'A person opened on the Personnel board: the Write off button on an item\'s row, and Write off items and Archive at the foot of the card', he: 'אדם פתוח בלוח כוח האדם: הכפתור רישום אובדן בשורת פריט, ובתחתית הכרטיס רישום פריטים כאובדן והעבר לארכיון' },
+    alt: { en: 'A person opened on the Personnel board: the Write off button on an item\'s row, and Write off items and Archive at the foot of the card', he: 'אדם פתוח בלוח כוח האדם: הכפתור גריעה בשורת פריט, ובתחתית הכרטיס גריעת פריטים והעבר לארכיון' },
     run: async (app, lang) => { await app.nav('tab_personnel'); await openCard(app, NAMES.holder[lang]); },
     marks: async (app, lang) => [
       await rowWriteOff(app, lang),
@@ -101,7 +101,7 @@ export default [
   {
     // step 5: the Archive's Write-offs tab (the Archive opens on Personnel Archives, so the tab is picked)
     id: 'archive-writeoffs',
-    alt: { en: 'The Archive\'s write-offs: every loss with its reason, who reported it and whether it was recovered', he: 'האובדנים בארכיון: כל אובדן עם הסיבה, מי דיווח ואם שוחזר' },
+    alt: { en: 'The Archive\'s write-offs: every loss with its reason, who reported it and whether it was recovered', he: 'הגריעות בארכיון: כל גריעה עם הסיבה, מי דיווח ואם שוחזר' },
     run: async (app) => {
       await app.nav('tab_archive');
       await app.page.getByRole('tab', { name: new RegExp(`^${escapeRe(await app.t('tab_writeoffs'))}`) }).first().click();
@@ -118,7 +118,7 @@ export default [
   {
     // step 6: Personnel Archives with its exits and Restore (nothing is pressed)
     id: 'archive-personnel',
-    alt: { en: 'The Archive\'s retired people: who they were, when they left, what was written off, and Restore', he: 'אנשים בארכיון: מי הם, מתי עזבו, מה נרשם כאובדן, והכפתור שחזר' },
+    alt: { en: 'The Archive\'s retired people: who they were, when they left, what was written off, and Restore', he: 'אנשים בארכיון: מי הם, מתי עזבו, מה נגרע, והכפתור שחזר' },
     run: async (app) => {
       await app.nav('tab_archive');
       await app.page.getByRole('tab', { name: new RegExp(`^${escapeRe(await app.t('arch_tab_personnel'))}`) }).first().click();
@@ -134,14 +134,13 @@ export default [
   {
     // step 7: the head's card open — its red loss mark and its Written Off list (nothing is pressed)
     id: 'person-card-losses',
-    alt: { en: 'A person\'s card with a loss: the red mark, and the Written Off list — what, how many times, how many still lost', he: 'כרטיס של אדם עם אובדן: הסימון האדום, והרשימה נרשם כאובדן — מה, כמה פעמים וכמה עדיין אבודים' },
+    alt: { en: 'A person\'s card with a loss: the red mark, and the Written Off list — what, how many times, how many still lost', he: 'כרטיס של אדם עם גריעה: הסימון האדום, והרשימה נגרע — מה, כמה פעמים וכמה עדיין אבודים' },
     run: async (app, lang) => { await app.nav('tab_personnel'); await openCard(app, NAMES.person[lang]); },
     marks: async (app, lang) => {
       const card = await boardCard(app, NAMES.person[lang]);
-      // the loss mark speaks "{0} written off" only while it is on — matched by the words after the count
-      const tail = (await app.t('wo_flag_tip')).split('{0}')[1];
+      // the loss mark speaks its phrase ("{0} written off" · "אבד נטו: {0}") only while it is on — the whole phrase, the count anywhere
       return [
-        card.locator(`[aria-label$="${tail}"]`).first(),
+        card.getByLabel(slotted(await app.t('wo_flag_tip'))).first(),
         card.getByRole('table', { name: await app.t('wo_written_off'), exact: true }),
       ];
     },

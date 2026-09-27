@@ -1,7 +1,7 @@
 // The hand-out guides' screens: 4.2 (hand out gear, and take it back) and 4.3 (sign out gear for a team). Every shot opens a
 // window and leaves it untouched: no confirm is ever pressed, no Enter is ever typed, and each window closes by Escape or its
 // own Cancel — found by its label right before the click. Ticking a line in a window is the window's own state, never saved.
-import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, side, slotted } from '../helpers.mjs';
+import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, openLogistics, side, slotted } from '../helpers.mjs';
 
 /** The small Assign card an item or a person opens ("Assign Item — <name>", or "Assign Unit — <name>" on a serial item). */
 const assignCard = async (app, key = 'assign_item') => app.page.getByRole('dialog', { name: new RegExp(`^${escapeRe(await app.t(key))} — `) }).first();
@@ -25,7 +25,7 @@ export default [
     id: 'assign-item',
     alt: { en: 'Assign Item opened on the Hand Truck card: pick the person, set the quantity, press OK', he: 'שייך ציוד פתוח בכרטיס של עגלת יד: בוחרים אדם, קובעים כמות ולוחצים על אישור' },
     run: async (app, lang) => {
-      await app.nav('tab_logistics');
+      await openLogistics(app);
       await app.page.getByRole('button', { name: NAMES.homeTab[lang], exact: true }).first().click();
       await app.idle(500);
       await (await control(app, 'assign_item', NAMES.plainItem[lang])).click();
@@ -69,7 +69,7 @@ export default [
     id: 'assign-unit',
     alt: { en: 'Assign Unit opened on the Barcode Scanner card: pick the unit and the person, then assign, or open the window for more people', he: 'שיוך יחידה פתוח בכרטיס של סורק ברקוד: בוחרים יחידה ואדם ומשייכים, או פותחים את החלון לעוד אנשים' },
     run: async (app, lang) => {
-      await app.nav('tab_logistics');
+      await openLogistics(app);
       await app.page.getByRole('button', { name: NAMES.serialTab[lang], exact: true }).first().click();
       await app.idle(800);
       await (await control(app, 'assign_item', NAMES.serialItem[lang])).click();
@@ -139,7 +139,7 @@ export default [
   {
     // 4.3 step 1: the head's own Edit Person window with the Department Head tick in view (no field is touched, nothing saved)
     id: 'person-form-head',
-    alt: { en: 'Editing a person: the Department Head tick that gives their card the Issue Batch button', he: 'עריכת אדם: הסימון ראש מחלקה שמוסיף לכרטיס את הכפתור הנפקה מרוכזת' },
+    alt: { en: 'Editing a person: the Department Head tick that gives their card the Issue Batch button', he: 'עריכת אדם: הסימון ראש מחלקה שמוסיף לכרטיס את הכפתור ניפוק מרוכז' },
     run: async (app, lang) => {
       await app.nav('tab_personnel');
       await (await control(app, 'tooltip_edit', NAMES.person[lang])).click();
@@ -161,7 +161,7 @@ export default [
   {
     // 4.3 step 2: the Personnel board as it opens — the head's card in gold, with Issue Batch (nothing is opened)
     id: 'personnel-head',
-    alt: { en: 'The Personnel board: a department head\'s card in gold, with its Issue Batch button', he: 'לוח כוח האדם: הכרטיס של ראש מחלקה בזהב, עם הכפתור הנפקה מרוכזת' },
+    alt: { en: 'The Personnel board: a department head\'s card in gold, with its Issue Batch button', he: 'לוח כוח האדם: הכרטיס של ראש מחלקה בזהב, עם הכפתור ניפוק מרוכז' },
     run: async (app, lang) => {
       await app.nav('tab_personnel');
       await (await control(app, 'sign_out_batch', NAMES.person[lang])).waitFor();
@@ -206,7 +206,7 @@ export default [
   {
     // 4.3 step 5: the same window, the notice line and the Issue button (the button is NEVER pressed)
     id: 'batch-issue',
-    alt: { en: 'The batch ready to issue: who gets the notice, and the one button that issues every row', he: 'האצווה מוכנה להנפקה: מי מקבל את ההודעה, והכפתור האחד שמנפיק את כל השורות' },
+    alt: { en: 'The batch ready to issue: who gets the notice, and the one button that issues every row', he: 'האצווה מוכנה לניפוק: מי מקבל את ההודעה, והכפתור האחד שמנפק את כל השורות' },
     run: openBatch,
     marks: async (app, lang) => {
       const dialog = await batchDialog(app);

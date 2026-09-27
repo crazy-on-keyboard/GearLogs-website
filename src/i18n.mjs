@@ -110,7 +110,7 @@ export const CHROME = {
     lang_switch_to: 'English',
     lang_switch_aria: 'View this page in English / צפייה בעמוד זה באנגלית',
 
-    footer_tagline: 'רישום החזקה לציוד שאתם מנפיקים.',
+    footer_tagline: 'רישום החזקה לציוד שאתם מנפקים.',
     footer_col_product: 'המוצר',
     footer_col_help: 'עזרה',
     footer_col_legal: 'משפטי',

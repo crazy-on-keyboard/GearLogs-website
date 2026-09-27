@@ -121,3 +121,8 @@ export async function leaveKits(app) {
   await (await area(app, 'area_equipment')).click().catch(() => {});
   await app.idle(400);
 }
+/** Logistics on its item board (Equipment), whatever this browser last left open — the item shots never trust the switch. */
+export async function openLogistics(app) {
+  await app.nav('tab_logistics');
+  await leaveKits(app);
+}

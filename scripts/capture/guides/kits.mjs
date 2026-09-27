@@ -60,7 +60,7 @@ export default [
   {
     // 4.22 step 1: the Kits area — the screen in the side menu, the area switch, ISSUE on the kit, the kit's lines
     id: 'kits',
-    alt: { en: 'The Kits area of Logistics: every kit with its lines, how many of each per kit, and the ISSUE button on its card', he: 'אזור הערכות בלוגיסטיקה: כל ערכה עם השורות שלה, כמה מכל פריט לערכה, והכפתור הנפקה בכרטיס שלה' },
+    alt: { en: 'The Kits area of Logistics: every kit with its lines, how many of each per kit, and the ISSUE button on its card', he: 'אזור הערכות בלוגיסטיקה: כל ערכה עם השורות שלה, כמה מכל פריט לערכה, והכפתור ניפוק בכרטיס שלה' },
     run: openKits,
     marks: async (app, lang) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_logistics'))}`, 'i') }).first(),
@@ -89,7 +89,7 @@ export default [
   {
     // 4.22 step 3: Issue kit — a group found by a search and ticked (nothing is issued)
     id: 'kit-issue-who',
-    alt: { en: 'Issuing a kit: a group found by a search and ticked in the Who receives it pane, with the number of people on the list', he: 'הנפקת ערכה: קבוצה שנמצאה בחיפוש וסומנה בחלונית מי מקבל, עם מספר האנשים ברשימה' },
+    alt: { en: 'Issuing a kit: a group found by a search and ticked in the Who receives it pane, with the number of people on the list', he: 'ניפוק ערכה: קבוצה שנמצאה בחיפוש וסומנה בחלונית מי מקבל, עם מספר האנשים ברשימה' },
     run: async (app, lang) => openIssue(app, lang, NAMES.kitTeam[lang]),
     marks: async (app, lang) => {
       const dialog = await issueDialog(app);
@@ -105,7 +105,7 @@ export default [
   {
     // 4.22 step 4: the What will happen pane — the people count, the lines' maths, the notice line, Issue (never pressed)
     id: 'kit-issue-what',
-    alt: { en: 'Issuing a kit: the What will happen pane — each line per person, needed and in stock, the notice count and the green Issue button', he: 'הנפקת ערכה: החלונית מה יקרה — כל שורה לאדם, נדרש ובמלאי, מספר ההודעות והכפתור הירוק להנפקה' },
+    alt: { en: 'Issuing a kit: the What will happen pane — each line per person, needed and in stock, the notice count and the green Issue button', he: 'ניפוק ערכה: החלונית מה יקרה — כל שורה לאדם, נדרש ובמלאי, מספר ההודעות והכפתור הירוק לניפוק' },
     run: async (app, lang) => openIssue(app, lang, NAMES.kitTeam[lang]),
     marks: async (app) => {
       const dialog = await issueDialog(app);
@@ -124,7 +124,7 @@ export default [
   {
     // 4.22 step 5: the whole tab ticked — the short lines turn red (nothing is issued)
     id: 'kit-issue-short',
-    alt: { en: 'Issuing a kit to a whole tab: the lines without enough stock turn red — needed is more than in stock', he: 'הנפקת ערכה לכרטיסייה שלמה: השורות שאין להן מספיק מלאי נצבעות באדום — נדרש גדול ממה שיש במלאי' },
+    alt: { en: 'Issuing a kit to a whole tab: the lines without enough stock turn red — needed is more than in stock', he: 'ניפוק ערכה לכרטיסייה שלמה: השורות שאין להן מספיק מלאי נצבעות באדום — נדרש גדול ממה שיש במלאי' },
     run: async (app, lang) => openIssue(app, lang, NAMES.kitTab[lang]),
     marks: async (app, lang) => {
       const dialog = await issueDialog(app);
@@ -138,7 +138,7 @@ export default [
   {
     // 4.22 step 6 and 4.23 step 5: the kit's row on the head's card, open — its head, Return, and its lines (nothing pressed)
     id: 'person-card-kit',
-    alt: { en: 'A person\'s card with a kit row open: the kit\'s name and code, when it was issued, the lines still out, each line with its state, and Return', he: 'כרטיס אדם עם שורת ערכה פתוחה: שם הערכה והקוד שלה, מתי הונפקה, השורות שעדיין בחוץ, כל שורה עם המצב שלה, והכפתור החזרה' },
+    alt: { en: 'A person\'s card with a kit row open: the kit\'s name and code, when it was issued, the lines still out, each line with its state, and Return', he: 'כרטיס אדם עם שורת ערכה פתוחה: שם הערכה והקוד שלה, מתי נופקה, השורות שעדיין בחוץ, כל שורה עם המצב שלה, והכפתור החזרה' },
     run: async (app, lang) => {
       await app.nav('tab_personnel');
       await openCard(app, NAMES.person[lang]);
@@ -164,7 +164,7 @@ export default [
   {
     // 4.23 step 1: the Kits area — the switch, the kit's OPEN plate and its people button (nothing is pressed on the card)
     id: 'kits-board',
-    alt: { en: 'The Kits area of Logistics: each kit card with its lines, how many people it was issued to and how many lines are still out', he: 'אזור הערכות בלוגיסטיקה: כל כרטיס ערכה עם השורות שלו, לכמה אנשים הונפקה וכמה שורות עדיין בחוץ' },
+    alt: { en: 'The Kits area of Logistics: each kit card with its lines, how many people it was issued to and how many lines are still out', he: 'אזור הערכות בלוגיסטיקה: כל כרטיס ערכה עם השורות שלו, לכמה אנשים נופקה וכמה שורות עדיין בחוץ' },
     run: openKits,
     marks: async (app, lang) => {
       const people = await control(app, 'kit_people_title', NAMES.heldKit[lang]);
@@ -211,7 +211,7 @@ export default [
   {
     // 4.23 step 4: one line marked Lost in the form — on screen only; the save is never pressed and the choice is dropped on close
     id: 'kit-return-lost',
-    alt: { en: 'Return kit with one line marked Lost: the reason, the date of the loss and a note, and the button that now names the write-off', he: 'החזרת ערכה עם שורה אחת שסומנה אבד: הסיבה, תאריך האובדן והערה, והכפתור שמציין עכשיו את רישום האובדן' },
+    alt: { en: 'Return kit with one line marked Lost: the reason, the date of the loss and a note, and the button that now names the write-off', he: 'החזרת ערכה עם שורה אחת שסומנה אבד: הסיבה, תאריך האובדן והערה, והכפתור שמציין עכשיו את הגריעה' },
     run: async (app, lang) => {
       const dialog = await openKitReturn(app, lang);
       await dialog.getByRole('option', { name: new RegExp(escapeRe(NAMES.kitLost[lang])) }).first().click();
