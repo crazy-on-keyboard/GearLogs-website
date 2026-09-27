@@ -31,24 +31,22 @@
 /* A guide step's highlight (his picks "Highlights · A · Spotlight + numbers" and, after the options board, "the outline of
    numbers pulsating and not a hotspot"): scripts/lib/shots.mjs draws it over the picture in the picture's own pixels — the
    rest dims, each target gets the GO outline and its number. Nothing in it can be clicked, so a click still opens the picture
-   full size. The outline pulses outward three times when the things it points at are wholly in view (/js/motion.js adds
-   .is-live), then rests, and again each time the reader comes back; with reduced motion, or without the script, the still
-   outline stays. */
+   full size. When the things it points at are first wholly in view, the outline gives ONE soft glow (/js/motion.js adds
+   .is-live) and then stays still — his pick "B · One soft pulse" after three pulses proved distracting; with reduced motion,
+   or without the script, the still outline alone. */
 .frame-marks { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .marks-dim { fill: var(--ink); fill-opacity: 0.5; }
 .marks-ring { stroke: var(--go); stroke-width: 4; }
 .marks-pulse { stroke: var(--go-soft); stroke-width: 4; stroke-opacity: 0; }
 .marks-badge { fill: var(--go); }
 .marks-num { fill: var(--on-ink); font-family: var(--font-mono); font-size: var(--fs-15); font-weight: 500; }
-/* the halo leaves the outline at full strength and holds it most of the way out (an eased curve fades it before the eye
-   catches it — measured on the frame, 2026-09-27) */
+/* a faint halo that leaves the outline and fades as it spreads — once */
 @keyframes marks-pulse {
-  0% { stroke-width: 4; stroke-opacity: 1; }
-  45% { stroke-width: 26; stroke-opacity: 0.85; }
-  100% { stroke-width: 44; stroke-opacity: 0; }
+  from { stroke-width: 4; stroke-opacity: 0.6; }
+  to { stroke-width: 28; stroke-opacity: 0; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .frame-marks.is-live .marks-pulse { animation: marks-pulse var(--d-pulse) linear var(--d-pulse-gap) 3; }
+  .frame-marks.is-live .marks-pulse { animation: marks-pulse var(--d-pulse) ease-out var(--d-pulse-gap) 1; }
 }
 /* the inset hangs off the frame's outer edge (the frame sits on the reading side of its row) */
 .frame-inset {

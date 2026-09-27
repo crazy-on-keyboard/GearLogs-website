@@ -129,9 +129,8 @@
   --d-reveal: 600ms;
   --d-stagger: 70ms;
   --d-hero: 10s;
-  /* a guide step's outline pulses outward three times when its screen comes into view, then rests (his pick: the outline
-     pulses, no hotspot) — the one repeated motion on the site, and it stops by itself */
-  --d-pulse: 1400ms;
+  /* a guide step's outline gives one soft glow when its targets first come into view (his pick "B · One soft pulse") */
+  --d-pulse: 1200ms;
   --d-pulse-gap: 250ms;
   /* a side panel slides in from the reading side */
   --slide-from: -6px;

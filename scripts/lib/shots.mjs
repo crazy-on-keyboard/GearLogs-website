@@ -15,9 +15,9 @@ const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?(?:\s+capt
 /**
  * The highlight a guide step draws over its screen (his pick "A · Spotlight + numbers", the outline pulsing): the rest of the
  * picture dims, each thing the step points at gets a GO outline, a square number equal to the step's own list number, and a
- * ring that grows outward and fades (src/styles/frame.css; /js/motion.js starts it when the screen comes into view, three
- * times). Drawn from the boxes the capture recorded, in the picture's own pixels, so it follows every re-capture and mirrors
- * in Hebrew by itself. SVG attributes only — no inline style under the site's CSP.
+ * soft halo that grows outward and fades once (src/styles/frame.css; /js/motion.js starts it when the targets are first in
+ * view — "B · One soft pulse"). Drawn from the boxes the capture recorded, in the picture's own pixels, so it follows every
+ * re-capture and mirrors in Hebrew by itself. SVG attributes only — no inline style under the site's CSP.
  */
 function marksLayer(shot, lang, maskId) {
   const { w, h } = shot.frame;
