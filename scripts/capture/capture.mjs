@@ -243,6 +243,13 @@ async function captureLanguage(lang, words, index) {
     }
     await app.lang(startLang);
     await app.theme(startTheme);
+  } catch (failure) {
+    // a shot failed: the member's own language and theme are still put back as found (they are saved on the member's
+    // account — a run that died midway once left the Hebrew demo on the capture's theme), whatever window the shot left open
+    await page.goto(APP, { waitUntil: 'networkidle' }).catch(() => {});
+    await app.lang(startLang).catch(() => {});
+    await app.theme(startTheme).catch(() => {});
+    throw failure;
   } finally {
     // a shot that fails leaves no window behind either: the page and the capture Chrome close whatever happened (the
     // Director's pick "A · Close window between runs"); the demo sign-in stays saved in its own profile on this PC
