@@ -1,0 +1,95 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.19</p>
+        <p class="band-kicker">Guide 4.19 <span class="sep">&middot;</span> Data Ops</p>
+        <h1 class="band-title">Bring your lists in from a spreadsheet</h1>
+        <p class="band-lede">Bring in items, people, sign-in accounts or serial numbers from a .csv file. You see how the file was read before anything is saved.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li><em>Import Center</em> opens only for a super administrator. For everyone else it is greyed out, with a lock.</li>
+            <li>Save the spreadsheet as a .csv file first.</li>
+            <li>Each card has its own <em>Template</em>. Start from it: the first row names the columns in English, the way the importer reads them.</li>
+            <li>Import up to 2,000 items or people at a time.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open the Import Center.</h2>
+            <p>Open <em>Data Ops</em> from the side menu, then <em>Import Center</em> in its rail.</p>
+            <ol class="guide-marks">
+              <li><em>Data Ops</em> in the side menu.</li>
+              <li><em>Import Center</em> in the Data Ops rail.</li>
+              <li>The line above the cards: drop each file on the card that matches it.</li>
+              <li>The four cards: <em>Import Logistics</em>, <em>Import Personnel</em>, <em>Import Users</em> and <em>Import Registry</em>.</li>
+            </ol>
+            <p><em>Import Logistics</em> brings in items with their stock. <em>Import Personnel</em> brings in people. <em>Import Users</em> creates sign-in accounts. <em>Import Registry</em> adds serial-numbered units to items that already track units.</p>
+            <gl-shot id="import-center" caption="Data Ops open on Import Center: the rail, the hint and the four cards." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Fill the template and drop the file.</h2>
+            <p>Every card works the same way. Here: <em>Import Logistics</em>.</p>
+            <ol class="guide-marks">
+              <li>The card&rsquo;s name and what it brings in.</li>
+              <li><em>Template</em> downloads a sample .csv with the card&rsquo;s columns.</li>
+              <li>Drag the file here, or click to choose it.</li>
+            </ol>
+            <p>The Logistics columns are name, quantity, location, tab_name, group_name, notes and capacity. Only name is required. Quantity and capacity take whole numbers, up to 999,999,999. A tab or group the file names that does not exist yet is created. A people file needs first_name, last_name and primary_dept. A column the importer does not know is left out, and the preview names it.</p>
+            <gl-shot id="import-zone" caption="The Import Logistics card: its name, Template and the drop area." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Check the preview.</h2>
+            <p>Nothing is saved yet. The preview shows how the file was read.</p>
+            <ol class="guide-marks">
+              <li>The first line: nothing is saved until you confirm.</li>
+              <li><em>Will add</em>: the new records the file brings.</li>
+              <li>The rows set aside: one a rule refused, for a quantity over 999,999,999, and one that matches the Hand Truck you already have. Neither is written over anything.</li>
+              <li><em>Import</em> saves the file.</li>
+            </ol>
+            <p><em>Cancel</em> closes the preview, and nothing is saved. After <em>Import</em>, the clean rows are saved and the rows set aside wait under the cards. A people file is stricter. A row that breaks a person rule — a name, an e-mail address, a phone number, or an ID number or personal number used twice — refuses the whole file before the preview. A window titled <em>Import failed</em> names a row and a field. A row without a first name, last name or primary department is set aside like any other.</p>
+            <gl-shot id="import-preview" caption="The preview of a four-row stock file: two items to add, two rows set aside, and Import." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Sort out the rows set aside.</h2>
+            <p>Rows set aside wait under the cards, each with its reason in your language.</p>
+            <ol class="guide-marks">
+              <li><em>Import Center</em> carries a red count while rows are waiting.</li>
+              <li>The box under the cards. <em>All Clear</em> means nothing is waiting; otherwise the rows are listed here.</li>
+            </ol>
+            <p>Pick a row to open it. A row a rule refused shows <em>Validation Error</em>: correct its fields, then press <em>Retry Import</em>. A row that matches a record shows <em>Data Conflict</em>, with the existing and incoming values side by side. <em>Overwrite Existing</em> takes the file&rsquo;s values. <em>Keep Both (Copy)</em> adds the row as a new record. <em>Discard</em> drops it. <em>Discard</em> and <em>Overwrite Existing</em> ask first. <em>Discard All</em>, <em>Overwrite All</em> and <em>Keep Both</em> act on the whole list, and the first two ask first.</p>
+            <gl-shot id="import-conflicts" caption="Import Center with no rows waiting: All Clear under the cards." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Your items, people and accounts are in GearLogs, and every row that was not saved waits under the cards with its reason.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Validation: Quantity can go up to 999,999,999.</q> The row&rsquo;s quantity is larger than GearLogs counts. The row waits under the cards: correct the number, then press <em>Retry Import</em>. Capacity has the same limit and its own sentence.</li>
+            <li><q>Validation: Quantity must be a whole number.</q> The quantity holds a fraction. Counts are whole numbers only. Correct it in the row and press <em>Retry Import</em>.</li>
+            <li><q>Duplicate Name</q> An item with that name already exists, or appears earlier in the same file. For people, the same name in the same primary department. Nothing was written over it: choose <em>Overwrite Existing</em>, <em>Keep Both (Copy)</em> or <em>Discard</em>.</li>
+            <li><q>Import failed</q> A row of a people file broke a person rule, so the whole file was refused and nothing was saved. The line in the window names a row and a field. Correct the file and import it again.</li>
+            <li><q>Import failed — nothing was saved. Please try again.</q> The file was refused whole when it was being saved. A file of more than 2,000 items or people is one reason: split it and import each part.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/set-up-board">Set Up Your Board</a></li>
+            <li><a href="/guides/registry">Track Serial Numbers in the Registry</a></li>
+            <li><a href="/guides/storage-capacity">Set a Storage Capacity</a></li>
+            <li><a href="/guides/reports">Reports, Exports and Backups</a></li>
+            <li><a href="/guides/access">Control Who Has Access</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

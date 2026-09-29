@@ -46,7 +46,7 @@ export default [
   {
     // step 1: the plain item's Edit Item, Registry tab — tracking off, the switch untouched
     id: 'registry-track',
-    alt: { en: 'An item\'s Edit Item window on its Registry tab: unit tracking is off, and the switch that turns it on', he: 'חלון עריכת פריט בלשונית מרשם: מעקב היחידות כבוי, והמתג שמפעיל אותו' },
+    alt: { en: 'An item\'s Edit Item window on its Registry tab: unit tracking is off, and the switch that turns it on', he: 'חלון עריכת פריט בכרטיסייה מרשם: מעקב היחידות כבוי, והמתג שמפעיל אותו' },
     run: async (app, lang) => {
       await openLogistics(app);
       await app.page.getByRole('button', { name: NAMES.homeTab[lang], exact: true }).first().click();

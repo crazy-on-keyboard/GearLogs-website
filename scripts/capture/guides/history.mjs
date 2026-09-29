@@ -27,7 +27,7 @@ export default [
   {
     // step 1: the Personnel board with the three history plates in the picture (nothing opened)
     id: 'history-buttons',
-    alt: { en: 'The Personnel board with its three history buttons: the tab\'s, the group\'s and the person\'s', he: 'לוח כוח האדם עם שלושת כפתורי ההיסטוריה: של הלשונית, של הקבוצה ושל האדם' },
+    alt: { en: 'The Personnel board with its three history buttons: the tab\'s, the group\'s and the person\'s', he: 'לוח כוח האדם עם שלושת כפתורי ההיסטוריה: של הכרטיסייה, של הקבוצה ושל האדם' },
     run: async (app, lang) => {
       await openPeople(app, lang);
       // the group's header at the top of the board's pane; the tab strip sits above the pane and stays on screen

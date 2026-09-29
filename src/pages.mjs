@@ -23,7 +23,7 @@ const NOTE_SLUGS = [
 ];
 
 // Guides with their own page (the Director's ask: guides reworked — steps with space, a real screen per step).
-const GUIDE_SLUGS = ['approvals', 'assign-return', 'team-sign-out', 'write-offs', 'hand-out-kit', 'take-kit-back', 'dashboard', 'access', 'history', 'registry', 'reports'];
+const GUIDE_SLUGS = ['approvals', 'assign-return', 'team-sign-out', 'write-offs', 'hand-out-kit', 'take-kit-back', 'dashboard', 'access', 'history', 'registry', 'reports', 'set-up-board', 'find-anything', 'make-it-yours', 'storage-capacity', 'import'];
 const guide = (name) => ({
   slug: `guides/${name}`,
   path: `/guides/${name}`,

@@ -263,5 +263,45 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Reports: export a report, and back up your workspace",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/set-up-board": {
+    "title": "Board: Build Your Board from Tabs and Groups — GearLogs Guide",
+    "description": "Give each department its own tab, add groups inside it, fill them with your items or people, and arrange the board in the order you read it. Step by step, with real screens.",
+    "ogTitle": "Board: build your board from tabs and groups",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Board: build your board from tabs and groups",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/find-anything": {
+    "title": "Search: Find Anything from the Search Box — GearLogs Guide",
+    "description": "Type a few letters at the top of any screen to reach an item, a person, a unit or a record, and see why each result matched. Step by step, with real screens.",
+    "ogTitle": "Search: find anything from the search box",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Search: find anything from the search box",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/make-it-yours": {
+    "title": "Settings: Make GearLogs Yours — GearLogs Guide",
+    "description": "Choose your own text size, board layout, action buttons, menu, theme and language. Your choices change only your own screen. Step by step, with real screens.",
+    "ogTitle": "Settings: make GearLogs yours",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: make GearLogs yours",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/storage-capacity": {
+    "title": "Logistics: Set a Storage Capacity, and See How Much Room Is Left — GearLogs Guide",
+    "description": "Give an item the most you can hold of it, read its meter on the board, and find the items that are over. Step by step, with real screens.",
+    "ogTitle": "Logistics: set a storage capacity, and see how much room is left",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Logistics: set a storage capacity, and see how much room is left",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/import": {
+    "title": "Data Ops: Bring Your Lists In from a Spreadsheet — GearLogs Guide",
+    "description": "Bring in items, people, sign-in accounts or serial numbers from a .csv file. You see how the file was read before anything is saved. Step by step, with real screens.",
+    "ogTitle": "Data Ops: bring your lists in from a spreadsheet",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Data Ops: bring your lists in from a spreadsheet",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }

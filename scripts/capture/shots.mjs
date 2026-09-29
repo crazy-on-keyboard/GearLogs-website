@@ -26,6 +26,11 @@ import ACCESS_SHOTS from './guides/access.mjs';
 import HISTORY_SHOTS from './guides/history.mjs';
 import REGISTRY_SHOTS from './guides/registry.mjs';
 import DATAOPS_SHOTS from './guides/dataops.mjs';
+import BOARD_SHOTS from './guides/board.mjs';
+import SEARCH_SHOTS from './guides/search.mjs';
+import DISPLAY_SHOTS from './guides/display.mjs';
+import CAPACITY_SHOTS from './guides/capacity.mjs';
+import IMPORT_SHOTS from './guides/import.mjs';
 
 /** @type {Shot[]} */
 export default [
@@ -186,6 +191,11 @@ export default [
       await toTop(app.page.getByText(await app.t('w_title_storage_fill'), { exact: true }).first());
     },
     settle: 1500,
+    // the storage-capacity guide's step 4: the two cards that follow capacity, in reading order
+    marks: async (app) => [
+      await dashboardCard(app, 'w_title_storage_fill'),
+      await dashboardCard(app, 'w_cap_over'),
+    ],
   },
   {
     // /product "warranty" and "broken": the Registry cards — units in repair and the warranties and contracts about to end
@@ -264,4 +274,9 @@ export default [
   ...HISTORY_SHOTS,
   ...REGISTRY_SHOTS,
   ...DATAOPS_SHOTS,
+  ...BOARD_SHOTS,
+  ...SEARCH_SHOTS,
+  ...DISPLAY_SHOTS,
+  ...CAPACITY_SHOTS,
+  ...IMPORT_SHOTS,
 ];

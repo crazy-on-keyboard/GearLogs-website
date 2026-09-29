@@ -179,7 +179,7 @@
       "file": "board.he.webp",
       "alt": "לוח הלוגיסטיקה: כל פריט עם המלאי, מי מחזיק בו ומגבלת האחסון",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js"
     },
     {
       "id": "registry",
@@ -187,7 +187,7 @@
       "file": "registry.he.webp",
       "alt": "המרשם: כל יחידה עם מספר סידורי, מצבה ומי מחזיק בה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js"
     },
     {
       "id": "personnel",
@@ -195,7 +195,7 @@
       "file": "personnel.he.webp",
       "alt": "לוח כוח האדם: כל אדם עם הציוד שבידיו",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -249,7 +249,7 @@
       "file": "approvals.he.webp",
       "alt": "אישורים: כל אישור מסירה לפי מצב — ממתין, נחתם, בערעור, אושר בשם האדם, בוטל, פג תוקף",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -279,7 +279,7 @@
       "file": "dashboard.he.webp",
       "alt": "לוח המחוונים: מלאי, מסירות, קבלות וערכות במבט אחד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -325,7 +325,7 @@
       "file": "logs.he.webp",
       "alt": "יומני המערכת: כל פעולה, מי ביצע אותה ומתי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -547,7 +547,7 @@
       "file": "approvals-receipt.he.webp",
       "alt": "אישור מסירה שהאדם ערער עליו ומנהל אישר בשמו: השורות שצוינו בערעור, ציר הזמן ושתי ההערות",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -593,7 +593,7 @@
       "file": "item-card.he.webp",
       "alt": "פריט פתוח בלוח: היחידות עם מספר סידורי, מי מחזיק בכל אחת, המצב וההיסטוריה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js"
     },
     {
       "id": "person-card",
@@ -601,7 +601,7 @@
       "file": "person-card.he.webp",
       "alt": "אדם פתוח בלוח כוח האדם: כל מה שבידיו, הערכות וההיסטוריה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -631,7 +631,7 @@
       "file": "handout-window.he.webp",
       "alt": "ניפוק פריט לכמה אנשים בבת אחת: בוחרים אנשים, קובעים כמה כל אחד מקבל ורואים את המלאי אחרי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -685,7 +685,7 @@
       "file": "dashboard-approvals.he.webp",
       "alt": "כרטיסי הקבלות בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -763,7 +763,29 @@
       "file": "dashboard-stock.en.webp",
       "alt": "The dashboard's stock cards: storage fill against capacity, the low-stock list, what is over capacity and how much more fits",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 87,
+          "y": 157,
+          "w": 318,
+          "h": 248,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 756,
+          "y": 421,
+          "w": 318,
+          "h": 248,
+          "badge": "corner"
+        }
+      ]
     },
     {
       "id": "dashboard-registry",
@@ -779,7 +801,29 @@
       "file": "dashboard-stock.he.webp",
       "alt": "כרטיסי המלאי בלוח המחוונים: מילוי האחסון מול הקיבולת, רשימת המלאי הנמוך, מה מעל הקיבולת וכמה עוד נכנס",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1034,
+          "y": 157,
+          "w": 318,
+          "h": 248,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 366,
+          "y": 421,
+          "w": 318,
+          "h": 248,
+          "badge": "corner"
+        }
+      ]
     },
     {
       "id": "dashboard-registry",
@@ -787,7 +831,7 @@
       "file": "dashboard-registry.he.webp",
       "alt": "כרטיסי המרשם בלוח המחוונים: יחידות שדורשות טיפול, יחידות לפי סטטוס, יחידות בתיקון ואחריות וחוזים שהסתיימו או עומדים להסתיים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-BKNDagLd.js"
     },
     {
       "id": "mygear-receipt",
@@ -849,7 +893,7 @@
       "file": "approvals-open.he.webp",
       "alt": "אישור מסירה פתוח שממתין לחתימה, ומתחתיו שלוש הפעולות: אישור בשם האדם, ביטול אישור המסירה ושליחת תזכורת מחדש",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2049,7 +2093,7 @@
       "file": "assign-item.he.webp",
       "alt": "שייך ציוד פתוח בכרטיס של עגלת יד: בוחרים אדם, קובעים כמות ולוחצים על אישור",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2095,7 +2139,7 @@
       "file": "assign-person.he.webp",
       "alt": "שייך ציוד פתוח בכרטיס של אדם בלוח כוח האדם: בוחרים פריט, קובעים כמות ולוחצים על אישור",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2141,7 +2185,7 @@
       "file": "assign-unit.he.webp",
       "alt": "שיוך יחידה פתוח בכרטיס של סורק ברקוד: בוחרים יחידה ואדם ומשייכים, או פותחים את החלון לעוד אנשים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2187,7 +2231,7 @@
       "file": "person-card-return.he.webp",
       "alt": "אדם פתוח בלוח כוח האדם: ספירת כל מה שבידיו, וכפתור החזר בכל פריט שבידיו",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2217,7 +2261,7 @@
       "file": "return-dialog.he.webp",
       "alt": "החזרה של שתי רשתות מטען: הכמות להחזרה, הכפתור הכל ואשר החזרה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2263,7 +2307,7 @@
       "file": "person-form-head.he.webp",
       "alt": "עריכת אדם: הסימון ראש מחלקה שמוסיף לכרטיס את הכפתור ניפוק מרוכז",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2293,7 +2337,7 @@
       "file": "personnel-head.he.webp",
       "alt": "לוח כוח האדם: הכרטיס של ראש מחלקה בזהב, עם הכפתור ניפוק מרוכז",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2323,7 +2367,7 @@
       "file": "batch-pick.he.webp",
       "alt": "האצווה של ראש הצוות: ראש המחלקה כאחראי, עץ הפריטים עם קבוצה אחת מסומנת, ושורה לכל פריט",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2361,7 +2405,7 @@
       "file": "batch-qty.he.webp",
       "alt": "שורות האצווה: כמות מוקלדת לכל פריט, הכול במלאי לשורה אחת או לכל השורות, והסיכום המתעדכן",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2407,7 +2451,7 @@
       "file": "batch-issue.he.webp",
       "alt": "האצווה מוכנה לניפוק: מי מקבל את ההודעה, והכפתור האחד שמנפק את כל השורות",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2437,7 +2481,7 @@
       "file": "kits.he.webp",
       "alt": "אזור הערכות בלוגיסטיקה: כל ערכה עם השורות שלה, כמה מכל פריט לערכה, והכפתור ניפוק בכרטיס שלה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2483,7 +2527,7 @@
       "file": "kits-build.he.webp",
       "alt": "בניית ערכה: האריח + ערכה, הכפתור שורה בערכה, והסוג של כל שורה — רגיל, מתכלה או עם מספר סידורי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2521,7 +2565,7 @@
       "file": "kit-issue-who.he.webp",
       "alt": "ניפוק ערכה: קבוצה שנמצאה בחיפוש וסומנה בחלונית מי מקבל, עם מספר האנשים ברשימה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2567,7 +2611,7 @@
       "file": "kit-issue-what.he.webp",
       "alt": "ניפוק ערכה: החלונית מה יקרה — כל שורה לאדם, נדרש ובמלאי, מספר ההודעות והכפתור הירוק לניפוק",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2613,7 +2657,7 @@
       "file": "kit-issue-short.he.webp",
       "alt": "ניפוק ערכה לכרטיסייה שלמה: השורות שאין להן מספיק מלאי נצבעות באדום — נדרש גדול ממה שיש במלאי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2651,7 +2695,7 @@
       "file": "person-card-kit.he.webp",
       "alt": "כרטיס אדם עם שורת ערכה פתוחה: שם הערכה והקוד שלה, מתי נופקה, השורות שעדיין בחוץ, כל שורה עם המצב שלה, והכפתור החזרה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2689,7 +2733,7 @@
       "file": "kits-board.he.webp",
       "alt": "אזור הערכות בלוגיסטיקה: כל כרטיס ערכה עם השורות שלו, לכמה אנשים נופקה וכמה שורות עדיין בחוץ",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2727,7 +2771,7 @@
       "file": "kit-people.he.webp",
       "alt": "מי מחזיק בערכה: עץ האנשים עם חיפוש ומונים, וטבלה של כל ניפוק עם מה שעדיין בחוץ ומה שחזר",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2773,7 +2817,7 @@
       "file": "kit-return.he.webp",
       "alt": "החזרת ערכה: השורות של האדם, כל אחת מתחילה כהוחזר, המתכלים שלא חוזרים, והבחירה לשורה שנבחרה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2843,7 +2887,7 @@
       "file": "kit-return-lost.he.webp",
       "alt": "החזרת ערכה עם שורה אחת שסומנה אבד: הסיבה, תאריך האובדן והערה, והכפתור שמציין עכשיו את הגריעה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2889,7 +2933,7 @@
       "file": "writeoff-card.he.webp",
       "alt": "אדם פתוח בלוח כוח האדם: הכפתור גריעה בשורת פריט, ובתחתית הכרטיס גריעת פריטים והעבר לארכיון",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2927,7 +2971,7 @@
       "file": "writeoff-item.he.webp",
       "alt": "גריעת פריט אחד: הסיבה, הכמות, תאריך האירוע והערה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -2973,7 +3017,7 @@
       "file": "writeoff-batch.he.webp",
       "alt": "גריעת כמה מהפריטים של אדם בבת אחת: מסמנים שורות, בוחרים סיבה אחת ומאשרים את כולן יחד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -3019,7 +3063,7 @@
       "file": "writeoff-depart.he.webp",
       "alt": "העברה לארכיון של אדם שעזב עם ציוד: כל מה שבידיו, סיבה אחת לכולם והמילה שמקלידים לפני ההעברה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -3065,7 +3109,7 @@
       "file": "archive-writeoffs.he.webp",
       "alt": "הגריעות בארכיון: כל גריעה עם הסיבה, מי דיווח ואם שוחזר",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -3119,7 +3163,7 @@
       "file": "archive-personnel.he.webp",
       "alt": "אנשים בארכיון: מי הם, מתי עזבו, מה נגרע, והכפתור שחזר",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -3181,7 +3225,7 @@
       "file": "person-card-losses.he.webp",
       "alt": "כרטיס של אדם עם גריעה: הסימון האדום, והרשימה נגרע — מה, כמה פעמים וכמה עדיין אבודים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4357,7 +4401,7 @@
       "file": "dashboard-gallery.he.webp",
       "alt": "הווידג׳טים המוכנים בבונה הווידג׳טים: מסננים לפי מקור, בוחרים אחד או בונים לבד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4393,9 +4437,9 @@
       "id": "dashboard-finish",
       "lang": "he",
       "file": "dashboard-finish.he.webp",
-      "alt": "סיום של וידג׳ט מוכן: התצוגה המקדימה החיה, הכותרת, הגודל בלוח הבקרה ומי רואה אותו",
+      "alt": "סיום של וידג׳ט מוכן: התצוגה המקדימה החיה, הכותרת, הגודל בלוח המחוונים ומי רואה אותו",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4441,7 +4485,7 @@
       "file": "dashboard-question.he.webp",
       "alt": "בניית וידג׳ט משלכם על יומני הפעילות: התצוגה המקדימה החיה, ארבעת השלבים והשאלה — סינון לפי, קיבוץ לפי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4487,7 +4531,7 @@
       "file": "dashboard-visual.he.webp",
       "alt": "בחירת תצוגה: רק התרשימים שהמקור הזה יודע להציג, התקופה של הווידג׳ט וקיבוץ הזמן",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4531,9 +4575,9 @@
       "id": "dashboard-arrange",
       "lang": "he",
       "file": "dashboard-arrange.he.webp",
-      "alt": "סידור לוח הבקרה: לכל וידג׳ט חצי הזזה, גודל, עריכה והסרה, והכפתור סיום ברצועה",
+      "alt": "סידור לוח המחוונים: לכל וידג׳ט חצי הזזה, גודל, עריכה והסרה, והכפתור סיום ברצועה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4579,7 +4623,7 @@
       "file": "access-users.he.webp",
       "alt": "מסך המשתמשים: הוסף משתמש, המקומות בשימוש, השם של שדה המזהה של הארגון ועמודות רשימת המשתמשים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 304
@@ -4625,7 +4669,7 @@
       "file": "access-create.he.webp",
       "alt": "צור משתמש: שם פרטי ושם משפחה, המזהה של הארגון, אימייל הכניסה והסיסמה הראשונה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4671,7 +4715,7 @@
       "file": "access-roles.he.webp",
       "alt": "צור משתמש עם רשימת התפקידים פתוחה: מנהל, מפעיל, משתמש, צופה ומותאם אישית",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4701,7 +4745,7 @@
       "file": "access-rights.he.webp",
       "alt": "רשימת ההרשאות של משתמש חדש: הקצאה והחזרה של ציוד כלולה בתפקיד, גריעה / דיווח על ציוד אבוד מסומנת בנוסף, אישור מסירה בשם אדם למנהלים ומפעילים בלבד, וניהול משתמשים למנהלים בלבד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4747,7 +4791,7 @@
       "file": "access-self.he.webp",
       "alt": "עריכת הכניסה שלכם כמנהל היחיד: השדה תפקיד אפור עם הסיבה, התיבה מנהל-על, וכל ההרשאות כלולות בתפקיד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4783,9 +4827,9 @@
       "id": "history-buttons",
       "lang": "he",
       "file": "history-buttons.he.webp",
-      "alt": "לוח כוח האדם עם שלושת כפתורי ההיסטוריה: של הלשונית, של הקבוצה ושל האדם",
+      "alt": "לוח כוח האדם עם שלושת כפתורי ההיסטוריה: של הכרטיסייה, של הקבוצה ושל האדם",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4823,7 +4867,7 @@
       "file": "history-person.he.webp",
       "alt": "יומן הפעילות של אדם: מתי, מי ביצע, הסוג והפעולה, מהחדש לישן",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4861,7 +4905,7 @@
       "file": "history-window.he.webp",
       "alt": "תחתית יומן הפעילות: התקופה המוצגת, טעינת 30 נוספים, טעינת הכול וסגירה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4907,7 +4951,7 @@
       "file": "history-kit.he.webp",
       "alt": "אזור הערכות בלוגיסטיקה, עם כפתור ההיסטוריה של ערכה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4945,7 +4989,7 @@
       "file": "history-archive.he.webp",
       "alt": "הארכיון: ארכיון כוח אדם, ארכיון ציוד, וכפתור ההיסטוריה של שורה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -4981,9 +5025,9 @@
       "id": "registry-track",
       "lang": "he",
       "file": "registry-track.he.webp",
-      "alt": "חלון עריכת פריט בלשונית מרשם: מעקב היחידות כבוי, והמתג שמפעיל אותו",
+      "alt": "חלון עריכת פריט בכרטיסייה מרשם: מעקב היחידות כבוי, והמתג שמפעיל אותו",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5021,7 +5065,7 @@
       "file": "registry-book.he.webp",
       "alt": "ספר הרכוש במרשם: הפריט שנבחר, האצוות שלו, וכל יחידה עם המספר הסידורי, הסטטוס, הכשירות והמחזיק",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5067,7 +5111,7 @@
       "file": "registry-register.he.webp",
       "alt": "רישום יחידות: הפריט והאצווה, אחת, מרובות או מקובץ, המספר הסידורי, ורשום יחידה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5113,7 +5157,7 @@
       "file": "registry-file.he.webp",
       "alt": "רישום יחידות מקובץ: מדביקים מספרים סידוריים או בוחרים קובץ csv או txt, ואז רואים איך הוא נקרא",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5159,7 +5203,7 @@
       "file": "registry-lot.he.webp",
       "alt": "הוספת אצווה: מספר האצווה של הספק, תאריך האחריות, תאריך התפוגה, ושמור",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5205,7 +5249,7 @@
       "file": "registry-unit-actions.he.webp",
       "alt": "יחידה שבמלאי במרשם, עם הכפתורים בשורה שלה: שייך, שלח לתיקון, העברת יחידה וגריעה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5251,7 +5295,7 @@
       "file": "registry-repair.he.webp",
       "alt": "שליחת יחידה לתיקון: היחידה, סיבה (רשות), וכפתור האישור",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5287,9 +5331,9 @@
       "id": "dataops-exports",
       "lang": "he",
       "file": "dataops-exports.he.webp",
-      "alt": "ניהול נתונים בלשונית הייצוא: הדוחות מקובצים לפי תחום",
+      "alt": "ניהול נתונים בכרטיסיית הייצוא: הדוחות מקובצים לפי תחום",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5343,7 +5387,7 @@
       "file": "dataops-report.he.webp",
       "alt": "שורה של דוח: השם ומה הוא מכיל, ואז CSV, Excel והדפסה",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5389,7 +5433,7 @@
       "file": "dataops-people-reports.he.webp",
       "alt": "דוחות כוח האדם והאישורים: רשימת כוח האדם, הקבלות ושורות הקבלות",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5425,9 +5469,9 @@
       "id": "dataops-maintenance",
       "lang": "he",
       "file": "dataops-maintenance.he.webp",
-      "alt": "ניהול נתונים בלשונית התחזוקה: הגיבוי המוצפן ורשימת הבדיקה לשחזור נתונים",
+      "alt": "ניהול נתונים בכרטיסיית התחזוקה: הגיבוי המוצפן ורשימת הבדיקה לשחזור נתונים",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5465,7 +5509,7 @@
       "file": "dataops-backup-window.he.webp",
       "alt": "חלון הגיבוי המוצפן: הסיסמה שנועלת את הקובץ, ביטול, והורדת גיבוי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js",
+      "app": "index-BKNDagLd.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -5494,6 +5538,2114 @@
           "w": 120,
           "h": 31,
           "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-tabs",
+      "lang": "en",
+      "file": "board-tabs.en.webp",
+      "alt": "The Logistics board on its Warehouse tab: Logistics in the side menu, the open tab with its history and Edit buttons, and + TAB at the end of the row",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 64,
+          "w": 46,
+          "h": 40,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 87,
+          "y": 129,
+          "w": 145,
+          "h": 36,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 968,
+          "y": 135,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "board-tab-new",
+      "lang": "en",
+      "file": "board-tab-new.en.webp",
+      "alt": "The + TAB window: the tab's name, its colour and Save",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 843,
+          "y": 302,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-group-new",
+      "lang": "en",
+      "file": "board-group-new.en.webp",
+      "alt": "The + GROUP window: the group's name, its colour, its notes and Save",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 281,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 843,
+          "y": 370,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-group-header",
+      "lang": "en",
+      "file": "board-group-header.en.webp",
+      "alt": "A group card's header: its name and code, the history button and the menu, and Add",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 99,
+          "y": 201,
+          "w": 530,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 630,
+          "y": 201,
+          "w": 50,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 683,
+          "y": 202,
+          "w": 46,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-group-band",
+      "lang": "en",
+      "file": "board-group-band.en.webp",
+      "alt": "A Logistics group card: the stock ring, the activity columns, who holds its gear by department, and its items",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 89,
+          "y": 234,
+          "w": 174,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 263,
+          "y": 234,
+          "w": 303,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 567,
+          "y": 234,
+          "w": 173,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 96,
+          "y": 550,
+          "w": 637,
+          "h": 66,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "board-arrange",
+      "lang": "en",
+      "file": "board-arrange.en.webp",
+      "alt": "The board in Edit Layout: Done, and a group's move arrows and width",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1323,
+          "y": 133,
+          "w": 67,
+          "h": 26,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1199,
+          "y": 201,
+          "w": 55,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 1258,
+          "y": 201,
+          "w": 37,
+          "h": 27,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "board-tab-edit",
+      "lang": "en",
+      "file": "board-tab-edit.en.webp",
+      "alt": "Edit Tab: the tab's code, its name, its colour and its position in the row",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 171,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 239,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 526,
+          "y": 308,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-results",
+      "lang": "en",
+      "file": "search-results.en.webp",
+      "alt": "The search box with a word typed: the results grouped by type, the best match first",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 87,
+          "y": 11,
+          "w": 323,
+          "h": 31,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 95,
+          "y": 56,
+          "w": 295,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 95,
+          "y": 74,
+          "w": 295,
+          "h": 45,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 95,
+          "y": 315,
+          "w": 295,
+          "h": 15,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-open",
+      "lang": "en",
+      "file": "search-open.en.webp",
+      "alt": "An item opened from the search: its stock, location, group and status, and who holds it",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 113,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 277,
+          "w": 383,
+          "h": 93,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-matched",
+      "lang": "en",
+      "file": "search-matched.en.webp",
+      "alt": "Results that say where they matched, and Show all at the foot of the group",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 135,
+          "y": 115,
+          "w": 217,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 135,
+          "y": 175,
+          "w": 217,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 135,
+          "y": 235,
+          "w": 217,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 135,
+          "y": 296,
+          "w": 217,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 135,
+          "y": 356,
+          "w": 217,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 95,
+          "y": 376,
+          "w": 295,
+          "h": 24,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-carried",
+      "lang": "en",
+      "file": "search-carried.en.webp",
+      "alt": "The Registry opened from Show all, with the searched word in its filter: the matching items and their units",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1232,
+          "y": 216,
+          "w": 188,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 87,
+          "y": 301,
+          "w": 240,
+          "h": 579,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 580,
+          "y": 301,
+          "w": 839,
+          "h": 579,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "display-open",
+      "lang": "en",
+      "file": "display-open.en.webp",
+      "alt": "Settings on Display: Settings in the side menu, Display in the Settings list, and the My Display card",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 501,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 350,
+          "y": 182,
+          "w": 168,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 557,
+          "y": 146,
+          "w": 587,
+          "h": 34,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "display-look",
+      "lang": "en",
+      "file": "display-look.en.webp",
+      "alt": "My Display: text size, groups per row, action buttons and the menu",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 577,
+          "y": 230,
+          "w": 547,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 577,
+          "y": 294,
+          "w": 547,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 557,
+          "y": 358,
+          "w": 587,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 557,
+          "y": 438,
+          "w": 587,
+          "h": 63,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-theme",
+      "lang": "en",
+      "file": "display-theme.en.webp",
+      "alt": "My Display: the five theme icons, the language choice, and Use workspace defaults",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 557,
+          "y": 171,
+          "w": 587,
+          "h": 73,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 557,
+          "y": 260,
+          "w": 587,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 577,
+          "y": 340,
+          "w": 145,
+          "h": 13,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-header",
+      "lang": "en",
+      "file": "display-header.en.webp",
+      "alt": "The app's header: the five theme icons, their (i), and the language button",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1078,
+          "y": 7,
+          "w": 169,
+          "h": 38,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 1257,
+          "y": 14,
+          "w": 24,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 1291,
+          "y": 12,
+          "w": 36,
+          "h": 29,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "display-workspace",
+      "lang": "en",
+      "file": "display-workspace.en.webp",
+      "alt": "Workspace Default: text size and groups per row, action buttons, theme and language for every member",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 557,
+          "y": 299,
+          "w": 587,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 577,
+          "y": 383,
+          "w": 547,
+          "h": 111,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 557,
+          "y": 511,
+          "w": 587,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 557,
+          "y": 591,
+          "w": 587,
+          "h": 153,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-reset",
+      "lang": "en",
+      "file": "display-reset.en.webp",
+      "alt": "Use workspace defaults asks first: what goes back, Cancel, and the confirm",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 50,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 643,
+          "y": 298,
+          "w": 68,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 718,
+          "y": 297,
+          "w": 203,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "capacity-form",
+      "lang": "en",
+      "file": "capacity-form.en.webp",
+      "alt": "An item's Edit Item window on its Advanced tab: the storage capacity, the meter's preview with what is held and the headroom, and Save",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 608,
+          "y": 145,
+          "w": 84,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 537,
+          "y": 494,
+          "w": 253,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 804,
+          "y": 494,
+          "w": 94,
+          "h": 64,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 843,
+          "y": 730,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "capacity-meter",
+      "lang": "en",
+      "file": "capacity-meter.en.webp",
+      "alt": "An item's card on the Logistics board: its STOCK badge, its storage meter and its IN USE badge",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 518,
+          "y": 413,
+          "w": 47,
+          "h": 49,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 568,
+          "y": 413,
+          "w": 8,
+          "h": 49,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 579,
+          "y": 413,
+          "w": 47,
+          "h": 49,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "capacity-over",
+      "lang": "en",
+      "file": "capacity-over.en.webp",
+      "alt": "An item over its storage capacity: the capacity, the meter red at its top with the capacity line, and how far over it is",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 537,
+          "y": 494,
+          "w": 253,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 804,
+          "y": 494,
+          "w": 94,
+          "h": 64,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-health",
+      "lang": "en",
+      "file": "dataops-health.en.webp",
+      "alt": "Data Ops on Overview: the Data Health check for items over their storage capacity, its count and Review",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 413,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 243,
+          "y": 145,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 442,
+          "y": 225,
+          "w": 280,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 1138,
+          "y": 222,
+          "w": 97,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "import-center",
+      "lang": "en",
+      "file": "import-center.en.webp",
+      "alt": "Data Ops on its Import Center: the hint above the cards, and the four import cards",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 413,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 243,
+          "y": 182,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 445,
+          "y": 167,
+          "w": 786,
+          "h": 38,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 445,
+          "y": 225,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 849,
+          "y": 225,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 445,
+          "y": 446,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 849,
+          "y": 446,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "import-zone",
+      "lang": "en",
+      "file": "import-zone.en.webp",
+      "alt": "The Import Logistics card: its name, the Template button and the area a file is dropped on",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 503,
+          "y": 239,
+          "w": 177,
+          "h": 34,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 725,
+          "y": 243,
+          "w": 88,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 446,
+          "y": 287,
+          "w": 381,
+          "h": 138,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "import-preview",
+      "lang": "en",
+      "file": "import-preview.en.webp",
+      "alt": "The import preview: how the file was read, what will be added, the rows set aside, and Import",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 537,
+          "y": 156,
+          "w": 361,
+          "h": 27,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 568,
+          "y": 198,
+          "w": 186,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 537,
+          "y": 230,
+          "w": 361,
+          "h": 101,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 831,
+          "y": 376,
+          "w": 90,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "import-conflicts",
+      "lang": "en",
+      "file": "import-conflicts.en.webp",
+      "alt": "Import Center with nothing waiting: the rail item and the All Clear box under the cards",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 243,
+          "y": 182,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 424,
+          "y": 688,
+          "w": 828,
+          "h": 59,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "board-tabs",
+      "lang": "he",
+      "file": "board-tabs.he.webp",
+      "alt": "לוח הלוגיסטיקה בכרטיסייה מחסן: לוגיסטיקה בתפריט הצדדי, הכרטיסייה הפתוחה עם הכפתורים של יומן הפעילות ועריכה, ו־+ כרטיסייה בסוף השורה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 64,
+          "w": 46,
+          "h": 40,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 1242,
+          "y": 129,
+          "w": 110,
+          "h": 36,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 514,
+          "y": 135,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "board-tab-new",
+      "lang": "he",
+      "file": "board-tab-new.he.webp",
+      "alt": "החלון + כרטיסייה: שם הכרטיסייה, הצבע שלה ושמור",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 212,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 302,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-group-new",
+      "lang": "he",
+      "file": "board-group-new.he.webp",
+      "alt": "החלון + קבוצה: שם הקבוצה, הצבע שלה, ההערות ושמור",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 212,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 281,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 370,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "board-group-header",
+      "lang": "he",
+      "file": "board-group-header.he.webp",
+      "alt": "הכותרת של כרטיס קבוצה: השם והקוד, כפתור יומן הפעילות והתפריט, והוסף",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 816,
+          "y": 201,
+          "w": 524,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 766,
+          "y": 201,
+          "w": 50,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 710,
+          "y": 202,
+          "w": 52,
+          "h": 24,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "board-group-band",
+      "lang": "he",
+      "file": "board-group-band.he.webp",
+      "alt": "כרטיס קבוצה בלוגיסטיקה: טבעת המלאי, עמודות הפעילות, מי מחזיק בציוד לפי מחלקה, והפריטים שלה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1177,
+          "y": 234,
+          "w": 174,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 873,
+          "y": 234,
+          "w": 303,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 700,
+          "y": 234,
+          "w": 173,
+          "h": 163,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 707,
+          "y": 550,
+          "w": 637,
+          "h": 66,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "board-arrange",
+      "lang": "he",
+      "file": "board-arrange.he.webp",
+      "alt": "הלוח במצב ערוך פריסה: סיום, וחצי ההזזה והרוחב של קבוצה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 51,
+          "y": 133,
+          "w": 67,
+          "h": 26,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 192,
+          "y": 201,
+          "w": 55,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 152,
+          "y": 201,
+          "w": 37,
+          "h": 27,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "board-tab-edit",
+      "lang": "he",
+      "file": "board-tab-edit.he.webp",
+      "alt": "עריכת כרטיסייה: הקוד של הכרטיסייה, השם, הצבע והמיקום שלה בשורה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 171,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 239,
+          "w": 383,
+          "h": 56,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 531,
+          "y": 308,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-results",
+      "lang": "he",
+      "file": "search-results.he.webp",
+      "alt": "תיבת החיפוש עם מילה שהוקלדה: התוצאות מקובצות לפי סוג, ההתאמה הטובה ביותר ראשונה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1030,
+          "y": 11,
+          "w": 323,
+          "h": 31,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 1050,
+          "y": 56,
+          "w": 295,
+          "h": 15,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 1050,
+          "y": 74,
+          "w": 295,
+          "h": 45,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 1050,
+          "y": 315,
+          "w": 295,
+          "h": 15,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "search-open",
+      "lang": "he",
+      "file": "search-open.he.webp",
+      "alt": "פריט שנפתח מהחיפוש: המלאי, המיקום, הקבוצה והסטטוס שלו, ומי מחזיק בו",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 113,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 277,
+          "w": 383,
+          "h": 93,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "search-matched",
+      "lang": "he",
+      "file": "search-matched.he.webp",
+      "alt": "תוצאות שמציינות איפה נמצאה ההתאמה, ו״הצגת הכול״ בסוף הקבוצה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1141,
+          "y": 115,
+          "w": 164,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 1141,
+          "y": 175,
+          "w": 164,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 1141,
+          "y": 235,
+          "w": 164,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 1141,
+          "y": 296,
+          "w": 164,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 1,
+          "x": 1141,
+          "y": 356,
+          "w": 164,
+          "h": 11,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 1050,
+          "y": 376,
+          "w": 295,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "search-carried",
+      "lang": "he",
+      "file": "search-carried.he.webp",
+      "alt": "המרשם שנפתח מ״הצגת הכול״, עם המילה שחיפשתם בתיבת הסינון: הפריטים התואמים והיחידות שלהם",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 20,
+          "y": 216,
+          "w": 188,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1113,
+          "y": 301,
+          "w": 240,
+          "h": 579,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 20,
+          "y": 301,
+          "w": 839,
+          "h": 579,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "display-open",
+      "lang": "he",
+      "file": "display-open.he.webp",
+      "alt": "הגדרות על תצוגה: הגדרות בתפריט הצדדי, תצוגה ברשימת ההגדרות, והכרטיס התצוגה שלי",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 501,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 945,
+          "y": 182,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 296,
+          "y": 146,
+          "w": 611,
+          "h": 34,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "display-look",
+      "lang": "he",
+      "file": "display-look.he.webp",
+      "alt": "התצוגה שלי: גודל הטקסט, הקבוצות בשורה, כפתורי הפעולה והתפריט",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 316,
+          "y": 230,
+          "w": 571,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 316,
+          "y": 294,
+          "w": 571,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 296,
+          "y": 358,
+          "w": 611,
+          "h": 63,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 296,
+          "y": 438,
+          "w": 611,
+          "h": 63,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-theme",
+      "lang": "he",
+      "file": "display-theme.he.webp",
+      "alt": "התצוגה שלי: חמשת סמלי ערכות הנושא, בחירת השפה, ושימוש בברירות המחדל של סביבת העבודה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 296,
+          "y": 171,
+          "w": 611,
+          "h": 73,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 296,
+          "y": 260,
+          "w": 611,
+          "h": 63,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 665,
+          "y": 340,
+          "w": 222,
+          "h": 13,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-header",
+      "lang": "he",
+      "file": "display-header.he.webp",
+      "alt": "הכותרת של היישום: חמשת סמלי ערכות הנושא, סמל ה-(i) שלהם, וכפתור השפה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 186,
+          "y": 7,
+          "w": 169,
+          "h": 38,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 152,
+          "y": 14,
+          "w": 24,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 106,
+          "y": 12,
+          "w": 36,
+          "h": 29,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "display-workspace",
+      "lang": "he",
+      "file": "display-workspace.he.webp",
+      "alt": "ברירת המחדל של סביבת העבודה: גודל טקסט וקבוצות בשורה, כפתורי פעולה, ערכת נושא ושפה לכל חברי הצוות",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 296,
+          "y": 299,
+          "w": 611,
+          "h": 34,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 316,
+          "y": 383,
+          "w": 571,
+          "h": 111,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 296,
+          "y": 511,
+          "w": 611,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 296,
+          "y": 591,
+          "w": 611,
+          "h": 153,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "display-reset",
+      "lang": "he",
+      "file": "display-reset.he.webp",
+      "alt": "שימוש בברירות המחדל של סביבת העבודה שואל קודם: מה חוזר, ביטול, וכפתור האישור",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 222,
+          "w": 383,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 819,
+          "y": 291,
+          "w": 61,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 290,
+          "w": 293,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "capacity-form",
+      "lang": "he",
+      "file": "capacity-form.he.webp",
+      "alt": "חלון עריכת פריט בכרטיסייה מתקדם: קיבולת האחסון, התצוגה המקדימה של המד עם הכמות המוחזקת והמרווח, ושמור",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 789,
+          "y": 145,
+          "w": 63,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 656,
+          "y": 494,
+          "w": 247,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 542,
+          "y": 494,
+          "w": 101,
+          "h": 64,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 730,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "capacity-meter",
+      "lang": "he",
+      "file": "capacity-meter.he.webp",
+      "alt": "כרטיס של פריט בלוח הלוגיסטיקה: תג המלאי, מד האחסון ותג בשימוש",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 875,
+          "y": 631,
+          "w": 47,
+          "h": 49,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 864,
+          "y": 631,
+          "w": 8,
+          "h": 49,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 814,
+          "y": 631,
+          "w": 47,
+          "h": 49,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "capacity-over",
+      "lang": "he",
+      "file": "capacity-over.he.webp",
+      "alt": "פריט מעל קיבולת האחסון שלו: הקיבולת, המד אדום בראשו עם קו הקיבולת, וגודל החריגה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 656,
+          "y": 494,
+          "w": 247,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 542,
+          "y": 494,
+          "w": 101,
+          "h": 64,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-health",
+      "lang": "he",
+      "file": "dataops-health.he.webp",
+      "alt": "ניהול נתונים על סקירה: בדיקת תקינות הנתונים לפריטים מעל קיבולת האחסון, המספר שלה ולבדיקה",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 413,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1053,
+          "y": 145,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 746,
+          "y": 225,
+          "w": 252,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 205,
+          "y": 222,
+          "w": 97,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "import-center",
+      "lang": "he",
+      "file": "import-center.he.webp",
+      "alt": "ניהול נתונים במרכז הייבוא: ההנחיה מעל הכרטיסים, וארבעת כרטיסי הייבוא",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 413,
+          "w": 46,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1053,
+          "y": 182,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 209,
+          "y": 167,
+          "w": 786,
+          "h": 38,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 612,
+          "y": 225,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 209,
+          "y": 225,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 612,
+          "y": 446,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 209,
+          "y": 446,
+          "w": 383,
+          "h": 201,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "import-zone",
+      "lang": "he",
+      "file": "import-zone.he.webp",
+      "alt": "כרטיס ייבוא לוגיסטיקה: השם, כפתור התבנית והאזור שאליו גוררים קובץ",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 789,
+          "y": 239,
+          "w": 147,
+          "h": 34,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 626,
+          "y": 243,
+          "w": 71,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 613,
+          "y": 287,
+          "w": 381,
+          "h": 138,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "import-preview",
+      "lang": "he",
+      "file": "import-preview.he.webp",
+      "alt": "התצוגה המקדימה של הייבוא: איך הקובץ נקרא, מה יתווסף, השורות שנשמרו בצד, וייבא",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 542,
+          "y": 156,
+          "w": 361,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 727,
+          "y": 184,
+          "w": 145,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 542,
+          "y": 216,
+          "w": 361,
+          "h": 101,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 363,
+          "w": 76,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "import-conflicts",
+      "lang": "he",
+      "file": "import-conflicts.he.webp",
+      "alt": "מרכז הייבוא כששום דבר לא ממתין: הפריט בסרגל ותיבת ״הכל תקין״ מתחת לכרטיסים",
+      "theme": "office",
+      "app": "index-BKNDagLd.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1053,
+          "y": 182,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 187,
+          "y": 688,
+          "w": 828,
+          "h": 59,
+          "badge": "corner"
         }
       ]
     }

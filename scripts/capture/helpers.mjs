@@ -34,6 +34,8 @@ export const NAMES = {
   homeTab: { en: 'Warehouse', he: 'מחסן' },
   team: { en: 'Warehouse — Days', he: 'מחסן — יום' },
   plainItem: { en: 'Hand Truck', he: 'עגלת יד' },
+  // the item that is over its storage capacity (60 held against 57), on the home tab's Racking group
+  overItem: { en: 'Shelving Bay', he: 'יחידת מדפים' },
   // a department head (PR-001): holds the Driver Kit (three lines out), one disputed receipt and one write-off
   person: { en: 'Carlos Mendez', he: 'יוסי אברהם' },
   // holds two Cargo Nets loose (not in a kit): the return guide's person

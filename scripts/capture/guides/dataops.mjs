@@ -17,7 +17,7 @@ export default [
   {
     // step 1: Exports, from the top
     id: 'dataops-exports',
-    alt: { en: 'Data Ops on its Exports tab: the reports grouped by area', he: 'ניהול נתונים בלשונית הייצוא: הדוחות מקובצים לפי תחום' },
+    alt: { en: 'Data Ops on its Exports tab: the reports grouped by area', he: 'ניהול נתונים בכרטיסיית הייצוא: הדוחות מקובצים לפי תחום' },
     run: async (app) => {
       await openDataOps(app, 'exports_tab');
       await app.page.getByRole('heading', { name: await app.t('cat_logistics_rep'), exact: true }).first().waitFor();
@@ -75,7 +75,7 @@ export default [
   {
     // step 5: Maintenance with the backup card at the top of the pane (the cards above it scroll away)
     id: 'dataops-maintenance',
-    alt: { en: 'Data Ops on its Maintenance tab: the encrypted backup and the data recovery checklist', he: 'ניהול נתונים בלשונית התחזוקה: הגיבוי המוצפן ורשימת הבדיקה לשחזור נתונים' },
+    alt: { en: 'Data Ops on its Maintenance tab: the encrypted backup and the data recovery checklist', he: 'ניהול נתונים בכרטיסיית התחזוקה: הגיבוי המוצפן ורשימת הבדיקה לשחזור נתונים' },
     run: async (app) => {
       await openDataOps(app, 'dops_tab_maintenance');
       const backup = app.page.getByRole('heading', { name: await app.t('exp_enc_backup'), exact: true }).first();

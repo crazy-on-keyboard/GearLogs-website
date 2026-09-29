@@ -1,0 +1,103 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.17</p>
+        <p class="band-kicker">Guide 4.17 <span class="sep">&middot;</span> Logistics</p>
+        <h1 class="band-title">Set a storage capacity, and see how much room is left</h1>
+        <p class="band-lede">Give an item the most you can hold of it, read its meter on the board, and find the items that are over.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Setting a capacity needs the right <em>Create/Edit Items</em>. Administrators and operators have it. A locked item also needs <em>Lock/Unlock Item Stock</em>.</li>
+            <li>The capacity counts everything you hold of the item: in stock, in use and in repair together. Gear that is written off leaves the count.</li>
+            <li><em>Data Ops</em> is for administrators only.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Set the capacity in the item&rsquo;s form.</h2>
+            <p>On the Logistics board, open the item with <em>Edit Record</em>, then its <em>Advanced</em> tab.</p>
+            <ol class="guide-marks">
+              <li>The <em>Advanced</em> tab of <em>Edit Item</em>.</li>
+              <li><em>Storage capacity</em>: the most of this item you can hold, up to 999,999,999. Leave it empty for no capacity.</li>
+              <li>The preview: the same meter the board will show, with what is <em>Held</em> and the <em>Headroom</em> left.</li>
+              <li><em>Save</em> sets it.</li>
+            </ol>
+            <p>Lowering the capacity under what the item already holds asks first. The switches at the top of this tab act at once, without <em>Save</em>. A spreadsheet import can set capacities too.</p>
+            <gl-shot id="capacity-form" caption="Edit Item on the Hand Truck, Advanced tab: a storage capacity of 30, its preview and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Read the meter on the board.</h2>
+            <p>Every item with a capacity shows a small meter beside its <em>STOCK</em> badge. 0 is at the bottom, the capacity at the top.</p>
+            <ol class="guide-marks">
+              <li><em>STOCK</em>: what is in stock now.</li>
+              <li>The meter: green is in stock, blue in use, olive in repair.</li>
+              <li><em>IN USE</em>: what is out with people.</li>
+            </ol>
+            <p>On a consumable item, which has no <em>IN USE</em> badge, the meter stands before <em>STOCK</em>. The (i) on the group&rsquo;s header explains the meter too.</p>
+            <gl-shot id="capacity-meter" caption="The Barcode Scanner on the Fleet tab: 16 in stock, its meter and 8 in use." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">See when an item is over.</h2>
+            <p>An item is over only when what it holds passes the capacity. Open its <em>Advanced</em> tab the same way.</p>
+            <ol class="guide-marks">
+              <li><em>Storage capacity</em>: 57 for the Shelving Bay.</li>
+              <li>The preview: the meter&rsquo;s top cell turns red and a thin line marks the capacity. Beside it, <em>Held</em> 60 / 57, and <em>Over by 3</em> in red.</li>
+            </ol>
+            <p>On the board, the same item&rsquo;s meter is red at the top. Order less, or raise the capacity. Administrators hear the moment an item goes over, once each time it crosses the line: in the app by default, and by email if they choose it in <em>Settings</em> &rsaquo; <em>Notifications</em>.</p>
+            <gl-shot id="capacity-over" caption="Edit Item on the Shelving Bay, Advanced tab: 60 held against a capacity of 57, over by 3." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Follow capacity on the dashboard.</h2>
+            <p>Open <em>Analytics</em> from the side menu.</p>
+            <ol class="guide-marks">
+              <li><em>Storage fill</em>: the items ranked by how full they are.</li>
+              <li><em>Over capacity</em>: only the items past their capacity, the largest overage first.</li>
+            </ol>
+            <p>The ready-made widgets <em>Capacity fill</em>, <em>Headroom</em> and <em>Over capacity</em> are in <em>Add Widget</em>. <em>Headroom</em> ranks the items by how few more fit. The <em>Full Inventory Audit</em> in <em>Data Ops</em> &rsaquo; <em>Exports</em> lists each item&rsquo;s <em>Capacity</em>, <em>Held</em> and <em>Headroom</em>.</p>
+            <gl-shot id="dashboard-stock" caption="The dashboard&rsquo;s stock cards: Storage fill, and Over capacity with the items past their capacity." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Find the items that are over.</h2>
+            <p><em>Data Ops</em> opens on <em>Overview</em>. Its <em>Data Health</em> card lists every check that finds something.</p>
+            <ol class="guide-marks">
+              <li>Open <em>Data Ops</em> from the side menu.</li>
+              <li><em>Overview</em>.</li>
+              <li><em>Items over their storage capacity</em>. The (i) beside it says what it counts.</li>
+              <li>How many items are over, and <em>Review</em>, which takes you to the Logistics board.</li>
+            </ol>
+            <p>The check counts the same way as the meter: in stock, in use and in repair together. When no item is over, the row is gone.</p>
+            <gl-shot id="dataops-health" caption="Data Ops on Overview: the Data Health check that counts the items over their capacity, and Review." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every item with a capacity shows how full it is: on its card, on the dashboard and in Data Ops. Administrators hear when one goes over.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>This puts EQ-002 at 31 of 30. Record it anyway?</q> You added stock, registered units or saved the form past the capacity. Nothing is refused: <em>Record anyway</em> records it, and <em>Cancel</em> leaves the item as it was.</li>
+            <li><q>Read-only — your role can view this record but not change it.</q> Your role does not hold <em>Create/Edit Items</em>, so the window opens as <em>Item details</em>. Ask an administrator.</li>
+            <li><q>You do not have permission to edit this item.</q> An administrator locked this item. Only someone with <em>Lock/Unlock Item Stock</em> can change it.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/set-up-board">Set Up Your Board</a></li>
+            <li><a href="/guides/dashboard">Build Your Dashboard</a></li>
+            <li><a href="/guides/registry">Track Serial Numbers in the Registry</a></li>
+            <li><a href="/guides/reports">Reports, Exports and Backups</a></li>
+            <li><a href="/guides#guide-4-18">Choose What You Are Told About</a></li>
+            <li><a href="/guides/import">Import from a Spreadsheet</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

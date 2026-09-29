@@ -51,7 +51,7 @@ export default [
   {
     // step 3: a ready-made widget picked (Stock by Location), the builder on Finish, nothing typed
     id: 'dashboard-finish',
-    alt: { en: 'Finishing a ready-made widget: its live preview, the title, the size on the dashboard and who sees it', he: 'סיום של וידג׳ט מוכן: התצוגה המקדימה החיה, הכותרת, הגודל בלוח הבקרה ומי רואה אותו' },
+    alt: { en: 'Finishing a ready-made widget: its live preview, the title, the size on the dashboard and who sees it', he: 'סיום של וידג׳ט מוכן: התצוגה המקדימה החיה, הכותרת, הגודל בלוח המחוונים ומי רואה אותו' },
     badge: 'start',
     run: async (app) => {
       const dialog = await openBuilder(app);
@@ -123,7 +123,7 @@ export default [
   {
     // step 6: the dashboard's top in arranging mode (a screen mode only — nothing on a widget is pressed)
     id: 'dashboard-arrange',
-    alt: { en: 'Arranging the dashboard: each widget\'s move arrows, size, edit and remove, and Done on the band', he: 'סידור לוח הבקרה: לכל וידג׳ט חצי הזזה, גודל, עריכה והסרה, והכפתור סיום ברצועה' },
+    alt: { en: 'Arranging the dashboard: each widget\'s move arrows, size, edit and remove, and Done on the band', he: 'סידור לוח המחוונים: לכל וידג׳ט חצי הזזה, גודל, עריכה והסרה, והכפתור סיום ברצועה' },
     badge: 'corner',
     run: async (app) => {
       await app.nav('tab_analytics');
