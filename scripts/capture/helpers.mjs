@@ -77,6 +77,11 @@ export const control = async (app, key, name) => app.page.getByRole('button', { 
 /** A person's (or an item's) board card: the card that holds its own Edit Record button. */
 export const boardCard = async (app, name) => app.page.locator('.card-base').filter({ has: await control(app, 'tooltip_edit', name) }).first();
 
+/** A person's form: the fields whose VALUES a picture never shows — the phone and the ID number (the demo's are invented, and
+ *  an invented number may still be somebody's; the personal number is the workspace's own and may show). A shot names them
+ *  in `blank`. */
+export const personalFields = (form) => form.locator('input[id$="phone"], input[id$="id_number"]');
+
 /** Bring an element to the top of its scrolling pane, with a little room above it. */
 export const toTop = (locator) => locator.evaluate((el) => {
   el.scrollIntoView({ block: 'start' });

@@ -5,6 +5,7 @@
 //
 //   npm run capture                         every shot, both languages
 //   npm run capture -- --only=board,approvals --lang=he
+//   npm run capture -- --only=board --keep-open      the capture windows stay open after the run
 //
 // What it needs (nothing here ever holds a password):
 //   1. the app's local preview:  cd ../GearLogs && npx vite preview --port 4174 --strictPort --host 127.0.0.1
@@ -39,6 +40,8 @@ const WEBP_QUALITY = 0.9;
 
 const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 const only = args.only ? new Set(args.only.split(',')) : null;
+/** The pictures the privacy guard refused in a --keep-going run. */
+const refused = [];
 const langs = (args.lang ?? 'en,he').split(',');
 /** The look every picture is taken in unless a shot names its own: the app's default theme, whatever the demo account last picked. */
 const BASE_THEME = args.theme ?? process.env.CAPTURE_THEME ?? 'office';
@@ -70,9 +73,10 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** The only real mailboxes a picture may show: the site's own public ones. Every demo address lives on a reserved test domain. */
 const PUBLIC_ADDRESSES = ['hello@gearlogs.com', 'support@gearlogs.com'];
 
-/** Runs in the page: where an e-mail address or a network (IP) address would be READ inside the picture's area (a text or a
- *  field's value; a placeholder is no one's address). A sign-in notice names the network address its member signed in from —
- *  a real person's. Answers the elements' descriptions, never the addresses. */
+/** Runs in the page: where an e-mail address, a network (IP) address or a phone number would be READ inside the picture's
+ *  area (a text or a field's value; a placeholder is no one's address). A sign-in notice names the network address its member
+ *  signed in from — a real person's; a demo person's phone number is invented, and may still be somebody's. What a shot BLANKED
+ *  for its picture is not read. Answers the elements' descriptions, never the values. */
 function addressesShown({ box, open }) {
   const ADDRESS = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+|\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b|\b(?:[0-9A-Fa-f]{1,4}:){3,7}[0-9A-Fa-f]{1,4}\b/g;
   // the reserved test domains, and the network ranges kept for documentation (RFC 5737, RFC 3849)
@@ -82,18 +86,60 @@ function addressesShown({ box, open }) {
     const r = el.getBoundingClientRect();
     return r.width > 0 && r.height > 0 && r.right > box.x && r.left < box.x + box.width && r.bottom > box.y && r.top < box.y + box.height;
   };
+  // a phone number as people write one: a plus, a country code, then groups of digits (a code such as LOG-03-001 has no plus)
+  const PHONE = /\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}/g;
+  const blanked = (el) => Boolean(el.closest('[data-capture-blank]'));
   const found = [];
   const say = (el) => found.push(`${el.tagName.toLowerCase()}${el.getAttribute('role') ? `[role=${el.getAttribute('role')}]` : ''}${el.closest('[role="dialog"]') ? ' in a dialog' : ''}`);
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    const hits = (node.nodeValue.match(ADDRESS) ?? []).filter((a) => !allowed(a));
-    if (hits.length && node.parentElement && inPicture(node.parentElement)) say(node.parentElement);
+    const hits = [...(node.nodeValue.match(ADDRESS) ?? []).filter((a) => !allowed(a)), ...(node.nodeValue.match(PHONE) ?? [])];
+    if (hits.length && node.parentElement && !blanked(node.parentElement) && inPicture(node.parentElement)) say(node.parentElement);
   }
   for (const field of document.querySelectorAll('input, textarea')) {
-    const hits = (String(field.value ?? '').match(ADDRESS) ?? []).filter((a) => !allowed(a));
-    if (hits.length && inPicture(field)) say(field);
+    const value = String(field.value ?? '');
+    const hits = [...(value.match(ADDRESS) ?? []).filter((a) => !allowed(a)), ...(value.match(PHONE) ?? [])];
+    if (hits.length && !blanked(field) && inPicture(field)) say(field);
   }
   return found;
+}
+
+/** Runs in the page, before every picture: the values a picture never shows although the demo invented them — a PHONE number
+ *  wherever it is written (a text or a field's value) and an ID NUMBER (its field, or the value beside the app's own "ID number"
+ *  label on a person's card): an invented number may still be somebody's. Their words are drawn transparent — the box, the
+ *  label and the icon stay — and put back by `unblank`. Answers how many values were blanked. */
+function blankPersonal({ idWords }) {
+  const PHONE = /\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}/;
+  let count = 0;
+  const blank = (el) => {
+    if (!el || el.dataset.captureBlank) return;
+    el.dataset.captureBlank = el.style.getPropertyValue('-webkit-text-fill-color') || 'none';
+    el.style.setProperty('-webkit-text-fill-color', 'transparent');
+    count++;
+  };
+  const isId = (words) => idWords.some((w) => words.trim().startsWith(w));
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) if (PHONE.test(node.nodeValue)) blank(node.parentElement);
+  for (const field of document.querySelectorAll('input, textarea')) {
+    const value = String(field.value ?? '');
+    const label = field.labels?.[0]?.textContent ?? field.getAttribute('aria-label') ?? '';
+    if (PHONE.test(value) || (/\d/.test(value) && isId(label))) blank(field);
+  }
+  // a card's contact line: the label's own span, then the value beside it
+  for (const label of document.querySelectorAll('span')) {
+    if (label.children.length || !idWords.includes(label.textContent.trim())) continue;
+    for (const beside of label.parentElement?.children ?? []) if (beside !== label && !beside.children.length && /\d/.test(beside.textContent)) blank(beside);
+  }
+  return count;
+}
+
+/** Runs in the page, after the picture: every blanked value is drawn again as it was. */
+function unblank() {
+  for (const el of document.querySelectorAll('[data-capture-blank]')) {
+    const was = el.dataset.captureBlank;
+    if (was && was !== 'none') el.style.setProperty('-webkit-text-fill-color', was); else el.style.removeProperty('-webkit-text-fill-color');
+    delete el.dataset.captureBlank;
+  }
 }
 
 /** Runs in the page: a thing's box TOGETHER with its own visible label, when the label stands right over it or right beside
@@ -301,12 +347,28 @@ async function captureLanguage(lang, words, index) {
   } finally {
     // a shot that fails leaves no window behind either: the page and the capture Chrome close whatever happened (the
     // Director's pick "A · Close window between runs"); the demo sign-in stays saved in its own profile on this PC
+    // (--keep-open leaves the window standing: the Director is signing a page in, in that very window)
     await page.close().catch(() => {});
-    await (await browser.newBrowserCDPSession()).send('Browser.close').catch(() => {});
+    if ('keep-open' in args) await browser.close().catch(() => {}); // lets go of the window without closing it
+    else await (await browser.newBrowserCDPSession()).send('Browser.close').catch(() => {});
   }
   return bundle;
 
+  /** One picture. A shot marked `fresh` is taken in a window of its own that knows no sign-in (My Gear's door as a person
+   *  first meets it): a new browser context, closed right after — the capture window's own sessions are never touched, and
+   *  no request is held back or answered in the page's place. */
   async function picture(shot) {
+    if (!shot.fresh) return take(shot, { page, app, cdp });
+    const own = await browser.newContext({ viewport: { width: VIEW.width, height: VIEW.height }, deviceScaleFactor: VIEW.deviceScaleFactor });
+    try {
+      const ownPage = await own.newPage();
+      await take(shot, { page: ownPage, app: helpers(ownPage, words), cdp: await own.newCDPSession(ownPage) });
+    } finally {
+      await own.close().catch(() => {});
+    }
+  }
+
+  async function take(shot, { page, app, cdp }) {
     await app.theme(shot.theme ?? BASE_THEME);
     await shot.run(app, lang);
     await app.tidy();
@@ -342,6 +404,18 @@ async function captureLanguage(lang, words, index) {
         marks.push({ n: i + 1, x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height), ...(badge ? { badge } : {}) });
       }
     }
+    // the app's own header says whether it is connected: a picture never shows "Not connected" (the live connection drops
+    // for a moment now and then) — the capture waits for it to come back, and refuses the picture when it does not
+    if (page.url().startsWith(APP)) {
+      const offline = page.locator('header').first().getByText(await app.t('offline'), { exact: true }).first();
+      for (let i = 0; i < 60 && await offline.isVisible().catch(() => false); i++) await sleep(500);
+      if (await offline.isVisible().catch(() => false)) {
+        for (const el of left) await el.evaluate((n) => { n.style.display = n.dataset.captureShown ?? ''; delete n.dataset.captureShown; }).catch(() => {});
+        if (shot.after) await shot.after(app, lang).catch(() => {});
+        if ('keep-going' in args) { refused.push(`${shot.id}.${lang} (the app is not connected)`); console.log(`capture: REFUSED ${shot.id}.${lang} — the app's header says it is not connected`); return; }
+        throw new Error(`capture: ${shot.id} (${lang}) — the app's header says it is not connected; the picture is not taken`);
+      }
+    }
     await page.evaluate(installProbe);
     // an outline never lies over a neighbour: each mark keeps the margin its sides have room for
     const rooms = await page.evaluate(roomAround, { boxes: marks.map((m) => ({ x: m.x + (box?.x ?? 0), y: m.y + (box?.y ?? 0), w: m.w, h: m.h })), pad: MARK.pad });
@@ -350,6 +424,13 @@ async function captureLanguage(lang, words, index) {
     // PRIVACY (the Director's law: a picture never shows a real person's address — the demo accounts are real sign-ins):
     // what a shot names in `hide` is invisible for the picture and put back right after it; then the picture's area is read
     // for any e-mail address outside the reserved test domains and the site's own public mailboxes — one found refuses the shot
+    // what a shot names in `blank` keeps its box and loses its WORDS for the picture (a field that holds a demo person's
+    // phone or ID number: invented, and possibly somebody's): the text is drawn transparent and put back right after
+    // — and the capture blanks every phone number and ID number it finds by itself (`blankPersonal`), whatever the shot named
+    const blank = [];
+    for (const locator of shot.blank ? await shot.blank(app, lang) : []) blank.push(...await locator.elementHandles());
+    for (const el of blank) await el.evaluate((n) => { if (n.dataset.captureBlank) return; n.dataset.captureBlank = n.style.getPropertyValue('-webkit-text-fill-color') || 'none'; n.style.setProperty('-webkit-text-fill-color', 'transparent'); });
+    await page.evaluate(blankPersonal, { idWords: [words.en.per_id_number, words.he.per_id_number].filter(Boolean) });
     const hidden = [];
     for (const locator of shot.hide ? await shot.hide(app, lang) : []) hidden.push(...await locator.elementHandles());
     for (const el of hidden) await el.evaluate((n) => { n.dataset.captureWas = n.style.visibility; n.style.visibility = 'hidden'; });
@@ -378,11 +459,15 @@ async function captureLanguage(lang, words, index) {
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = shown.length ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     for (const el of hidden) await el.evaluate((n) => { n.style.visibility = n.dataset.captureWas ?? ''; delete n.dataset.captureWas; });
+    await page.evaluate(unblank).catch(() => {});
     for (const el of left) await el.evaluate((n) => { n.style.display = n.dataset.captureShown ?? ''; delete n.dataset.captureShown; }).catch(() => {});
     if (!png) {
       if (shot.after) await shot.after(app, lang).catch(() => {});
+      await page.evaluate(unblank).catch(() => {});
+      // --keep-going: a refused picture is NAMED and the run goes on (the picture is not written; the run still fails at its end)
+      if ('keep-going' in args) { refused.push(`${shot.id}.${lang} (in: ${shown.join(' · ')})`); console.log(`capture: REFUSED ${shot.id}.${lang} — it would show ${shown.length} address(es) or phone number(s) (in: ${shown.join(' · ')})`); return; }
       // the address itself is never printed — only where it sits
-      throw new Error(`capture: ${shot.id} (${lang}) — the picture would show ${shown.length} e-mail or network address(es) (in: ${shown.join(' · ')}); name the element in the shot's \`hide\` or \`leaveOut\`, or clip it out`);
+      throw new Error(`capture: ${shot.id} (${lang}) — the picture would show ${shown.length} e-mail address(es), network address(es) or phone number(s) (in: ${shown.join(' · ')}); name the element in the shot's \`hide\`, \`blank\` or \`leaveOut\`, or clip it out`);
     }
     const file = `${shot.id}.${lang}.webp`;
     writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
@@ -410,6 +495,7 @@ async function main() {
   } finally {
     writeFileSync(manifestFile, JSON.stringify({ view: VIEW, shots: [...index.values()] }, null, 2) + '\n');
   }
+  if (refused.length) throw new Error(`capture: ${refused.length} picture(s) REFUSED and not written — ${refused.join(' | ')}`);
   console.log(`capture: OK — ${[...index.values()].filter((e) => langs.includes(e.lang)).length} picture(s) from ${[...new Set(bundles)].join(', ') || 'the app'}`);
 }
 

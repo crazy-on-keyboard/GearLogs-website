@@ -11592,6 +11592,1658 @@
           "badge": "start"
         }
       ]
+    },
+    {
+      "id": "support-open",
+      "lang": "en",
+      "file": "support-open.en.webp",
+      "alt": "Support open on Conversations: Support in the side menu, the Conversations and Notifications tabs, New request, and the My requests and Workspace choice",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 457,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1217,
+          "y": 67,
+          "w": 203,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 94,
+          "y": 142,
+          "w": 125,
+          "h": 30,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 229,
+          "y": 143,
+          "w": 198,
+          "h": 29,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-new-request",
+      "lang": "en",
+      "file": "support-new-request.en.webp",
+      "alt": "New request with Problem chosen: the four types, Subject, Details and the item picker",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 207,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 338,
+          "w": 383,
+          "h": 130,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 526,
+          "y": 488,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "support-new-request-send",
+      "lang": "en",
+      "file": "support-new-request-send.en.webp",
+      "alt": "New request with a subject typed: the suggestions, Attachments, the reason Send request is greyed, and Send request",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 275,
+          "w": 383,
+          "h": 86,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 524,
+          "w": 383,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 616,
+          "w": 216,
+          "h": 27,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 821,
+          "y": 606,
+          "w": 100,
+          "h": 47,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-follow",
+      "lang": "en",
+      "file": "support-follow.en.webp",
+      "alt": "Support, Conversations: the status tabs, the email line, the Requests list and the Conversation pane",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1154,
+          "y": 144,
+          "w": 260,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 94,
+          "y": 190,
+          "w": 1319,
+          "h": 13,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 105,
+          "y": 227,
+          "w": 80,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 481,
+          "y": 227,
+          "w": 106,
+          "h": 13,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-parts",
+      "lang": "en",
+      "file": "dialogs-parts.en.webp",
+      "alt": "The Edit Person dialog: the title with its (i), the close button, Archive at the start of the shelf, Cancel and Save at its end",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 519,
+          "y": 86,
+          "w": 139,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 897,
+          "y": 86,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 712,
+          "w": 125,
+          "h": 30,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 769,
+          "y": 712,
+          "w": 152,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-readonly",
+      "lang": "en",
+      "file": "dialogs-readonly.en.webp",
+      "alt": "An item's window opened from the search: its name, the close button and a lone Close on the shelf",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 519,
+          "y": 86,
+          "w": 89,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 897,
+          "y": 86,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 857,
+          "y": 405,
+          "w": 63,
+          "h": 32,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-fields",
+      "lang": "en",
+      "file": "dialogs-fields.en.webp",
+      "alt": "The Edit Person form: an optional field, a required field with its red star, and an (i) beside a field",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 210,
+          "w": 186,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 410,
+          "w": 383,
+          "h": 40,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-refused",
+      "lang": "en",
+      "file": "dialogs-refused.en.webp",
+      "alt": "Archive this? over the form: the question, the reason in red, Cancel, and Archive greyed",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 567,
+          "y": 147,
+          "w": 128,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 506,
+          "y": 192,
+          "w": 428,
+          "h": 39,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 746,
+          "y": 320,
+          "w": 68,
+          "h": 30,
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 821,
+          "y": 319,
+          "w": 100,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-discard",
+      "lang": "en",
+      "file": "dialogs-discard.en.webp",
+      "alt": "Discard your changes? over an edited form: the question, the line under it, Cancel and Discard",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 567,
+          "y": 147,
+          "w": 207,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 746,
+          "y": 264,
+          "w": 68,
+          "h": 30,
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 821,
+          "y": 264,
+          "w": 100,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-views-open",
+      "lang": "en",
+      "file": "support-views-open.en.webp",
+      "alt": "Settings on Security: Settings in the side menu, Security in the Settings list, and the Support views card",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 501,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 350,
+          "y": 404,
+          "w": 168,
+          "h": 34,
+          "pad": [
+            3,
+            6,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 556,
+          "y": 656,
+          "w": 589,
+          "h": 110,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "support-views-list",
+      "lang": "en",
+      "file": "support-views-list.en.webp",
+      "alt": "Support views: the line under the title, and the list of the last 90 days",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 617,
+          "y": 697,
+          "w": 510,
+          "h": 27,
+          "badge": "end",
+          "pad": [
+            2,
+            6,
+            6,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 617,
+          "y": 734,
+          "w": 510,
+          "h": 13,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "support-views-info",
+      "lang": "en",
+      "file": "support-views-info.en.webp",
+      "alt": "The (i) of Support views, open: what the card holds, and how a view works",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 844,
+          "y": 672,
+          "w": 24,
+          "h": 24,
+          "badge": "end",
+          "pad": [
+            6,
+            6,
+            2,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 718,
+          "y": 474,
+          "w": 273,
+          "h": 102,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 718,
+          "y": 584,
+          "w": 273,
+          "h": 69,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-views-logs",
+      "lang": "en",
+      "file": "support-views-logs.en.webp",
+      "alt": "System Logs: System Logs in the side menu, Search Keywords, and the User and Action Type filters",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 326,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 102,
+          "y": 150,
+          "w": 652,
+          "h": 51,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 764,
+          "y": 152,
+          "w": 252,
+          "h": 49,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "support-open",
+      "lang": "he",
+      "file": "support-open.he.webp",
+      "alt": "תמיכה פתוחה על פניות: תמיכה בתפריט הצדדי, הכרטיסיות פניות והתראות, פנייה חדשה, והבחירה בין הפניות שלי לסביבת העבודה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 457,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 20,
+          "y": 67,
+          "w": 114,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 1227,
+          "y": 142,
+          "w": 118,
+          "h": 30,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 1007,
+          "y": 143,
+          "w": 210,
+          "h": 29,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-new-request",
+      "lang": "he",
+      "file": "support-new-request.he.webp",
+      "alt": "פנייה חדשה עם בעיה נבחרת: ארבעת הסוגים, נושא, פירוט ובורר הפריט",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 207,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 338,
+          "w": 383,
+          "h": 130,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 531,
+          "y": 488,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "support-new-request-send",
+      "lang": "he",
+      "file": "support-new-request-send.he.webp",
+      "alt": "פנייה חדשה עם נושא מוקלד: ההצעות, קבצים מצורפים, הסיבה שהכפתור שליחת הפנייה מעומעם, והכפתור שליחת הפנייה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 275,
+          "w": 383,
+          "h": 86,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 524,
+          "w": 383,
+          "h": 47,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 710,
+          "y": 616,
+          "w": 210,
+          "h": 27,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 606,
+          "w": 113,
+          "h": 47,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-follow",
+      "lang": "he",
+      "file": "support-follow.he.webp",
+      "alt": "תמיכה, פניות: כרטיסיות המצב, שורת האימייל, רשימת הפניות וחלונית השיחה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 27,
+          "y": 144,
+          "w": 201,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 27,
+          "y": 190,
+          "w": 1319,
+          "h": 13,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 1274,
+          "y": 227,
+          "w": 61,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 904,
+          "y": 227,
+          "w": 55,
+          "h": 13,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-parts",
+      "lang": "he",
+      "file": "dialogs-parts.he.webp",
+      "alt": "החלון עריכת אדם: הכותרת עם ה-(i), כפתור הסגירה, העבר לארכיון בתחילת שורת הכפתורים, ביטול ושמור בסופה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 801,
+          "y": 86,
+          "w": 119,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 519,
+          "y": 86,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 761,
+          "y": 712,
+          "w": 160,
+          "h": 30,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 712,
+          "w": 145,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-readonly",
+      "lang": "he",
+      "file": "dialogs-readonly.he.webp",
+      "alt": "חלון של פריט שנפתח מהחיפוש: השם שלו, כפתור הסגירה, וכפתור סגור יחיד בשורת הכפתורים",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 842,
+          "y": 86,
+          "w": 79,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 519,
+          "y": 86,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 405,
+          "w": 56,
+          "h": 32,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-fields",
+      "lang": "he",
+      "file": "dialogs-fields.he.webp",
+      "alt": "הטופס עריכת אדם: שדה רשות, שדה חובה עם כוכבית אדומה, ו-(i) ליד שדה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 728,
+          "y": 210,
+          "w": 186,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 410,
+          "w": 383,
+          "h": 40,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-refused",
+      "lang": "he",
+      "file": "dialogs-refused.he.webp",
+      "alt": "השאלה להעביר לארכיון? מעל הטופס: השאלה, הסיבה באדום, ביטול, והכפתור העבר לארכיון מעומעם",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 726,
+          "y": 147,
+          "w": 148,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 506,
+          "y": 192,
+          "w": 428,
+          "h": 39,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 660,
+          "y": 320,
+          "w": 61,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 319,
+          "w": 134,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dialogs-discard",
+      "lang": "he",
+      "file": "dialogs-discard.he.webp",
+      "alt": "השאלה לבטל את השינויים? מעל טופס שנערך: השאלה, השורה שמתחתיה, ביטול ולבטל שינויים",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 706,
+          "y": 147,
+          "w": 167,
+          "h": 24,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 212,
+          "w": 383,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 660,
+          "y": 264,
+          "w": 61,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 264,
+          "w": 134,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-views-open",
+      "lang": "he",
+      "file": "support-views-open.he.webp",
+      "alt": "הגדרות על אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, והכרטיס תצוגות תמיכה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 501,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 945,
+          "y": 404,
+          "w": 145,
+          "h": 34,
+          "pad": [
+            3,
+            6,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 295,
+          "y": 655,
+          "w": 613,
+          "h": 110,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "support-views-list",
+      "lang": "he",
+      "file": "support-views-list.he.webp",
+      "alt": "תצוגות תמיכה: השורה שמתחת לכותרת, והרשימה של 90 הימים האחרונים",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 313,
+          "y": 696,
+          "w": 534,
+          "h": 27,
+          "badge": "end",
+          "pad": [
+            2,
+            6,
+            6,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 313,
+          "y": 733,
+          "w": 534,
+          "h": 13,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "support-views-info",
+      "lang": "he",
+      "file": "support-views-info.he.webp",
+      "alt": "סמל ה-(i) של תצוגות תמיכה, פתוח: מה הכרטיס מחזיק, ואיך תצוגה עובדת",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 564,
+          "y": 671,
+          "w": 24,
+          "h": 24,
+          "badge": "above",
+          "pad": [
+            6,
+            6,
+            2,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 442,
+          "y": 712,
+          "w": 273,
+          "h": 88,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 442,
+          "y": 809,
+          "w": 273,
+          "h": 69,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "support-views-logs",
+      "lang": "he",
+      "file": "support-views-logs.he.webp",
+      "alt": "יומני מערכת: יומני מערכת בתפריט הצדדי, מילות חיפוש, והמסננים משתמש וסוג פעולה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 326,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 681,
+          "y": 150,
+          "w": 658,
+          "h": 51,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 418,
+          "y": 152,
+          "w": 252,
+          "h": 49,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "people-no-code",
+      "lang": "en",
+      "file": "people-no-code.en.webp",
+      "alt": "Personnel with the filter pressed: Personnel in the side menu, the Cannot receive a code filter with its count, a No code mark and the card's Edit Record button",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 151,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 342,
+          "y": 134,
+          "w": 208,
+          "h": 26,
+          "pad": [
+            6,
+            4,
+            6,
+            6
+          ],
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 223,
+          "y": 248,
+          "w": 50,
+          "h": 15,
+          "badge": "below",
+          "pad": [
+            2,
+            2,
+            6,
+            6
+          ]
+        },
+        {
+          "n": 4,
+          "x": 702,
+          "y": 208,
+          "w": 24,
+          "h": 24,
+          "badge": "end",
+          "pad": [
+            6,
+            6,
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people-signin-fields",
+      "lang": "en",
+      "file": "people-signin-fields.en.webp",
+      "alt": "Edit Person for someone with no email yet: the Email field, the ID number, the personal number and Save",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 463,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 531,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 724,
+          "y": 531,
+          "w": 185,
+          "h": 54,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 843,
+          "y": 712,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "people-signin-details",
+      "lang": "en",
+      "file": "people-signin-details.en.webp",
+      "alt": "A person's card opened with Show details: the email on record, no ID number, and the personal number",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 894,
+          "y": 332,
+          "w": 224,
+          "h": 13,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 1131,
+          "y": 332,
+          "w": 110,
+          "h": 13,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 1255,
+          "y": 332,
+          "w": 164,
+          "h": 13,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "people-signin-access",
+      "lang": "en",
+      "file": "people-signin-access.en.webp",
+      "alt": "Edit Person: the Email field, and Archive at the foot of the window",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 463,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 519,
+          "y": 712,
+          "w": 125,
+          "h": 30,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "door-my-gear",
+      "lang": "en",
+      "file": "door-my-gear.en.webp",
+      "alt": "The My Gear sign-in: the workspace code, your ID number, the e-mail on your record and Send me a code",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 560,
+          "y": 390,
+          "w": 321,
+          "h": 51,
+          "badge": "start",
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 560,
+          "y": 476,
+          "w": 321,
+          "h": 51,
+          "badge": "start",
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "n": 3,
+          "x": 560,
+          "y": 577,
+          "w": 321,
+          "h": 51,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 560,
+          "y": 665,
+          "w": 321,
+          "h": 30,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "people-no-code",
+      "lang": "he",
+      "file": "people-no-code.he.webp",
+      "alt": "כוח אדם עם המסנן לחוץ: כוח אדם בתפריט הצדדי, המסנן לא יכולים לקבל קוד עם המספר שלו, הסימון אין קוד והכפתור עריכת רשומה בכרטיס",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 151,
+          "w": 46,
+          "h": 40,
+          "pad": [
+            3,
+            6,
+            2,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 846,
+          "y": 134,
+          "w": 190,
+          "h": 26,
+          "pad": [
+            6,
+            6,
+            6,
+            5
+          ],
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 1167,
+          "y": 273,
+          "w": 50,
+          "h": 15,
+          "badge": "below",
+          "pad": [
+            2,
+            6,
+            6,
+            3
+          ]
+        },
+        {
+          "n": 4,
+          "x": 715,
+          "y": 233,
+          "w": 24,
+          "h": 24,
+          "badge": "end",
+          "pad": [
+            6,
+            6,
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "people-signin-fields",
+      "lang": "he",
+      "file": "people-signin-fields.he.webp",
+      "alt": "עריכת אדם למי שעדיין אין לו אימייל: השדה אימייל, מספר הזהות, המספר האישי והכפתור שמור",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 729,
+          "y": 463,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 729,
+          "y": 531,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 531,
+          "w": 185,
+          "h": 54,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 712,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "people-signin-details",
+      "lang": "he",
+      "file": "people-signin-details.he.webp",
+      "alt": "כרטיס של אדם שנפתח עם הצג פרטים: האימייל הרשום, בלי מספר זהות, והמספר האישי",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 335,
+          "y": 331,
+          "w": 194,
+          "h": 13,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 211,
+          "y": 331,
+          "w": 110,
+          "h": 13,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 81,
+          "y": 331,
+          "w": 117,
+          "h": 13,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "people-signin-access",
+      "lang": "he",
+      "file": "people-signin-access.he.webp",
+      "alt": "עריכת אדם: השדה אימייל, והכפתור העבר לארכיון בתחתית החלון",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 729,
+          "y": 463,
+          "w": 185,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 761,
+          "y": 712,
+          "w": 160,
+          "h": 30,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "door-my-gear",
+      "lang": "he",
+      "file": "door-my-gear.he.webp",
+      "alt": "הכניסה להציוד שלי: קוד סביבת העבודה, מספר הזהות שלכם, האימייל הרשום אצלכם והכפתור שלחו לי קוד",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 560,
+          "y": 374,
+          "w": 321,
+          "h": 51,
+          "badge": "start",
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "n": 2,
+          "x": 560,
+          "y": 460,
+          "w": 321,
+          "h": 51,
+          "badge": "start",
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ]
+        },
+        {
+          "n": 3,
+          "x": 560,
+          "y": 561,
+          "w": 321,
+          "h": 51,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 560,
+          "y": 680,
+          "w": 321,
+          "h": 30,
+          "badge": "start"
+        }
+      ]
     }
   ]
 }

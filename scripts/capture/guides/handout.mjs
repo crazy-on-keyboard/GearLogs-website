@@ -1,7 +1,7 @@
 // The hand-out guides' screens: 4.2 (hand out gear, and take it back) and 4.3 (sign out gear for a team). Every shot opens a
 // window and leaves it untouched: no confirm is ever pressed, no Enter is ever typed, and each window closes by Escape or its
 // own Cancel — found by its label right before the click. Ticking a line in a window is the window's own state, never saved.
-import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, openLogistics, side, slotted, toTop } from '../helpers.mjs';
+import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, openLogistics, side, personalFields, slotted, toTop } from '../helpers.mjs';
 
 /** The small Assign card an item or a person opens ("Assign Item — <name>", or "Assign Unit — <name>" on a serial item). */
 const assignCard = async (app, key = 'assign_item') => app.page.getByRole('dialog', { name: new RegExp(`^${escapeRe(await app.t(key))} — `) }).first();
@@ -143,6 +143,8 @@ export default [
   {
     // 4.3 step 1: the head's own Edit Person window with the Department Head tick in view (no field is touched, nothing saved)
     id: 'person-form-head',
+    // the phone and the ID number: their values stay out of the picture
+    blank: async (app) => [personalFields(app.page.getByRole('dialog', { name: await app.t('edit_person'), exact: true }).first())],
     alt: { en: 'Editing a person: the Department Head tick that gives their card the Issue Batch button', he: 'עריכת אדם: הסימון ראש מחלקה שמוסיף לכרטיס את הכפתור ניפוק מרוכז' },
     run: async (app, lang) => {
       await app.nav('tab_personnel');

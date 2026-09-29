@@ -36,6 +36,11 @@ import BILLING_SHOTS from './guides/billing.mjs';
 import CONTRACT_SHOTS from './guides/contracts.mjs';
 import TWOFACTOR_SHOTS from './guides/twofactor.mjs';
 import NOTIFICATION_SHOTS from './guides/notifications.mjs';
+import SUPPORT_SHOTS from './guides/support.mjs';
+import DIALOG_SHOTS from './guides/dialogs.mjs';
+import SUPPORT_VIEW_SHOTS from './guides/supportviews.mjs';
+import GIVE_MY_GEAR_SHOTS from './guides/givemygear.mjs';
+import MY_GEAR_SHOTS from './guides/mygear.mjs';
 
 /** @type {Shot[]} */
 export default [
@@ -289,4 +294,9 @@ export default [
   ...CONTRACT_SHOTS,
   ...TWOFACTOR_SHOTS,
   ...NOTIFICATION_SHOTS,
+  ...SUPPORT_SHOTS,
+  ...DIALOG_SHOTS,
+  ...SUPPORT_VIEW_SHOTS,
+  ...GIVE_MY_GEAR_SHOTS,
+  ...MY_GEAR_SHOTS,
 ];
