@@ -56,6 +56,14 @@ for (const p of PAGES.filter((x) => x.bilingual && x.sitemap)) {
       for (const h of [...new Set(bad)]) fail(`HE-LINK    he:${p.slug} links into the English tree: ${h}`);
     }
 
+    // A public page never says that nothing locks after wrong codes — it says what to do (Lock words · B, Lock words 2 · A).
+    const lockWords = label === 'en'
+      ? [/nothing (?:is |was |gets )?(?:locked|blocked)/i, /never lock\b/i]
+      : [/לא ננעל/, /אינו ננעל/, /לא נחסם/, /אל תנעלו/];
+    for (const re of lockWords) {
+      if (re.test(html)) fail(`LOCK-WORDS ${label}:${p.slug} says that nothing locks (${re.source}) — say what to do instead`);
+    }
+
     // JSON-LD, where present, must parse.
     for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
       try { JSON.parse(m[1]); } catch (e) { fail(`JSONLD     ${label}:${p.slug} invalid JSON-LD: ${e.message}`); }
@@ -90,4 +98,4 @@ if (problems.length) {
   console.error(`check-i18n: ${problems.length} problem(s)\n` + problems.map((p) => '  ' + p).join('\n'));
   process.exit(1);
 }
-console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, JSON-LD and the four contact CSP blocks all pass');
+console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, the lock words, JSON-LD and the four contact CSP blocks all pass');
