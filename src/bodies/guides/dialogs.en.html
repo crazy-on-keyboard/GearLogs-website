@@ -1,0 +1,107 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.20</p>
+        <p class="band-kicker">Guide 4.20 <span class="sep">&middot;</span> Basics</p>
+        <h1 class="band-title">Work with any dialog</h1>
+        <p class="band-lede">Every dialog in GearLogs is built the same way. Learn one, and you can read, fill in and close them all.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>A dialog opens over the screen and dims it. Clicking outside it does not close it.</li>
+            <li>The pictures open a person&rsquo;s own dialog on Personnel. You change a person with the right <em>Create/Edit Personnel</em>, and archive one with <em>Delete Personnel</em>.</li>
+            <li>In a form, nothing is saved until you press <em>Save</em>.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open a dialog, and read its three parts.</h2>
+            <p>Press <em>Edit Record</em> on a person&rsquo;s card. The <em>Edit Person</em> dialog opens.</p>
+            <ol class="guide-marks">
+              <li>The title bar names the dialog. The (i) beside the title explains it.</li>
+              <li>The &times; closes the dialog.</li>
+              <li>The act that removes sits at the start of the shelf, in red text: <em>Archive</em> here, <em>Delete</em> on a tab or a group.</li>
+              <li><em>Cancel</em> and the main button, <em>Save</em>, at the end.</li>
+            </ol>
+            <p>The content sits between the title bar and the shelf, and scrolls when it is long. The shelf always stays in view. The main button takes the colour of what it does: green when the dialog creates something new, red when it writes gear off.</p>
+            <gl-shot id="dialogs-parts" caption="The Edit Person dialog: the title with its (i), the &times;, Archive at the start of the shelf, Cancel and Save at the end." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Read a dialog that only shows things.</h2>
+            <p>Search for an item in the header and pick it. Its window opens. It shows the item and changes nothing.</p>
+            <ol class="guide-marks">
+              <li>The title: the item&rsquo;s name.</li>
+              <li>The &times; closes it.</li>
+              <li>A lone <em>Close</em> on the shelf. A dialog that only shows things has no other button.</li>
+            </ol>
+            <p>Without the right to change a record, an item&rsquo;s or a person&rsquo;s form opens the same way: read-only, with the line <em>Read-only — your role can view this record but not change it.</em> and a lone <em>Close</em>.</p>
+            <gl-shot id="dialogs-readonly" caption="An item&rsquo;s window opened from the search: its name, the &times; and a lone Close." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Fill in a form.</h2>
+            <p>A form judges nothing while you type.</p>
+            <ol class="guide-marks">
+              <li><em>Rank / Title</em> <em>(Optional)</em>: a field you may leave empty says so.</li>
+              <li><em>First Name</em>: a red star marks a field you must fill in.</li>
+              <li><em>Department Head</em>: an (i) beside a field explains it in place.</li>
+            </ol>
+            <p>Press <em>Save</em>. If a field is refused, it turns red, and a plain line under it says why. A banner at the top counts the fields to fix, and <em>Go to the first</em> takes you there. Change the value, and its red line goes.</p>
+            <gl-shot id="dialogs-fields" caption="The Edit Person form: an optional field, a required field with its red star, and an (i) beside a field." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">When an act cannot be done, read why.</h2>
+            <p>Press <em>Archive</em> for a person who still holds gear. The confirmation opens over the form.</p>
+            <ol class="guide-marks">
+              <li>The question: <em>Archive this?</em></li>
+              <li>The reason, in red, at the top: <em>Person is holding assigned assets.</em></li>
+              <li><em>Cancel</em> takes you back to the form.</li>
+              <li><em>Archive</em> stays greyed. It cannot be pressed.</li>
+            </ol>
+            <p>Return their gear, or write it off, and try again. The same happens with a location, a rank or a department that people or items still use. The dialog stays open with the reason. Nothing closes behind your back. When GearLogs itself refuses an act, the reason lands here too, and the button wakes for another try. An act that cannot be undone asks you to type a word first, such as <em>DELETE</em>. Pasting it does not work.</p>
+            <gl-shot id="dialogs-refused" caption="Archive this? over the form: the question, the reason in red, Cancel, and Archive greyed." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Close a dialog, and keep or drop your changes.</h2>
+            <p><em>Escape</em>, the &times; and <em>Cancel</em> all close a dialog. After a change to an item&rsquo;s or a person&rsquo;s form, they ask first.</p>
+            <ol class="guide-marks">
+              <li><em>Discard your changes?</em></li>
+              <li>The line under it: <em>This form has unsaved edits. Close it and lose them?</em></li>
+              <li><em>Cancel</em> keeps you in the form, with your changes.</li>
+              <li><em>Discard</em> closes the form. Nothing is saved.</li>
+            </ol>
+            <p>A form you have not changed closes at once. Escape closes only the top dialog: a confirmation over a form closes alone. When a dialog closes, you are back on the button that opened it. While a dialog is open, Tab moves only inside it, and a screen reader says its name.</p>
+            <gl-shot id="dialogs-discard" caption="Discard your changes? over an edited form: the question, the line under it, Cancel and Discard." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>You can read any dialog in GearLogs at a glance: the title bar, the content and the shelf. You know why a button is greyed, and nothing you typed is lost by accident.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>1 field needs fixing — Go to the first</q> Save stopped at a field it cannot accept. The field is red, with the reason under it. Press <em>Go to the first</em> to reach it. With more, the banner counts them: <q>2 fields need fixing</q>.</li>
+            <li><q>Person is holding assigned assets.</q> <em>Archive</em> stays greyed while the person holds anything. Return their gear, or write it off, first.</li>
+            <li><q>In use by 3 — reassign or remove them first.</q> A location, a rank or a department cannot be deleted while records still use it. The number says how many. Move them first, and <em>Delete</em> wakes.</li>
+            <li><q>This ID number is already on another person in this workspace</q> An ID number belongs to one person only. GearLogs checks it when you press <em>Save</em>, and the field turns red.</li>
+            <li><q>Type "DELETE" to confirm:</q> The button wakes only once the word is typed. Pasting is blocked.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/set-up-board">Set Up Your Board</a></li>
+            <li><a href="/guides/find-anything">Find Anything</a></li>
+            <li><a href="/guides/write-offs">Retire People &amp; Write Off Gear</a></li>
+            <li><a href="/guides/access">Control Who Has Access</a></li>
+            <li><a href="/guides/make-it-yours">Make GearLogs Yours</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

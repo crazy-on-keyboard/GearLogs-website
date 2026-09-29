@@ -343,5 +343,29 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Settings: choose what you are told about",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/support": {
+    "title": "Support: Get Support Inside the App — GearLogs Guide",
+    "description": "Ask GearLogs Support a question, report a problem or suggest an idea. Then follow every reply in one place. Step by step, with real screens.",
+    "ogTitle": "Support: get support inside the app",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Support: get support inside the app",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/dialogs": {
+    "title": "Basics: Work with Any Dialog — GearLogs Guide",
+    "description": "Every dialog in GearLogs is built the same way. Learn one, and you can read, fill in and close them all. Step by step, with real screens.",
+    "ogTitle": "Basics: work with any dialog",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Basics: work with any dialog",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/support-views": {
+    "title": "Settings: See When Support Looked In — GearLogs Guide",
+    "description": "See every time GearLogs support opened a read-only view of your workspace: when, as which role, for how long and why. Step by step, with real screens.",
+    "ogTitle": "Settings: see when support looked in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: see when support looked in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }
