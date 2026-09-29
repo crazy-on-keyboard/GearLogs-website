@@ -20,7 +20,7 @@ import { renderHeaders } from './lib/headers.mjs';
 import { inlineCodeIn } from './lib/inline-code.mjs';
 import { expandBand, expandPhotos } from './lib/photo-tags.mjs';
 import { expandShots, strayAppImages, webpSize } from './lib/shots.mjs';
-import { expandGuideCards, withoutCardPictures } from './lib/guide-cards.mjs';
+import { expandGuideCards, expandGuideLinks, withoutCardPictures } from './lib/guide-cards.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
 const SCRIPT_BUNDLES = [
@@ -166,7 +166,7 @@ for (const page of PAGES) {
     }
     const cards = expandGuideCards(expandPhotos(band.html, photos, where), lang, { pageOf: guidePageOf(lang), shots: appShots, cards: guideCards, stampOf: appStampOf }, where);
     for (const slug of cards.waiting) waitingGuides.add(slug);
-    const body = expandShots(cards.html, lang, appShots, appSizeOf, where);
+    const body = expandShots(expandGuideLinks(cards.html, lang, guidePageOf(lang), where), lang, appShots, appSizeOf, where);
     const html = renderPage(p, lang, body);
     // S2-02: every app picture on the site is a real capture, in the page's language, placed by a <gl-shot> — nothing else
     const stray = strayAppImages(withoutCardPictures(html));

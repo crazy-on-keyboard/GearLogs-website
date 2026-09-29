@@ -34,7 +34,7 @@ export default [
   {
     // step 1: Settings on Billing
     id: 'billing-open',
-    alt: { en: 'Settings on Billing: Settings in the side menu, Billing in the Settings list, and the status card with the workspace\'s state and its seats in use', he: 'הגדרות על חיובים: הגדרות בתפריט הצדדי, חיובים ברשימת ההגדרות, וכרטיס המצב עם מצב סביבת העבודה והמקומות שבשימוש' },
+    alt: { en: 'Settings on Billing: Settings in the side menu, Billing in the Settings list, and the status card with the workspace\'s state and its seats in use', he: 'הגדרות בכרטיסייה חיובים: הגדרות בתפריט הצדדי, חיובים ברשימת ההגדרות, וכרטיס המצב עם מצב סביבת העבודה והמקומות שבשימוש' },
     run: openBilling,
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_settings'))}`, 'i') }).first(),

@@ -173,7 +173,7 @@ export default [
   {
     // step 6: the Expiring count pressed (it switches the view to the Ledger and narrows it — the screen's own state)
     id: 'registry-expiring',
-    alt: { en: 'The Ledger after a click on Expiring: only the units that need attention, with their warranty chips', he: 'הפנקס אחרי לחיצה על תפוגה קרובה: רק היחידות שדורשות תשומת לב, עם תגי האחריות שלהן' },
+    alt: { en: 'The Ledger after a click on Expiring: only the units that need attention, with their warranty chips', he: 'המרשם אחרי לחיצה על תפוגה קרובה: רק היחידות שדורשות תשומת לב, עם תגי האחריות שלהן' },
     run: async (app) => {
       await app.nav('tab_registry');
       await app.page.getByRole('button', { name: await app.t('reg_kpi_expiring_jump'), exact: true }).first().click();
@@ -195,7 +195,7 @@ export default [
   {
     // step 7: Settings on Organization Setup — the threshold field is pictured as it stands
     id: 'settings-threshold',
-    alt: { en: 'Settings on Organization Setup: the Registry card with the expiry warning threshold', he: 'הגדרות על הקמת ארגון: הכרטיס מרשם עם סף התראת התפוגה' },
+    alt: { en: 'Settings on Organization Setup: the Registry card with the expiry warning threshold', he: 'הגדרות בכרטיסייה הקמת ארגון: הכרטיס מרשם עם סף התראת התפוגה' },
     run: async (app) => {
       await app.nav('tab_settings');
       await (await settingsList(app)).getByRole('button', { name: await app.t('file_locs'), exact: true }).click();

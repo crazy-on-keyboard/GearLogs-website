@@ -78,7 +78,7 @@ export default [
   },
   {
     id: 'dashboard',
-    alt: { en: 'The dashboard: stock, hand-outs, receipts and kits at a glance', he: 'לוח המחוונים: מלאי, מסירות, קבלות וערכות במבט אחד' },
+    alt: { en: 'The dashboard: stock, hand-outs, receipts and kits at a glance', he: 'לוח המחוונים: מלאי, ניפוקים, אישורי מסירה וערכות במבט אחד' },
     run: async (app) => { await app.nav('tab_analytics'); },
     settle: 1500,
     // the dashboard guide's step 1: the screen in the side menu, then the band's controls in reading order
@@ -181,7 +181,7 @@ export default [
   },
   {
     id: 'dashboard-approvals',
-    alt: { en: 'The dashboard\'s receipt cards: receipts by state, who is waiting to sign, and how fast people confirm', he: 'כרטיסי הקבלות בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים' },
+    alt: { en: 'The dashboard\'s receipt cards: receipts by state, who is waiting to sign, and how fast people confirm', he: 'הכרטיסים של אישורי המסירה בלוח המחוונים: קבלות לפי מצב, מי ממתין לחתימה וכמה מהר מאשרים' },
     run: async (app) => {
       await app.nav('tab_analytics');
       await app.idle(800);

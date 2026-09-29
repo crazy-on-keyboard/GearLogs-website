@@ -50,7 +50,7 @@ export default [
   {
     // step 1: Settings on Security, the pane at its top (nothing on it is pressed or typed into)
     id: 'security-open',
-    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, and the Change password and Your two-factor cards', he: 'הגדרות על אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, והכרטיסים שינוי סיסמה והאימות הדו-שלבי שלך' },
+    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, and the Change password and Your two-factor cards', he: 'הגדרות בכרטיסייה אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, והכרטיסים שינוי סיסמה והאימות הדו-שלבי שלך' },
     run: async (app) => { await openSecurity(app); },
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_settings'))}`, 'i') }).first(),

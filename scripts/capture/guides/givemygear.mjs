@@ -35,7 +35,7 @@ export default [
   {
     // step 1: the filter pressed, the head of Cold Chain (no e-mail on record: No code) at the top of the pane
     id: 'people-no-code',
-    alt: { en: 'Personnel with the filter pressed: Personnel in the side menu, the Cannot receive a code filter with its count, a No code mark and the card\'s Edit Record button', he: 'כוח אדם עם המסנן לחוץ: כוח אדם בתפריט הצדדי, המסנן לא יכולים לקבל קוד עם המספר שלו, הסימון אין קוד והכפתור עריכת רשומה בכרטיס' },
+    alt: { en: 'Personnel with the filter pressed: Personnel in the side menu, the Cannot receive a code filter with its count, a No code mark and the card\'s Edit Record button', he: 'כוח אדם עם המסנן לחוץ: כוח אדם בתפריט הצדדי, המסנן לא יכולים לקבל קוד עם המספר שלו, הסימון ללא קוד והכפתור ערוך רשומה בכרטיס' },
     run: async (app, lang) => {
       await openPeople(app, lang, true);
       await toTop(await boardCard(app, NAMES.kitPerson[lang]));

@@ -3,7 +3,8 @@
 // cut from an older screen, a card asked for where only the row was cut, a guide without a page or words, words carried beside a page, a group that counts wrongly, a tag
 // it cannot read) and what it must write (a link for a guide with its page, a plain card for one that waits, the window
 // mirrored in Hebrew and always inside the picture). Zero dependencies.
-import { cardKey, cardWindow, expandGuideCards, guideFacts } from './lib/guide-cards.mjs';
+import { cardKey, cardWindow, expandGuideCards, expandGuideLinks, guideFacts, withoutCardPictures } from './lib/guide-cards.mjs';
+import { strayAppImages } from './lib/shots.mjs';
 
 const PAGE = `<gl-band photo="help" variant="article">
   <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.1</p>
@@ -33,6 +34,8 @@ const MUST_REFUSE = {
   'a tag it cannot read': () => expand('<gl-guide id="set-up-board"></gl-guide>'),
   'a group that counts wrongly': () => expand(`<section class="guide-group"><p class="guide-group-count">2 guides</p>${TAG}</section>`),
   'a page without steps': () => guideFacts(PAGE.replace(/<li class="gstep"/g, '<li'), 'en:guides/x'),
+  'a link to a guide that has no page': () => expandGuideLinks('<gl-guide-link slug="nowhere"></gl-guide-link>', 'en', () => null, 'en:guides/x'),
+  'a link tag it cannot read': () => expandGuideLinks('<gl-guide-link href="/guides/set-up-board"></gl-guide-link>', 'en', () => PAGE, 'en:guides/x'),
   'a focus on an outline the picture lacks': () => cardWindow(SHOT, 'row', { mark: 7 }),
 };
 
@@ -50,6 +53,12 @@ expect('a waiting guide is a row without a link or an arrow', written.html.inclu
 expect('the waiting guide is named', written.waiting.join() === 'open-my-gear');
 expect('the lead card carries no id, the short text, and loads at once', written.html.includes('<a class="guide-card" href="/guides/set-up-board"><img class="guide-card-shot"') && written.html.includes('<p class="guide-card-lede">Give each department its own tab.</p>') && (written.html.match(/loading="lazy"/g) ?? []).length === 2);
 expect('a row carries no short text', !written.html.includes('guide-row-lede'));
+
+expect('a link to a guide wears the guide’s own title', expandGuideLinks('<li><gl-guide-link slug="set-up-board"></gl-guide-link></li>', 'en', () => PAGE, 'en:guides/x') === '<li><a href="/guides/set-up-board">Build your board</a></li>');
+// the frame rule: only a picture from the cut pictures' own folder is let past it (the security gate's F3)
+const dressed = '<img class="guide-row-shot" src="/img/app/people-signin-details.en.webp" alt="">';
+expect('an app picture that only wears the class is still a stray', strayAppImages(withoutCardPictures(dressed)).length === 1);
+expect('the pictures the build wrote are no strays', strayAppImages(withoutCardPictures(written.html)).length === 0 && written.html.includes('/img/app/cards/'));
 
 const en = cardWindow(SHOT, 'card');
 const he = cardWindow({ ...SHOT, lang: 'he', marks: SHOT.marks.map((m) => ({ ...m, x: 1440 - m.x - m.w })) }, 'card');

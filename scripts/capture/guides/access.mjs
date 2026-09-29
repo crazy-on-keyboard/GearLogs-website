@@ -59,6 +59,9 @@ const toBoxTop = (locator) => locator.evaluate((el) => {
   if (box) box.scrollTop += el.getBoundingClientRect().top - box.getBoundingClientRect().top - 8;
 });
 
+/** The room an outline takes beyond its target (the build's padding of 6 and its stroke). */
+const OUTLINE_ROOM = 8;
+
 /** @type {import('../shots.mjs').Shot[]} */
 export default [
   {
@@ -68,9 +71,12 @@ export default [
     run: openUsers,
     clip: async (app) => {
       const head = await app.page.getByRole('table').first().locator('thead').boundingBox();
-      // the whole width of the window, from its top (the app's own header) to the foot of the column heads
-      return { x: 0, y: 0, width: app.page.viewportSize().width, height: Math.ceil(head.y + head.height) };
+      // the whole width of the window, from its top (the app's own header) to the foot of the column heads, and the room
+      // their outline needs under them (the design gate, 2026-09-29: the outline ran off the picture's foot)
+      return { x: 0, y: 0, width: app.page.viewportSize().width, height: Math.ceil(head.y + head.height) + OUTLINE_ROOM };
     },
+    // the strip under the column heads is the first member row's top: the rows are made invisible as well
+    hide: async (app) => [memberRows(app)],
     marks: async (app) => [
       app.page.getByRole('button', { name: await app.t('add_user'), exact: true }).first(),
       app.page.getByText(await app.t('current_usage'), { exact: true }).first().locator('xpath=../..'),

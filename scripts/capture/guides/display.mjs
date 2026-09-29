@@ -38,7 +38,7 @@ export default [
   {
     // step 1: Settings on Display
     id: 'display-open',
-    alt: { en: 'Settings on Display: Settings in the side menu, Display in the Settings list, and the My Display card', he: 'הגדרות על תצוגה: הגדרות בתפריט הצדדי, תצוגה ברשימת ההגדרות, והכרטיס התצוגה שלי' },
+    alt: { en: 'Settings on Display: Settings in the side menu, Display in the Settings list, and the My Display card', he: 'הגדרות בכרטיסייה תצוגה: הגדרות בתפריט הצדדי, תצוגה ברשימת ההגדרות, והכרטיס התצוגה שלי' },
     run: openAtTop,
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_settings'))}`, 'i') }).first(),

@@ -200,9 +200,32 @@ export function expandGuideCards(body, lang, { pageOf, shots, cards, stampOf }, 
     const held = (group.match(/ class="guide-(?:card|row)"/g) ?? []).length;
     if (said && Number(said) !== held) throw new Error(`guide cards: ${where} — a group says it holds ${said} guides and holds ${held}`);
   }
-  if (/<gl-guide\b/.test(html)) throw new Error(`guide cards: ${where} has a <gl-guide> the build cannot read (slug="…" first, empty element)`);
+  if (/<gl-guide[\s>]/.test(html)) throw new Error(`guide cards: ${where} has a <gl-guide> the build cannot read (slug="…" first, empty element)`);
   return { html, waiting: [...waiting] };
 }
 
-/** A finished page without its guides' cut pictures (the build made them, so they are no stray app pictures). */
-export const withoutCardPictures = (html) => html.replace(/<img class="guide-(?:card|row)-shot"[^>]*>/g, '');
+const LINK = /<gl-guide-link\s+slug="([a-z0-9-]+)"\s*><\/gl-guide-link>/g;
+
+/**
+ * Expand every <gl-guide-link slug="…"> in a body into a link that wears the guide's OWN title (the gates of 2026-09-29
+ * found 264 "related guides" links still carrying the old card titles, some against the Director's Hebrew word picks: a
+ * label written by hand drifts from the page it names, so no label is written by hand).
+ * @param {string} body
+ * @param {string} lang 'en' | 'he'
+ * @param {(slug: string) => string | null} pageOf the guide's body in this language
+ * @param {string} where the page, for error messages
+ */
+export function expandGuideLinks(body, lang, pageOf, where) {
+  const html = body.replace(LINK, (_, slug) => {
+    const page = pageOf(slug);
+    if (!page) throw new Error(`guide cards: ${where} links to the guide "${slug}", which has no ${lang} page`);
+    return `<a href="/guides/${slug}">${guideFacts(page, `${lang}:guides/${slug}`).title}</a>`;
+  });
+  if (/<gl-guide-link\b/.test(html)) throw new Error(`guide cards: ${where} has a <gl-guide-link> the build cannot read (slug="…", empty element)`);
+  return html;
+}
+
+/** A finished page without its guides' cut pictures (the build made them, so they are no stray app pictures). Only a
+ *  picture served from the cut pictures' own folder counts: the class alone would let any app picture past the frame rule
+ *  (the security gate's F3). */
+export const withoutCardPictures = (html) => html.replace(/<img class="guide-(?:card|row)-shot" src="\/img\/app\/cards\/[^"\s]+" srcset="\/img\/app\/cards\/[^"\s]+ \d+w, \/img\/app\/cards\/[^"\s]+ \d+w"[^>]*>/g, '');

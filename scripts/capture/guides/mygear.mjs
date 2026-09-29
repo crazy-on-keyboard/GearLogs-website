@@ -54,7 +54,7 @@ export default [
     // 4.24 step 1: the door as a person first meets it — a fresh window, every field empty, nothing pressed
     id: 'door-my-gear',
     fresh: true,
-    alt: { en: 'The My Gear sign-in: the workspace code, your ID number, the e-mail on your record and Send me a code', he: 'הכניסה להציוד שלי: קוד סביבת העבודה, מספר הזהות שלכם, האימייל הרשום אצלכם והכפתור שלחו לי קוד' },
+    alt: { en: 'The My Gear sign-in: the workspace code, your ID number, the e-mail on your record and Send me a code', he: 'הכניסה ל״הציוד שלי״: קוד סביבת העבודה, מספר הזהות שלכם, האימייל שברשומה שלכם והכפתור שלחו לי קוד' },
     badge: 'start',
     settle: 1200,
     run: async (app, lang) => {
@@ -97,7 +97,7 @@ export default [
   {
     // 4.24 step 3: Notices (the first notice is outlined, never clicked)
     id: 'mygear-notices',
-    alt: { en: 'My Gear on Notices: Notices in the sections with its count of new ones, and a new notice', he: 'הציוד שלי על הודעות: הודעות במדורים עם מספר החדשות, והודעה חדשה' },
+    alt: { en: 'My Gear on Notices: Notices in the sections with its count of new ones, and a new notice', he: '״הציוד שלי״ במדור הודעות: הודעות במדורים עם מספר החדשות, והודעה חדשה' },
     run: async (app, lang) => {
       await openSection(app, lang, 'staff_rail_notices');
       await (await pane(app, 'staff_rail_notices')).locator('.card-base').first().waitFor({ timeout: 15_000 });
@@ -112,7 +112,7 @@ export default [
   {
     // 4.24 step 4: History — the When and What columns
     id: 'mygear-history',
-    alt: { en: 'My Gear on History: History in the sections with its count, and the When and What columns', he: 'הציוד שלי על היסטוריה: היסטוריה במדורים עם המספר שלה, והעמודות מתי ומה' },
+    alt: { en: 'My Gear on History: History in the sections with its count, and the When and What columns', he: '״הציוד שלי״ במדור היסטוריה: היסטוריה במדורים עם המספר שלה, והעמודות מתי ומה' },
     run: async (app, lang) => {
       await openSection(app, lang, 'staff_rail_history');
       await (await pane(app, 'staff_rail_history')).locator('tbody tr').first().waitFor({ timeout: 15_000 });
@@ -133,7 +133,7 @@ export default [
   {
     // 4.24 step 5: the top bar (no button on it is pressed)
     id: 'mygear-topbar',
-    alt: { en: 'My Gear\'s top bar: your name and code, the language switch, Sign out everywhere and Sign out', he: 'הסרגל העליון של הציוד שלי: השם והקוד שלכם, מתג השפה, התנתקות מכל המכשירים והתנתקות' },
+    alt: { en: 'My Gear\'s top bar: your name and code, the language switch, Sign out everywhere and Sign out', he: 'הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה, יציאה מכל המכשירים ויציאה' },
     run: async (app, lang) => {
       await openSection(app, lang, 'staff_rail_gear');
       await app.page.locator('header').first().getByRole('button', { name: await app.t('staff_sign_out'), exact: true }).waitFor();
@@ -164,7 +164,7 @@ export default [
   {
     // 4.26 step 1: Approvals, no receipt picked yet
     id: 'mygear-approvals',
-    alt: { en: 'My Gear on Approvals: Approvals in the sections with its count, and one receipt waiting to be signed', he: 'הציוד שלי על אישורים: אישורים במדורים עם המספר שלו, ואישור מסירה אחד שממתין לחתימה' },
+    alt: { en: 'My Gear on Approvals: Approvals in the sections with its count, and one receipt waiting to be signed', he: '״הציוד שלי״ במדור אישורים: אישורים במדורים עם המספר שלו, ואישור מסירה אחד שממתין לחתימה' },
     run: async (app, lang) => { await openApprovals(app, lang); },
     marks: async (app) => [
       await railRow(app, 'staff_rail_approvals'),
@@ -175,7 +175,7 @@ export default [
   {
     // 4.26 step 2: the receipt open beside the list, the question with its two answers (neither is pressed)
     id: 'mygear-receipt-read',
-    alt: { en: 'A receipt open on My Gear: the facts, the three lines as they were recorded, and the two answers — I received these, or Something is wrong', he: 'אישור מסירה פתוח בהציוד שלי: העובדות, שלוש השורות כפי שנרשמו, ושתי התשובות — קיבלתי את הפריטים, או משהו לא נכון' },
+    alt: { en: 'A receipt open on My Gear: the facts, the three lines as they were recorded, and the two answers — I received these, or Something is wrong', he: 'אישור מסירה פתוח ב״הציוד שלי״: העובדות, שלוש השורות כפי שנרשמו, ושתי התשובות — קיבלתי אותם, או משהו לא נכון' },
     run: async (app, lang) => { await openReceipt(app, lang); },
     marks: async (app) => {
       const card = await decisionCard(app);
@@ -195,7 +195,7 @@ export default [
   {
     // 4.26 step 3: the confirm step IN PLACE — "I received these" pressed (the card's own step; nothing is sent)
     id: 'mygear-receipt-confirm',
-    alt: { en: 'The confirm step of a receipt on My Gear: the sentence that says the signature cannot be undone, Confirm and sign, and Back', he: 'שלב האישור של אישור מסירה בהציוד שלי: המשפט שאומר שאי אפשר לבטל חתימה, אישור וחתימה, וחזרה' },
+    alt: { en: 'The confirm step of a receipt on My Gear: the sentence that says the signature cannot be undone, Confirm and sign, and Back', he: 'שלב האישור של אישור מסירה ב״הציוד שלי״: המשפט שאומר שאי אפשר לבטל חתימה, אישור וחתימה, וחזרה' },
     run: async (app, lang) => {
       await openReceipt(app, lang);
       const card = await decisionCard(app);
@@ -221,7 +221,7 @@ export default [
   {
     // 4.26 step 4: the dispute form IN PLACE — "Something is wrong" pressed (a step change only); nothing is ticked or typed
     id: 'mygear-receipt-dispute',
-    alt: { en: 'Something is wrong on a My Gear receipt: the five reasons, the lines to tick, the box for your words, and Send the dispute with the line above it', he: 'משהו לא נכון באישור מסירה בהציוד שלי: חמש הסיבות, השורות לסימון, התיבה למילים שלכם, והכפתור שליחת הערעור עם השורה שמעליו' },
+    alt: { en: 'Something is wrong on a My Gear receipt: the five reasons, the lines to tick, the box for your words, and Send the dispute with the line above it', he: 'משהו לא נכון באישור מסירה ב״הציוד שלי״: חמש הסיבות, השורות לסימון, התיבה למילים שלכם, והכפתור שליחת הערעור עם השורה שמעליו' },
     badge: 'start',
     run: async (app, lang) => {
       await openReceipt(app, lang);
@@ -253,7 +253,7 @@ export default [
   {
     // 4.26 step 5: My gear — the gear already on the person's name while its receipt waits
     id: 'mygear-held',
-    alt: { en: 'My Gear on My gear: the items on the person\'s name, already there while their receipt waits for a signature', he: 'הציוד שלי על הציוד שלי: הפריטים שעל שם האדם, כבר רשומים בזמן שאישור המסירה שלהם ממתין לחתימה' },
+    alt: { en: 'My Gear on My gear: the items on the person\'s name, already there while their receipt waits for a signature', he: '״הציוד שלי״ במדור הציוד שלי: הפריטים שעל שם האדם, כבר רשומים בזמן שאישור המסירה שלהם ממתין לחתימה' },
     run: async (app, lang) => {
       await openSection(app, lang, 'staff_rail_gear');
       await app.page.getByRole('table').first().waitFor({ timeout: 15_000 });

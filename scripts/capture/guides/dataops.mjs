@@ -60,7 +60,7 @@ export default [
   {
     // step 3: the Personnel card at the top of the pane, the Approvals card under it
     id: 'dataops-people-reports',
-    alt: { en: 'The personnel and approvals reports: the roster, the receipts and the receipt lines', he: 'דוחות כוח האדם והאישורים: רשימת כוח האדם, הקבלות ושורות הקבלות' },
+    alt: { en: 'The personnel and approvals reports: the roster, the receipts and the receipt lines', he: 'דוחות כוח האדם והאישורים: רשימת כוח האדם, קבלות מסירה ושורות קבלה' },
     run: async (app) => {
       await openDataOps(app, 'exports_tab');
       const personnel = app.page.getByRole('heading', { name: await app.t('rpt_cat_personnel'), exact: true }).first();

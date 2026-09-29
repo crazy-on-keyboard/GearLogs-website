@@ -28,7 +28,7 @@ export default [
   {
     // step 1: Settings on Security, the Support views card brought up
     id: 'support-views-open',
-    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, and the Support views card', he: 'הגדרות על אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, והכרטיס תצוגות תמיכה' },
+    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, and the Support views card', he: 'הגדרות בכרטיסייה אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, והכרטיס תצוגות תמיכה' },
     run: async (app) => { await openSupportViews(app); },
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_settings'))}`, 'i') }).first(),

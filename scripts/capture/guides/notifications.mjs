@@ -36,7 +36,7 @@ export default [
   {
     // step 1: the page at its top (the allowance card leads it for an administrator)
     id: 'notifications-open',
-    alt: { en: 'Settings on Notifications: Settings in the side menu, Notifications in the Settings list, the e-mail allowance and My notifications', he: 'הגדרות על התראות: הגדרות בתפריט הצדדי, התראות ברשימת ההגדרות, מכסת האימיילים וההתראות שלי' },
+    alt: { en: 'Settings on Notifications: Settings in the side menu, Notifications in the Settings list, the e-mail allowance and My notifications', he: 'הגדרות בכרטיסייה התראות: הגדרות בתפריט הצדדי, התראות ברשימת ההגדרות, מכסת האימיילים וההתראות שלי' },
     hide: hideReset,
     run: async (app) => {
       const card = await openNotifications(app);

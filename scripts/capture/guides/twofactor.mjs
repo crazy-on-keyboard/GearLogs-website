@@ -42,7 +42,7 @@ export default [
   {
     // step 1: Settings on Security, Your two-factor at the top of the pane, Workspace two-factor under it
     id: 'twofactor-open',
-    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, the Your two-factor card and the Workspace two-factor card', he: 'הגדרות על אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, הכרטיס האימות הדו-שלבי שלך והכרטיס אימות דו-שלבי לסביבת העבודה' },
+    alt: { en: 'Settings on Security: Settings in the side menu, Security in the Settings list, the Your two-factor card and the Workspace two-factor card', he: 'הגדרות בכרטיסייה אבטחה: הגדרות בתפריט הצדדי, אבטחה ברשימת ההגדרות, הכרטיס האימות הדו-שלבי שלך והכרטיס אימות דו-שלבי לסביבת העבודה' },
     run: async (app) => { await openTwoFactor(app); },
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_settings'))}`, 'i') }).first(),
@@ -105,7 +105,7 @@ export default [
   {
     // step 5: Settings on Notifications, the Security band at the top of the pane (no switch is touched: each SAVES ON THE CLICK)
     id: 'twofactor-notices',
-    alt: { en: 'Settings on Notifications: Notifications in the Settings list, the Security band with its In-app and Email columns, and the changes that are always on in both', he: 'הגדרות על התראות: התראות ברשימת ההגדרות, פס האבטחה עם העמודות באפליקציה ואימייל, והשינויים שתמיד פעילים בשתיהן' },
+    alt: { en: 'Settings on Notifications: Notifications in the Settings list, the Security band with its In-app and Email columns, and the changes that are always on in both', he: 'הגדרות בכרטיסייה התראות: התראות ברשימת ההגדרות, פס האבטחה עם העמודות באפליקציה ואימייל, והשינויים שתמיד פעילים בשתיהן' },
     badge: 'start',
     run: async (app) => {
       await openSettings(app, 'set_tab_notifications');

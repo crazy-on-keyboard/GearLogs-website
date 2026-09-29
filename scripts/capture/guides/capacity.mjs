@@ -88,7 +88,7 @@ export default [
   {
     // step 5: Data Ops on Overview — the Data Health check that counts the items over their capacity (Review is never pressed)
     id: 'dataops-health',
-    alt: { en: 'Data Ops on Overview: the Data Health check for items over their storage capacity, its count and Review', he: 'ניהול נתונים על סקירה: בדיקת תקינות הנתונים לפריטים מעל קיבולת האחסון, המספר שלה ולבדיקה' },
+    alt: { en: 'Data Ops on Overview: the Data Health check for items over their storage capacity, its count and Review', he: 'ניהול נתונים, במסך סקירה: בדיקת תקינות הנתונים לפריטים מעל קיבולת האחסון, המספר שלה ולבדיקה' },
     run: async (app) => {
       await app.nav('tab_data');
       // the rail's Overview pressed every time: a shot never trusts the last view

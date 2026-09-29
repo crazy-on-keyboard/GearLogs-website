@@ -59,26 +59,52 @@ function outlines(shot) {
 const HAIR = 3;
 const over = (a, b) => Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > HAIR && Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) > HAIR;
 
+/** How far a number's centre stands from a box (0 inside it). The centre, not the edge: a number beside a low row is
+ *  taller than the row and reaches level with the rows above and below, yet it reads as the row it is centred on. */
+const apart = (num, b) => {
+  const [cx, cy] = [num.x + num.w / 2, num.y + num.h / 2];
+  return Math.hypot(Math.max(0, b.x - cx, cx - (b.x + b.w)), Math.max(0, b.y - cy, cy - (b.y + b.h)));
+};
+
+/** A number reads as the number of the outline it stands nearest — so it must stand nearer its OWN outline than any other
+ *  (the design gate, 2026-09-29: two numbers shared a gap one number wide and each touched the other's outline). The
+ *  outlines of one number in several places are all its own. */
+const nearestIsOwn = (num, i, drawn, slack = 0) => {
+  const own = apart(num, drawn[i]);
+  return drawn.every((b, j) => j === i || b.n === drawn[i].n || apart(num, b) > own - slack);
+};
+/** As near as makes no difference: a number this much nearer its neighbour still reads as its own (a low row right under
+ *  a wide box: the number beside the row stands a corner's width from the box). Past it the build refuses the page. */
+const NEAR_TIE = 4;
+
 /**
  * Where every number of a picture sits. Each takes the side its shot named (or the default for its size); when that side
- * would lay it over ANOTHER mark's target or over a number already placed, it takes the first side that is free
- * (corner · start · end · above · below). One that finds no free side keeps its own, and `marksProblems` names it.
+ * would lay it over ANOTHER mark's target or over a number already placed, or clearly nearer another outline than its
+ * own, it takes the first side that is free (corner · start · end · above · below), then the first where it stands as
+ * near as makes no difference, then the first that at least covers nothing; else it keeps its own, and `marksProblems`
+ * names it.
  */
 function placeNumbers(shot, lang) {
   const { w, h } = shot.frame;
+  const drawn = outlines(shot);
   const placed = [];
-  outlines(shot).forEach((b, i) => {
+  drawn.forEach((b, i) => {
     const at = (side) => { const [x, y] = badgeAt({ ...b, badge: side }, lang, w, h, BADGE); return { n: b.n, x, y, w: BADGE, h: BADGE }; };
-    const free = (num) => !shot.marks.some((m, j) => j !== i && over(num, m)) && !placed.some((other) => over(num, other));
+    const clear = (num) => !shot.marks.some((m, j) => j !== i && over(num, m)) && !placed.some((other) => over(num, other));
+    const free = (num, slack = 0) => clear(num) && nearestIsOwn(num, i, drawn, slack);
+    const tied = (num) => free(num, NEAR_TIE);
     const own = at(b.badge);
-    placed.push(free(own) ? own : ['corner', 'start', 'end', 'above', 'below'].map(at).find(free) ?? own);
+    const sides = ['corner', 'start', 'end', 'above', 'below'].map(at);
+    // the side the capture chose stays wherever it reads as its own outline's: the capture saw the screen's words and
+    // chose the side that covers none of them, which the build cannot see
+    placed.push(tied(own) ? own : sides.find(free) ?? sides.find(tied) ?? (clear(own) ? own : sides.find(clear) ?? own));
   });
   return placed;
 }
 
 /**
  * The law "a number never hides a thing the step points at", checked: a number that still lies over ANOTHER mark's target,
- * or over another number. Answers one sentence per fault (the build refuses the page; the shot's recipe marks less, or
+ * or over another number, or stands nearer another outline than its own. Answers one sentence per fault (the build refuses the page; the shot's recipe marks less, or
  * pictures the screen so the targets stand apart).
  * @param {{ id: string, frame: { w: number, h: number }, marks: Array<{ n?: number, x: number, y: number, w: number, h: number, badge?: string, pad?: number[] }> }} shot
  * @param {string} lang
@@ -99,6 +125,7 @@ export function marksProblems(shot, lang) {
     numbers.forEach((other, j) => {
       if (j > i && over(num, other)) problems.push(`the numbers ${num.n} and ${other.n} lie over each other`);
     });
+    if (!nearestIsOwn(num, i, drawn, NEAR_TIE)) problems.push(`the number ${num.n} stands nearer another outline than its own`);
   });
   return problems;
 }

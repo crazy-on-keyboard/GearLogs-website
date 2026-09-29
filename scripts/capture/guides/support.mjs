@@ -37,7 +37,7 @@ export default [
   {
     // step 1: Support on Conversations
     id: 'support-open',
-    alt: { en: 'Support open on Conversations: Support in the side menu, the Conversations and Notifications tabs, New request, and the My requests and Workspace choice', he: 'תמיכה פתוחה על פניות: תמיכה בתפריט הצדדי, הכרטיסיות פניות והתראות, פנייה חדשה, והבחירה בין הפניות שלי לסביבת העבודה' },
+    alt: { en: 'Support open on Conversations: Support in the side menu, the Conversations and Notifications tabs, New request, and the My requests and Workspace choice', he: 'תמיכה בכרטיסייה פניות: תמיכה בתפריט הצדדי, הכרטיסיות פניות והתראות, פנייה חדשה, והבחירה בין הפניות שלי לסביבת העבודה' },
     run: openSupport,
     marks: async (app) => [
       app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_support'))}`, 'i') }).first(),
