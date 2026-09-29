@@ -362,7 +362,11 @@ async function captureLanguage(lang, words, index) {
     const own = await browser.newContext({ viewport: { width: VIEW.width, height: VIEW.height }, deviceScaleFactor: VIEW.deviceScaleFactor });
     try {
       const ownPage = await own.newPage();
-      await take(shot, { page: ownPage, app: helpers(ownPage, words), cdp: await own.newCDPSession(ownPage) });
+      const ownCdp = await own.newCDPSession(ownPage);
+      // the same size and pixel density as the capture's own page (Chrome's screenshot reads the density from here)
+      await ownPage.setViewportSize({ width: VIEW.width, height: VIEW.height });
+      await ownCdp.send('Emulation.setDeviceMetricsOverride', { width: VIEW.width, height: VIEW.height, deviceScaleFactor: VIEW.deviceScaleFactor, mobile: false });
+      await take(shot, { page: ownPage, app: helpers(ownPage, words), cdp: ownCdp });
     } finally {
       await own.close().catch(() => {});
     }
