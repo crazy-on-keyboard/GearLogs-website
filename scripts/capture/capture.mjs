@@ -66,6 +66,33 @@ async function appWords() {
 
 const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
+/** The only real mailboxes a picture may show: the site's own public ones. Every demo address lives on a reserved test domain. */
+const PUBLIC_ADDRESSES = ['hello@gearlogs.com', 'support@gearlogs.com'];
+
+/** Runs in the page: where an e-mail address would be READ inside the picture's area (a text or a field's value; a placeholder
+ *  is no one's address). Answers the elements' descriptions, never the addresses. */
+function addressesShown({ box, open }) {
+  const ADDRESS = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+/g;
+  const allowed = (a) => open.includes(a.toLowerCase()) || /\.(example|test|invalid|localhost)$/i.test(a);
+  const inPicture = (el) => {
+    if (!el.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && r.right > box.x && r.left < box.x + box.width && r.bottom > box.y && r.top < box.y + box.height;
+  };
+  const found = [];
+  const say = (el) => found.push(`${el.tagName.toLowerCase()}${el.getAttribute('role') ? `[role=${el.getAttribute('role')}]` : ''}${el.closest('[role="dialog"]') ? ' in a dialog' : ''}`);
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    const hits = (node.nodeValue.match(ADDRESS) ?? []).filter((a) => !allowed(a));
+    if (hits.length && node.parentElement && inPicture(node.parentElement)) say(node.parentElement);
+  }
+  for (const field of document.querySelectorAll('input, textarea')) {
+    const hits = (String(field.value ?? '').match(ADDRESS) ?? []).filter((a) => !allowed(a));
+    if (hits.length && inPicture(field)) say(field);
+  }
+  return found;
+}
+
 /** Small helpers each shot drives the app with — by the app's own labels, never a remembered position. */
 function helpers(page, words) {
   const app = {
@@ -132,9 +159,23 @@ async function captureLanguage(lang, words, index) {
   // the app remembers its language and theme on this device — the run leaves both as it found them
   const startLang = (await page.evaluate(() => document.documentElement.lang || 'en')).startsWith('he') ? 'he' : 'en';
   const startTheme = await page.evaluate(() => document.documentElement.dataset.theme ?? 'office');
-  await app.lang(lang);
-  for (const shot of SHOTS) {
-    if (only && !only.has(shot.id)) continue;
+  try {
+    await app.lang(lang);
+    for (const shot of SHOTS) {
+      if (only && !only.has(shot.id)) continue;
+      await picture(shot);
+    }
+    await app.lang(startLang);
+    await app.theme(startTheme);
+  } finally {
+    // a shot that fails leaves no window behind either: the page and the capture Chrome close whatever happened (the
+    // Director's pick "A · Close window between runs"); the demo sign-in stays saved in its own profile on this PC
+    await page.close().catch(() => {});
+    await (await browser.newBrowserCDPSession()).send('Browser.close').catch(() => {});
+  }
+  return bundle;
+
+  async function picture(shot) {
     await app.theme(shot.theme ?? BASE_THEME);
     await shot.run(app, lang);
     await app.tidy();
@@ -146,19 +187,42 @@ async function captureLanguage(lang, words, index) {
     // and { at, badge: 'end' } puts its number on the side that hides nothing the reader needs
     const marks = [];
     for (const [i, entry] of (shot.marks ? await shot.marks(app, lang) : []).entries()) {
-      // (told apart by `badge`: a list has its own .at, a locator has neither)
-      const { at, badge = shot.badge } = !Array.isArray(entry) && entry?.badge ? entry : { at: entry };
-      const places = Array.isArray(at) ? at : [at];
+      // (told apart by `badge` / `around`: a list has its own .at, a locator has neither); { around: [...] } is ONE outline
+      // drawn around several things that stand together
+      const { at, around, badge = shot.badge } = !Array.isArray(entry) && (entry?.badge || entry?.around) ? entry : { at: entry };
+      const places = around ?? (Array.isArray(at) ? at : [at]);
       if (places.length === 0) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} found nothing on the screen`);
+      const boxes = [];
       for (const locator of places) {
         const m = await locator.boundingBox();
         if (!m) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} is not on the screen`);
+        boxes.push(m);
+      }
+      const one = (list) => {
+        const x = Math.min(...list.map((m) => m.x));
+        const y = Math.min(...list.map((m) => m.y));
+        return { x, y, width: Math.max(...list.map((m) => m.x + m.width)) - x, height: Math.max(...list.map((m) => m.y + m.height)) - y };
+      };
+      for (const m of around ? [one(boxes)] : boxes) {
         marks.push({ n: i + 1, x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height), ...(badge ? { badge } : {}) });
       }
     }
     const frame = { w: Math.round(box?.width ?? VIEW.width), h: Math.round(box?.height ?? VIEW.height) };
+    // PRIVACY (the Director's law: a picture never shows a real person's address — the demo accounts are real sign-ins):
+    // what a shot names in `hide` is invisible for the picture and put back right after it; then the picture's area is read
+    // for any e-mail address outside the reserved test domains and the site's own public mailboxes — one found refuses the shot
+    const hidden = [];
+    for (const locator of shot.hide ? await shot.hide(app, lang) : []) hidden.push(...await locator.elementHandles());
+    for (const el of hidden) await el.evaluate((n) => { n.dataset.captureWas = n.style.visibility; n.style.visibility = 'hidden'; });
+    const shown = await page.evaluate(addressesShown, { box: box ?? { x: 0, y: 0, width: VIEW.width, height: VIEW.height }, open: PUBLIC_ADDRESSES });
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
-    const png = Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
+    const png = shown.length ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
+    for (const el of hidden) await el.evaluate((n) => { n.style.visibility = n.dataset.captureWas ?? ''; delete n.dataset.captureWas; });
+    if (!png) {
+      if (shot.after) await shot.after(app, lang).catch(() => {});
+      // the address itself is never printed — only where it sits
+      throw new Error(`capture: ${shot.id} (${lang}) — the picture would show ${shown.length} e-mail address(es) (in: ${shown.join(' · ')}); name the element in the shot's \`hide\`, or clip it out`);
+    }
     const file = `${shot.id}.${lang}.webp`;
     writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
     // the smaller copy the site's frames load first (scripts/lib/shots.mjs: 1600w, then the full 2× picture)
@@ -167,13 +231,6 @@ async function captureLanguage(lang, words, index) {
     console.log(`capture: ${file}`);
     if (shot.after) await shot.after(app, lang);
   }
-  await app.lang(startLang);
-  await app.theme(startTheme);
-  await page.close();
-  // the Director's pick "A · Close window between runs": each capture Chrome closes when its run ends (its local control port
-  // with it); the demo sign-in stays saved in its own profile on this PC, so the next run needs nothing from him
-  await (await browser.newBrowserCDPSession()).send('Browser.close').catch(() => {});
-  return bundle;
 }
 
 async function main() {
@@ -185,9 +242,13 @@ async function main() {
   const previous = existsSync(manifestFile) ? JSON.parse(readFileSync(manifestFile, 'utf8')).shots ?? [] : [];
   const index = new Map(previous.map((e) => [`${e.id}.${e.lang}`, e]));
   const bundles = [];
-  for (const lang of langs) bundles.push(await captureLanguage(lang, words, index));
-  // the index the pages read (no dates — the public site never carries one; each entry names the app version it pictures)
-  writeFileSync(manifestFile, JSON.stringify({ view: VIEW, shots: [...index.values()] }, null, 2) + '\n');
+  // the index the pages read (no dates — the public site never carries one; each entry names the app version it pictures);
+  // written even when a shot fails, so the pictures already taken in that run keep their entries
+  try {
+    for (const lang of langs) bundles.push(await captureLanguage(lang, words, index));
+  } finally {
+    writeFileSync(manifestFile, JSON.stringify({ view: VIEW, shots: [...index.values()] }, null, 2) + '\n');
+  }
   console.log(`capture: OK — ${[...index.values()].filter((e) => langs.includes(e.lang)).length} picture(s) from ${[...new Set(bundles)].join(', ') || 'the app'}`);
 }
 

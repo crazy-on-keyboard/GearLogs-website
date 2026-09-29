@@ -48,6 +48,8 @@ export const NAMES = {
   kitTeam: { en: 'Cold Chain', he: 'שרשרת קירור' },
   kitPerson: { en: 'Piotr Nowak', he: 'גדי שמעוני' },
   kitTab: { en: 'Crew', he: 'צוות קבוע' },
+  // the same tab on the Personnel board (the head's group Warehouse — Days sits on it)
+  peopleTab: { en: 'Crew', he: 'צוות קבוע' },
   // the Cold Store Kit's lines that are short for the whole tab (4 and 18 in stock)
   kitShort: { en: ['Thermal Suit', 'Cold Gloves (pair)'], he: ['חליפה תרמית', 'כפפות קור (זוג)'] },
   // the kit the guides take back (KT-001), its row on the head's card, and the line marked lost
@@ -56,9 +58,16 @@ export const NAMES = {
   kitLost: { en: 'Fuel Card', he: 'כרטיס דלק' },
 };
 
-/** A mark whose number sits on a chosen side (`start` beside it, `end` on its far side, `corner` above its start corner):
- *  for a target whose default side would hide a neighbour the guide names (a label above a field, the next button). */
+/** A mark whose number sits on a chosen side (`start` beside it, `end` on its far side, `corner` above its start corner,
+ *  `above` / `below` centred over or under it): for a target whose default side would hide a neighbour the guide names
+ *  (a label above a field, the next button in a footer, the next icon in a row). */
 export const side = (badge, at) => ({ at, badge });
+
+/** ONE outline around several things that stand together (two arrows, a row of filters), with one number. */
+export const around = (places, badge) => ({ around: places, ...(badge ? { badge } : {}) });
+
+/** A field WITH its label (and its hint): the nearest box that holds the label — an outline on the control alone dims its name. */
+export const labelled = (control) => control.locator('xpath=ancestor::*[label][1]');
 
 /** A board control by its label "<word> — [role ]<name>" (a person's label carries the role before the name). */
 export const control = async (app, key, name) => app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t(key))} — (.+ )?${escapeRe(name)}$`) }).first();
