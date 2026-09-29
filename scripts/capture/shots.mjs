@@ -31,6 +31,11 @@ import SEARCH_SHOTS from './guides/search.mjs';
 import DISPLAY_SHOTS from './guides/display.mjs';
 import CAPACITY_SHOTS from './guides/capacity.mjs';
 import IMPORT_SHOTS from './guides/import.mjs';
+import SECURITY_SHOTS from './guides/security.mjs';
+import BILLING_SHOTS from './guides/billing.mjs';
+import CONTRACT_SHOTS from './guides/contracts.mjs';
+import TWOFACTOR_SHOTS from './guides/twofactor.mjs';
+import NOTIFICATION_SHOTS from './guides/notifications.mjs';
 
 /** @type {Shot[]} */
 export default [
@@ -279,4 +284,9 @@ export default [
   ...DISPLAY_SHOTS,
   ...CAPACITY_SHOTS,
   ...IMPORT_SHOTS,
+  ...SECURITY_SHOTS,
+  ...BILLING_SHOTS,
+  ...CONTRACT_SHOTS,
+  ...TWOFACTOR_SHOTS,
+  ...NOTIFICATION_SHOTS,
 ];

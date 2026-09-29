@@ -25,7 +25,35 @@ const BADGE = 30;
 
 /** Each mark's outline (its target, padded), with its number; one number may stand in several places (every "No code" mark
  *  on screen is the step's "2"). */
-const outlines = (shot) => shot.marks.map((m, i) => ({ n: m.n ?? i + 1, badge: m.badge, x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
+function outlines(shot) {
+  // a mark's own `pad` (top · right · bottom · left) is the margin the capture found room for beside its neighbours
+  const edges = shot.marks.map((m, i) => {
+    const [t, r, b, l] = m.pad ?? [PAD, PAD, PAD, PAD];
+    return { n: m.n ?? i + 1, badge: m.badge, l: m.x - l, t: m.y - t, r: m.x + m.w + r, b: m.y + m.h + b };
+  });
+  // outlines never cross: two targets that stand closer than two paddings meet in the middle of the gap between them
+  shot.marks.forEach((a, i) => {
+    shot.marks.forEach((b, j) => {
+      if (j <= i) return;
+      const gapX = Math.max(b.x - (a.x + a.w), a.x - (b.x + b.w));
+      const gapY = Math.max(b.y - (a.y + a.h), a.y - (b.y + b.h));
+      // targets that lie over each other cannot be parted: `marksProblems` names them and the build refuses the page
+      if (gapX < 0 && gapY < 0) return;
+      const [A, B] = [edges[i], edges[j]];
+      if (Math.min(A.r, B.r) - Math.max(A.l, B.l) <= 0 || Math.min(A.b, B.b) - Math.max(A.t, B.t) <= 0) return;
+      if (gapX >= gapY) {
+        const [first, second, from] = a.x < b.x ? [A, B, a.x + a.w] : [B, A, b.x + b.w];
+        first.r = Math.min(first.r, from + gapX / 2);
+        second.l = Math.max(second.l, from + gapX / 2);
+      } else {
+        const [first, second, from] = a.y < b.y ? [A, B, a.y + a.h] : [B, A, b.y + b.h];
+        first.b = Math.min(first.b, from + gapY / 2);
+        second.t = Math.max(second.t, from + gapY / 2);
+      }
+    });
+  });
+  return edges.map((e) => ({ n: e.n, badge: e.badge, x: e.l, y: e.t, w: e.r - e.l, h: e.b - e.t }));
+}
 
 /** Two boxes lie over each other by more than a hair (outlines may touch; a number may touch its own outline). */
 const HAIR = 3;
@@ -52,13 +80,18 @@ function placeNumbers(shot, lang) {
  * The law "a number never hides a thing the step points at", checked: a number that still lies over ANOTHER mark's target,
  * or over another number. Answers one sentence per fault (the build refuses the page; the shot's recipe marks less, or
  * pictures the screen so the targets stand apart).
- * @param {{ id: string, frame: { w: number, h: number }, marks: Array<{ n?: number, x: number, y: number, w: number, h: number, badge?: string }> }} shot
+ * @param {{ id: string, frame: { w: number, h: number }, marks: Array<{ n?: number, x: number, y: number, w: number, h: number, badge?: string, pad?: number[] }> }} shot
  * @param {string} lang
  */
 export function marksProblems(shot, lang) {
   const numbers = placeNumbers(shot, lang);
-  const names = outlines(shot).map((b) => b.n);
+  const drawn = outlines(shot);
+  const names = drawn.map((b) => b.n);
   const problems = [];
+  // two outlines cross only when their TARGETS lie over each other (close neighbours meet in the middle of their gap)
+  drawn.forEach((a, i) => drawn.forEach((b, j) => {
+    if (j > i && over(a, b)) problems.push(`the outlines of ${a.n} and ${b.n} cross each other`);
+  }));
   numbers.forEach((num, i) => {
     shot.marks.forEach((m, j) => {
       if (j !== i && over(num, m)) problems.push(`the number ${num.n} lies over the target of ${names[j]}`);

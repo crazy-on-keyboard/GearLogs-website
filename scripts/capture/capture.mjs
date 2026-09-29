@@ -70,11 +70,13 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /** The only real mailboxes a picture may show: the site's own public ones. Every demo address lives on a reserved test domain. */
 const PUBLIC_ADDRESSES = ['hello@gearlogs.com', 'support@gearlogs.com'];
 
-/** Runs in the page: where an e-mail address would be READ inside the picture's area (a text or a field's value; a placeholder
- *  is no one's address). Answers the elements' descriptions, never the addresses. */
+/** Runs in the page: where an e-mail address or a network (IP) address would be READ inside the picture's area (a text or a
+ *  field's value; a placeholder is no one's address). A sign-in notice names the network address its member signed in from —
+ *  a real person's. Answers the elements' descriptions, never the addresses. */
 function addressesShown({ box, open }) {
-  const ADDRESS = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+/g;
-  const allowed = (a) => open.includes(a.toLowerCase()) || /\.(example|test|invalid|localhost)$/i.test(a);
+  const ADDRESS = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+|\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b|\b(?:[0-9A-Fa-f]{1,4}:){3,7}[0-9A-Fa-f]{1,4}\b/g;
+  // the reserved test domains, and the network ranges kept for documentation (RFC 5737, RFC 3849)
+  const allowed = (a) => open.includes(a.toLowerCase()) || /\.(example|test|invalid|localhost)$/i.test(a) || /^(192\.0\.2|198\.51\.100|203\.0\.113)\.\d+$/.test(a) || /^2001:0?db8:/i.test(a);
   const inPicture = (el) => {
     if (!el.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return false;
     const r = el.getBoundingClientRect();
@@ -128,17 +130,7 @@ function boxWithLabel(el) {
  *  or the page itself) counts four times what lies behind that window. 0 = the place is free. (The mark's own target is
  *  not asked about: a number may touch its own outline.) */
 function placesCost({ places }) {
-  const NEEDED = 'button, a, input, select, textarea, label, svg, img, canvas, th, [role="button"], [role="tab"], [role="radio"], [role="checkbox"],'
-    + ' [role="switch"], [role="combobox"], [role="slider"], [role="option"], [role="link"], [role="columnheader"]';
-  const textAt = (el, x, y) => {
-    for (const node of el.childNodes) {
-      if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue.trim()) continue;
-      const range = document.createRange();
-      range.selectNodeContents(node);
-      for (const r of range.getClientRects()) if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return true;
-    }
-    return false;
-  };
+  const { neededAt } = window.captureProbe;
   // the window a thing stands in: a dialog, or a floating panel (only floating things cast a shadow), or the page
   const windowOf = (el) => {
     for (let node = el; node && node !== document.body; node = node.parentElement) {
@@ -156,15 +148,71 @@ function placesCost({ places }) {
         const px = x + 2 + (i * (w - 4)) / 4;
         const py = y + 2 + (j * (h - 4)) / 4;
         if (px >= own.x && px <= own.x + own.w && py >= own.y && py <= own.y + own.h) continue;
-        const top = document.elementFromPoint(px, py);
-        if (top && (top.closest(NEEDED) || textAt(top, px, py))) cost += windowOf(top) === home ? 4 : 1;
+        const top = neededAt(px, py);
+        if (top) cost += windowOf(top) === home ? 4 : 1;
       }
     }
     return cost;
   });
 }
 
-/** The measures the site draws a mark with (scripts/lib/shots.mjs): 6 around the target, a 30 square number. */
+/** Runs in the page, once per picture: what a reader needs at a point — a button, a field, an icon, a column head, a line
+ *  of text. Answers the thing itself, or null when the point is free. */
+function installProbe() {
+  const NEEDED = 'button, a, input, select, textarea, label, svg, img, canvas, th, [role="button"], [role="tab"], [role="radio"], [role="checkbox"],'
+    + ' [role="switch"], [role="combobox"], [role="slider"], [role="option"], [role="link"], [role="columnheader"]';
+  const textAt = (el, x, y) => {
+    for (const node of el.childNodes) {
+      if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue.trim()) continue;
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      for (const r of range.getClientRects()) if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return true;
+    }
+    return false;
+  };
+  window.captureProbe = {
+    neededAt(x, y) {
+      const top = document.elementFromPoint(x, y);
+      if (!top) return null;
+      return top.closest(NEEDED) ?? (textAt(top, x, y) ? top : null);
+    },
+  };
+}
+
+/** Runs in the page: how far each target's outline may stand from it on each side (top · right · bottom · left) before it
+ *  would lie over a neighbour a reader needs — the line of text under a title, the next row of a list. The full margin
+ *  where the side is free; never less than 2, so the outline stays clear of its own target. */
+function roomAround({ boxes, pad }) {
+  const { neededAt } = window.captureProbe;
+  const LEAST = 2;
+  const STEP = 8;
+  // a neighbour whose edge only brushes the target (a pixel or two of a tight list) is still a neighbour
+  const REACH = 3;
+  return boxes.map(({ x, y, w, h }) => {
+    const own = document.elementFromPoint(x + w / 2, y + h / 2);
+    // a thing that holds the target (its card, its row, its own button) is no neighbour, and neither is one that reaches
+    // into it (the (i) between a title and its status stands a little taller than both)
+    const reachesIn = (el) => { const r = el.getBoundingClientRect(); return Math.min(r.right, x + w) - Math.max(r.left, x) > REACH && Math.min(r.bottom, y + h) - Math.max(r.top, y) > REACH; };
+    const neighbour = (px, py) => { const hit = neededAt(px, py); return Boolean(hit) && !(own && hit.contains(own)) && !reachesIn(hit); };
+    const along = (from, length) => {
+      const count = Math.max(2, Math.ceil(length / STEP) + 1);
+      return Array.from({ length: count }, (_, i) => from + 1 + (i * (length - 2)) / (count - 1));
+    };
+    const room = (points) => {
+      for (let d = 1; d <= pad; d++) if (points(d).some(([px, py]) => neighbour(px, py))) return Math.max(LEAST, d - 1);
+      return pad;
+    };
+    return [
+      room((d) => along(x, w).map((px) => [px, y - d])),
+      room((d) => along(y, h).map((py) => [x + w + d, py])),
+      room((d) => along(x, w).map((px) => [px, y + h + d])),
+      room((d) => along(y, h).map((py) => [x - d, py])),
+    ];
+  });
+}
+
+/** The measures the site draws a mark with (scripts/lib/shots.mjs): 6 around the target (less on a side where a neighbour
+ *  stands closer — the mark's own `pad`: top · right · bottom · left), a 30 square number. */
 const MARK = { pad: 6, number: 30, hair: 3 };
 const SIDES = ['corner', 'start', 'end', 'above', 'below'];
 const liesOver = (a, b) => Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > MARK.hair && Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) > MARK.hair;
@@ -262,6 +310,11 @@ async function captureLanguage(lang, words, index) {
     await app.theme(shot.theme ?? BASE_THEME);
     await shot.run(app, lang);
     await app.tidy();
+    // what a shot names in `leaveOut` is taken out of the screen for the picture (its place closes up) and put back after it:
+    // a row that would show a real person's data where an empty gap would mislead
+    const left = [];
+    for (const locator of shot.leaveOut ? await shot.leaveOut(app, lang) : []) left.push(...await locator.elementHandles());
+    for (const el of left) await el.evaluate((n) => { n.dataset.captureShown = n.style.display; n.style.display = 'none'; });
     await app.idle(shot.settle ?? 800);
     // Chrome's own screenshot honours the 2× density set above (a connected browser's Playwright screenshot does not)
     const box = shot.clip ? await shot.clip(app) : shot.target ? await page.locator(shot.target).first().boundingBox() : null;
@@ -289,6 +342,10 @@ async function captureLanguage(lang, words, index) {
         marks.push({ n: i + 1, x: Math.round(m.x - (box?.x ?? 0)), y: Math.round(m.y - (box?.y ?? 0)), w: Math.round(m.width), h: Math.round(m.height), ...(badge ? { badge } : {}) });
       }
     }
+    await page.evaluate(installProbe);
+    // an outline never lies over a neighbour: each mark keeps the margin its sides have room for
+    const rooms = await page.evaluate(roomAround, { boxes: marks.map((m) => ({ x: m.x + (box?.x ?? 0), y: m.y + (box?.y ?? 0), w: m.w, h: m.h })), pad: MARK.pad });
+    marks.forEach((m, k) => { if (rooms[k].some((side) => side < MARK.pad)) m.pad = rooms[k]; });
     const frame = { w: Math.round(box?.width ?? VIEW.width), h: Math.round(box?.height ?? VIEW.height) };
     // PRIVACY (the Director's law: a picture never shows a real person's address — the demo accounts are real sign-ins):
     // what a shot names in `hide` is invisible for the picture and put back right after it; then the picture's area is read
@@ -303,7 +360,7 @@ async function captureLanguage(lang, words, index) {
     const numbers = [];
     for (const n of [...new Set(marks.map((m) => m.n))]) {
       const places = marks.filter((m) => m.n === n);
-      const outline = (m) => ({ x: m.x - MARK.pad, y: m.y - MARK.pad, w: m.w + 2 * MARK.pad, h: m.h + 2 * MARK.pad });
+      const outline = (m) => { const [t, r, b, l] = m.pad ?? [MARK.pad, MARK.pad, MARK.pad, MARK.pad]; return { x: m.x - l, y: m.y - t, w: m.w + l + r, h: m.h + t + b }; };
       const first = outline(places[0]);
       const wish = [...new Set([places[0].badge, first.w < 3 * MARK.number || first.h <= MARK.number ? 'start' : 'corner', ...SIDES].filter(Boolean))];
       const at = (m, side) => { const [x, y] = badgeAt({ ...outline(m), badge: side }, lang, frame.w, frame.h, MARK.number); return { side, x, y, w: MARK.number, h: MARK.number }; };
@@ -321,10 +378,11 @@ async function captureLanguage(lang, words, index) {
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = shown.length ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     for (const el of hidden) await el.evaluate((n) => { n.style.visibility = n.dataset.captureWas ?? ''; delete n.dataset.captureWas; });
+    for (const el of left) await el.evaluate((n) => { n.style.display = n.dataset.captureShown ?? ''; delete n.dataset.captureShown; }).catch(() => {});
     if (!png) {
       if (shot.after) await shot.after(app, lang).catch(() => {});
       // the address itself is never printed — only where it sits
-      throw new Error(`capture: ${shot.id} (${lang}) — the picture would show ${shown.length} e-mail address(es) (in: ${shown.join(' · ')}); name the element in the shot's \`hide\`, or clip it out`);
+      throw new Error(`capture: ${shot.id} (${lang}) — the picture would show ${shown.length} e-mail or network address(es) (in: ${shown.join(' · ')}); name the element in the shot's \`hide\` or \`leaveOut\`, or clip it out`);
     }
     const file = `${shot.id}.${lang}.webp`;
     writeFileSync(join(OUT, file), (await encodeWebp(page, png, { quality: WEBP_QUALITY })).data);
