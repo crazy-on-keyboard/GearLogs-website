@@ -1,0 +1,121 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.2</p>
+        <p class="band-kicker">Guide 4.2 <span class="sep">&middot;</span> Hand-outs and returns</p>
+        <h1 class="band-title">Hand out gear, and take it back</h1>
+        <p class="band-lede">Hand gear to one person or to many, and take it back when it comes in. The stock follows every step.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Handing gear out and taking it back needs the right <em>Assign/Return Assets</em>. Without it, the buttons are dimmed, and a click says why.</li>
+            <li>A sensitive item also needs the right <em>Assign Sensitive Gear</em>.</li>
+            <li>Every hand-out and every return opens a hand-over receipt. The person signs it on <em>My Gear</em>.</li>
+            <li>A consumable is dispensed, not lent. It never comes back, so it has no <em>Return</em>.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Hand an item to one person.</h2>
+            <ol class="guide-marks">
+              <li>On the item&rsquo;s card on the board, press the green <em>Assign Item</em>.</li>
+              <li><em>Select person…</em> opens a list you can search by name, code, department, email or phone.</li>
+              <li>Set the <em>Quantity</em>. It never goes above what is in stock.</li>
+              <li><em>OK</em> hands it out. The stock drops at once.</li>
+            </ol>
+            <gl-shot id="assign-item" caption="Assign Item on the Hand Truck card, numbered as in the list." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Or start from the person.</h2>
+            <p>On Personnel, the same button sits on the person&rsquo;s card.</p>
+            <ol class="guide-marks">
+              <li><em>Assign Item</em> on the person&rsquo;s card.</li>
+              <li><em>Select Item...</em> lists every item in stock, with its stock beside the name. Search it by code, name or location.</li>
+              <li>Set the <em>Quantity</em>.</li>
+              <li><em>OK</em> hands it out.</li>
+            </ol>
+            <p>Serial-numbered items are not in this list. Hand them out from the item&rsquo;s card (step 4), or with <em>↗ More items</em>, which opens the hand-out window for this person.</p>
+            <gl-shot id="assign-person" caption="The same card on a person: pick the item, set the quantity, press OK." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Hand one item to several people at once.</h2>
+            <p><em>↗ More people</em> on the item&rsquo;s Assign card opens the hand-out window, with what you already typed filled in.</p>
+            <ol class="guide-marks">
+              <li>Under <em>Who receives it</em>, tick a whole group, a whole tab or single people.</li>
+              <li>Give each person their own quantity.</li>
+              <li><em>After</em> shows what each person will hold. The total line shows what is left in stock.</li>
+              <li>The button counts the people on the list. One press hands it out to all of them.</li>
+            </ol>
+            <p>A list that asks for more than the stock turns red and says how many are short. Nothing is handed out until the list fits. <em>↗ More items</em> on a person&rsquo;s card opens the same window the other way round: one person, many items.</p>
+            <gl-shot id="handout-window" caption="One group ticked: each person&rsquo;s quantity, what each will hold after, and what is left." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Hand out a serial-numbered unit.</h2>
+            <p>On a serial-numbered item&rsquo;s card, <em>Assign Item</em> opens <em>Assign Unit</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Pick a unit…</em> lists the units in stock. A unit that needs repair carries its mark, and asks again before it goes out.</li>
+              <li><em>Select person…</em> picks who gets it.</li>
+              <li><em>↗ More people</em> hands units to several people in the window. It deals the oldest serviceable units first, and never deals a unit that needs repair by itself.</li>
+              <li><em>Assign</em> hands out the unit.</li>
+            </ol>
+            <p>One hand-out deals up to 1,000 serial-numbered units. Split a bigger one into smaller hand-outs.</p>
+            <gl-shot id="assign-unit" caption="Assign Unit on the Barcode Scanner card, numbered as in the list." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Find what a person holds.</h2>
+            <p>On Personnel, open the person&rsquo;s card.</p>
+            <ol class="guide-marks">
+              <li><em>Assigned Items</em> counts everything the person holds, kits included.</li>
+              <li>Each held item has its own <em>Return</em> button.</li>
+            </ol>
+            <p>A kit comes back as a whole kit. Guide 4.23 shows how.</p>
+            <gl-shot id="person-card-return" caption="The person&rsquo;s card: everything they hold, and a Return button on each item." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Take it back.</h2>
+            <p><em>Return</em> opens <em>Return Item</em>.</p>
+            <ol class="guide-marks">
+              <li>The dialog names the item and how many the person holds.</li>
+              <li><em>Quantity to Return</em> starts at everything they hold. Lower it to take back only part.</li>
+              <li><em>ALL</em> puts it back to everything.</li>
+              <li><em>Confirm Return</em> puts the gear back in stock.</li>
+            </ol>
+            <p>A serial-numbered unit always comes back as one whole unit.</p>
+            <gl-shot id="return-dialog" caption="The return dialog for two cargo nets, numbered as in the list." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>The gear shows on the person&rsquo;s card, the stock has moved, and the person has a hand-over receipt to sign on My Gear. Every hand-out and every return is kept in the history.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Denied: Assign/Return Assets</q> You do not hold the right to hand out or take back gear. The button stays dimmed.</li>
+            <li><q>This item is sensitive — you need the Assign Sensitive Gear permission to hand it out.</q> The item is sensitive and you lack the right. In the hand-out window, such an item stays in the list, greyed, with an (i) that says why.</li>
+            <li><q>Not enough in stock.</q> The stock changed while you were choosing. The board refreshes; pick a smaller quantity.</li>
+            <li><q>That item or person is no longer available.</q> The person or the item was archived. In the hand-out window the same cause reads: “Someone on the list or the item is no longer available — the list was refreshed”.</li>
+            <li><q>Lower the quantities or take people off the list</q> In the hand-out window: the list asks for more than the stock. The banner says how many are needed and how many are in stock, and nothing is handed out.</li>
+            <li><q>No items are in stock to issue.</q> A serial-numbered item with no unit in stock. Nothing opens.</li>
+            <li><q>At most 1,000 serial-numbered units in one hand-out — split it into smaller hand-outs</q> One hand-out asks for more than 1,000 serial-numbered units. Split it.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="team-sign-out"></gl-guide-link></li>
+            <li><gl-guide-link slug="hand-out-kit"></gl-guide-link></li>
+            <li><gl-guide-link slug="take-kit-back"></gl-guide-link></li>
+            <li><gl-guide-link slug="registry"></gl-guide-link></li>
+            <li><gl-guide-link slug="write-offs"></gl-guide-link></li>
+            <li><gl-guide-link slug="approvals"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

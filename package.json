@@ -12,10 +12,22 @@
     "check:i18n": "node scripts/check-i18n.mjs",
     "check:types": "tsc -p .",
     "check:contact": "node scripts/check-contact.mjs",
-    "check": "npm run check:types && npm run check:contact && npm run build && npm run check:links && npm run check:i18n"
+    "check:guard": "node scripts/check-inline-guard.mjs",
+    "check:cards": "node scripts/check-guide-cards.mjs",
+    "check:csp": "node scripts/check-csp.mjs",
+    "check:uistd": "node scripts/check-uistd.mjs",
+    "photos": "node scripts/images/photos.mjs",
+    "cards": "node scripts/images/cards.mjs",
+    "capture": "node scripts/capture/capture.mjs",
+    "perf": "node scripts/perf/record.mjs",
+    "check": "npm run check:types && npm run check:contact && npm run check:guard && npm run check:cards && npm run check:uistd && npm run build && npm run check:links && npm run check:i18n && npm run check:csp"
   },
   "devDependencies": {
+    "@fontsource-variable/ibm-plex-sans": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans-hebrew": "5.3.0",
     "esbuild": "^0.28.2",
+    "playwright-core": "^1.63.0",
     "typescript": "^7.0.2",
     "vite": "^6.2.0"
   }

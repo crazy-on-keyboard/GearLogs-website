@@ -1,0 +1,18 @@
+/* GearLogs website — the stylesheet's entry (Stage 2, 2026-09-27). The partials below are bundled and minified by esbuild
+   into ONE /styles/main.css (scripts/build-site.mjs); edit the partials, never dist/. Order matters: tokens first,
+   utilities last. */
+@import "./tokens.css";
+@import "./fonts.css";
+@import "./base.css";
+@import "./chrome.css";
+@import "./band.css";
+@import "./content.css";
+@import "./notes.css";
+@import "./pricing.css";
+@import "./contact.css";
+@import "./legal.css";
+@import "./sections.css";
+@import "./frame.css";
+@import "./guide.css";
+@import "./motion.css";
+@import "./utilities.css";

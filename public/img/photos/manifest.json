@@ -1,0 +1,362 @@
+{
+  "product-band": {
+    "source": "product.jpg",
+    "files": [
+      {
+        "file": "product-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 35944
+      },
+      {
+        "file": "product-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 64830
+      },
+      {
+        "file": "product-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 105094
+      }
+    ]
+  },
+  "pricing-band": {
+    "source": "pricing.jpg",
+    "files": [
+      {
+        "file": "pricing-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 52750
+      },
+      {
+        "file": "pricing-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 87764
+      },
+      {
+        "file": "pricing-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 136238
+      }
+    ]
+  },
+  "help-band": {
+    "source": "help.jpg",
+    "files": [
+      {
+        "file": "help-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 41472
+      },
+      {
+        "file": "help-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 72144
+      },
+      {
+        "file": "help-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 108620
+      }
+    ]
+  },
+  "faq-band": {
+    "source": "faq.jpg",
+    "files": [
+      {
+        "file": "faq-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 35344
+      },
+      {
+        "file": "faq-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 61044
+      },
+      {
+        "file": "faq-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 101536
+      }
+    ]
+  },
+  "changelog-band": {
+    "source": "changelog.jpg",
+    "files": [
+      {
+        "file": "changelog-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 28620
+      },
+      {
+        "file": "changelog-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 48514
+      },
+      {
+        "file": "changelog-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 77502
+      }
+    ]
+  },
+  "contact-band": {
+    "source": "contact.jpg",
+    "files": [
+      {
+        "file": "contact-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 25986
+      },
+      {
+        "file": "contact-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 46730
+      },
+      {
+        "file": "contact-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 75552
+      }
+    ]
+  },
+  "legal-band": {
+    "source": "legal.jpg",
+    "files": [
+      {
+        "file": "legal-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 20278
+      },
+      {
+        "file": "legal-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 31866
+      },
+      {
+        "file": "legal-band.2752.webp",
+        "width": 2752,
+        "height": 917,
+        "bytes": 43768
+      }
+    ]
+  },
+  "paper-band": {
+    "source": "paper.jpg",
+    "files": [
+      {
+        "file": "paper-band.1440.webp",
+        "width": 1440,
+        "height": 480,
+        "bytes": 65702
+      },
+      {
+        "file": "paper-band.2160.webp",
+        "width": 2160,
+        "height": 720,
+        "bytes": 108390
+      },
+      {
+        "file": "paper-band.2400.webp",
+        "width": 2400,
+        "height": 800,
+        "bytes": 142032
+      }
+    ]
+  },
+  "hero-band": {
+    "source": "hero.jpg",
+    "files": [
+      {
+        "file": "hero-band.1440.webp",
+        "width": 1440,
+        "height": 804,
+        "bytes": 75674
+      },
+      {
+        "file": "hero-band.2160.webp",
+        "width": 2160,
+        "height": 1206,
+        "bytes": 132488
+      },
+      {
+        "file": "hero-band.2752.webp",
+        "width": 2752,
+        "height": 1536,
+        "bytes": 240332
+      }
+    ]
+  },
+  "army": {
+    "source": "army.jpg",
+    "files": [
+      {
+        "file": "army.800.webp",
+        "width": 800,
+        "height": 500,
+        "bytes": 40628
+      },
+      {
+        "file": "army.1400.webp",
+        "width": 1400,
+        "height": 875,
+        "bytes": 86186
+      }
+    ]
+  },
+  "hospital": {
+    "source": "hospital.jpg",
+    "files": [
+      {
+        "file": "hospital.800.webp",
+        "width": 800,
+        "height": 500,
+        "bytes": 36106
+      },
+      {
+        "file": "hospital.1400.webp",
+        "width": 1400,
+        "height": 875,
+        "bytes": 73616
+      }
+    ]
+  },
+  "emergency": {
+    "source": "emergency.jpg",
+    "files": [
+      {
+        "file": "emergency.600.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 32008
+      },
+      {
+        "file": "emergency.1000.webp",
+        "width": 1000,
+        "height": 1250,
+        "bytes": 64574
+      }
+    ]
+  },
+  "depot": {
+    "source": "depot.jpg",
+    "files": [
+      {
+        "file": "depot.600.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 40908
+      },
+      {
+        "file": "depot.1000.webp",
+        "width": 1000,
+        "height": 1250,
+        "bytes": 92026
+      }
+    ]
+  },
+  "office": {
+    "source": "office.jpg",
+    "files": [
+      {
+        "file": "office.600.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 24250
+      },
+      {
+        "file": "office.1000.webp",
+        "width": 1000,
+        "height": 1250,
+        "bytes": 48516
+      }
+    ]
+  },
+  "paper": {
+    "source": "paper.jpg",
+    "files": [
+      {
+        "file": "paper.800.webp",
+        "width": 800,
+        "height": 597,
+        "bytes": 44864
+      },
+      {
+        "file": "paper.1400.webp",
+        "width": 1400,
+        "height": 1045,
+        "bytes": 97184
+      }
+    ]
+  },
+  "repair": {
+    "source": "repair.jpg",
+    "files": [
+      {
+        "file": "repair.800.webp",
+        "width": 800,
+        "height": 597,
+        "bytes": 38338
+      },
+      {
+        "file": "repair.1400.webp",
+        "width": 1400,
+        "height": 1045,
+        "bytes": 80234
+      }
+    ]
+  },
+  "consumables": {
+    "source": "consumables.jpg",
+    "files": [
+      {
+        "file": "consumables.800.webp",
+        "width": 800,
+        "height": 597,
+        "bytes": 36900
+      },
+      {
+        "file": "consumables.1400.webp",
+        "width": 1400,
+        "height": 1045,
+        "bytes": 74918
+      }
+    ]
+  },
+  "handover": {
+    "source": "handover.jpg",
+    "files": [
+      {
+        "file": "handover.600.webp",
+        "width": 600,
+        "height": 750,
+        "bytes": 24318
+      },
+      {
+        "file": "handover.1000.webp",
+        "width": 1000,
+        "height": 1250,
+        "bytes": 55720
+      }
+    ]
+  }
+}

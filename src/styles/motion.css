@@ -1,0 +1,22 @@
+/* Motion (the Director's pick Q11 · A: once, short, fade and rise only; reduced motion = none). A block is hidden only after
+   /js/motion.js marks <html class="motion">, so the page is complete without it; the hero's slow push and the rise of its
+   supporting lines are CSS and run once. The headline itself never waits (it is the page's largest paint). */
+html.motion .rv { opacity: 0; transform: translateY(22px); }
+html.motion .rv.in {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--d-reveal) var(--ease), transform var(--d-reveal) var(--ease);
+  transition-delay: calc(var(--i, 0) * var(--d-stagger));
+}
+
+@keyframes push { from { transform: scale(1.08); } to { transform: scale(1); } }
+@keyframes push-rtl { from { transform: scale(-1.08, 1.08); } to { transform: scale(-1, 1); } }
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .band--hero .band-photo { animation: push var(--d-hero) cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  [dir="rtl"] .band--hero .band-photo { animation-name: push-rtl; }
+  .band--hero .rise { animation: rise var(--d-reveal) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--d-stagger)); }
+  .band--hero .rise-1 { --i: 1; }
+  .band--hero .rise-2 { --i: 2; }
+  .band--hero .rise-3 { --i: 3; }
+}

@@ -3,8 +3,8 @@
   "@graph": [
     {
       "@type": "BlogPosting",
-      "headline": "רישום אובדנים ומעקב אחריהם: בניית תיעוד שמחזיק מעמד",
-      "description": "ציוד שאבד או נפגם צריך יותר משורה שנמחקה בגיליון אלקטרוני. איך לבנות רישום אובדנים שבאמת עומד בביקורת.",
+      "headline": "גריעות ומעקב אחר אובדנים: תיעוד שאפשר לעמוד מאחוריו",
+      "description": "ציוד שאבד או נפגם צריך יותר משורה שנמחקה בגיליון אלקטרוני. איך לבנות תיעוד גריעה ואובדן שבאמת עומד בביקורת.",
       "articleSection": "אובדנים",
       "url": "https://gearlogs.com/notes/equipment-write-offs",
       "mainEntityOfPage": "https://gearlogs.com/notes/equipment-write-offs",
@@ -42,7 +42,7 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "רישום אובדנים ומעקב אחריהם",
+          "name": "גריעות ומעקב אחר אובדנים",
           "item": "https://gearlogs.com/notes/equipment-write-offs"
         }
       ]

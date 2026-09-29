@@ -1,0 +1,132 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.8</p>
+        <p class="band-kicker">Guide 4.8 <span class="sep">&middot;</span> Registry</p>
+        <h1 class="band-title">Track each unit by its serial number</h1>
+        <p class="band-lede">Turn on unit tracking for an item, register its units and lots, and hand out, move or repair one unit at a time.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Turning tracking on, registering units and lots, moving a unit and sending it to repair need the right <em>Create/Edit Items</em>. Administrators and operators have it.</li>
+            <li>Handing a unit out and taking it back need <em>Assign/Return Assets</em>. Administrators, operators and users have it. A sensitive item also needs <em>Assign Sensitive Gear</em>.</li>
+            <li>Writing a unit off needs <em>Write Off / Report Lost Gear</em>.</li>
+            <li>A consumable item cannot be tracked by unit.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Turn on unit tracking for an item.</h2>
+            <p>Open the item on the Logistics board with <em>Edit Record</em>, then its <em>Registry</em> tab.</p>
+            <ol class="guide-marks">
+              <li>The <em>Registry</em> tab of <em>Edit Item</em>.</li>
+              <li>The line under the title says whether tracking is on. <em>Off</em> means the item uses a simple stock number.</li>
+              <li>The switch <em>Track individual units</em> asks before it changes anything.</li>
+            </ol>
+            <p>For an item with stock, turning it on offers two choices. <em>Rebuild stock as …</em> turns today&rsquo;s stock into units, each with its own UN code. <em>Start with zero units</em> lets you register the real ones. From then on the stock is the number of units in stock, and the manual + and &minus; are off. Once it is on, <em>Manage units in Registry</em> takes you there.</p>
+            <gl-shot id="registry-track" caption="Edit Item on the Hand Truck, Registry tab: tracking is off, and the switch that turns it on." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Find the item&rsquo;s units in the Property Book.</h2>
+            <p>Open <em>Registry</em> from the side menu. It opens on <em>Property Book</em>: items, then lots, then units.</p>
+            <ol class="guide-marks">
+              <li><em>Property Book</em> in the band.</li>
+              <li>The item. Its two numbers are its units: total &middot; in stock.</li>
+              <li><em>Lots</em>: the lots of that item. <em>All Units</em> shows every unit.</li>
+              <li><em>Units</em>: each unit&rsquo;s code, serial number, status, condition and holder.</li>
+            </ol>
+            <p>The other views show the same units another way: <em>Ledger</em> puts every unit in one table, then <em>By Holder</em>, <em>Lifecycle</em> and <em>Contracts</em>. The search box above the panes filters units, serials and codes.</p>
+            <gl-shot id="registry-book" caption="The Barcode Scanner in the Property Book: its three lots, and every unit with its status, condition and holder." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Register units.</h2>
+            <p>The green + on the <em>Units</em> pane opens <em>Register Units</em> for that item. <em>Register</em> above the panes opens it too.</p>
+            <ol class="guide-marks">
+              <li><em>Item</em> and <em>Lot</em>: where the units go. <em>+ New lot…</em> creates a lot on the spot.</li>
+              <li><em>One</em>, <em>Batch</em> or <em>From file</em>.</li>
+              <li><em>Serial number (optional)</em>: the maker&rsquo;s serial. One this item already has is marked <em>Already used for this item</em>.</li>
+              <li><em>Register unit</em> adds it. The window stays open for the next one.</li>
+            </ol>
+            <p><em>Batch</em> adds up to 500 units at once: <em>Auto codes only</em>, or <em>Stamp a range</em> from a <em>Prefix</em> and a <em>Start no.</em> Either way, every unit gets its own UN code.</p>
+            <gl-shot id="registry-register" caption="Register Units for the Barcode Scanner: the item and lot, the three ways in, the serial and the act." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Import a list of serial numbers.</h2>
+            <p><em>From file</em> registers many real serial numbers at once.</p>
+            <ol class="guide-marks">
+              <li><em>From file</em>.</li>
+              <li>Paste one serial per line, or a serial and a lot per line.</li>
+              <li><em>Choose a file</em> reads a .csv or .txt file instead.</li>
+              <li><em>Preview</em> shows how the file was read. Nothing is written yet.</li>
+            </ol>
+            <p>Then <em>Import</em> adds the rows, up to 2,000 at a time. Duplicates are skipped and reported, and a lot the file names that does not exist yet is created. The report counts what was <em>Added</em>, <em>Skipped</em> and <em>Invalid</em>, row by row.</p>
+            <gl-shot id="registry-file" caption="Register Units on From file: the paste box, Choose a file and Preview, which writes nothing." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Group units into lots.</h2>
+            <p>A lot is a batch made or received together. The green + on the <em>Lots</em> pane opens <em>Add Lot</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Lot number</em>: the supplier&rsquo;s batch number. GearLogs also gives every lot its own LT code.</li>
+              <li><em>Warranty until</em>: the warranty for every unit in the lot.</li>
+              <li><em>Expiry</em>: for perishables.</li>
+              <li><em>Save</em> creates the lot.</li>
+            </ol>
+            <p>A lot&rsquo;s row edits it, attaches it to a contract, or deletes it. A lot that still holds units cannot be deleted. To move a unit into a lot, drag its row onto the lot, or use <em>Move unit</em>.</p>
+            <gl-shot id="registry-lot" caption="Add Lot for the Barcode Scanner: the lot number, the two dates and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Act on one unit.</h2>
+            <p>Each unit&rsquo;s row carries its own buttons, by what the unit can do now.</p>
+            <ol class="guide-marks">
+              <li><em>Assign</em> hands a unit in stock to a person: pick the person, add a note if you like, then <em>Assign</em>.</li>
+              <li><em>Send to repair</em> takes it out of stock until it comes back.</li>
+              <li><em>Move unit</em> moves it to another lot, or to another item while it is in stock.</li>
+              <li><em>Write off</em> writes it off with a reason: <em>Lost</em>, <em>Stolen</em>, <em>Destroyed</em> or <em>Other</em>.</li>
+            </ol>
+            <p>An issued unit shows <em>Return</em> instead, and asks first. A unit in repair shows <em>Back from repair</em>. <em>Condition</em>, <em>Warranty</em> and <em>Coverage</em> sit on every active row. A unit marked <em>NEEDS REPAIR</em> asks before it is handed out, and one marked <em>UNSERVICEABLE</em> cannot be. The person gets a receipt to sign on <em>My Gear</em>, and every act is written to the unit&rsquo;s history.</p>
+            <gl-shot id="registry-unit-actions" caption="A Barcode Scanner unit in stock: Assign, Send to repair, Move unit and Write off on its row." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-7">
+            <h2 class="gstep-t">Send a unit to repair.</h2>
+            <p><em>Send to repair</em> asks first, in <em>Send to repair?</em></p>
+            <ol class="guide-marks">
+              <li>The unit, by its code, serial number and item.</li>
+              <li><em>Reason for repair (optional)</em>: what is wrong.</li>
+              <li><em>Send to repair</em> moves it to <em>IN REPAIR</em>.</li>
+            </ol>
+            <p>The reason is kept in the History line of that repair. When the unit comes back, <em>Back from repair</em> returns it to stock as <em>SERVICEABLE</em> or <em>NEEDS REPAIR</em>, with a note.</p>
+            <gl-shot id="registry-repair" caption="Send to repair? for a Barcode Scanner unit: the unit, the optional reason and the confirm." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every tracked item counts its stock from its units, and each unit carries its own serial number, lot, holder and history.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Already used for this item</q> That serial number is already registered for this item. <em>Register unit</em> stays grey until you change it.</li>
+            <li><q>Return this item&rsquo;s current assignments before turning on unit tracking.</q> Someone still holds this item. Take it back first, then turn tracking on.</li>
+            <li><q>Moving to a different item is only allowed while the unit is in stock — return it first.</q> The unit is out with someone or in repair. It can still change lot; to change item, bring it back to stock first.</li>
+            <li><q>This item is sensitive — you need the Assign Sensitive Gear permission to hand it out.</q> You pressed <em>Assign</em> on a sensitive item without that right. Ask someone who holds <em>Assign Sensitive Gear</em>.</li>
+            <li><q>Too many rows — import up to 2,000 at a time.</q> The file has more than 2,000 rows. Split it and import each part.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="assign-return"></gl-guide-link></li>
+            <li><gl-guide-link slug="write-offs"></gl-guide-link></li>
+            <li><gl-guide-link slug="warranty-contracts"></gl-guide-link></li>
+            <li><gl-guide-link slug="import"></gl-guide-link></li>
+            <li><gl-guide-link slug="history"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

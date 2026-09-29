@@ -19,7 +19,8 @@ const heFile = (p) => join(DIST, 'he', p.path === '/' ? 'index.html' : `${p.path
 
 const has = (html, needle) => html.includes(needle);
 
-for (const p of PAGES.filter((x) => x.bilingual)) {
+// every listed bilingual page (the unlisted ones — the 404 — carry no hreflang or canonical by design)
+for (const p of PAGES.filter((x) => x.bilingual && x.sitemap)) {
   for (const [file, label] of [[enFile(p), 'en'], [heFile(p), 'he']]) {
     if (!existsSync(file)) { fail(`MISSING page  ${label}:${p.slug}`); continue; }
     const html = readFileSync(file, 'utf8');
@@ -53,6 +54,14 @@ for (const p of PAGES.filter((x) => x.bilingual)) {
         .map((m) => m[1])
         .filter((h) => h === '/' || /^\/(pricing|guides|faq|notes|changelog|privacy|terms|refunds|contact)(\/|#|\?|$)/.test(h));
       for (const h of [...new Set(bad)]) fail(`HE-LINK    he:${p.slug} links into the English tree: ${h}`);
+    }
+
+    // A public page never says that nothing locks after wrong codes — it says what to do (Lock words · B, Lock words 2 · A).
+    const lockWords = label === 'en'
+      ? [/nothing (?:is |was |gets )?(?:locked|blocked)/i, /never lock\b/i]
+      : [/לא ננעל/, /אינו ננעל/, /לא נחסם/, /אל תנעלו/];
+    for (const re of lockWords) {
+      if (re.test(html)) fail(`LOCK-WORDS ${label}:${p.slug} says that nothing locks (${re.source}) — say what to do instead`);
     }
 
     // JSON-LD, where present, must parse.
@@ -89,4 +98,4 @@ if (problems.length) {
   console.error(`check-i18n: ${problems.length} problem(s)\n` + problems.map((p) => '  ' + p).join('\n'));
   process.exit(1);
 }
-console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, JSON-LD and the four contact CSP blocks all pass');
+console.log('check-i18n: OK — hreflang reciprocity, canonicals, dir=rtl, HE link integrity, the lock words, JSON-LD and the four contact CSP blocks all pass');

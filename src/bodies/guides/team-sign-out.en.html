@@ -1,0 +1,96 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.3</p>
+        <p class="band-kicker">Guide 4.3 <span class="sep">&middot;</span> Hand-outs</p>
+        <h1 class="band-title">Sign out gear for a team</h1>
+        <p class="band-lede">Give a department head a whole batch of gear in one act. They hold it for the team and sign for it once.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li><em>Issue Batch</em> appears only on the card of a department head. Anyone who holds the right <em>Assign/Return Assets</em> can use it.</li>
+            <li>Marking someone as a department head needs the right <em>Create/Edit Personnel</em>.</li>
+            <li>A sensitive item shows greyed in the list unless you hold <em>Assign Sensitive Gear</em>.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Mark the person as a department head.</h2>
+            <p>On Personnel, open the person with <em>Edit Record</em> on their card.</p>
+            <ol class="guide-marks">
+              <li>Tick <em>Department Head</em>.</li>
+              <li>Press <em>Save</em>.</li>
+            </ol>
+            <p>The card gains a gold edge, the name turns gold with a crown, and an <em>Issue Batch</em> button appears.</p>
+            <gl-shot id="person-form-head" caption="The Edit Person window: the Department Head tick, and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Find Issue Batch on the head&rsquo;s card.</h2>
+            <ol class="guide-marks">
+              <li>The head&rsquo;s name shows in gold, with a crown beside it.</li>
+              <li><em>Issue Batch</em> sits on the card, beside <em>Assign Item</em>.</li>
+            </ol>
+            <gl-shot id="personnel-head" caption="The head&rsquo;s card on the Personnel board: the gold name, and Issue Batch." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Open Issue Batch and pick what goes out.</h2>
+            <p>The batch opens in the same window as any hand-out, with its own tool inside.</p>
+            <ol class="guide-marks">
+              <li>The head, <em>held for the team as custodian</em>.</li>
+              <li>Tick a whole group or tab to add every item in it, or tick items one by one. The search box above the list, <em>Search items, groups or tabs</em>, finds them.</li>
+              <li>Every ticked item gets a row under <em>What will happen</em>.</li>
+            </ol>
+            <gl-shot id="batch-pick" caption="The batch window with one group ticked: the head, the tick and the rows." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Set the quantities.</h2>
+            <ol class="guide-marks">
+              <li><em>Every row: all in stock</em> fills every row with all that is in stock.</li>
+              <li>Type a quantity in a row. It never goes above what is in stock.</li>
+              <li><em>All in stock</em> fills that one row.</li>
+              <li>The <em>Total</em> line counts the items and units as you go.</li>
+            </ol>
+            <p><em>After</em> shows how many of each item the head will hold. The ✕ on a row, <em>Remove from the list</em>, takes an item off.</p>
+            <gl-shot id="batch-qty" caption="The rows of the batch: all in stock for every row, a typed quantity, all in stock for one row, and the total." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Issue the batch.</h2>
+            <ol class="guide-marks">
+              <li>The line under the rows says whether the head gets one grouped notice.</li>
+              <li><em>Issue 5 items</em> issues everything in one act. The button counts the rows.</li>
+            </ol>
+            <p>It is all or nothing: if one row cannot go out, nothing is issued. Then <em>Batch issued</em> offers <em>Print manifest</em> or <em>Close</em>. The manifest lists every item, its quantity and its serial units, for the head to sign.</p>
+            <gl-shot id="batch-issue" caption="The notice line, and the button that issues the whole batch." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>The head holds the batch for the team: returnable gear stays on their card, and consumables are recorded as dispensed. One receipt opens for the whole batch, and the head signs it on <em>My Gear</em>.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Denied: Assign/Return Assets</q> You pressed Issue Batch without the right Assign/Return Assets. The button shows dimmed.</li>
+            <li><q>Pick at least one item</q> Nothing is ticked yet.</li>
+            <li><q>Not enough stock on one row — it says what is left. Lower the quantity or take the item off the list</q> The stock went down while the window was open. The red row says how many are short; with several rows the sentence counts them.</li>
+            <li><q>At most 1,000 serial-numbered units in one hand-out — split it into smaller hand-outs</q> The batch holds more than 1,000 serial-numbered units. Issue it in parts.</li>
+            <li><q>The hand-out was not recorded — nothing changed. Try again</q> The act did not reach the workspace. Nothing was issued.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="assign-return"></gl-guide-link></li>
+            <li><gl-guide-link slug="sign-in-my-gear"></gl-guide-link></li>
+            <li><gl-guide-link slug="approvals"></gl-guide-link></li>
+            <li><gl-guide-link slug="hand-out-kit"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

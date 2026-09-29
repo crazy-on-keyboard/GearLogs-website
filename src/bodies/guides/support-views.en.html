@@ -1,0 +1,92 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.21</p>
+        <p class="band-kicker">Guide 4.21 <span class="sep">&middot;</span> Settings</p>
+        <h1 class="band-title">See when support looked in</h1>
+        <p class="band-lede">See every time GearLogs support opened a read-only view of your workspace: when, as which role, for how long and why.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Only administrators see the <em>Support views</em> card.</li>
+            <li>A support person never signs in as you. They sign in with their own account, and the view can only read.</li>
+            <li>A view does not need a support request. Support records one of four reasons with every view.</li>
+            <li>Nobody is notified when a view opens. You see it on the card and in System Logs.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open Settings &rsaquo; Security.</h2>
+            <p>Open <em>Settings</em> from the side menu, then <em>Security</em> in its list. <em>Support views</em> is the last card on the page.</p>
+            <ol class="guide-marks">
+              <li><em>Settings</em> in the side menu.</li>
+              <li><em>Security</em> in the Settings list.</li>
+              <li><em>Support views &middot; last 90 days</em>: administrators only.</li>
+            </ol>
+            <p>Security opens for every member, for their own password and two-factor. Only administrators see this card.</p>
+            <gl-shot id="support-views-open" caption="Settings on Security: the side menu, the Settings list and the Support views card." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Read the list.</h2>
+            <p>Each row is one time GearLogs support looked in. The newest is on top.</p>
+            <ol class="guide-marks">
+              <li>The line under the title: what support can do, and that every view is listed here and in the log.</li>
+              <li>The list. With no views in 90 days, it reads <em>No support views in the last 90 days.</em></li>
+            </ol>
+            <p>When there are views, the list has four columns. <em>When</em>: the date and minute the view opened. <em>As</em>: the role support saw your workspace as &mdash; <em>Administrator</em>, <em>Operator</em>, <em>User</em> or <em>Viewer</em>. <em>Length</em>: how many minutes it lasted. <em>Reason</em>: <em>Support request</em>, <em>Billing check</em>, <em>Incident</em> or <em>Other</em>. A view that is still open reads <em>Live now</em> beside its minutes. A view older than 90 days leaves the list.</p>
+            <gl-shot id="support-views-list" caption="Support views: the line under the title, and the list." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Read what a view is.</h2>
+            <p>The (i) beside the title explains the card in two parts.</p>
+            <ol class="guide-marks">
+              <li>The (i) beside <em>Support views &middot; last 90 days</em>.</li>
+              <li><em>What this is</em>: every view of the last ninety days, and what each row tells.</li>
+              <li><em>How it works</em>: a view is a support operator&rsquo;s own sign-in, limited to reading as the role shown.</li>
+            </ol>
+            <p>The view opens in a tab of its own, under a red strip. The strip names your workspace, the role and the time left. Everything support tries to save there is refused, so nothing in your workspace can change. The view ends by itself when its time runs out, or when support ends it. GearLogs sets one length for every view, and it cannot be extended.</p>
+            <gl-shot id="support-views-info" caption="The (i) of Support views, open: what the card holds and how a view works." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Find the line in System Logs.</h2>
+            <p>The same fact lands in System Logs the moment a view opens.</p>
+            <ol class="guide-marks">
+              <li><em>System Logs</em> in the side menu.</li>
+              <li><em>Search Keywords</em>: type <em>read-only view</em> to find the lines.</li>
+              <li><em>User</em> and <em>Action Type</em>: pick <em>GearLogs Support</em> and <em>System</em>.</li>
+            </ol>
+            <p>The line comes from <em>GearLogs Support</em> and carries the SYS tag. While the view is open, it reads <q>read-only view opened as Viewer — support request</q>. When the view ends, the same line gains its length: <q>read-only view as Viewer, 10 min — support request</q>. It is written in your workspace&rsquo;s language. Administrators, operators and anyone with <em>View everyone&rsquo;s activity log</em> see it.</p>
+            <gl-shot id="support-views-logs" caption="System Logs: the side menu, Search Keywords, and the User and Action Type filters." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>You can answer, for the last 90 days, when GearLogs support looked into your workspace, as which role, for how long and why. A view never changed anything in your workspace.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>The list could not be loaded.</q> The list did not reach you. Open Security again in a moment.</li>
+            <li><q>No support views in the last 90 days.</q> This is not a fault. Support has not opened a view of your workspace in the last 90 days.</li>
+            <li><q>Showing the most recent 1,000 entries. Older history is in each person’s or item’s own activity log.</q> System Logs holds the latest 1,000 entries. For an older support line, export <em>Full Activity Log</em> from Data Ops.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="your-sign-in"></gl-guide-link></li>
+            <li><gl-guide-link slug="history"></gl-guide-link></li>
+            <li><gl-guide-link slug="reports"></gl-guide-link></li>
+            <li><gl-guide-link slug="support"></gl-guide-link></li>
+            <li><gl-guide-link slug="access"></gl-guide-link></li>
+            <li><gl-guide-link slug="two-factor"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

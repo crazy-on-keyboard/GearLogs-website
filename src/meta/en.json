@@ -159,5 +159,237 @@
     "ogDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.",
     "twitterTitle": "A column is not a question",
     "twitterDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead."
+  },
+  "pay": {
+    "title": "Secure Checkout — GearLogs",
+    "description": "GearLogs secure checkout, processed by Paddle.",
+    "twitterTitle": "Secure Checkout — GearLogs"
+  },
+  "404": {
+    "title": "Page not found — GearLogs"
+  },
+  "product": {
+    "title": "How GearLogs works — GearLogs",
+    "description": "From the shelf to the person and back: how GearLogs records every hand-out, return, repair and write-off, with real screens from the app.",
+    "ogTitle": "How GearLogs works",
+    "ogDescription": "Every step of the store on the record: hand-outs, receipts people sign, warranty, repair and each person’s and item’s full history. Real screens from the app.",
+    "twitterTitle": "How GearLogs works",
+    "twitterDescription": "Every step of the store on the record, with real screens from the app."
+  },
+  "guides/approvals": {
+    "title": "Approvals: Read a Receipt and Act on It — GearLogs Guide",
+    "description": "Read every receipt your people sign on My Gear, act on the open ones — confirm on behalf, cancel, resend the reminder — and follow them on the dashboard. Step by step, with real screens.",
+    "ogTitle": "Approvals: read a receipt and act on it",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Approvals: read a receipt and act on it",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/assign-return": {
+    "title": "Hand-outs and Returns: Hand Out Gear, and Take It Back — GearLogs Guide",
+    "description": "Hand gear to one person or to many, and take it back when it comes in. The stock follows every step. Step by step, with real screens.",
+    "ogTitle": "Hand-outs and returns: hand out gear, and take it back",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Hand-outs and returns: hand out gear, and take it back",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/team-sign-out": {
+    "title": "Hand-outs: Sign Out Gear for a Team — GearLogs Guide",
+    "description": "Give a department head a whole batch of gear in one act. They hold it for the team and sign for it once. Step by step, with real screens.",
+    "ogTitle": "Hand-outs: sign out gear for a team",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Hand-outs: sign out gear for a team",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/write-offs": {
+    "title": "Write-offs: Write Off Lost Gear, and Retire a Leaver — GearLogs Guide",
+    "description": "Record gear that is lost, stolen or broken, retire someone who left with gear in one step, and find every loss in the Archive. Step by step, with real screens.",
+    "ogTitle": "Write-offs: write off lost gear, and retire a leaver",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Write-offs: write off lost gear, and retire a leaver",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/hand-out-kit": {
+    "title": "Kits: Hand Out a Kit — GearLogs Guide",
+    "description": "Make a kit once, with its items and how many of each. Then hand it to a whole group, a tab or a few people in one go. Step by step, with real screens.",
+    "ogTitle": "Kits: hand out a kit",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Kits: hand out a kit",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/take-kit-back": {
+    "title": "Kits: Take a Kit Back — GearLogs Guide",
+    "description": "See who still holds a kit, and take their lines back in one go: returned, kept out for later, lost or damaged. Step by step, with real screens.",
+    "ogTitle": "Kits: take a kit back",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Kits: take a kit back",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/dashboard": {
+    "title": "Dashboard: Build Your Dashboard, and Arrange It — GearLogs Guide",
+    "description": "Add ready-made widgets or build your own, choose who sees each one, and arrange them on the grid. Step by step, with real screens.",
+    "ogTitle": "Dashboard: build your dashboard, and arrange it",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Dashboard: build your dashboard, and arrange it",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/access": {
+    "title": "Users: Give Each Member a Role, and the Rights They Need — GearLogs Guide",
+    "description": "Add the people who sign in, give each of them a role, grant an extra right where one is needed, and keep an administrator in place. Step by step, with real screens.",
+    "ogTitle": "Users: give each member a role, and the rights they need",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Users: give each member a role, and the rights they need",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/history": {
+    "title": "History: See Who Did What, and When — GearLogs Guide",
+    "description": "Open the activity log of any person, group, kit or tab, go back as far as you need, and find the history of archived records. Step by step, with real screens.",
+    "ogTitle": "History: see who did what, and when",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "History: see who did what, and when",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/registry": {
+    "title": "Registry: Track Each Unit by Its Serial Number — GearLogs Guide",
+    "description": "Turn on unit tracking for an item, register its units and lots, and hand out, move or repair one unit at a time. Step by step, with real screens.",
+    "ogTitle": "Registry: track each unit by its serial number",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Registry: track each unit by its serial number",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/reports": {
+    "title": "Reports: Export a Report, and Back Up Your Workspace — GearLogs Guide",
+    "description": "Download or print any of fourteen reports, export a list as you filtered it, and take an encrypted backup that only your password opens. Step by step, with real screens.",
+    "ogTitle": "Reports: export a report, and back up your workspace",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Reports: export a report, and back up your workspace",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/set-up-board": {
+    "title": "Board: Build Your Board from Tabs and Groups — GearLogs Guide",
+    "description": "Give each department its own tab, add groups inside it, fill them with your items or people, and arrange the board in the order you read it. Step by step, with real screens.",
+    "ogTitle": "Board: build your board from tabs and groups",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Board: build your board from tabs and groups",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/find-anything": {
+    "title": "Search: Find Anything from the Search Box — GearLogs Guide",
+    "description": "Type a few letters at the top of any screen to reach an item, a person, a unit or a record, and see why each result matched. Step by step, with real screens.",
+    "ogTitle": "Search: find anything from the search box",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Search: find anything from the search box",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/make-it-yours": {
+    "title": "Settings: Make GearLogs Yours — GearLogs Guide",
+    "description": "Choose your own text size, board layout, action buttons, menu, theme and language. Your choices change only your own screen. Step by step, with real screens.",
+    "ogTitle": "Settings: make GearLogs yours",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: make GearLogs yours",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/storage-capacity": {
+    "title": "Logistics: Set a Storage Capacity, and See How Much Room Is Left — GearLogs Guide",
+    "description": "Give an item the most you can hold of it, read its meter on the board, and find the items that are over. Step by step, with real screens.",
+    "ogTitle": "Logistics: set a storage capacity, and see how much room is left",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Logistics: set a storage capacity, and see how much room is left",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/import": {
+    "title": "Data Ops: Bring Your Lists In from a Spreadsheet — GearLogs Guide",
+    "description": "Bring in items, people, sign-in accounts or serial numbers from a .csv file. You see how the file was read before anything is saved. Step by step, with real screens.",
+    "ogTitle": "Data Ops: bring your lists in from a spreadsheet",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Data Ops: bring your lists in from a spreadsheet",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/your-sign-in": {
+    "title": "Settings: Look After Your Own Sign-In — GearLogs Guide",
+    "description": "Every member looks after their own sign-in. Change your password, check your two-factor, and see what GearLogs tells you when your account is used. Step by step, with real screens.",
+    "ogTitle": "Settings: look after your own sign-in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: look after your own sign-in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/subscription": {
+    "title": "Settings: Manage Your Subscription and Seats — GearLogs Guide",
+    "description": "See what your workspace runs on, choose a plan and pay by card, then add seats and extras as your team grows. Step by step, with real screens.",
+    "ogTitle": "Settings: manage your subscription and seats",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: manage your subscription and seats",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/warranty-contracts": {
+    "title": "Registry: Track Warranties and Service Contracts — GearLogs Guide",
+    "description": "Record your service contracts, attach them to units and lots, and see every warning before a warranty runs out. Step by step, with real screens.",
+    "ogTitle": "Registry: track warranties and service contracts",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Registry: track warranties and service contracts",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/two-factor": {
+    "title": "Settings: Turn On Two-Factor Sign-In — GearLogs Guide",
+    "description": "Add a six-digit code from your phone to your password, keep a way back in, and require it for the whole workspace. Step by step, with real screens.",
+    "ogTitle": "Settings: turn on two-factor sign-in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: turn on two-factor sign-in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/notifications": {
+    "title": "Settings: Choose What You Are Told About — GearLogs Guide",
+    "description": "Pick which notices reach you in the app and which by email, and when the emails arrive. Administrators also set where everyone starts. Step by step, with real screens.",
+    "ogTitle": "Settings: choose what you are told about",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: choose what you are told about",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/support": {
+    "title": "Support: Get Support Inside the App — GearLogs Guide",
+    "description": "Ask GearLogs Support a question, report a problem or suggest an idea. Then follow every reply in one place. Step by step, with real screens.",
+    "ogTitle": "Support: get support inside the app",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Support: get support inside the app",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/dialogs": {
+    "title": "Basics: Work with Any Dialog — GearLogs Guide",
+    "description": "Every dialog in GearLogs is built the same way. Learn one, and you can read, fill in and close them all. Step by step, with real screens.",
+    "ogTitle": "Basics: work with any dialog",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Basics: work with any dialog",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/support-views": {
+    "title": "Settings: See When Support Looked In — GearLogs Guide",
+    "description": "See every time GearLogs support opened a read-only view of your workspace: when, as which role, for how long and why. Step by step, with real screens.",
+    "ogTitle": "Settings: see when support looked in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: see when support looked in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/open-my-gear": {
+    "title": "My Gear: Open My Gear — GearLogs Guide",
+    "description": "Sign in with a code sent to your email. Then see the gear on your name, your notices and your history. Step by step, with real screens.",
+    "ogTitle": "My Gear: open My Gear",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "My Gear: open My Gear",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/give-my-gear": {
+    "title": "Personnel: Give Your People My Gear — GearLogs Guide",
+    "description": "Put an email and a number on a person's record, and they can sign in to My Gear to see their own gear, notices and receipts. Step by step, with real screens.",
+    "ogTitle": "Personnel: give your people My Gear",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Personnel: give your people My Gear",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/sign-in-my-gear": {
+    "title": "My Gear: Sign a Receipt, or Say What Is Wrong — GearLogs Guide",
+    "description": "Sign for the gear on your name, or say what is wrong with it. Share this guide with your people: it shows My Gear as they see it. Step by step, with real screens.",
+    "ogTitle": "My Gear: sign a receipt, or say what is wrong",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "My Gear: sign a receipt, or say what is wrong",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }

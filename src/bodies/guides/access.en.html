@@ -1,0 +1,104 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.5</p>
+        <p class="band-kicker">Guide 4.5 <span class="sep">&middot;</span> Users</p>
+        <h1 class="band-title">Give each member a role, and the rights they need</h1>
+        <p class="band-lede">Add the people who sign in, give each of them a role, grant an extra right where one is needed, and keep an administrator in place.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>The Users screen is for administrators. Only they see it in the side menu.</li>
+            <li>A member here is a login: someone who signs in to GearLogs. The people who hold gear are on the Personnel board.</li>
+            <li>Every login takes a seat. When every seat is in use, <em>Add User</em> is grey. Add seats in Settings &rsaquo; Billing.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open <em>Users</em>.</h2>
+            <p>Open <em>Users</em> from the side menu. It opens on <em>User Management</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Add User</em> opens the window for a new login.</li>
+              <li><em>Seats in use</em>: your members against the seats your workspace holds.</li>
+              <li><em>External ID field label</em>: what your company calls each member&rsquo;s own ID, such as Employee # or Army ID. The name applies to the whole workspace.</li>
+              <li>The list: every member by name, with their role, when they were last active and their actions.</li>
+            </ol>
+            <gl-shot id="access-users" caption="User Management: Add User, the seats in use, your own name for the ID field, and the list&rsquo;s columns." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Add a member.</h2>
+            <p><em>Add User</em> opens <em>Create User</em>.</p>
+            <ol class="guide-marks">
+              <li><em>First Name</em> and <em>Last Name</em>. The first name is required.</li>
+              <li><em>External ID</em>, under your own name for it: optional. It shows only on the Users screen, never in logs or analytics.</li>
+              <li><em>Email</em>: the address they sign in with.</li>
+              <li><em>Password</em>: their first password.</li>
+            </ol>
+            <p>Choose their role in the same window, then press <em>Save</em>. The new member signs in with this email and password.</p>
+            <gl-shot id="access-create" caption="Create User, empty: the name, your own ID, the email and the first password." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Choose a role.</h2>
+            <ol class="guide-marks">
+              <li><em>Role</em>: every member has exactly one.</li>
+              <li>The five roles to choose from.</li>
+            </ol>
+            <p><em>Administrator - Full System Access</em>: every right. It is the only role that opens Users and Data Ops. <em>Operator - Manage Data</em>: items, people, tabs and groups, kits and stock; hands gear out and writes it off; sees contact details and everyone&rsquo;s analytics. <em>User - Assign/Return Only</em>: hands gear out and takes it back, and sees their own analytics. <em>Viewer - Read Only</em>: no rights of its own. <em>Custom - Select Permissions</em>: you tick every right yourself, starting from the rights they had. An operator does not delete items or people, lock stock, export, read everyone&rsquo;s activity log or open Settings, unless you grant that right.</p>
+            <gl-shot id="access-roles" caption="The Role field open on its five roles." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Grant a right on top of the role.</h2>
+            <p><em>Personal Permissions</em> lists every right. Tick a right to grant it to this person on top of their role.</p>
+            <ol class="guide-marks">
+              <li><em>Included in this role</em>: the role&rsquo;s own rights are ticked and locked. They can never be taken away here.</li>
+              <li>A right you tick is added for this person only. Here, <em>Write Off / Report Lost Gear</em> on top of User.</li>
+              <li><em>Administrators and operators only</em>: <em>Confirm a hand-over on behalf</em> can be added to an operator, never to anyone else.</li>
+              <li><em>Administrators only</em>: <em>Manage Users</em> stays with administrators.</li>
+            </ol>
+            <p>Two rights meet kits. <em>Manage kits</em> builds a kit and its lines. Handing a kit out or taking it back is <em>Assign/Return Assets</em>, as for any hand-out. A loss recorded while taking a kit back needs <em>Write Off / Report Lost Gear</em>. <em>View Contact Details</em> covers each person&rsquo;s phone, email and notes. Without it, a small lock replaces the contact marks on a person&rsquo;s card, the details never reach them, and they cannot overwrite them.</p>
+            <gl-shot id="access-rights" caption="The rights of a User: one included, one ticked for this person, and two that stay locked." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Guard your own role, and the Super Administrator.</h2>
+            <p><em>Edit User</em> on your own row opens your login.</p>
+            <ol class="guide-marks">
+              <li><em>Role</em> is grey while you are the only administrator. The reason is written under it.</li>
+              <li><em>Super Administrator</em>: the only tier that can permanently delete records. Only a super administrator sees this box, and only on an administrator.</li>
+              <li>An administrator holds every right: each one says <em>Included in this role</em>.</li>
+            </ol>
+            <p>With another administrator in place, you can give up your own role. Saving asks first: <em>Remove your own administrator role?</em> <em>Save anyway</em> saves it. On another member&rsquo;s row, <em>Disable Account</em> signs them out and blocks their sign-in until you choose <em>Enable Account</em>. Deleting a login is for a super administrator, and so is setting a new password for a member.</p>
+            <gl-shot id="access-self" caption="Your own login: the Role greyed with its reason, the Super Administrator box and an administrator&rsquo;s rights." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every member signs in with the rights of their role plus the ones you granted, and the workspace always keeps an administrator.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Unable to add a member — every seat this workspace holds is in use.</q> Every seat is in use. Add seats in Settings &rsaquo; Billing, or disable a login that no longer needs access.</li>
+            <li><q>Username already exists.</q> That email already has a login.</li>
+            <li><q>You are the only administrator — add another before changing your own role.</q> Written under your own Role while you are the only administrator. Add another administrator first.</li>
+            <li><q>This is the organization&rsquo;s only administrator. Assign another administrator before changing or removing this one.</q> A save would leave the workspace with no active administrator, and the workspace itself refuses it.</li>
+            <li><q>Only a super administrator can delete a login — an administrator can disable it.</q> Delete opens with this reason in red and stays grey. Disable the login instead.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="subscription"></gl-guide-link></li>
+            <li><gl-guide-link slug="two-factor"></gl-guide-link></li>
+            <li><gl-guide-link slug="your-sign-in"></gl-guide-link></li>
+            <li><gl-guide-link slug="approvals"></gl-guide-link></li>
+            <li><gl-guide-link slug="hand-out-kit"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

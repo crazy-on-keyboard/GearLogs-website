@@ -1,0 +1,130 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.11</p>
+        <p class="band-kicker">Guide 4.11 <span class="sep">&middot;</span> Registry</p>
+        <h1 class="band-title">Track warranties and service contracts</h1>
+        <p class="band-lede">Record your service contracts, attach them to units and lots, and see every warning before a warranty runs out.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Recording, editing and archiving contracts, attaching gear and giving a unit its own warranty date need the right <em>Create/Edit Items</em>. Administrators and operators have it.</li>
+            <li>Everyone who can open the Registry sees the <em>Contracts</em> tab. Without that right it has no <em>New contract</em>, no <em>Cost</em> column and no buttons.</li>
+            <li>Contracts cover units. The Registry shows them once at least one item is tracked by unit.</li>
+            <li>The warning threshold in <em>Settings</em> is set by an administrator.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open the Contracts tab.</h2>
+            <p>Open <em>Registry</em> from the side menu, then <em>Contracts</em> in the band.</p>
+            <ol class="guide-marks">
+              <li><em>Contracts</em> in the band.</li>
+              <li><em>New contract</em> opens the form for a new contract.</li>
+              <li>The chip under <em>Ends</em>: the days left. Green while the end is far off, amber inside the warning window you set in step 7, red with <em>EXPIRED</em> once it has passed.</li>
+              <li>The row&rsquo;s buttons: <em>Attach gear</em>, <em>Edit</em> and <em>Archive</em>.</li>
+            </ol>
+            <p>Each row shows the provider, the coverage, how much gear the contract covers and, for those who hold <em>Create/Edit Items</em>, the cost. Click a row to see the gear it covers underneath. The search box above the table filters contracts by code, provider, contract number or covered gear.</p>
+            <gl-shot id="contracts-list" caption="The Registry on Contracts: the tab, New contract, a contract that has ended and its row&rsquo;s buttons." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Record a contract.</h2>
+            <p><em>New contract</em> opens <em>New Contract</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Provider</em>, which is required, and the <em>Contract #</em>.</li>
+              <li><em>Coverage</em>: <em>REPAIR</em>, <em>REPLACE</em>, <em>FULL SERVICE</em>, <em>PARTS ONLY</em> or <em>OTHER</em>. <em>Cost</em> beside it.</li>
+              <li><em>Starts</em>, <em>Ends</em> and <em>Purchased</em>. Only <em>Ends</em> is required.</li>
+              <li><em>Save</em> creates the contract.</li>
+            </ol>
+            <p><em>Notes</em> takes up to 500 characters. GearLogs gives every contract its own CT code. Only people who hold <em>Create/Edit Items</em> receive the cost. <em>Edit</em> on the row changes the contract later. <em>Archive</em> asks first: the contract stops counting toward warranty coverage, and its gear comes off it. It then waits in <em>Archive</em> &rsaquo; <em>Contract Archives</em>, and a restore brings it back with no gear attached.</p>
+            <gl-shot id="contracts-new" caption="New Contract, untouched: provider and contract number, coverage and cost, the three dates and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Attach gear to the contract.</h2>
+            <p><em>Attach gear</em> on the contract&rsquo;s row opens <em>Attach gear</em> for that contract.</p>
+            <ol class="guide-marks">
+              <li><em>Units</em> or <em>Lot</em>: attach single units, or whole lots.</li>
+              <li>The filter box: find gear by name, serial number or code.</li>
+              <li><em>COVERED</em>: this unit is already on the contract.</li>
+              <li><em>Attach</em> puts the unit on the contract at once.</li>
+            </ol>
+            <p>A lot covers every unit in it, now and later. Each click attaches one unit or one lot, without a question. The list holds only units in stock, issued, in transit or in repair. To take gear off a contract, open its row in the table: <em>Detach</em> beside the unit asks first.</p>
+            <gl-shot id="contracts-attach" caption="Attach gear for CT-001: Units or Lot, the filter, a unit already covered and the next unit&rsquo;s Attach." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Check one unit&rsquo;s coverage.</h2>
+            <p>In the Property Book, pick the item, then <em>Coverage</em> on a unit&rsquo;s row. <em>Coverage</em> opens.</p>
+            <ol class="guide-marks">
+              <li>A contract that covers this unit, by its code and provider.</li>
+              <li><em>Detach</em> takes the unit off that contract. It asks first.</li>
+              <li><em>Attach to contract</em>: pick another contract.</li>
+              <li><em>Attach</em> adds it.</li>
+            </ol>
+            <p>A contract that reaches the unit through its lot shows <em>via lot</em>, and comes off at the lot or in the contract itself. A lot&rsquo;s own row in the Property Book has the same <em>Coverage</em> button.</p>
+            <gl-shot id="registry-coverage" caption="Coverage for a Barcode Scanner unit: its contract, Detach, and the picker that attaches another." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Give one unit its own warranty date.</h2>
+            <p><em>Warranty</em> on the same row opens <em>Unit warranty</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Current</em>: the date that applies now, and where it comes from: <em>unit override</em>, <em>from a service contract</em> or <em>from the lot</em>.</li>
+              <li><em>Warranty until (override)</em>: a date for this unit only, after a repair or a replacement, say.</li>
+              <li><em>Save</em> sets it.</li>
+            </ol>
+            <p>The unit&rsquo;s own date comes first. Without one, the latest end date of the contracts that cover it applies. Without a contract, the lot&rsquo;s <em>Warranty until</em> applies, set in <em>Add Lot</em> or <em>Edit Lot</em>. Saving with the date emptied clears the override, and the unit inherits again. Units that are written off, lost or retired raise no warnings.</p>
+            <gl-shot id="registry-warranty" caption="Unit warranty for a Barcode Scanner unit: its date comes from a service contract, then the override field and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Find what is running out.</h2>
+            <p>The <em>Expiring</em> count at the top of the Registry counts the units whose warranty, or whose lot&rsquo;s expiry date, is inside the warning window or already past. Click it.</p>
+            <ol class="guide-marks">
+              <li><em>Expiring</em>: how many units need attention.</li>
+              <li><em>Clear the expiring filter</em>: the <em>Ledger</em> now shows only those units. This button shows them all again.</li>
+              <li><em>Warranty</em>: each unit&rsquo;s chip. <em>EXP</em> marks a lot&rsquo;s expiry date.</li>
+            </ol>
+            <p>The same units show elsewhere. On the Logistics board, an item with such units carries a clock among its icons: amber, and red once a date has passed. On the dashboard, the card <em>Expiring warranties &amp; contracts</em> lists them, the most urgent first.</p>
+            <gl-shot id="registry-expiring" caption="The Ledger after a click on Expiring: only the units that need attention, with their warranty chips." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-7">
+            <h2 class="gstep-t">Choose when the warnings begin.</h2>
+            <p>Open <em>Settings</em> from the side menu, then <em>Organization Setup</em>.</p>
+            <ol class="guide-marks">
+              <li><em>Settings</em> in the side menu.</li>
+              <li><em>Organization Setup</em>.</li>
+              <li><em>Expiry warning threshold</em>: how many days before a date the warnings begin, from 1 to 365. It starts at 30.</li>
+            </ol>
+            <p>The number saves when you leave the field. A number outside the range is brought inside it. Every chip, count, clock and card follows it at once, for everyone.</p>
+            <gl-shot id="settings-threshold" caption="Settings on Organization Setup: the Registry card with the expiry warning threshold, 30 days." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every unit shows which warranty date applies and where it comes from. As a date comes near, the Registry, the board and the dashboard warn you together, from the same day.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Required</q> You pressed <em>Save</em> with <em>Provider</em> or <em>Ends</em> empty. Nothing was saved. Fill it in and save again.</li>
+            <li><q>The end date can&rsquo;t be before the start date</q> <em>Ends</em> is earlier than <em>Starts</em>. Correct one of the two dates.</li>
+            <li><q>Already covered by this contract</q> Someone attached the same unit or lot a moment before you. The list refreshes and shows it as <em>COVERED</em>.</li>
+            <li><q>No active contracts — create one in the Contracts view.</q> The workspace has no contract outside the archive, so <em>Coverage</em> has nothing to offer. Record one in <em>Contracts</em> first.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="registry"></gl-guide-link></li>
+            <li><gl-guide-link slug="dashboard"></gl-guide-link></li>
+            <li><gl-guide-link slug="reports"></gl-guide-link></li>
+            <li><gl-guide-link slug="find-anything"></gl-guide-link></li>
+            <li><gl-guide-link slug="import"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

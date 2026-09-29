@@ -4,7 +4,9 @@
 //   - JSON-LD lives in src/bodies/<slug>.jsonld.<lang>.json
 // The build (scripts/build-site.mjs) merges these by slug.
 //
-// EN-only / static pages (pay, 404, assets) are handled by the build directly, not here.
+// Unlisted pages (Stage 2): /pay (English only — Paddle's checkout) and the 404 (both languages: Cloudflare Pages serves
+// the nearest 404.html, so /he/404.html answers every missing Hebrew address) carry `sitemap: null` — no sitemap entry,
+// no canonical or hreflang, no language switch.
 
 const NOTE_SLUGS = [
   'track-who-has-equipment',
@@ -20,6 +22,20 @@ const NOTE_SLUGS = [
   'a-column-is-not-a-question',
 ];
 
+// Guides with their own page (the Director's ask: guides reworked — steps with space, a real screen per step).
+const GUIDE_SLUGS = ['approvals', 'assign-return', 'team-sign-out', 'write-offs', 'hand-out-kit', 'take-kit-back', 'dashboard', 'access', 'history', 'registry', 'reports', 'set-up-board', 'find-anything', 'make-it-yours', 'storage-capacity', 'import', 'your-sign-in', 'subscription', 'warranty-contracts', 'two-factor', 'notifications', 'support', 'dialogs', 'support-views', 'open-my-gear', 'give-my-gear', 'sign-in-my-gear'];
+const guide = (name) => ({
+  slug: `guides/${name}`,
+  path: `/guides/${name}`,
+  chrome: 'full',
+  footer: 'full',
+  activeNav: '/guides',
+  bilingual: true,
+  sitemap: { changefreq: 'monthly', priority: '0.6' },
+  scripts: ['/js/motion.js', '/js/lightbox.js'],
+  opts: { ogType: 'article', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+});
+
 const article = (name) => ({
   slug: `notes/${name}`,
   path: `/notes/${name}`,
@@ -28,7 +44,7 @@ const article = (name) => ({
   activeNav: '/notes',
   bilingual: true,
   sitemap: { changefreq: 'monthly', priority: '0.6' },
-  scripts: ['/js/anim.js'],
+  scripts: [],
   opts: { ogType: 'article', twitterCard: 'summary', ogImage: false, jsonld: true },
 });
 
@@ -36,12 +52,19 @@ export const PAGES = [
   {
     slug: 'index', path: '/', chrome: 'full', footer: 'full', activeNav: null, bilingual: true,
     sitemap: { changefreq: 'weekly', priority: '1.0' },
-    scripts: ['/js/anim.js', '/js/activity.js'],
-    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false, logoPriority: true },
+    scripts: ['/js/motion.js', '/js/lightbox.js'],
+    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+  },
+  {
+    // Stage 2 (2026-09-27): how GearLogs works, section by section, every screen a real capture; the old home's capability
+    // and security cards live here now, word for word (nothing the site said was lost)
+    slug: 'product', path: '/product', chrome: 'full', footer: 'full', activeNav: '/product', bilingual: true,
+    sitemap: { changefreq: 'monthly', priority: '0.9' }, scripts: ['/js/motion.js', '/js/lightbox.js'],
+    opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
     slug: 'pricing', path: '/pricing', chrome: 'full', footer: 'full', activeNav: '/pricing', bilingual: true,
-    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/anim.js', '/js/pricing.js'],
+    sitemap: { changefreq: 'monthly', priority: '0.8' }, scripts: ['/js/pricing.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   {
@@ -56,7 +79,7 @@ export const PAGES = [
   },
   {
     slug: 'notes', path: '/notes', chrome: 'full', footer: 'full', activeNav: '/notes', bilingual: true,
-    sitemap: { changefreq: 'weekly', priority: '0.7' }, scripts: ['/js/anim.js'],
+    sitemap: { changefreq: 'weekly', priority: '0.7' }, scripts: ['/js/motion.js'],
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: true },
   },
   {
@@ -88,4 +111,15 @@ export const PAGES = [
     opts: { ogType: 'website', twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
   },
   ...NOTE_SLUGS.map(article),
+  ...GUIDE_SLUGS.map(guide),
+  {
+    slug: 'pay', path: '/pay', chrome: 'minimal', footer: 'minimal', activeNav: null, bilingual: false, sitemap: null,
+    // Paddle.js v2 is the ONLY external script here; it reads ?_ptxn= and opens the overlay checkout itself (headers.mjs PAY_CSP)
+    scripts: [{ src: 'https://cdn.paddle.com/paddle/v2/paddle.js', attrs: 'defer' }, '/js/pay.js'],
+    opts: { robots: 'noindex, nofollow', canonical: false, twitterCard: 'summary_large_image', ogImage: true, jsonld: false },
+  },
+  {
+    slug: '404', path: '/404', chrome: 'full', footer: 'full', activeNav: null, bilingual: true, sitemap: null, scripts: [],
+    opts: { robots: 'noindex', canonical: false, jsonld: false },
+  },
 ];

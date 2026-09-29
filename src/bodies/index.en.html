@@ -1,325 +1,166 @@
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-meta">
-          <div class="hero-meta-left">
-            <div class="doc-ref">SPEC GL-001</div>
-            <div class="doc-class">SYSTEM SPECIFICATION</div>
-          </div>
-          <div class="hero-meta-right">
-            <div class="meta-row"><span class="meta-label">Classification</span><span class="meta-val">Enterprise</span></div>
-            <div class="meta-row"><span class="meta-label">Status</span><span class="meta-val stamp">OPERATIONAL</span></div>
-          </div>
-        </div>
-
-        <div class="hero-divider"></div>
-
-        <h1 class="hero-title">Know what you have.<br>Know who has it.</h1>
-        <p class="hero-desc">Track every piece of equipment. Know who has what. Manage personnel records, asset assignments, and operational analytics across your entire organization.</p>
-
-        <div class="hero-actions">
-          <a href="https://app.gearlogs.com" class="btn-primary">Launch Application</a>
-          <a href="#capabilities" class="btn-secondary">Learn More</a>
-        </div>
-
-        <div class="hero-summary">
-          <div class="summary-item">
-            <span class="summary-label">Purpose</span>
-            <span class="summary-val">Inventory tracking, personnel management, and operational analytics for organizations</span>
-          </div>
-          <div class="summary-item">
-            <span class="summary-label">Deployment</span>
-            <span class="summary-val">Cloud-hosted, browser-based, real-time synchronization — no installation required</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Activity — live product vignette -->
-    <section class="section section-alt" id="activity">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">Live</div>
-          <h2 class="section-title">The system, working</h2>
-          <div class="section-rule"></div>
-        </div>
-        <p class="activity-lead reveal">Every action — dispensed, returned, assigned, written off — lands on the record the moment it happens, colour-coded and searchable. Below is a live sample of how it looks.</p>
-        <div class="actpanel reveal">
-          <div class="actpanel-bar">
-            <span class="act-live" aria-hidden="true"></span>
-            <span class="act-t">Activity Log</span><span class="act-sub">on the record</span>
-            <span class="act-demo">Sample data</span>
-            <span class="act-count"><span data-count="248">248</span> items tracked today</span>
-            <button type="button" id="actpause" class="act-pause" aria-pressed="false" aria-label="Pause the sample activity feed">Pause</button>
-          </div>
-          <div class="actcols" aria-hidden="true"><span>Timestamp</span><span>User</span><span>Type</span><span>Action</span></div>
-          <div class="actviewport" aria-hidden="true"><div class="actfeed" id="actfeed"></div></div>
-          <div class="actfoot">Every action recorded, searchable, and exportable — kept for twelve months</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section class="section" id="capabilities">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">Section 1</div>
-          <h2 class="section-title">Capabilities</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="cap-grid">
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.1</div>
-            <h3 class="cap-name">Inventory Management</h3>
-            <p class="cap-desc">Organize items by departments and groups. Monitor stock levels against configurable thresholds, and give any item a storage capacity &mdash; a meter beside STOCK shows how full the shelf is and administrators hear when it runs low or goes over. Manage consumable and durable equipment separately with per-item controls.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.2</div>
-            <h3 class="cap-name">Personnel Management</h3>
-            <p class="cap-desc">Maintain personnel records with department assignments, designations, and contact information — each person shown by name, with an optional ID field of your own (employee number, staff ID, or service number). Track who holds what equipment and their consumption history.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.3</div>
-            <h3 class="cap-name">Asset Assignment</h3>
-            <p class="cap-desc">Assign equipment to personnel with quantity tracking &mdash; straight from the board with a quick Assign button and a searchable person picker, and, from the same small card, one item to many people (<em>↗ More people</em>) or many items to one person (<em>↗ More items</em>) in a two-pane window that checks the whole list before anything moves. Process returns and dispense consumables. A department head issues a batch for the team from the same window and holds it as custodian, with a printable manifest. Full history per person with automatic stock adjustment.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.4</div>
-            <h3 class="cap-name">Reference Codes</h3>
-            <p class="cap-desc">Every item, person, group, tab, and team member carries a short permanent code, shown on its card and searchable everywhere — woven through the activity log so it's always clear what each entry refers to.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.5</div>
-            <h3 class="cap-name">Colour-Coded Activity Log</h3>
-            <p class="cap-desc">Every action is recorded and colour-coded by type: who performed it, what they touched, and how much. Search and filter by multiple criteria, and export logs for compliance and review.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.6</div>
-            <h3 class="cap-name">Real-Time Collaboration</h3>
-            <p class="cap-desc">Your whole team can work at once. Changes appear for everyone instantly with no refresh, and you can see who's active in the workspace at a glance.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.7</div>
-            <h3 class="cap-name">Analytics & Dashboard</h3>
-            <p class="cap-desc">Configurable dashboard with multiple widget types. Activity trends, low-stock alerts, live feeds, and export-ready reports. Add, edit, resize, and preview widgets to see what matters most. Ready-made widgets in two clicks &mdash; activity by type or by user, capacity, registry, write-offs, approvals &mdash; or build your own from plain questions, on your period, not just the dashboard&rsquo;s.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.8</div>
-            <h3 class="cap-name">Data Operations</h3>
-            <p class="cap-desc">A proper control room for your data, not a vanity score. Import from a spreadsheet or a pasted list — GearLogs shows you how it read your file before anything is written, so a mis-formatted column can never import wrong data behind a success message, and one bad row is reported by name instead of failing the whole file. Archive items and people instead of losing them, and restore them later. The powerful tools sit behind a preview and a confirmation, and long jobs show a live progress window that reports every real step.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.9</div>
-            <h3 class="cap-name">Guided &amp; Clear</h3>
-            <p class="cap-desc">Every screen and every action that isn't self-explanatory carries a small (i) &mdash; one click opens the same clear card everywhere: what it is, what you can do, and what will happen, with a red line when something cannot be undone. One legend at the top of each actions column names every icon in one place and lists only what your role can do; controls you cannot use are dimmed and say why. Colour tells you the direction: green buttons give or put back, brick-red ones take away, grey ones only show or edit &mdash; the same on every screen and in the confirmation behind each action. Dashboards show honest figures rather than estimates, so nothing consequential is ever a guess. Every dialog is the same dialog &mdash; one title bar, one shelf of buttons &mdash; announced by name to a screen reader, with the keyboard kept inside and focus returned when it closes; a refused action stays on the screen with its reason in red, never a message that vanishes.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.10</div>
-            <h3 class="cap-name">Write-Offs &amp; Archive</h3>
-            <p class="cap-desc">Record gear that's lost, stolen, damaged, or never returned — the count drops and the loss is kept as a permanent record. Retire someone who left with their equipment in a single step. A dedicated Archive gathers retired people, archived equipment, and every write-off in one place, with search, filters, and export — restore anything, or recover a written-off item back into stock. Losses stay visible where you work: flagged right on the person and item cards with a full history, charted on loss dashboards by reason, team and item, and the register shows whether each loss is against active or retired personnel.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.11</div>
-            <h3 class="cap-name">The Registry</h3>
-            <p class="cap-desc">Track equipment one unit at a time, not just by count. Each serialized item — a radio, a sight, a vehicle, a tool — becomes its own numbered record with its own status, condition, current holder, and full history. Group units into lots, register them in bulk or by import, and always know exactly which one is where. Condition has teeth: a unit marked unserviceable can't be issued by mistake, and every move a unit makes is recorded for you.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.12</div>
-            <h3 class="cap-name">Warranty &amp; Service Contracts</h3>
-            <p class="cap-desc">Never pay for a repair or replacement you were still covered for. Put warranty dates on individual units and whole lots, and record full service contracts — provider, coverage type, contract number, dates, and cost — attached to exactly the gear they cover. Coverage shows up everywhere as colour-coded chips, an "Expiring" widget lists what needs attention first, and a signal appears right on the board before dates run out. You set how far ahead the warnings start; contract cost stays visible to managers only, and date changes are written to the activity log, which no account can edit.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.13</div>
-            <h3 class="cap-name">Reports, Exports &amp; Backups</h3>
-            <p class="cap-desc">Your records are yours, and you can get them out. A real report catalogue covers logistics, personnel, the registry, the archive, and activity — each exportable to CSV, Excel, or Print, and each reads your complete records, so a large workspace exports in full rather than stopping at a hidden cap. A data Overview runs honest checks on your actual data and lets you jump straight to fix anything it flags. Take an encrypted, whole-workspace backup you unlock with your own passphrase — and if data is ever lost, recovery is done together with support, never by a single risky click.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.14</div>
-            <h3 class="cap-name">Find Anything</h3>
-            <p class="cap-desc">One search bar for the whole workspace. Type what you remember — a name, a reference code, a serial number or lot code, a designation or location, a manufacturer, model, SKU or GTIN, even a note — and it finds items, people, departments, groups, team members, service contracts, and archived records alike. Results come grouped by type with the best matches first and the matched text highlighted; one click lands exactly on the thing you meant, and the search carries with you onto that screen so you keep narrowing instead of starting over.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.15</div>
-            <h3 class="cap-name">Kits</h3>
-            <p class="cap-desc">Build a kit once — a named recipe of equipment, each item and how many of it per kit, with its own code — and hand the whole thing out in one act: to one person, a whole Personnel tab, groups, or a group minus a few names. The maths comes first, needed against in stock for every line, and nothing goes out while one line is short. Every line lands on the person&rsquo;s card under the kit&rsquo;s own row and each person is told once. Taking it back is one dialog: every line returned in a click, or, line by line, kept out until a promised date or written off as lost or damaged with the reason — and the card always shows who holds it and what is still out. The dashboard counts the kit lines still out and draws issued against returned; two exports list every kit and every kit line ever issued.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.16</div>
-            <h3 class="cap-name">Your People, Their Page</h3>
-            <p class="cap-desc">A person on your personnel list sees their own gear, notices and history on <em>My Gear</em> at my.gearlogs.com &mdash; signed in with your workspace code, their ID number or personal number and a code sent to the email on their record. No account, no password, no seat. They see only what is theirs: never another person&rsquo;s gear, never your stock or billing. English or Hebrew, their own choice. Give it to them once &mdash; the two numbers and the email sit on the person&rsquo;s card behind the same right as the phone &mdash; and from then on they can check what is on their name before a hand-over, a return or an audit, without asking the store, and sign for what they received.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.17</div>
-            <h3 class="cap-name">Signed Receipts, Kept for You</h3>
-            <p class="cap-desc">Every hand-out, return and write-off to a person opens a receipt the person signs on <em>My Gear</em>. Its lines never change after it opens; a decision &mdash; a signature, a dispute, a confirmation on behalf, a cancellation &mdash; is written once, by name, and a receipt nobody signs expires after 14 days on its own. <em>Approvals</em> shows every receipt by state with what happened to it, the dashboard counts them and two exports list them &mdash; while the words behind a dispute stay with the receipt, for your administrators and the people you trust with the right, never in a file or a mail.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="section section-alt" id="how-it-works">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">Section 2</div>
-          <h2 class="section-title">How It Works</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="ops-flow" data-stagger>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">I</div>
-            <h3 class="ops-step-title">Set Up Your Organization</h3>
-            <p class="ops-step-desc">Configure departments, groups, and locations to match your organizational structure. Start from scratch or use a pre-built template.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">II</div>
-            <h3 class="ops-step-title">Add Your Data</h3>
-            <p class="ops-step-desc">Add items and personnel manually or bulk-import from CSV. Duplicates are detected automatically and queued for your review.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">III</div>
-            <h3 class="ops-step-title">Assign & Track</h3>
-            <p class="ops-step-desc">Assign equipment to personnel. Dispense consumables. Process returns. Everything is logged and tracked in real time.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">IV</div>
-            <h3 class="ops-step-title">Monitor & Report</h3>
-            <p class="ops-step-desc">Build your dashboard. Track trends. Receive alerts for low stock. Export reports for audits and compliance reviews.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Security -->
-    <section class="section" id="security">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">Section 3</div>
-          <h2 class="section-title">Security & Trust</h2>
-          <div class="section-rule"></div>
-          <p class="page-lead">GearLogs runs on Supabase in the EU (Frankfurt) for the database and sign-in, Cloudflare for delivery and protection, Paddle for payments and Resend for email &mdash; the same names you will find in our privacy policy.</p>
-        </div>
-
-        <div class="cap-grid">
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.1</div>
-            <h3 class="cap-name">Data Isolation</h3>
-            <p class="cap-desc">Each organization's data is completely isolated. Users can only access data within their own organization. Multi-tenant architecture with strict enforcement at every layer.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.2</div>
-            <h3 class="cap-name">Role-Based Access</h3>
-            <p class="cap-desc">Fine-grained permission system ensures users see only what they need. Administrators control who can view, edit, and manage each area of the system &mdash; and can grant any single right to a person on top of their role. Staff contact details are a right of their own, enforced by the database, not the screen. Permanently erasing records is reserved for a Super Administrator, so nothing irreversible happens by accident. The right to hand out sensitive gear applies to every sensitive item, at every door, with the database as the backstop. <em>My Gear</em>, the page for the people on your list, shows a person only their own rows &mdash; nothing of the workspace crosses to them. The words behind a disputed or on-behalf receipt open for administrators and holders of the confirm-on-behalf right, on a click &mdash; never in a file, never in a mail.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.3</div>
-            <h3 class="cap-name">Encrypted & Secure</h3>
-            <p class="cap-desc">All data encrypted in transit and at rest. Industry-standard authentication with secure session management. Backups encrypted for additional protection.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.4</div>
-            <h3 class="cap-name">Audit Everything</h3>
-            <p class="cap-desc">Complete audit trail of every action. Know who did what, when. Export-ready logs for compliance requirements and internal reviews.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.5</div>
-            <h3 class="cap-name">Sign-In Protection</h3>
-            <p class="cap-desc">An automated human-verification check at sign-in blocks bot-driven and scripted login attempts before they reach an account. For real people it clears in a moment, with nothing extra to do. A lost password is recovered by the member, with a one-time code sent to their email &mdash; and every password change signs out every other device and confirms itself to you.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.6</div>
-            <h3 class="cap-name">Two-Factor Sign-In</h3>
-            <p class="cap-desc">A workspace can require two-factor authentication — a one-time code from an authenticator app on top of a password — to sign in and to make changes, so a stolen password alone can't reach or alter your records. Members keep recovery codes for a lost phone, and admins can reset a member's two-factor when needed. Turning it on or off is noted in the bell, and a run of wrong recovery codes tells the account and its administrators &mdash; nothing is locked.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.7</div>
-            <h3 class="cap-name">History No Account Can Edit</h3>
-            <p class="cap-desc">The record of who held what, and when, stays as it was written. No account can edit an entry, routine accounts cannot delete from it, and only the workspace&rsquo;s highest level of access can remove anything — so your accountability trail holds up.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.8</div>
-            <h3 class="cap-name">Your Data Stays Yours</h3>
-            <p class="cap-desc">You are never locked in. Export any part of your records to CSV, Excel, or Print at any time, in full — and take an encrypted, whole-workspace backup that only your own passphrase can open. A backup carries only your data, nothing hidden. And if something ever goes wrong, recovery is handled carefully together with support, so a good record can't be overwritten by a single wrong click.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.9</div>
-            <h3 class="cap-name">One Account, One Active Place</h3>
-            <p class="cap-desc">Equipment rooms have shared terminals, and laptops get forgotten. In GearLogs an account is signed in at one place at a time: signing in on a new device politely ends the previous session, so a screen left open somewhere else can never keep acting under your name. Tabs in the same browser share one session, and the newest sign-in always wins — you can never be locked out of your own account. Every sign-in notice says when, from what device and from which address, and a password change signs out every device, this one included.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.10</div>
-            <h3 class="cap-name">Report a Security Issue</h3>
-            <p class="cap-desc">A security.txt file at /.well-known/security.txt names the contact for a vulnerability report &mdash; ops@gearlogs.com &mdash; in the machine-readable format automated scanners check first, and a person reads what lands there.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="section section-alt" id="pricing">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">Section 4</div>
-          <h2 class="section-title">The Terms</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="price-wrap reveal">
-          <div class="price-panel">
-            <div class="price-headline">One plan. It scales with your team.</div>
-            <div class="price-baseline" style="margin-bottom: 10px;">
-              <span class="price-baseline-amount" dir="ltr">$199</span>
-              <span class="price-baseline-per">per month &middot; 5 accounts included</span>
-            </div>
-            <p class="price-rule">One base plan with every capability. Beyond the five included accounts, each person who can sign in is a flat $39 a month; add Priority Operations for a faster reply. Yearly is two months free &mdash; no tiers, no modules.</p>
-            <ul class="price-facts">
-              <li>Five accounts come with the base plan; beyond them, each person who can sign in is a flat $39 a month. Park someone and their seat frees at once; lower the count and it comes off your next bill.</li>
-              <li>Up to 5,000 emails a month included; packs of 1,000 for $5 a month ($48 a year on a yearly plan) when you need more.</li>
-              <li>Cancel anytime; your data stays exportable, and read-only for 12 months after, then deleted with at least 30 days&rsquo; notice by email.</li>
-            </ul>
-            <div class="price-ctas">
-              <a href="/contact?reason=purchase&amp;from=home" class="btn-primary">Request Access</a>
-              <a href="/pricing" class="btn-secondary">Build your plan &rarr;</a>
+    <gl-band photo="hero" variant="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="band-kicker rise">Gear &amp; consumables &middot; custody records</p>
+            <h1 class="band-title">Every item.<br>Every hand.<br>Every signature.</h1>
+            <p class="band-lede rise rise-1">GearLogs is the record for organisations that hand out gear and consumables to dozens or hundreds of people: army units, hospitals, emergency services, depots and companies. Know where everything is, who holds it, what happened to it, and what is still under warranty.</p>
+            <div class="actions rise rise-2">
+              <a class="btn btn-go" href="/contact?reason=access&amp;from=home">Request access <span class="ar" aria-hidden="true">&rarr;</span></a>
+              <a class="btn btn-ghost" href="#capabilities">See the app</a>
             </div>
           </div>
-          <div class="price-aside">
-            <p class="price-quote">&ldquo;A record that holds up when someone asks who had what.&rdquo;</p>
-            <p class="price-why">That's what you're paying for: a custody record no account can edit, a complete audit trail, encrypted backups you can open without us, and two-factor sign-in a workspace can require. The price funds the record's integrity &mdash; not a feature ladder.</p>
-            <p class="price-why">Billing is handled by Paddle, our merchant of record &mdash; taxes and invoices included.</p>
+          <div class="glass rise rise-3">
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>1</bdi><span class="gp-unit">act</span></p><p>A whole kit handed out and checked</p></div>
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>0</bdi><span class="gp-unit">seats</span></p><p>For the people who receive gear</p></div>
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>12</bdi><span class="gp-unit">months</span></p><p>Of activity in the log, up to 50,000 actions</p></div>
+          </div>
+        </div>
+    </gl-band>
+
+    <section class="sec dark">
+      <div class="wrap prob">
+        <gl-photo name="paper" class="prob-img rv" sizes="530px"></gl-photo>
+        <div class="rv">
+          <span class="lbl">The problem</span>
+          <h2 class="h2">A clipboard was never a record.</h2>
+          <div class="qa"><div><b>Who has radio 7?</b><span>Nobody wrote it down.</span></div><div><b>Did it come back broken?</b><span>The sheet doesn&rsquo;t say.</span></div><div><b>Is it still under warranty?</b><span>Somewhere, in a folder.</span></div></div>
+          <p class="prob-close">GearLogs replaces the sheet with a receipt each person is asked to sign, and a history no account can edit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="capabilities">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">What it does</span>
+          <h2 class="h2">One system for the whole store.</h2>
+          <p class="lede">From the shelf to the person and back, every step is recorded, and every screen below is the real app.</p>
+        </div>
+        <div class="feats" id="how-it-works">
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">Logistics</span>
+              <h3>Where is it, and how much is left?</h3>
+              <p>Every item shows its stock, what is in use and what is in repair, group by group, with the activity behind it.</p>
+              <ul class="pts"><li>In stock, in use, in repair</li><li>Stock rings per group</li><li>Every move counted</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="board"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">Stock and capacity</span>
+              <h3>Know what to reorder before you run out.</h3>
+              <p>Storage fill against capacity, the items running low, the shelves over capacity, and 90 days of activity on one dashboard.</p>
+              <ul class="pts"><li>Fill against capacity</li><li>A low-stock list</li><li>Over-capacity alerts</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="dashboard-stock"></gl-shot></div>
+          </div>
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">Hand out</span>
+              <h3>One item or a whole kit, in one act.</h3>
+              <p>Pick the people, give each their own quantity, and see what each will hold afterwards and what is left. The numbers are checked before anything moves.</p>
+              <ul class="pts"><li>Stock checked first</li><li>Each person&rsquo;s own quantity</li><li>A receipt opens for each person</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="handout-window"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">Approvals</span>
+              <h3>Every hand&#8209;out opens a receipt to sign.</h3>
+              <p>The person signs for what they received on My Gear, or says what is wrong, with no account and no password. A dispute comes back to you with the reason.</p>
+              <ul class="pts"><li>Waiting &middot; signed &middot; disputed</li><li>A reason from a list, and their own words</li><li>An unsigned receipt expires after 14 days</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="approvals-receipt" inset="mygear-receipt"></gl-shot></div>
+          </div>
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">People</span>
+              <h3>Everything a person received, returned or used.</h3>
+              <p>Open anyone and see their history: every item received, every return, every consumable dispensed, with the date and who handled it.</p>
+              <ul class="pts"><li>Received and returned</li><li>Consumables dispensed</li><li>Dated, with who handled it</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="person-card"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">Registry</span>
+              <h3>Every serial unit&rsquo;s whole life.</h3>
+              <p>Serial numbers, holders, condition and warranty on every unit. In repair, lost and written off are states the whole team can see.</p>
+              <ul class="pts"><li>Warranty and service contracts</li><li>In repair &middot; lost &middot; written off</li><li>An unserviceable unit can&rsquo;t be issued by mistake</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="registry"></gl-shot></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <section class="sec dark">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">The paper trail, digital</span>
+          <h2 class="h2 narrow">Every hand-out, return and write-off, on the record.</h2>
+        </div>
+        <div class="nums rv">
+          <div><p class="num-v"><bdi data-to="14">14</bdi><span class="num-unit">days</span></p><p>A receipt waits for its signature</p></div>
+          <div><p class="num-v"><bdi data-to="12">12</bdi><span class="num-unit">months</span></p><p>Of activity in the log, up to 50,000 actions</p></div>
+          <div><p class="num-v"><bdi data-to="5">5</bdi><span class="num-unit">accounts</span></p><p>Included in the base plan</p></div>
+          <div><p class="num-v"><bdi data-to="6">6</bdi><span class="num-unit">states</span></p><p>Every receipt, from waiting to signed, disputed or expired</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="who">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">Who it&rsquo;s for</span>
+          <h2 class="h2">Built for organisations that hand out gear every day.</h2>
+        </div>
+        <div class="tiles">
+          <div class="tile w3 rv"><gl-photo name="army" class="tile-img" sizes="620px"></gl-photo><div class="tile-tx"><span class="chip">Army theme in the app</span><h3>Army and defence units</h3><p>Radios, optics, kits and protective gear, signed for by every soldier.</p></div></div>
+          <div class="tile w3 rv"><gl-photo name="hospital" class="tile-img" sizes="620px"></gl-photo><div class="tile-tx"><span class="chip">Medical theme in the app</span><h3>Hospitals and clinics</h3><p>Defibrillators, pumps and monitors, with their warranties.</p></div></div>
+          <div class="tile rv"><gl-photo name="emergency" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>Emergency and municipal services</h3><p>Radios and field kits, handed out per shift.</p></div></div>
+          <div class="tile rv"><gl-photo name="depot" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>Logistics depots</h3><p>Scanners and tools, shift after shift.</p></div></div>
+          <div class="tile rv"><gl-photo name="office" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>Medium and large organisations</h3><p>Laptops, phones and keys for dozens to hundreds of people.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec fog">
+      <div class="wrap pair">
+        <div class="pc rv"><gl-photo name="repair" class="pc-img" sizes="606px"></gl-photo><h3>Broken is a state, not a surprise.</h3><p>Mark a unit unserviceable and it can&rsquo;t be handed out until it is fixed. Losses and write-offs are recorded with a reason.</p></div>
+        <div class="pc rv"><gl-photo name="consumables" class="pc-img" sizes="606px"></gl-photo><h3>Consumables, counted as they are used.</h3><p>Batteries, gloves and spare parts are dispensed to people and counted, so the low-stock list tells you what to reorder.</p></div>
+      </div>
+    </section>
+
+    <section class="sec dark" id="security">
+      <div class="wrap secg">
+        <div class="rv">
+          <span class="lbl">Security</span>
+          <h2 class="h2">No account can edit the history.</h2>
+          <ul class="facts"><li>Routine accounts cannot delete from it.</li><li>A workspace can require two-factor sign-in.</li><li>Encrypted backups only your own passphrase can open.</li><li>Your data stays in the EU (Frankfurt).</li><li>A full export, whenever you want it.</li></ul>
+          <p class="sec-more"><a class="more-link" href="/product#security-detail">Security in detail <span class="ar" aria-hidden="true">&rarr;</span></a></p>
+        </div>
+        <gl-photo name="handover" class="sec-img rv" sizes="500px"></gl-photo>
+      </div>
+    </section>
+
+    <section class="sec" id="pricing">
+      <div class="wrap price rv">
+        <div>
+          <span class="lbl">Pricing</span>
+          <h2 class="h2">Every price is on the page.</h2>
+          <div class="pl"><div><b><bdi>$199</bdi></b><span>a month, 5 accounts included</span></div><div><b><bdi>$39</bdi></b><span>a month for each extra account</span></div><div><b><bdi>0</bdi></b><span>accounts for people who only receive gear</span></div></div>
+        </div>
+        <a class="more-link" href="/pricing">See pricing <span class="ar" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
     <section class="section cta-section" id="contact">
-      <div class="section-inner cta-inner reveal">
-        <div class="cta-stamp">CLEARED FOR OPERATIONS</div>
-        <h2 class="cta-title">Access by request.</h2>
-        <p class="cta-desc">We onboard organizations we can serve well. Tell us what you run, and we'll set you up.</p>
-
-        <a href="/contact?reason=access&amp;from=home" class="btn-primary btn-large">Request Access</a>
+      <div class="section-inner cta-inner rv">
+        <h2 class="cta-title">Access by request</h2>
+        <p class="cta-desc">GearLogs is invite-only. Tell us about your store and a person replies, usually within one business day.</p>
+        <a href="/contact?reason=access&amp;from=home" class="btn btn-light btn-lg">Request access <span class="ar" aria-hidden="true">&rarr;</span></a>
         <p class="cta-fallback">Prefer email? Write to <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
-        <p class="cta-about">Made by RAQIOM — software for the people who run things.</p>
       </div>
     </section>
-
-    <!-- Footer -->

@@ -1,10 +1,11 @@
 // Chrome renderers for the GearLogs marketing site: the <head>, header, footer, the
-// language toggle and the hreflang/canonical wiring — ONE source, rendered per language,
-// replacing the header/footer that used to be copy-pasted into all 22 pages.
+// language toggle and the hreflang/canonical wiring — ONE source, rendered per language.
+// Stage 2 (2026-09-27): the approved Home Mock's chrome — the header floats transparent over the
+// page's first photo band, the Help menu opens on click, the footer is an ink band.
 //
 // A "page" is described in src/pages.mjs. This module turns a page + a language into HTML.
 
-import { CHROME, NAV_ITEMS, SITE_ORIGIN, APP_URL, dirOf, prefixOf, t } from './i18n.mjs';
+import { CHROME, NAV_ITEMS, FOOTER_COLUMNS, SITE_ORIGIN, APP_URL, dirOf, prefixOf, t } from './i18n.mjs';
 
 /** Absolute canonical URL for a page in a language. Home is the bare origin (EN) / origin+/he/ (HE). */
 export function canonicalUrl(page, lang) {
@@ -59,6 +60,27 @@ const OG_IMAGE_BLOCK = [
   '  <meta property="og:image:alt" content="GearLogs — Know what you have. Know who has it.">',
 ].join('\n');
 
+/** Who publishes the site, on every listed page (Stage 2 SEO basics — entity markup only, never ratings or claims). */
+const ORGANIZATION_LD = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'GearLogs',
+  url: `${SITE_ORIGIN}/`,
+  logo: `${SITE_ORIGIN}/img/logo-mark.png`,
+  parentOrganization: { '@type': 'Organization', name: 'RAQIOM', url: 'https://raqiom.com' },
+});
+/** The site itself, on the home page (no SearchAction: the site has no search). */
+const WEBSITE_LD = JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'GearLogs', url: `${SITE_ORIGIN}/`, inLanguage: ['en', 'he'] });
+
+/** The font files every page of a language paints its first screen with, fetched before the stylesheet asks for them (the
+ *  rest load on demand through unicode-range). Two at most, so they never compete with the stylesheet. Measured 2026-09-27
+ *  (CPU ×4, fast 4G): /he/faq still shifts 0.058 — below 0.1, "good" — when the Latin face lands, because a Hebrew line takes
+ *  its spaces from it; preloading every Hebrew weight did not change that (listed: size-adjusted fallback faces). */
+const PRELOAD_FONTS = {
+  en: ['ibm-plex-sans-latin-wght-normal.woff2'],
+  he: ['ibm-plex-sans-hebrew-hebrew-400-normal.woff2', 'ibm-plex-sans-latin-wght-normal.woff2'],
+};
+
 /** Render the full <head> for a page in a language. Driven entirely by page.opts (no inference). */
 export function renderHead(page, lang) {
   const m = page.head[lang];
@@ -81,8 +103,11 @@ export function renderHead(page, lang) {
   if (page.bilingual && o.canonical !== false) L.push(alternates(page));
   if (o.ogImage) L.push(OG_IMAGE_BLOCK);
   L.push('  <link rel="icon" type="image/svg+xml" href="/favicon.svg">');
+  for (const font of PRELOAD_FONTS[lang]) L.push(`  <link rel="preload" href="/fonts/${font}" as="font" type="font/woff2" crossorigin>`);
   L.push('  <link rel="stylesheet" href="/styles/main.css">');
   if (o.extraHead) L.push(o.extraHead);
+  if (page.sitemap) L.push(`  <script type="application/ld+json">${ORGANIZATION_LD}</script>`);
+  if (page.path === '/') L.push(`  <script type="application/ld+json">${WEBSITE_LD}</script>`);
   if (o.jsonld && page.jsonld?.[lang]) {
     L.push('  <script type="application/ld+json">');
     L.push(page.jsonld[lang]);
@@ -100,111 +125,111 @@ function counterpartHref(page, lang) {
     : (page.path === '/' ? '/' : page.path);
 }
 
-/** The header language toggle — a link to the counterpart page in the other language. */
+/** The header language toggle — a link to the counterpart page in the other language (none on a page without one). */
 function langToggle(page, lang) {
-  if (!page.bilingual) return '';
+  if (!page.bilingual || !page.sitemap) return '';
   const other = lang === 'he' ? 'en' : 'he';
   return `<a class="lang-toggle" href="${counterpartHref(page, lang)}" hreflang="${other}" lang="${other}" aria-label="${t(lang, 'lang_switch_aria')}">${t(lang, 'lang_switch_to')}</a>`;
 }
 
+/** aria-current for a nav target: "page" on the page itself, "true" on a page inside its section (a Field Note under Field Notes). */
+function currentOf(page, href) {
+  if (page.path === href) return ' aria-current="page"';
+  if (page.activeNav === href) return ' aria-current="true"';
+  return '';
+}
+
+/** The bar's links: plain items, and the Help menu (a <details> disclosure — it opens on click, never on hover alone). */
 function navLinks(page, lang) {
   const isHome = page.path === '/';
-  const activeNav = page.activeNav || null; // e.g. '/notes' for a note article; null on the home page
+  const link = (item, indent) => `${indent}<a href="${localizeHref(item.href, lang, isHome)}"${currentOf(page, item.href)}>${t(lang, item.key)}</a>`;
   return NAV_ITEMS.map((item) => {
-    const href = localizeHref(item.href, lang, isHome);
-    const active = item.href === activeNav ? ' class="active" aria-current="page"' : '';
-    return `          <a href="${href}"${active}>${t(lang, item.key)}</a>`;
+    if (!item.menu) return link(item, '          ');
+    const current = item.menu.some((m) => currentOf(page, m.href)) ? ' is-current' : '';
+    return (
+      `          <details class="nav-menu${current}">\n` +
+      `            <summary>${t(lang, item.key)}</summary>\n` +
+      `            <div class="nav-menu-list">\n` +
+      item.menu.map((m) => link(m, '              ')).join('\n') + '\n' +
+      `            </div>\n` +
+      `          </details>`
+    );
   }).join('\n');
 }
 
-/** Render the header. Variants: 'full' (nav + toggle + CTA), 'stripped' (Home only), 'minimal' (Home + Pricing). */
+/** The wordmark: GEAR + LOGS in the brand red, always left-to-right. */
+function logo(lang) {
+  const homeHref = lang === 'he' ? '/he/' : '/';
+  return `<a href="${homeHref}" class="logo" aria-label="${t(lang, 'logo_aria')}">GEAR<span>LOGS</span></a>`;
+}
+
+/**
+ * Render the header. Variants by page.chrome: 'full' (the bar + the Help menu), 'stripped' (Home only), 'minimal'
+ * (Home + Pricing). It floats over the page's photo band; a page that opens without one gets it on a plain ink ground.
+ */
 export function renderHeader(page, lang) {
   const homeHref = lang === 'he' ? '/he/' : '/';
-  const toggle = langToggle(page, lang);
-  const cta = `<a href="${APP_URL}" class="nav-cta">${t(lang, 'nav_cta')}</a>`;
-  const logoImg = page.opts?.logoPriority
-    ? '<img class="logo-mark" src="/img/logo-mark.png" alt="" width="42" height="39" fetchpriority="high">'
-    : '<img class="logo-mark" src="/img/logo-mark.png" alt="" width="42" height="39">';
-  const logo =
-    `        <a href="${homeHref}" class="logo" aria-label="${t(lang, 'logo_aria')}">\n` +
-    `          ${logoImg}\n` +
-    `          <span class="logo-wm">GEAR<span class="lr">LOGS</span></span>\n` +
-    `        </a>`;
-
   let nav;
   if (page.chrome === 'stripped') {
-    nav = `        <nav class="nav"><a href="${homeHref}">${t(lang, 'nav_home')}</a></nav>`;
+    nav = `          <a href="${homeHref}">${t(lang, 'nav_home')}</a>`;
   } else if (page.chrome === 'minimal') {
-    nav = `        <nav class="nav"><a href="${homeHref}">${t(lang, 'nav_home')}</a><a href="${localizeHref('/pricing', lang, false)}">${t(lang, 'nav_pricing')}</a></nav>`;
+    nav = `          <a href="${homeHref}">${t(lang, 'nav_home')}</a>\n          <a href="${localizeHref('/pricing', lang, false)}">${t(lang, 'nav_pricing')}</a>`;
   } else {
-    nav = `        <nav class="nav">\n${navLinks(page, lang)}\n        </nav>`;
+    nav = navLinks(page, lang);
   }
-
-  const right = [toggle, cta].filter(Boolean).join('\n        ');
+  const request = localizeHref('/contact?reason=access&amp;from=header', lang, false);
+  const right = [
+    langToggle(page, lang),
+    `<a class="signin" href="${APP_URL}">${t(lang, 'nav_signin')}</a>`,
+    `<a class="btn btn-go btn-sm" href="${request}">${t(lang, 'nav_request')}</a>`,
+  ].filter(Boolean).join('\n          ');
   return (
-    `    <header class="header">\n` +
-    `      <div class="header-inner">\n` +
-    `${logo}\n` +
-    `${nav}\n` +
-    `        ${right}\n` +
+    `    <header class="site-header${page.opensWithBand ? '' : ' is-solid'}">\n` +
+    `      <div class="wrap bar">\n` +
+    `        ${logo(lang)}\n` +
+    `        <nav class="nav-links" aria-label="${t(lang, 'nav_aria')}">\n${nav}\n        </nav>\n` +
+    `        <div class="navr">\n          ${right}\n        </div>\n` +
     `      </div>\n` +
     `    </header>`
   );
 }
 
-/** Render the footer. Variants: 'full' (brand + 4 columns), 'minimal' (copyright only). */
+/** Render the footer. Variants by page.footer: 'full' (the brand + the link columns), 'minimal' (the bottom row and the legal links). */
 export function renderFooter(page, lang) {
   const c = (href) => localizeHref(href, lang, page.path === '/');
-  // A manual language switcher in the footer bar too (the Director's ask), beside the copyright.
+  // The footer keeps its own language switch (the Director's ask), beside the facts line.
   const other = lang === 'he' ? 'en' : 'he';
-  const footerLang = page.bilingual
+  const footerLang = page.bilingual && page.sitemap
     ? `\n          <a class="footer-lang" href="${counterpartHref(page, lang)}" hreflang="${other}" lang="${other}" aria-label="${t(lang, 'lang_switch_aria')}">${t(lang, 'lang_switch_to')}</a>`
     : '';
-  const copyright = `        <div class="footer-bottom">\n          <span>${t(lang, 'footer_copyright')}</span>${footerLang}\n        </div>`;
+  const legal = page.footer === 'minimal'
+    ? `\n          <span class="foot-legal">${[['footer_terms', '/terms'], ['footer_privacy', '/privacy'], ['footer_refunds', '/refunds']].map(([k, h]) => `<a href="${c(h)}">${t(lang, k)}</a>`).join('')}</span>`
+    : '';
+  const row =
+    `        <div class="foot-row">\n` +
+    `          <span>${t(lang, 'footer_made')} &middot; <a href="https://raqiom.com" target="_blank" rel="noopener">raqiom.com</a></span>\n` +
+    `          <span class="foot-end">${legal}\n          <span>${t(lang, 'footer_facts')}</span>${footerLang}\n          </span>\n` +
+    `        </div>`;
 
   if (page.footer === 'minimal') {
-    return `    <footer class="footer">\n      <div class="footer-inner">\n${copyright}\n      </div>\n    </footer>`;
+    return `    <footer class="site-footer is-minimal">\n      <div class="wrap">\n${row}\n      </div>\n    </footer>`;
   }
-
+  const columns = FOOTER_COLUMNS.map((col) =>
+    `          <div>\n` +
+    `            <h2 class="foot-h">${t(lang, col.key)}</h2>\n` +
+    `            <ul class="foot-list">\n` +
+    col.links.map(([key, href]) => `              <li><a href="${c(href)}">${t(lang, key)}</a></li>`).join('\n') + '\n' +
+    `            </ul>\n` +
+    `          </div>`,
+  ).join('\n');
   return (
-    `    <footer class="footer">\n` +
-    `      <div class="footer-inner">\n` +
-    `        <div class="footer-brand">\n` +
-    `          <div class="footer-logo">GEARLOGS</div>\n` +
-    `          <div class="footer-by">${t(lang, 'footer_by')} <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM</a></div>\n` +
-    `          <div class="footer-tagline">${t(lang, 'footer_tagline')}</div>\n` +
+    `    <footer class="site-footer">\n` +
+    `      <div class="wrap">\n` +
+    `        <div class="foot-cols">\n` +
+    `          <div>\n            ${logo(lang)}\n            <p class="foot-tag">${t(lang, 'footer_tagline')}</p>\n          </div>\n` +
+    `${columns}\n` +
     `        </div>\n` +
-    `        <div class="footer-links">\n` +
-    `          <div class="footer-col">\n` +
-    `            <div class="footer-col-title">${t(lang, 'footer_col_product')}</div>\n` +
-    `            <a href="${c('/#capabilities')}">${t(lang, 'nav_capabilities')}</a>\n` +
-    `            <a href="${c('/#how-it-works')}">${t(lang, 'nav_how')}</a>\n` +
-    `            <a href="${c('/#security')}">${t(lang, 'nav_security')}</a>\n` +
-    `            <a href="${c('/pricing')}">${t(lang, 'nav_pricing')}</a>\n` +
-    `            <a href="${APP_URL}">${t(lang, 'nav_cta')}</a>\n` +
-    `          </div>\n` +
-    `          <div class="footer-col">\n` +
-    `            <div class="footer-col-title">${t(lang, 'footer_col_resources')}</div>\n` +
-    `            <a href="${c('/guides')}">${t(lang, 'nav_guides')}</a>\n` +
-    `            <a href="${c('/faq')}">${t(lang, 'nav_faq')}</a>\n` +
-    `            <a href="${c('/notes')}">${t(lang, 'nav_notes')}</a>\n` +
-    `            <a href="${c('/changelog')}">${t(lang, 'nav_changelog')}</a>\n` +
-    `            <a href="${c('/contact')}">${t(lang, 'nav_contact')}</a>\n` +
-    `          </div>\n` +
-    `          <div class="footer-col">\n` +
-    `            <div class="footer-col-title">${t(lang, 'footer_col_suite')}</div>\n` +
-    `            <a href="https://pmolikepro.com" target="_blank" rel="noopener">PMOlikePRO</a>\n` +
-    `            <a href="https://raqiom.com" target="_blank" rel="noopener">RAQIOM.com</a>\n` +
-    `          </div>\n` +
-    `          <div class="footer-col">\n` +
-    `            <div class="footer-col-title">${t(lang, 'footer_col_legal')}</div>\n` +
-    `            <a href="${c('/privacy')}">${t(lang, 'footer_privacy')}</a>\n` +
-    `            <a href="${c('/terms')}">${t(lang, 'footer_terms')}</a>\n` +
-    `            <a href="${c('/refunds')}">${t(lang, 'footer_refunds')}</a>\n` +
-    `            <a href="${c('/#security')}">${t(lang, 'nav_security')}</a>\n` +
-    `          </div>\n` +
-    `        </div>\n` +
-    `${copyright}\n` +
+    `${row}\n` +
     `      </div>\n` +
     `    </footer>`
   );
@@ -212,7 +237,7 @@ export function renderFooter(page, lang) {
 
 /** The "view in Hebrew" banner mount (EN indexable pages only; lang-banner.js reveals it). */
 export function renderBanner(page, lang) {
-  if (lang !== 'en' || !page.bilingual) return '';
+  if (lang !== 'en' || !page.bilingual || !page.sitemap) return '';
   const heHref = page.path === '/' ? '/he/' : `/he${page.path}`;
   return (
     `    <div class="lang-nudge" id="lang-nudge" data-he-url="${heHref}" hidden>\n` +
@@ -223,13 +248,14 @@ export function renderBanner(page, lang) {
   );
 }
 
-/** Assemble a full HTML document for a page in a language. */
+/** Assemble a full HTML document for a page in a language. `page.opensWithBand` is set by the build (scripts/lib/band.mjs). */
 export function renderPage(page, lang, body) {
   const localizedBody = localizeBodyLinks(body, lang);
   const banner = renderBanner(page, lang); // '' when not applicable
 
-  // The nudge needs one small script; the toggle is a plain link and needs none.
+  // The nudge needs one small script, the Help menu another; the language toggle is a plain link and needs none.
   const scriptList = [...(page.scripts || [])];
+  if (page.chrome === 'full') scriptList.push('/js/menu.js');
   if (banner) scriptList.push('/js/lang-banner.js');
   const scripts = scriptList.map((s) => {
     if (typeof s === 'string') return `  <script src="${s}" defer></script>`;
@@ -241,12 +267,12 @@ export function renderPage(page, lang, body) {
     `<html lang="${t(lang, 'html_lang')}" dir="${dirOf(lang)}">\n` +
     `${renderHead(page, lang)}\n` +
     `<body>\n` +
-    `  <div class="page">\n\n` +
-    `    <div class="class-stripe"></div>\n\n` +
+    `  <a class="skip" href="#main">${t(lang, 'skip_link')}</a>\n` +
+    (banner ? `${banner}\n` : '') +
+    `  <div class="page">\n` +
     `${renderHeader(page, lang)}\n` +
-    (banner ? `\n${banner}\n` : '') +
-    `\n${localizedBody}\n\n` +
-    `${renderFooter(page, lang)}\n\n` +
+    `    <main id="main">\n${localizedBody.replace(/\s+$/, '')}\n    </main>\n` +
+    `${renderFooter(page, lang)}\n` +
     `  </div>\n` +
     (scripts ? `${scripts}\n` : '') +
     `</body>\n` +

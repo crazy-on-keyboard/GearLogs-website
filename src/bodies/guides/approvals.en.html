@@ -1,0 +1,103 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.27</p>
+        <p class="band-kicker">Guide 4.27 <span class="sep">&middot;</span> Approvals</p>
+        <h1 class="band-title">Read a receipt, and act on it</h1>
+        <p class="band-lede">See every receipt your people have to sign, open one to read what happened, and close the ones that need you.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Everyone in the workspace can open Approvals and read the receipts of the people they can see. Acting on a receipt, and reading its notes, needs the right <em>Confirm a hand-over on behalf</em>. Administrators have it.</li>
+            <li>A receipt opens by itself for every hand-out, return and write-off to a person. The person signs it on <em>My Gear</em> within 14 days.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open <em>Approvals</em>.</h2>
+            <ol class="guide-marks">
+              <li>Open <em>Approvals</em> from the side menu.</li>
+              <li>The rail counts every state: <em>Waiting</em>, <em>Disputed</em>, <em>Signed</em>, <em>On behalf</em>, <em>Cancelled</em> and <em>Expired</em>. The counts update live.</li>
+            </ol>
+            <gl-shot id="approvals" caption="Approvals in the side menu, and the rail with its six states. Waiting is open." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Open a receipt to read it.</h2>
+            <ol class="guide-marks">
+              <li>Pick a receipt in the list. Its facts open at the top: the act, the person, who recorded it and when.</li>
+              <li>Its lines, exactly as they were handed over. A line the person disputed says <em>named in the dispute</em>.</li>
+              <li>The timeline: opened, the morning mail queued, sent, delivered or not, disputed with the person&rsquo;s reason, signed, confirmed on behalf or cancelled. Every entry names who did it.</li>
+              <li><em>Show notes</em> opens the words behind a dispute or a decision, for the same people who can act on the receipt.</li>
+            </ol>
+            <gl-shot id="approvals-receipt" caption="A disputed receipt, confirmed on the person&rsquo;s behalf: the lines they flagged, the timeline and both notes." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Act on a receipt that is still open.</h2>
+            <ol class="guide-marks">
+              <li><em>Confirm on behalf</em> closes it as received.</li>
+              <li><em>Resend reminder</em> sends the person a reminder now, once per person a day. During quiet hours it is refused and says when they end.</li>
+              <li><em>Cancel receipt</em> closes one recorded in error.</li>
+            </ol>
+            <p>Confirming and cancelling both need a reason of at least 8 characters. The reason stays with the receipt: it is never mailed or logged.</p>
+            <gl-shot id="approvals-open" caption="The three actions under an open receipt, numbered as in the list above." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Spot open receipts on the board.</h2>
+            <p>A receipt&rsquo;s state also shows as a small mark on the board. The mark opens the receipt.</p>
+            <ol class="guide-marks">
+              <li>On the person&rsquo;s card.</li>
+              <li>On a kit&rsquo;s row. The item&rsquo;s card carries the same mark.</li>
+            </ol>
+            <gl-shot id="person-card" caption="The person&rsquo;s card and the kit row carry the receipt&rsquo;s state: 1 disputed." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Fix a person who cannot receive a code.</h2>
+            <p>Someone with no email on record, or with neither an ID number nor a personal number, cannot sign in to <em>My Gear</em>.</p>
+            <ol class="guide-marks">
+              <li>On Personnel, the <em>Cannot receive a code</em> filter lists them all, with their count.</li>
+              <li>Each of them carries the <em>No code</em> mark.</li>
+            </ol>
+            <p>Add the missing detail on the person&rsquo;s card, and the mark clears.</p>
+            <gl-shot id="personnel" caption="The filter counts everyone who cannot receive a code, and each of them carries the No code mark." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Follow receipts on the dashboard and in exports.</h2>
+            <p>The <em>Approvals</em> source gives four dashboard cards:</p>
+            <ol class="guide-marks">
+              <li><em>Receipts by state</em>: how many are in each state.</li>
+              <li><em>Waiting for a signature</em>: who is waiting, and the longest wait.</li>
+              <li><em>Time to confirm</em>: the average time to a confirmation.</li>
+              <li><em>Opened vs confirmed</em>: receipts opened and confirmed over time.</li>
+            </ol>
+            <p>Under Data Ops &rsaquo; Exports, <em>Approvals Reports</em> holds <em>Hand-over receipts</em> and <em>Receipt lines</em>. The email column needs <em>View Contact Details</em>, and the notes never leave the app.</p>
+            <gl-shot id="dashboard-approvals" caption="The four Approvals cards on the dashboard, numbered as in the list." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>You see every receipt by state, you close the open ones that need you, and you follow them on the dashboard.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>This receipt expired unsigned; the gear may still be out.</q> A receipt past its 14 days cannot be confirmed.</li>
+            <li><q>This receipt is closed — nothing more to do.</q> It was already signed, confirmed on behalf or cancelled.</li>
+            <li><em>Resend reminder</em> during quiet hours is refused, and says when the quiet hours end.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="sign-in-my-gear"></gl-guide-link></li>
+            <li><gl-guide-link slug="give-my-gear"></gl-guide-link></li>
+            <li><gl-guide-link slug="dashboard"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

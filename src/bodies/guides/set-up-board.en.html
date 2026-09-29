@@ -1,0 +1,130 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.1</p>
+        <p class="band-kicker">Guide 4.1 <span class="sep">&middot;</span> Board</p>
+        <h1 class="band-title">Build your board from tabs and groups</h1>
+        <p class="band-lede">Give each department its own tab, add groups inside it, fill them with your items or people, and arrange the board in the order you read it.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Adding and editing tabs and groups, and <em>Edit Layout</em>, need the right <em>Manage Tabs &amp; Groups</em>. Administrators and operators have it.</li>
+            <li>Adding items to a group, and dragging them, need <em>Create/Edit Items</em>. On Personnel, people need <em>Create/Edit Personnel</em>. Administrators and operators have both.</li>
+            <li>Only a <em>Super Administrator</em> can delete a tab or a group, and only an empty one.</li>
+            <li>The Logistics and Personnel boards work the same way. This guide shows Logistics.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open the board on Logistics.</h2>
+            <p>Open Logistics from the side menu, on <em>Equipment</em>. The board opens on its first tab.</p>
+            <ol class="guide-marks">
+              <li>Logistics in the side menu.</li>
+              <li>The open tab, filled with its own colour. Inside it sit <em>View activity log</em> and <em>Edit</em>.</li>
+              <li><em>+ TAB</em> adds a tab at the end of the row.</li>
+            </ol>
+            <p>Each tab is a department. Tabs wrap onto a new row as you add more.</p>
+            <gl-shot id="board-tabs" caption="The Warehouse tab open on Logistics, and + TAB at the end of the row." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Name the tab and pick its colour.</h2>
+            <p><em>+ TAB</em> opens a window of the same name.</p>
+            <ol class="guide-marks">
+              <li><em>Tab Name</em>: up to 30 characters. No two tabs in the workspace share a name.</li>
+              <li><em>Color Indicator</em>: the tab&rsquo;s outline, and its fill while it is open.</li>
+              <li><em>Save</em> adds the tab and opens it.</li>
+            </ol>
+            <p>GearLogs gives every tab its own code, such as TB-001. It shows in <em>Edit Tab</em>, and it cannot be changed.</p>
+            <gl-shot id="board-tab-new" caption="The + TAB window: the name, the colour and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Add groups to the tab.</h2>
+            <p>The dashed <em>+ GROUP</em> box after the last group opens the <em>+ GROUP</em> window.</p>
+            <ol class="guide-marks">
+              <li><em>Group Name</em>: up to 40 characters. No two groups in the same tab share a name.</li>
+              <li><em>Color Indicator</em>: the border of the group&rsquo;s card.</li>
+              <li><em>Notes</em>: up to 200 characters, shown at the top of the card.</li>
+              <li><em>Save</em> adds the group at the end of the tab.</li>
+            </ol>
+            <p>Each group gets its own code, such as GR-001, shown under its name.</p>
+            <gl-shot id="board-group-new" caption="The + GROUP window: the name, the colour, the notes and Save." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Fill a group.</h2>
+            <p>Each group card carries its own buttons in its header.</p>
+            <ol class="guide-marks">
+              <li>The group&rsquo;s name, its (i) and its code.</li>
+              <li><em>View activity log</em>, and the ⋮ menu with <em>Edit</em>. For a Super Administrator it also holds <em>Delete</em>.</li>
+              <li><em>Add</em> opens <em>+ ITEM</em> for a new item in this group. On Personnel it opens <em>+ PERSON</em>.</li>
+            </ol>
+            <p>Every item and every person sits in one group. To move a card, drag it onto another group, or onto a tab to put it in that tab&rsquo;s first group. <em>Move this?</em> asks first, and nothing moves until you press <em>Move</em>.</p>
+            <gl-shot id="board-group-header" caption="The Handling group&rsquo;s header: its name and code, history and the menu, and Add." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Read a group card on Logistics.</h2>
+            <p>Above its list, every Logistics group card sums up its gear.</p>
+            <ol class="guide-marks">
+              <li><em>Stock</em>: a ring of what is <em>In stock</em>, <em>In use</em> and <em>In repair</em>.</li>
+              <li><em>Activity</em>: the group&rsquo;s moves over the last 30, 60 or 90 days, in columns. Your choice applies to every card.</li>
+              <li><em>In use by department</em>: who holds the group&rsquo;s gear now, by department.</li>
+              <li>The group&rsquo;s items, each on its own card.</li>
+            </ol>
+            <p>The summary always describes the whole group, even while a search narrows the board. Group cards on Personnel have no summary.</p>
+            <gl-shot id="board-group-band" caption="The Handling group&rsquo;s summary: the stock ring, the activity columns, who holds its gear, and the Hand Truck&rsquo;s card." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Arrange the groups.</h2>
+            <p><em>Edit Layout</em> at the end of the tab row adds the layout controls to every group card.</p>
+            <ol class="guide-marks">
+              <li><em>Done</em> leaves the mode.</li>
+              <li><em>Move Backward</em> and <em>Move Forward</em> move a group earlier or later in the reading order.</li>
+              <li><em>Width</em>: how many columns the group spans.</li>
+            </ol>
+            <p>Each press saves at once, for everyone. Groups take turns across the columns and stack down each one, so a short group never leaves a gap under it. How many groups sit across a row is your own setting: Settings &rsaquo; <em>Display</em> &rsaquo; <em>My Display</em> &rsaquo; <em>Groups Per Row</em>, from 1 to 6. A group never spans more columns than that.</p>
+            <gl-shot id="board-arrange" caption="Edit Layout on: Done, and the Packaging group&rsquo;s move arrows and width." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-7">
+            <h2 class="gstep-t">Rename, recolour or move a tab.</h2>
+            <p><em>Edit</em> on the open tab opens <em>Edit Tab</em>. A right-click on a tab offers it too.</p>
+            <ol class="guide-marks">
+              <li><em>ID Code</em>: the tab&rsquo;s own code.</li>
+              <li><em>Tab Name</em>.</li>
+              <li><em>Color Indicator</em>.</li>
+              <li><em>Position</em>: <em>Move Backward</em> and <em>Move Forward</em> move the tab one place along the row, at once.</li>
+            </ol>
+            <p><em>Save</em> keeps a new name or colour. A move needs no <em>Save</em>.</p>
+            <gl-shot id="board-tab-edit" caption="Edit Tab for Warehouse: its code, name, colour and position." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every department has its own tab, every group its own colour and code, and the board reads in the order you set.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Required</q> The name is empty. Type a name, then press <em>Save</em>.</li>
+            <li><q>Name already exists.</q> Another tab in the workspace, or another group in this tab, already has that name. Pick another.</li>
+            <li><q>Target department has no groups to receive the item/person.</q> You dropped a card on a tab that has no groups. Add a group to that tab first.</li>
+            <li><q>This tab still has groups inside it. Empty it first, then delete.</q> A Super Administrator tried to delete a tab that still holds groups. Move or delete its groups first.</li>
+            <li><q>This group still has items or people inside it. Empty it first, then delete.</q> The group still holds cards. Move them to another group first.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><gl-guide-link slug="assign-return"></gl-guide-link></li>
+            <li><gl-guide-link slug="access"></gl-guide-link></li>
+            <li><gl-guide-link slug="history"></gl-guide-link></li>
+            <li><gl-guide-link slug="make-it-yours"></gl-guide-link></li>
+            <li><gl-guide-link slug="import"></gl-guide-link></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

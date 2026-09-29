@@ -1,325 +1,166 @@
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-meta">
-          <div class="hero-meta-left">
-            <div class="doc-ref">SPEC GL-001</div>
-            <div class="doc-class">מפרט מערכת</div>
-          </div>
-          <div class="hero-meta-right">
-            <div class="meta-row"><span class="meta-label">סיווג</span><span class="meta-val">ארגוני</span></div>
-            <div class="meta-row"><span class="meta-label">מצב</span><span class="meta-val stamp">פעיל</span></div>
-          </div>
-        </div>
-
-        <div class="hero-divider"></div>
-
-        <h1 class="hero-title">תמיד לדעת את מצב המלאי ומי מחזיק בציוד</h1>
-        <p class="hero-desc">עקבו אחר כל פריט ציוד. דעו מי מחזיק במה. נהלו רשומות כוח אדם, הקצאות ציוד וניתוח תפעולי בכל הארגון שלכם.</p>
-
-        <div class="hero-actions">
-          <a href="https://app.gearlogs.com" class="btn-primary">כניסה למערכת</a>
-          <a href="#capabilities" class="btn-secondary">מידע נוסף</a>
-        </div>
-
-        <div class="hero-summary">
-          <div class="summary-item">
-            <span class="summary-label">מטרה</span>
-            <span class="summary-val">מעקב מלאי, ניהול כוח אדם וניתוח תפעולי לארגונים</span>
-          </div>
-          <div class="summary-item">
-            <span class="summary-label">פריסה</span>
-            <span class="summary-val">בענן, ישר מהדפדפן, סנכרון בזמן אמת — בלי להתקין כלום</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Activity — live product vignette -->
-    <section class="section section-alt" id="activity">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">חי</div>
-          <h2 class="section-title">המערכת, בפעולה</h2>
-          <div class="section-rule"></div>
-        </div>
-        <p class="activity-lead reveal">כל פעולה — ניפוק, החזרה, הקצאה, רישום אובדן — נוחתת על הרשומה ברגע שהיא קורית, מסומנת בצבע וניתנת לחיפוש. הנה דוגמה חיה איך זה נראה.</p>
-        <div class="actpanel reveal">
-          <div class="actpanel-bar">
-            <span class="act-live" aria-hidden="true"></span>
-            <span class="act-t">יומן פעילות</span><span class="act-sub">על הרשומה</span>
-            <span class="act-demo">נתוני דוגמה</span>
-            <span class="act-count"><span data-count="248">248</span> פריטים במעקב היום</span>
-            <button type="button" id="actpause" class="act-pause" aria-pressed="false" aria-label="השהיית הזנת הפעילות לדוגמה">השהיה</button>
-          </div>
-          <div class="actcols" aria-hidden="true"><span>חותמת זמן</span><span>משתמש</span><span>סוג</span><span>פעולה</span></div>
-          <div class="actviewport" aria-hidden="true"><div class="actfeed" id="actfeed"></div></div>
-          <div class="actfoot">כל פעולה מתועדת, ניתנת לחיפוש ולייצוא — נשמרת 12 חודשים</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Capabilities -->
-    <section class="section" id="capabilities">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">חלק 1</div>
-          <h2 class="section-title">יכולות</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="cap-grid">
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.1</div>
-            <h3 class="cap-name">ניהול מלאי</h3>
-            <p class="cap-desc">ארגנו פריטים לפי מחלקות וקבוצות. עקבו אחר רמות מלאי מול ספים שאתם מגדירים, ותנו לכל פריט קיבולת אחסון &mdash; מד לצד המלאי מראה עד כמה המדף מלא, והמנהלים מקבלים התראה כשהוא אוזל או חורג מהקיבולת. נהלו ציוד מתכלה וציוד עמיד בנפרד, עם בקרות פרטניות לכל פריט.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.2</div>
-            <h3 class="cap-name">ניהול כוח אדם</h3>
-            <p class="cap-desc">נהלו רשומות של אנשי צוות עם שיוך למחלקות, תפקידים ופרטי קשר — כל אדם מוצג בשמו, עם שדה מזהה אופציונלי משלכם (מספר עובד, מספר צוות או מספר אישי). עקבו אחר מי מחזיק בכל ציוד ואחר היסטוריית הצריכה שלו.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.3</div>
-            <h3 class="cap-name">הקצאת ציוד</h3>
-            <p class="cap-desc">הקצו ציוד לאנשי צוות עם מעקב כמויות &mdash; ישירות מהלוח, בעזרת כפתור שיוך מהיר ובוחר אנשים עם חיפוש, ומאותו כרטיס קטן גם פריט אחד לאנשים רבים (<em>↖ עוד אנשים</em>) או פריטים רבים לאדם אחד (<em>↖ עוד פריטים</em>) בחלון דו־פאנלי שבודק את כל הרשימה לפני שמשהו זז. בצעו החזרות ונַפְּקו מתכלים. ראש מחלקה מנפיק אצווה לצוות מאותו חלון ומחזיק בה כאחראי, עם מניפסט להדפסה. היסטוריה מלאה לכל אדם עם עדכון מלאי אוטומטי.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.4</div>
-            <h3 class="cap-name">קודי סימוכין</h3>
-            <p class="cap-desc">לכל פריט, אדם, קבוצה, כרטיסייה ואיש צוות יש קוד קבוע וקצר, המוצג על הכרטיס שלו וניתן לחיפוש בכל מקום — שזור לאורך יומן הפעילות כך שתמיד ברור למה כל רשומה מתייחסת.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.5</div>
-            <h3 class="cap-name">יומן פעילות מסומן בצבע</h3>
-            <p class="cap-desc">כל פעולה מתועדת ומסומנת בצבע לפי סוג: מי ביצע אותה, במה נגע וכמה. חפשו וסננו לפי מספר קריטריונים, וייצאו יומנים לצורכי ציות וביקורת.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.6</div>
-            <h3 class="cap-name">עבודה משותפת בזמן אמת</h3>
-            <p class="cap-desc">כל הצוות שלכם יכול לעבוד בו־זמנית. השינויים מופיעים לכולם מיד, בלי לרענן, ואפשר לראות במבט אחד מי פעיל בסביבת העבודה.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.7</div>
-            <h3 class="cap-name">ניתוח נתונים ולוח בקרה</h3>
-            <p class="cap-desc">לוח בקרה שאתם מרכיבים, עם מגוון סוגי וידג׳טים. מגמות פעילות, התראות על מלאי נמוך, עדכונים חיים ודוחות מוכנים לייצוא. הוסיפו, ערכו, שנו גודל וצפו בתצוגה מקדימה של וידג׳טים כדי לראות מה שחשוב ביותר. וידג׳טים מוכנים בשתי הקלקות &mdash; פעילות לפי סוג או לפי משתמש, קיבולת, מרשם, אובדנים, אישורים &mdash; או בנו משלכם משאלות פשוטות, לפי התקופה שאתם בוחרים ולא רק זו של לוח הבקרה.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.8</div>
-            <h3 class="cap-name">פעולות על נתונים</h3>
-            <p class="cap-desc">חדר בקרה אמיתי לנתונים שלכם, לא ציון לראווה. ייבאו מגיליון אלקטרוני או מרשימה מודבקת — GearLogs מראה לכם איך היא קראה את הקובץ שלכם לפני ששום דבר נשמר, כך שעמודה בפורמט שגוי לעולם לא תייבא נתונים שגויים מאחורי הודעת הצלחה, ושורה פגומה אחת מדווחת בשמה במקום להכשיל את כל הקובץ. העבירו פריטים ואנשים לארכיון במקום לאבד אותם, ושחזרו אותם מאוחר יותר. הכלים החזקים יושבים מאחורי תצוגה מקדימה ואישור, ומשימות ארוכות מציגות חלון התקדמות חי שמדווח על כל שלב אמיתי.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.9</div>
-            <h3 class="cap-name">מודרך וברור</h3>
-            <p class="cap-desc">כל מסך וכל פעולה שאינם מובנים מאליהם נושאים (i) קטן &mdash; הקלקה אחת פותחת בכל מקום את אותו כרטיס ברור: מה זה, מה אפשר לעשות ומה יקרה, עם קו אדום כשמשהו אינו ניתן לביטול. מקרא אחד בראש כל עמודת פעולות מציין את כל הסמלים במקום אחד ומפרט רק את מה שהתפקיד שלכם מרשה; בקרות שאינכם יכולים להשתמש בהן מעומעמות ומסבירות למה. הצבע מספר לכם על הכיוון: כפתורים ירוקים נותנים או מחזירים, אדומים־לבֵנה לוקחים, אפורים רק מציגים או עורכים &mdash; אותו הדבר בכל מסך ובכל אישור שמאחורי פעולה. לוחות הבקרה מציגים מספרים כנים ולא הערכות, כך ששום דבר חשוב הוא לא ניחוש. כל דיאלוג הוא אותו דיאלוג &mdash; פס כותרת אחד, מדף כפתורים אחד &mdash; מוכרז בשמו לקורא מסך, כשהמקלדת נשמרת בתוכו והמיקוד חוזר כשהוא נסגר; פעולה שנדחתה נשארת על המסך עם הסיבה שלה באדום, לעולם לא הודעה שנעלמת.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.10</div>
-            <h3 class="cap-name">אובדנים וארכיון</h3>
-            <p class="cap-desc">תעדו ציוד שאבד, נגנב, ניזוק או לא הוחזר — הכמות יורדת והאובדן נשמר כרשומה קבועה. העבירו לארכיון מישהו שעזב עם הציוד שלו בצעד אחד. ארכיון ייעודי מרכז אנשים שעזבו, ציוד שהועבר לארכיון וכל אובדן במקום אחד, עם חיפוש, מסננים וייצוא — שחזרו כל דבר, או החזירו פריט שנרשם כאובדן חזרה למלאי. האובדנים נשארים גלויים במקום שבו אתם עובדים: מסומנים על כרטיסי האדם והפריט עם היסטוריה מלאה, משורטטים בלוחות בקרה של אובדנים לפי סיבה, צוות ופריט, ורישום האובדנים מראה אם כל אובדן רשום על אנשי צוות פעילים או על כאלה שעזבו.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.11</div>
-            <h3 class="cap-name">המרשם</h3>
-            <p class="cap-desc">עקבו אחר ציוד יחידה אחר יחידה, לא רק לפי כמות. כל פריט ממוספר סידורית — מכשיר קשר, כוונת, רכב, כלי — הופך לרשומה ממוספרת משלו עם סטטוס, מצב תקינות, מחזיק נוכחי והיסטוריה מלאה משלו. קבצו יחידות לאצוות, רשמו אותן בכמות גדולה או בייבוא, ותמיד דעו בדיוק איזו יחידה נמצאת היכן. למצב התקינות יש שיניים: יחידה שמסומנת כבלתי כשירה אי אפשר לנפק בטעות, וכל מהלך שיחידה עושה מתועד בשבילכם.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.12</div>
-            <h3 class="cap-name">אחריות וחוזי שירות</h3>
-            <p class="cap-desc">לעולם אל תשלמו על תיקון או החלפה שעדיין הייתם מכוסים עליהם. הגדירו תאריכי אחריות על יחידות בודדות ועל אצוות שלמות, ותעדו חוזי שירות מלאים — ספק, סוג הכיסוי, מספר חוזה, תאריכים ועלות — מקושרים בדיוק לציוד שהם מכסים. הכיסוי מופיע בכל מקום כתגי צבע, וידג׳ט ״עומד לפוג״ מציג מה שדורש טיפול קודם, ואיתות מופיע ישירות על הלוח לפני שהתאריכים נגמרים. אתם קובעים כמה מראש מתחילות האזהרות; עלות החוזה נשארת גלויה למנהלים בלבד, ושינויי תאריכים נרשמים ביומן הפעילות, שאף חשבון אינו יכול לערוך.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.13</div>
-            <h3 class="cap-name">דוחות, ייצוא וגיבויים</h3>
-            <p class="cap-desc">הרשומות שלכם הן שלכם, ואתם יכולים להוציא אותן. קטלוג דוחות אמיתי מכסה לוגיסטיקה, כוח אדם, המרשם, הארכיון והפעילות — כל אחד ניתן לייצוא ל־CSV, ל־Excel או להדפסה, וכל אחד קורא את מלוא הרשומות שלכם, כך שסביבת עבודה גדולה מיוצאת במלואה במקום להיעצר בתקרה נסתרת. סקירת נתונים מריצה בדיקות כנות על הנתונים האמיתיים שלכם ומאפשרת לכם לקפוץ ישר לתיקון כל מה שהיא מסמנת. קחו גיבוי מוצפן של כל סביבת העבודה, שאתם פותחים בעזרת משפט־סיסמה משלכם — ואם נתונים אובדים אי־פעם, השחזור נעשה יחד עם התמיכה, לעולם לא בהקלקה מסוכנת אחת.</p>
-          </div>
-
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.14</div>
-            <h3 class="cap-name">מצאו כל דבר</h3>
-            <p class="cap-desc">שורת חיפוש אחת לכל סביבת העבודה. הקלידו את מה שאתם זוכרים — שם, קוד סימוכין, מספר סידורי או קוד אצווה, תפקיד או מיקום, יצרן, דגם, SKU או GTIN, אפילו הערה — והמערכת מוצאת פריטים, אנשים, מחלקות, קבוצות, אנשי צוות, חוזי שירות ורשומות בארכיון כאחד. התוצאות מקובצות לפי סוג, עם ההתאמות הטובות ביותר בראש והטקסט התואם מודגש; הקלקה אחת נוחתת בדיוק על הדבר שהתכוונתם אליו, והחיפוש נלווה אליכם אל המסך הזה כדי שתמשיכו לצמצם במקום להתחיל מחדש.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.15</div>
-            <h3 class="cap-name">ערכות</h3>
-            <p class="cap-desc">בנו ערכה פעם אחת — מתכון בעל שם של ציוד, כל פריט וכמה ממנו לכל ערכה, עם קוד משלה — וחלקו את כולה בפעולה אחת: לאדם יחיד, לכרטיסיית כוח אדם שלמה, לקבוצות, או לקבוצה פחות כמה שמות. החשבון בא קודם, הנדרש מול המצוי במלאי לכל שורה, ושום דבר לא יוצא כל עוד שורה אחת חסרה. כל שורה נוחתת על כרטיס האדם תחת השורה של הערכה עצמה, וכל אדם מקבל הודעה פעם אחת. החזרה היא דיאלוג אחד: כל שורה מוחזרת בהקלקה, או, שורה אחר שורה, נשארת בחוץ עד תאריך מובטח או נרשמת כאובדן או נזק עם הסיבה — והכרטיס תמיד מראה מי מחזיק בה ומה עדיין בחוץ. לוח הבקרה סופר את שורות הערכה שעדיין בחוץ ומשרטט מונפק מול מוחזר; שני ייצואים מפרטים כל ערכה וכל שורת ערכה שנופקה אי־פעם.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.16</div>
-            <h3 class="cap-name">האנשים שלכם, הדף שלהם</h3>
-            <p class="cap-desc">אדם ברשימת כוח האדם שלכם רואה את הציוד, ההודעות וההיסטוריה שלו ב<em>הציוד שלי</em> בכתובת my.gearlogs.com &mdash; נכנס עם קוד סביבת העבודה שלכם, מספר הזהות או המספר האישי שלו וקוד שנשלח לדוא״ל שברשומה שלו. בלי חשבון, בלי סיסמה, בלי מושב. הוא רואה רק את מה ששלו: לעולם לא ציוד של אדם אחר, לא המלאי ולא החיוב שלכם. עברית או אנגלית, לפי בחירתו. תנו לו את זה פעם אחת &mdash; שני המספרים והדוא״ל מופיעים בכרטיס האדם מאחורי אותה הרשאה כמו הטלפון &mdash; ומאותו רגע הוא יכול לבדוק מה רשום על שמו לפני מסירה, החזרה או ביקורת, בלי לשאול את המחסן, ולחתום על מה שקיבל.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">1.17</div>
-            <h3 class="cap-name">אישורי מסירה חתומים, שמורים לכם</h3>
-            <p class="cap-desc">כל מסירה, החזרה וגריעה לאדם פותחת אישור מסירה שהאדם חותם עליו ב<em>הציוד שלי</em>. השורות שלו לא משתנות אחרי שנפתח; הכרעה &mdash; חתימה, ערעור, אישור בשם האדם, ביטול &mdash; נכתבת פעם אחת, עם שם מי שהכריע, ואישור שאיש לא חתם עליו פג מעצמו אחרי 14 יום. <em>אישורים</em> מציג כל אישור מסירה לפי מצב ומה קרה לו, לוח הבקרה סופר אותם, ושני ייצואים מפרטים אותם &mdash; ואילו המילים שמאחורי ערעור נשארות עם האישור, למנהלי המערכת שלכם ולאנשים שהפקדתם בידיהם את ההרשאה, לעולם לא בקובץ ולא בדוא״ל.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="section section-alt" id="how-it-works">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">חלק 2</div>
-          <h2 class="section-title">איך זה עובד</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="ops-flow" data-stagger>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">I</div>
-            <h3 class="ops-step-title">הקימו את הארגון שלכם</h3>
-            <p class="ops-step-desc">הגדירו מחלקות, קבוצות ומיקומים כך שיתאימו למבנה הארגוני שלכם. התחילו מאפס או השתמשו בתבנית מוכנה.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">II</div>
-            <h3 class="ops-step-title">הוסיפו את הנתונים שלכם</h3>
-            <p class="ops-step-desc">הוסיפו פריטים ואנשי צוות ידנית או ייבאו בכמות גדולה מ־CSV. כפילויות מזוהות אוטומטית וממתינות לבדיקתכם.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">III</div>
-            <h3 class="ops-step-title">הקצו ועקבו</h3>
-            <p class="ops-step-desc">הקצו ציוד לאנשי צוות. נַפְּקו מתכלים. בצעו החזרות. הכול מתועד ונמצא במעקב בזמן אמת.</p>
-          </div>
-          <div class="ops-connector reveal rev-line"></div>
-          <div class="ops-step reveal">
-            <div class="ops-step-num">IV</div>
-            <h3 class="ops-step-title">נטרו ודַווחו</h3>
-            <p class="ops-step-desc">בנו את לוח הבקרה שלכם. עקבו אחר מגמות. קבלו התראות על מלאי נמוך. ייצאו דוחות לביקורות ולבדיקות ציות.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Security -->
-    <section class="section" id="security">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">חלק 3</div>
-          <h2 class="section-title">אבטחה ואמון</h2>
-          <div class="section-rule"></div>
-          <p class="page-lead">GearLogs רצה על Supabase באיחוד האירופי (פרנקפורט) לבסיס הנתונים ולכניסה, על Cloudflare לאספקה ולהגנה, על Paddle לתשלומים ועל Resend לדוא״ל &mdash; אותם השמות שתמצאו במדיניות הפרטיות שלנו.</p>
-        </div>
-
-        <div class="cap-grid">
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.1</div>
-            <h3 class="cap-name">בידוד נתונים</h3>
-            <p class="cap-desc">הנתונים של כל ארגון מבודדים לחלוטין. משתמשים יכולים לגשת רק לנתונים שבתוך הארגון שלהם. ארכיטקטורה רב־ארגונית עם אכיפה קפדנית בכל שכבה.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.2</div>
-            <h3 class="cap-name">גישה מבוססת תפקידים</h3>
-            <p class="cap-desc">מערכת הרשאות מדויקת מבטיחה שמשתמשים רואים רק את מה שהם צריכים. מנהלים קובעים מי יכול לצפות, לערוך ולנהל כל אזור במערכת &mdash; ויכולים להעניק כל הרשאה בודדת לאדם מעבר לתפקיד שלו. פרטי הקשר של אנשי הצוות הם הרשאה בפני עצמה, שבסיס הנתונים אוכף אותה, לא המסך. מחיקה קבועה של רשומות שמורה למנהל־על, כך ששום דבר בלתי הפיך לא קורה בטעות. ההרשאה לחלק ציוד רגיש חלה על כל פריט רגיש, בכל דלת, כשבסיס הנתונים הוא רשת הביטחון. <em>הציוד שלי</em>, הדף של האנשים ברשימה שלכם, מציג לאדם רק את השורות שלו &mdash; דבר מסביבת העבודה אינו עובר אליו. המילים שמאחורי אישור מסירה שעורער או אושר בשם האדם נפתחות למנהלי המערכת ולבעלי ההרשאה לאשר בשם אדם, בלחיצה &mdash; לעולם לא בקובץ ולעולם לא בדוא״ל.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.3</div>
-            <h3 class="cap-name">מוצפן ומאובטח</h3>
-            <p class="cap-desc">כל הנתונים מוצפנים במעבר ובמנוחה. אימות בתקן התעשייה עם ניהול הפעלות מאובטח. הגיבויים מוצפנים להגנה נוספת.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.4</div>
-            <h3 class="cap-name">ביקורת על הכול</h3>
-            <p class="cap-desc">נתיב ביקורת מלא לכל פעולה. דעו מי עשה מה ומתי. יומנים מוכנים לייצוא לצורכי ציות ולביקורות פנימיות.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.5</div>
-            <h3 class="cap-name">הגנה על הכניסה</h3>
-            <p class="cap-desc">בדיקת אימות אנושי אוטומטית בכניסה חוסמת ניסיונות התחברות של בוטים וסקריפטים לפני שהם מגיעים לחשבון. לאנשים אמיתיים היא עוברת ברגע, בלי שיצטרכו לעשות כלום. שכחתם סיסמה? אתם משחזרים אותה בעצמכם עם קוד חד־פעמי שנשלח לדוא״ל שלכם &mdash; וכל שינוי סיסמה מנתק כל מכשיר אחר ושולח לכם אישור.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.6</div>
-            <h3 class="cap-name">אימות דו־שלבי בכניסה</h3>
-            <p class="cap-desc">סביבת עבודה יכולה לדרוש אימות דו־שלבי — קוד חד־פעמי מאפליקציית אימות מעבר לסיסמה — כדי להיכנס וכדי לבצע שינויים, כך שסיסמה גנובה לבדה אינה יכולה להגיע לרשומות שלכם או לשנות אותן. חברי הצוות שומרים קודי שחזור למקרה של טלפון אבוד, ומנהלים יכולים לאפס את האימות הדו־שלבי של חבר צוות בעת הצורך. הפעלה או כיבוי שלו נרשמים בפעמון, ורצף של קודי שחזור שגויים מודיע לחשבון ולמנהליו &mdash; שום דבר לא ננעל.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.7</div>
-            <h3 class="cap-name">היסטוריה שאף חשבון אינו יכול לערוך</h3>
-            <p class="cap-desc">הרשומה של מי החזיק במה, ומתי, נשארת כפי שנכתבה. אף חשבון אינו יכול לערוך רשומה, חשבונות רגילים אינם יכולים למחוק ממנה, ורק רמת הגישה הגבוהה ביותר בסביבת העבודה יכולה להסיר משהו — כך שנתיב האחריות והמעקב שלכם עומד במבחן.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.8</div>
-            <h3 class="cap-name">הנתונים שלכם נשארים שלכם</h3>
-            <p class="cap-desc">אתם אף פעם לא תקועים איתנו. ייצאו כל חלק מהרשומות שלכם ל־CSV, ל־Excel או להדפסה בכל עת, במלואו — וקחו גיבוי מוצפן של כל סביבת העבודה שרק משפט־הסיסמה שלכם יכול לפתוח. גיבוי נושא רק את הנתונים שלכם, שום דבר נסתר. ואם משהו משתבש אי־פעם, השחזור מטופל בזהירות יחד עם התמיכה, כך שרשומה טובה לא יכולה להידרס בהקלקה שגויה אחת.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.9</div>
-            <h3 class="cap-name">חשבון אחד, מקום פעיל אחד</h3>
-            <p class="cap-desc">בחדרי ציוד יש מסופים משותפים, ומחשבים ניידים נשכחים. ב־GearLogs חשבון מחובר במקום אחד בכל פעם: כניסה במכשיר חדש מסיימת בנימוס את ההפעלה הקודמת, כך שמסך שנשאר פתוח במקום אחר לעולם לא יכול להמשיך לפעול בשמכם. כרטיסיות באותו דפדפן חולקות הפעלה אחת, והכניסה החדשה ביותר תמיד מנצחת — לעולם לא תוכלו להינעל מחוץ לחשבון שלכם. כל הודעת כניסה אומרת מתי, מאיזה מכשיר ומאיזו כתובת, ושינוי סיסמה מנתק כל מכשיר, כולל זה.</p>
-          </div>
-          <div class="cap-card reveal">
-            <div class="cap-ref">3.10</div>
-            <h3 class="cap-name">דיווח על בעיית אבטחה</h3>
-            <p class="cap-desc">קובץ security.txt בכתובת /.well-known/security.txt מציין את איש הקשר לדיווח על פגיעות &mdash; ops@gearlogs.com &mdash; בפורמט קריא־מכונה שסורקים אוטומטיים בודקים ראשונים, ואדם קורא את מה שנוחת שם.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="section section-alt" id="pricing">
-      <div class="section-inner">
-        <div class="section-head reveal">
-          <div class="section-num">חלק 4</div>
-          <h2 class="section-title">התנאים</h2>
-          <div class="section-rule"></div>
-        </div>
-
-        <div class="price-wrap reveal">
-          <div class="price-panel">
-            <div class="price-headline">תוכנית אחת. היא גדלה עם הצוות שלכם.</div>
-            <div class="price-baseline" style="margin-bottom: 10px;">
-              <span class="price-baseline-amount" dir="ltr">$199</span>
-              <span class="price-baseline-per">לחודש &middot; חמישה חשבונות כלולים</span>
-            </div>
-            <p class="price-rule">תוכנית בסיס אחת עם כל היכולות. מעבר לחמשת החשבונות הכלולים, כל אדם שיכול להיכנס הוא <bdi>$39</bdi> קבוע לחודש; הוסיפו תמיכה בעדיפות גבוהה לתשובה מהירה יותר. שנתי הוא חודשיים חינם &mdash; בלי דרגות, בלי מודולים.</p>
-            <ul class="price-facts">
-              <li>חמישה חשבונות כלולים בתוכנית הבסיס; מעבר להם, כל אדם שיכול להיכנס הוא <bdi>$39</bdi> קבוע לחודש. השהו מישהו והמושב שלו מתפנה מיד; הורידו את המספר והוא יורד מהחיוב הבא שלכם.</li>
-              <li>עד 5,000 הודעות דוא״ל בחודש כלולות; חבילות של 1,000 ב־<bdi>$5</bdi> לחודש (<bdi>$48</bdi> בשנה בתוכנית שנתית) כשאתם צריכים יותר.</li>
-              <li>בטלו בכל עת; הנתונים שלכם נשארים ניתנים לייצוא, ולקריאה בלבד למשך 12 חודשים לאחר מכן, ואז נמחקים עם התראה של 30 יום לפחות בדוא״ל.</li>
-            </ul>
-            <div class="price-ctas">
-              <a href="/contact?reason=purchase&amp;from=home" class="btn-primary">בקשת גישה</a>
-              <a href="/pricing" class="btn-secondary">בנו את התוכנית שלכם &larr;</a>
+    <gl-band photo="hero" variant="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="band-kicker rise">ציוד ומתכלים &middot; רישום החזקה</p>
+            <h1 class="band-title">כל פריט.<br>כל יד.<br>כל חתימה.</h1>
+            <p class="band-lede rise rise-1">GearLogs היא הרישום של ארגונים שמנפקים ציוד ומתכלים לעשרות או מאות אנשים: יחידות צבא, בתי חולים, שירותי חירום, מחסנים וחברות. תמיד יודעים איפה כל דבר, מי מחזיק בו, מה קרה לו ומה עדיין באחריות.</p>
+            <div class="actions rise rise-2">
+              <a class="btn btn-go" href="/contact?reason=access&amp;from=home">בקשת גישה <span class="ar" aria-hidden="true">&rarr;</span></a>
+              <a class="btn btn-ghost" href="#capabilities">לראות את האפליקציה</a>
             </div>
           </div>
-          <div class="price-aside">
-            <p class="price-quote">״רשומה שעומדת במבחן כשמישהו שואל מי החזיק במה.״</p>
-            <p class="price-why">זה מה שאתם משלמים עליו: רישום החזקה שאף חשבון אינו יכול לערוך, נתיב ביקורת מלא, גיבויים מוצפנים שאתם יכולים לפתוח בלעדינו, ואימות דו־שלבי שסביבת העבודה יכולה לחייב. המחיר מממן את שלמות הרשומה &mdash; לא סולם של תכונות.</p>
-            <p class="price-why">את החיוב מבצע Paddle, ספק הסליקה שלנו (Merchant of Record) &mdash; מסים וחשבוניות כלולים.</p>
+          <div class="glass rise rise-3">
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>1</bdi><span class="gp-unit">פעולה</span></p><p>ערכה שלמה מנופקת ונבדקת</p></div>
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>0</bdi><span class="gp-unit">מקומות</span></p><p>למי שמקבל ציוד</p></div>
+            <div class="gp"><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><span class="gp-tick" aria-hidden="true"></span><p class="gp-n"><bdi>12</bdi><span class="gp-unit">חודשים</span></p><p>של פעילות ביומן, עד 50,000 פעולות</p></div>
+          </div>
+        </div>
+    </gl-band>
+
+    <section class="sec dark">
+      <div class="wrap prob">
+        <gl-photo name="paper" class="prob-img rv" sizes="530px"></gl-photo>
+        <div class="rv">
+          <span class="lbl">הבעיה</span>
+          <h2 class="h2">דף חתימות מעולם לא היה רישום.</h2>
+          <div class="qa"><div><b>אצל מי מכשיר קשר 7?</b><span>אף אחד לא רשם.</span></div><div><b>האם הוא חזר תקול?</b><span>בדף לא כתוב.</span></div><div><b>האם הוא עדיין באחריות?</b><span>אי שם, בקלסר.</span></div></div>
+          <p class="prob-close">GearLogs מחליפה את הדף באישור מסירה שכל אדם מתבקש לחתום עליו, ובהיסטוריה שאף חשבון אינו יכול לערוך.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="capabilities">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">מה היא עושה</span>
+          <h2 class="h2">מערכת אחת לכל המחסן.</h2>
+          <p class="lede">מהמדף אל האדם ובחזרה, כל צעד נרשם, וכל מסך כאן הוא האפליקציה האמיתית.</p>
+        </div>
+        <div class="feats" id="how-it-works">
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">לוגיסטיקה</span>
+              <h3>איפה זה, וכמה נשאר?</h3>
+              <p>כל פריט מראה את המלאי שלו, מה בשימוש ומה בתיקון, קבוצה אחר קבוצה, עם הפעילות שמאחוריו.</p>
+              <ul class="pts"><li>במלאי, בשימוש, בתיקון</li><li>טבעות מלאי לכל קבוצה</li><li>כל תנועה נספרת</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="board"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">מלאי וקיבולת</span>
+              <h3>יודעים מה להזמין לפני שנגמר.</h3>
+              <p>מילוי האחסון מול הקיבולת, הפריטים שעומדים להיגמר, המדפים שחרגו מהקיבולת, ו־90 ימי פעילות בלוח אחד.</p>
+              <ul class="pts"><li>מילוי מול קיבולת</li><li>רשימת מלאי נמוך</li><li>התראות על חריגה מקיבולת</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="dashboard-stock"></gl-shot></div>
+          </div>
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">ניפוק</span>
+              <h3>פריט אחד או ערכה שלמה, בפעולה אחת.</h3>
+              <p>בוחרים את האנשים, נותנים לכל אחד את הכמות שלו, ורואים מה יחזיק כל אחד אחר כך ומה נשאר. המספרים נבדקים לפני שמשהו זז.</p>
+              <ul class="pts"><li>המלאי נבדק קודם</li><li>כמות משלו לכל אדם</li><li>נפתח אישור מסירה לכל אדם</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="handout-window"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">אישורים</span>
+              <h3>כל ניפוק פותח אישור מסירה לחתימה.</h3>
+              <p>האדם חותם על מה שקיבל ב״הציוד שלי״, או אומר מה לא בסדר, בלי חשבון ובלי סיסמה. ערעור חוזר אליכם עם הסיבה.</p>
+              <ul class="pts"><li>ממתין &middot; נחתם &middot; בערעור</li><li>סיבה מתוך רשימה, ובמילים שלו</li><li>אישור מסירה שלא נחתם פג תוקף אחרי 14 יום</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="approvals-receipt" inset="mygear-receipt"></gl-shot></div>
+          </div>
+          <div class="feat">
+            <div class="feat-copy rv">
+              <span class="lbl">אנשים</span>
+              <h3>כל מה שאדם קיבל, החזיר או צרך.</h3>
+              <p>פותחים כל אדם ורואים את ההיסטוריה שלו: כל פריט שקיבל, כל החזרה, כל מתכלה שנופק, עם התאריך ומי טיפל.</p>
+              <ul class="pts"><li>מה קיבל ומה החזיר</li><li>מתכלים שנופקו</li><li>עם תאריך ומי טיפל</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="person-card"></gl-shot></div>
+          </div>
+          <div class="feat flip">
+            <div class="feat-copy rv">
+              <span class="lbl">מרשם</span>
+              <h3>כל החיים של כל יחידה סידורית.</h3>
+              <p>מספרים סידוריים, מחזיקים, מצב ואחריות על כל יחידה. בתיקון, אבד ונגרע הם מצבים שכל הצוות רואה.</p>
+              <ul class="pts"><li>אחריות וחוזי שירות</li><li>בתיקון &middot; אבד &middot; נגרע</li><li>יחידה לא כשירה לא תנופק בטעות</li></ul>
+            </div>
+            <div class="rv"><gl-shot id="registry"></gl-shot></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <section class="sec dark">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">עקבות הנייר, בדיגיטל</span>
+          <h2 class="h2 narrow">כל ניפוק, החזרה וגריעה, ברישום.</h2>
+        </div>
+        <div class="nums rv">
+          <div><p class="num-v"><bdi data-to="14">14</bdi><span class="num-unit">ימים</span></p><p>אישור מסירה ממתין לחתימה</p></div>
+          <div><p class="num-v"><bdi data-to="12">12</bdi><span class="num-unit">חודשים</span></p><p>של פעילות ביומן, עד 50,000 פעולות</p></div>
+          <div><p class="num-v"><bdi data-to="5">5</bdi><span class="num-unit">חשבונות</span></p><p>כלולים בתוכנית הבסיס</p></div>
+          <div><p class="num-v"><bdi data-to="6">6</bdi><span class="num-unit">מצבים</span></p><p>כל אישור מסירה, מממתין ועד נחתם, בערעור או פג תוקף</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="who">
+      <div class="wrap">
+        <div class="rv">
+          <span class="lbl">למי זה מתאים</span>
+          <h2 class="h2">נבנה לארגונים שמנפקים ציוד בכל יום.</h2>
+        </div>
+        <div class="tiles">
+          <div class="tile w3 rv"><gl-photo name="army" class="tile-img" sizes="620px"></gl-photo><div class="tile-tx"><span class="chip">ערכת נושא צבאית באפליקציה</span><h3>יחידות צבא וביטחון</h3><p>מכשירי קשר, אמצעי ראייה, ערכות וציוד מגן, בחתימת כל חייל.</p></div></div>
+          <div class="tile w3 rv"><gl-photo name="hospital" class="tile-img" sizes="620px"></gl-photo><div class="tile-tx"><span class="chip">ערכת נושא רפואית באפליקציה</span><h3>בתי חולים ומרפאות</h3><p>דפיברילטורים, משאבות ומוניטורים, עם האחריות שלהם.</p></div></div>
+          <div class="tile rv"><gl-photo name="emergency" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>שירותי חירום ורשויות מקומיות</h3><p>מכשירי קשר וערכות שטח, לפי משמרת.</p></div></div>
+          <div class="tile rv"><gl-photo name="depot" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>מחסנים לוגיסטיים</h3><p>סורקים וכלים, משמרת אחרי משמרת.</p></div></div>
+          <div class="tile rv"><gl-photo name="office" class="tile-img" sizes="410px"></gl-photo><div class="tile-tx"><h3>ארגונים בינוניים וגדולים</h3><p>מחשבים ניידים, טלפונים ומפתחות לעשרות עד מאות אנשים.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec fog">
+      <div class="wrap pair">
+        <div class="pc rv"><gl-photo name="repair" class="pc-img" sizes="606px"></gl-photo><h3>תקלה היא מצב, לא הפתעה.</h3><p>מסמנים יחידה כלא כשירה, והיא לא תנופק עד שתתוקן. גריעות נרשמות עם סיבה.</p></div>
+        <div class="pc rv"><gl-photo name="consumables" class="pc-img" sizes="606px"></gl-photo><h3>מתכלים, נספרים תוך כדי שימוש.</h3><p>סוללות, כפפות וחלקי חילוף מנופקים לאנשים ונספרים, כך שרשימת המלאי הנמוך אומרת מה להזמין.</p></div>
+      </div>
+    </section>
+
+    <section class="sec dark" id="security">
+      <div class="wrap secg">
+        <div class="rv">
+          <span class="lbl">אבטחה</span>
+          <h2 class="h2">אף חשבון אינו יכול לערוך את ההיסטוריה.</h2>
+          <ul class="facts"><li>חשבונות רגילים אינם יכולים למחוק ממנה.</li><li>סביבת עבודה יכולה לדרוש אימות דו־שלבי.</li><li>גיבוי מוצפן שרק משפט־הסיסמה שלכם יכול לפתוח.</li><li>הנתונים שלכם נשמרים באיחוד האירופי (פרנקפורט).</li><li>ייצוא מלא, מתי שתרצו.</li></ul>
+          <p class="sec-more"><a class="more-link" href="/product#security-detail">האבטחה בפירוט <span class="ar" aria-hidden="true">&rarr;</span></a></p>
+        </div>
+        <gl-photo name="handover" class="sec-img rv" sizes="500px"></gl-photo>
+      </div>
+    </section>
+
+    <section class="sec" id="pricing">
+      <div class="wrap price rv">
+        <div>
+          <span class="lbl">תמחור</span>
+          <h2 class="h2">כל המחירים מופיעים באתר.</h2>
+          <div class="pl"><div><b><bdi>$199</bdi></b><span>לחודש, חמישה חשבונות כלולים</span></div><div><b><bdi>$39</bdi></b><span>לחודש לכל חשבון נוסף</span></div><div><b><bdi>0</bdi></b><span>חשבונות למי שרק מקבל ציוד</span></div></div>
+        </div>
+        <a class="more-link" href="/pricing">לתמחור <span class="ar" aria-hidden="true">&rarr;</span></a>
+      </div>
+    </section>
+
     <section class="section cta-section" id="contact">
-      <div class="section-inner cta-inner reveal">
-        <div class="cta-stamp">מאושר לפעילות</div>
-        <h2 class="cta-title">גישה לפי בקשה.</h2>
-        <p class="cta-desc">אנחנו מצרפים ארגונים שנוכל לשרת היטב. ספרו לנו מה אתם מפעילים, ונדאג להקים לכם את המערכת.</p>
-
-        <a href="/contact?reason=access&amp;from=home" class="btn-primary btn-large">בקשת גישה</a>
+      <div class="section-inner cta-inner rv">
+        <h2 class="cta-title">גישה לפי בקשה</h2>
+        <p class="cta-desc">הגישה ל־GearLogs היא בהזמנה. ספרו לנו על המחסן שלכם, ואדם ישיב, בדרך כלל בתוך יום עסקים אחד.</p>
+        <a href="/contact?reason=access&amp;from=home" class="btn btn-light btn-lg">בקשת גישה <span class="ar" aria-hidden="true">&rarr;</span></a>
         <p class="cta-fallback">מעדיפים אימייל? כתבו אל <a href="mailto:hello@gearlogs.com">hello@gearlogs.com</a></p>
-        <p class="cta-about">מבית RAQIOM — תוכנה לאנשים שמנהלים דברים.</p>
       </div>
     </section>
-
-    <!-- Footer -->
