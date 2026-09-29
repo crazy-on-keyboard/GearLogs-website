@@ -92,7 +92,41 @@
       "file": "dashboard.en.webp",
       "alt": "The dashboard: stock, hand-outs, receipts and kits at a glance",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 282,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 808,
+          "y": 67,
+          "w": 349,
+          "h": 29
+        },
+        {
+          "n": 3,
+          "x": 1168,
+          "y": 69,
+          "w": 108,
+          "h": 26
+        },
+        {
+          "n": 4,
+          "x": 1320,
+          "y": 70,
+          "w": 100,
+          "h": 24
+        }
+      ]
     },
     {
       "id": "logs",
@@ -100,7 +134,34 @@
       "file": "logs.en.webp",
       "alt": "System logs: every action, who did it and when",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1135,
+          "y": 67,
+          "w": 258,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 102,
+          "y": 150,
+          "w": 914,
+          "h": 51
+        },
+        {
+          "n": 3,
+          "x": 95,
+          "y": 825,
+          "w": 1317,
+          "h": 13
+        }
+      ]
     },
     {
       "id": "board",
@@ -205,7 +266,41 @@
       "file": "dashboard.he.webp",
       "alt": "לוח המחוונים: מלאי, מסירות, קבלות וערכות במבט אחד",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 282,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 282,
+          "y": 67,
+          "w": 308,
+          "h": 29
+        },
+        {
+          "n": 3,
+          "x": 170,
+          "y": 69,
+          "w": 102,
+          "h": 26
+        },
+        {
+          "n": 4,
+          "x": 20,
+          "y": 70,
+          "w": 106,
+          "h": 24
+        }
+      ]
     },
     {
       "id": "logs",
@@ -213,7 +308,34 @@
       "file": "logs.he.webp",
       "alt": "יומני המערכת: כל פעולה, מי ביצע אותה ומתי",
       "theme": "office",
-      "app": "index-DBJZ6krX.js"
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 48,
+          "y": 67,
+          "w": 258,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 418,
+          "y": 150,
+          "w": 920,
+          "h": 51
+        },
+        {
+          "n": 3,
+          "x": 28,
+          "y": 825,
+          "w": 1317,
+          "h": 13
+        }
+      ]
     },
     {
       "id": "approvals-receipt",
@@ -2906,6 +3028,2258 @@
           "y": 589,
           "w": 610,
           "h": 56
+        }
+      ]
+    },
+    {
+      "id": "dashboard-gallery",
+      "lang": "en",
+      "file": "dashboard-gallery.en.webp",
+      "alt": "The Widget Builder's ready-made widgets: filter by source, pick one, or build your own",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 459,
+          "y": 187,
+          "w": 517,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 459,
+          "y": 263,
+          "w": 517,
+          "h": 340,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 840,
+          "y": 637,
+          "w": 148,
+          "h": 32,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-finish",
+      "lang": "en",
+      "file": "dashboard-finish.en.webp",
+      "alt": "Finishing a ready-made widget: its live preview, the title, the size on the dashboard and who sees it",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 459,
+          "y": 503,
+          "w": 517,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 459,
+          "y": 571,
+          "w": 517,
+          "h": 92,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 459,
+          "y": 676,
+          "w": 517,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 871,
+          "y": 740,
+          "w": 116,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-question",
+      "lang": "en",
+      "file": "dashboard-question.en.webp",
+      "alt": "Building your own widget on the activity log: the live preview, the four steps and the question — filter by, group by",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 459,
+          "y": 145,
+          "w": 517,
+          "h": 270,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 459,
+          "y": 434,
+          "w": 517,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 459,
+          "y": 503,
+          "w": 517,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 459,
+          "y": 566,
+          "w": 517,
+          "h": 63,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-visual",
+      "lang": "en",
+      "file": "dashboard-visual.en.webp",
+      "alt": "Choosing a visual: only the charts this source can show, the widget's own period and how time is grouped",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 459,
+          "y": 323,
+          "w": 517,
+          "h": 302,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 459,
+          "y": 677,
+          "w": 517,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 459,
+          "y": 716,
+          "w": 517,
+          "h": 60,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 459,
+          "y": 786,
+          "w": 517,
+          "h": 39,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-arrange",
+      "lang": "en",
+      "file": "dashboard-arrange.en.webp",
+      "alt": "Arranging the dashboard: each widget's move arrows, size, edit and remove, and Done on the band",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1209,
+          "y": 69,
+          "w": 67,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 322,
+          "y": 418,
+          "w": 55,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 381,
+          "y": 417,
+          "w": 48,
+          "h": 27,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 459,
+          "y": 419,
+          "w": 50,
+          "h": 24,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "access-users",
+      "lang": "en",
+      "file": "access-users.en.webp",
+      "alt": "The Users screen: Add User, the seats in use, the name of the company's own ID field, and the columns of the member list",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 304
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1311,
+          "y": 67,
+          "w": 109,
+          "h": 33
+        },
+        {
+          "n": 2,
+          "x": 267,
+          "y": 149,
+          "w": 968,
+          "h": 27
+        },
+        {
+          "n": 3,
+          "x": 267,
+          "y": 189,
+          "w": 968,
+          "h": 37
+        },
+        {
+          "n": 4,
+          "x": 268,
+          "y": 254,
+          "w": 966,
+          "h": 49
+        }
+      ]
+    },
+    {
+      "id": "access-create",
+      "lang": "en",
+      "file": "access-create.en.webp",
+      "alt": "Create User: first and last name, the company's own ID, the sign-in email and the first password",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 280,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 526,
+          "y": 347,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-roles",
+      "lang": "en",
+      "file": "access-roles.en.webp",
+      "alt": "Create User with the Role list open: Administrator, Operator, User, Viewer and Custom",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 415,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 527,
+          "y": 472,
+          "w": 381,
+          "h": 185,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-rights",
+      "lang": "en",
+      "file": "access-rights.en.webp",
+      "alt": "The rights list of a new User: Assign/Return Assets included in the role, Write Off / Report Lost Gear ticked on top, Confirm a hand-over on behalf for administrators and operators only, and Manage Users for administrators only",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 537,
+          "y": 485,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 537,
+          "y": 542,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 537,
+          "y": 570,
+          "w": 356,
+          "h": 40,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 537,
+          "y": 613,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-self",
+      "lang": "en",
+      "file": "access-self.en.webp",
+      "alt": "Editing your own login as the only administrator: the Role field greyed with the reason, the Super Administrator box, and every right included in the role",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 421,
+          "w": 383,
+          "h": 83,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 517,
+          "w": 383,
+          "h": 116,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 646,
+          "w": 383,
+          "h": 161,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-buttons",
+      "lang": "en",
+      "file": "history-buttons.en.webp",
+      "alt": "The Personnel board with its three history buttons: the tab's, the group's and the person's",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 136,
+          "y": 135,
+          "w": 24,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 630,
+          "y": 200,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 702,
+          "y": 373,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-person",
+      "lang": "en",
+      "file": "history-person.en.webp",
+      "alt": "A person's activity log: when, who did it, the type and the action, newest first",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 395,
+          "y": 86,
+          "w": 267,
+          "h": 39,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 334,
+          "y": 139,
+          "w": 761,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 334,
+          "y": 164,
+          "w": 761,
+          "h": 24,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-window",
+      "lang": "en",
+      "file": "history-window.en.webp",
+      "alt": "The foot of the activity log: the period shown, Load 30 more, Load all, and Close",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 347,
+          "y": 465,
+          "w": 100,
+          "h": 15,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 821,
+          "y": 456,
+          "w": 112,
+          "h": 32,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 939,
+          "y": 456,
+          "w": 84,
+          "h": 32,
+          "badge": "below"
+        },
+        {
+          "n": 4,
+          "x": 1029,
+          "y": 456,
+          "w": 63,
+          "h": 32,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "history-kit",
+      "lang": "en",
+      "file": "history-kit.en.webp",
+      "alt": "The Kits area in Logistics, with a kit's own history button",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 64,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 1340,
+          "y": 67,
+          "w": 46,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 562,
+          "y": 202,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "history-archive",
+      "lang": "en",
+      "file": "history-archive.en.webp",
+      "alt": "The Archive: Personnel Archives, Equipment Archives, and a row's History button",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 888,
+          "y": 67,
+          "w": 141,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 1034,
+          "y": 67,
+          "w": 141,
+          "h": 26
+        },
+        {
+          "n": 3,
+          "x": 1288,
+          "y": 275,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "registry-track",
+      "lang": "en",
+      "file": "registry-track.en.webp",
+      "alt": "An item's Edit Item window on its Registry tab: unit tracking is off, and the switch that turns it on",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 779,
+          "y": 145,
+          "w": 84,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 537,
+          "y": 212,
+          "w": 254,
+          "h": 34
+        },
+        {
+          "n": 3,
+          "x": 861,
+          "y": 219,
+          "w": 37,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "id": "registry-book",
+      "lang": "en",
+      "file": "registry-book.en.webp",
+      "alt": "The Registry's Property Book: the item picked, its lots, and every unit with its serial, status, condition and holder",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 943,
+          "y": 67,
+          "w": 99,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 95,
+          "y": 460,
+          "w": 213,
+          "h": 90
+        },
+        {
+          "n": 3,
+          "x": 334,
+          "y": 301,
+          "w": 240,
+          "h": 579
+        },
+        {
+          "n": 4,
+          "x": 580,
+          "y": 301,
+          "w": 839,
+          "h": 579
+        }
+      ]
+    },
+    {
+      "id": "registry-register",
+      "lang": "en",
+      "file": "registry-register.en.webp",
+      "alt": "Registering units: the item and lot, One, Batch or From file, the serial number, and Register unit",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 187,
+          "w": 383,
+          "h": 69,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 269,
+          "w": 383,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 312,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 782,
+          "y": 552,
+          "w": 138,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-file",
+      "lang": "en",
+      "file": "registry-file.en.webp",
+      "alt": "Registering units from a file: paste serials or choose a .csv or .txt file, then preview how it was read",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 785,
+          "y": 269,
+          "w": 124,
+          "h": 29,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 312,
+          "w": 383,
+          "h": 165,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 526,
+          "y": 487,
+          "w": 120,
+          "h": 26,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 776,
+          "y": 547,
+          "w": 145,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-lot",
+      "lang": "en",
+      "file": "registry-lot.en.webp",
+      "alt": "Adding a lot: the supplier's lot number, the warranty date, the expiry date, and Save",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 212,
+          "w": 186,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 723,
+          "y": 212,
+          "w": 186,
+          "h": 52,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 843,
+          "y": 391,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-unit-actions",
+      "lang": "en",
+      "file": "registry-unit-actions.en.webp",
+      "alt": "A unit in stock in the Registry, with its row's buttons: Assign, Send to repair, Move unit and Write off",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1194,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1222,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 1337,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 1365,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-repair",
+      "lang": "en",
+      "file": "registry-repair.en.webp",
+      "alt": "Sending a unit to repair: the unit, an optional reason, and the confirm",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 212,
+          "w": 383,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 526,
+          "y": 260,
+          "w": 383,
+          "h": 79,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 773,
+          "y": 373,
+          "w": 148,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-exports",
+      "lang": "en",
+      "file": "dataops-exports.en.webp",
+      "alt": "Data Ops on its Exports tab: the reports grouped by area",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 10,
+          "y": 413,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 243,
+          "y": 219,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 468,
+          "y": 198,
+          "w": 127,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 468,
+          "y": 535,
+          "w": 127,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 468,
+          "y": 679,
+          "w": 127,
+          "h": 17,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-report",
+      "lang": "en",
+      "file": "dataops-report.en.webp",
+      "alt": "One report's row: its name and what it holds, then CSV, Excel and Print",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 457,
+          "y": 249,
+          "w": 305,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 963,
+          "y": 249,
+          "w": 72,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 1042,
+          "y": 249,
+          "w": 86,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 1134,
+          "y": 249,
+          "w": 86,
+          "h": 32,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "dataops-people-reports",
+      "lang": "en",
+      "file": "dataops-people-reports.en.webp",
+      "alt": "The personnel and approvals reports: the roster, the receipts and the receipt lines",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 445,
+          "y": 210,
+          "w": 786,
+          "h": 54
+        },
+        {
+          "n": 2,
+          "x": 445,
+          "y": 354,
+          "w": 786,
+          "h": 69
+        },
+        {
+          "n": 3,
+          "x": 445,
+          "y": 433,
+          "w": 786,
+          "h": 69
+        }
+      ]
+    },
+    {
+      "id": "dataops-maintenance",
+      "lang": "en",
+      "file": "dataops-maintenance.en.webp",
+      "alt": "Data Ops on its Maintenance tab: the encrypted backup and the data recovery checklist",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 243,
+          "y": 256,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 445,
+          "y": 585,
+          "w": 362,
+          "h": 30
+        },
+        {
+          "n": 3,
+          "x": 424,
+          "y": 656,
+          "w": 828,
+          "h": 187
+        }
+      ]
+    },
+    {
+      "id": "dataops-backup-window",
+      "lang": "en",
+      "file": "dataops-backup-window.en.webp",
+      "alt": "The encrypted backup window: the password that locks the file, Cancel, and Download Backup",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 526,
+          "y": 260,
+          "w": 383,
+          "h": 84,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 691,
+          "y": 378,
+          "w": 68,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 766,
+          "y": 378,
+          "w": 155,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-gallery",
+      "lang": "he",
+      "file": "dashboard-gallery.he.webp",
+      "alt": "הווידג׳טים המוכנים בבונה הווידג׳טים: מסננים לפי מקור, בוחרים אחד או בונים לבד",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 464,
+          "y": 187,
+          "w": 517,
+          "h": 63,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 464,
+          "y": 263,
+          "w": 517,
+          "h": 340,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 452,
+          "y": 637,
+          "w": 114,
+          "h": 32,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-finish",
+      "lang": "he",
+      "file": "dashboard-finish.he.webp",
+      "alt": "סיום של וידג׳ט מוכן: התצוגה המקדימה החיה, הכותרת, הגודל בלוח הבקרה ומי רואה אותו",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 464,
+          "y": 503,
+          "w": 517,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 464,
+          "y": 571,
+          "w": 517,
+          "h": 92,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 464,
+          "y": 676,
+          "w": 517,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 452,
+          "y": 740,
+          "w": 96,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-question",
+      "lang": "he",
+      "file": "dashboard-question.he.webp",
+      "alt": "בניית וידג׳ט משלכם על יומני הפעילות: התצוגה המקדימה החיה, ארבעת השלבים והשאלה — סינון לפי, קיבוץ לפי",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 464,
+          "y": 145,
+          "w": 517,
+          "h": 270,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 464,
+          "y": 434,
+          "w": 517,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 464,
+          "y": 503,
+          "w": 517,
+          "h": 49,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 464,
+          "y": 566,
+          "w": 517,
+          "h": 63,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-visual",
+      "lang": "he",
+      "file": "dashboard-visual.he.webp",
+      "alt": "בחירת תצוגה: רק התרשימים שהמקור הזה יודע להציג, התקופה של הווידג׳ט וקיבוץ הזמן",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 464,
+          "y": 323,
+          "w": 517,
+          "h": 302,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 464,
+          "y": 677,
+          "w": 517,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 464,
+          "y": 716,
+          "w": 517,
+          "h": 60,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 464,
+          "y": 786,
+          "w": 517,
+          "h": 39,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "dashboard-arrange",
+      "lang": "he",
+      "file": "dashboard-arrange.he.webp",
+      "alt": "סידור לוח הבקרה: לכל וידג׳ט חצי הזזה, גודל, עריכה והסרה, והכפתור סיום ברצועה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 170,
+          "y": 69,
+          "w": 67,
+          "h": 26,
+          "badge": "corner"
+        },
+        {
+          "n": 2,
+          "x": 1032,
+          "y": 418,
+          "w": 55,
+          "h": 26,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 980,
+          "y": 417,
+          "w": 48,
+          "h": 27,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 900,
+          "y": 419,
+          "w": 50,
+          "h": 24,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "access-users",
+      "lang": "he",
+      "file": "access-users.he.webp",
+      "alt": "מסך המשתמשים: הוסף משתמש, המקומות בשימוש, השם של שדה המזהה של הארגון ועמודות רשימת המשתמשים",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 304
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 20,
+          "y": 67,
+          "w": 122,
+          "h": 33
+        },
+        {
+          "n": 2,
+          "x": 205,
+          "y": 149,
+          "w": 968,
+          "h": 27
+        },
+        {
+          "n": 3,
+          "x": 205,
+          "y": 189,
+          "w": 968,
+          "h": 37
+        },
+        {
+          "n": 4,
+          "x": 206,
+          "y": 254,
+          "w": 966,
+          "h": 49
+        }
+      ]
+    },
+    {
+      "id": "access-create",
+      "lang": "he",
+      "file": "access-create.he.webp",
+      "alt": "צור משתמש: שם פרטי ושם משפחה, המזהה של הארגון, אימייל הכניסה והסיסמה הראשונה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 212,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 280,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 531,
+          "y": 347,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-roles",
+      "lang": "he",
+      "file": "access-roles.he.webp",
+      "alt": "צור משתמש עם רשימת התפקידים פתוחה: מנהל, מפעיל, משתמש, צופה ומותאם אישית",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 415,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 532,
+          "y": 472,
+          "w": 381,
+          "h": 185,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-rights",
+      "lang": "he",
+      "file": "access-rights.he.webp",
+      "alt": "רשימת ההרשאות של משתמש חדש: הקצאה והחזרה של ציוד כלולה בתפקיד, גריעה / דיווח על ציוד אבוד מסומנת בנוסף, אישור מסירה בשם אדם למנהלים ומפעילים בלבד, וניהול משתמשים למנהלים בלבד",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 547,
+          "y": 485,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 547,
+          "y": 541,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 547,
+          "y": 569,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 547,
+          "y": 597,
+          "w": 356,
+          "h": 25,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "access-self",
+      "lang": "he",
+      "file": "access-self.he.webp",
+      "alt": "עריכת הכניסה שלכם כמנהל היחיד: השדה תפקיד אפור עם הסיבה, התיבה מנהל-על, וכל ההרשאות כלולות בתפקיד",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 450,
+          "w": 383,
+          "h": 69,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 532,
+          "w": 383,
+          "h": 100,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 646,
+          "w": 383,
+          "h": 161,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-buttons",
+      "lang": "he",
+      "file": "history-buttons.he.webp",
+      "alt": "לוח כוח האדם עם שלושת כפתורי ההיסטוריה: של הלשונית, של הקבוצה ושל האדם",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1246,
+          "y": 135,
+          "w": 24,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 793,
+          "y": 200,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 715,
+          "y": 373,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-person",
+      "lang": "he",
+      "file": "history-person.he.webp",
+      "alt": "יומן הפעילות של אדם: מתי, מי ביצע, הסוג והפעולה, מהחדש לישן",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 779,
+          "y": 86,
+          "w": 247,
+          "h": 39,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 365,
+          "y": 139,
+          "w": 722,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 365,
+          "y": 164,
+          "w": 722,
+          "h": 24,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "history-window",
+      "lang": "he",
+      "file": "history-window.he.webp",
+      "alt": "תחתית יומן הפעילות: התקופה המוצגת, טעינת 30 נוספים, טעינת הכול וסגירה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 927,
+          "y": 465,
+          "w": 146,
+          "h": 15,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 514,
+          "y": 456,
+          "w": 98,
+          "h": 32,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 430,
+          "y": 456,
+          "w": 77,
+          "h": 32,
+          "badge": "below"
+        },
+        {
+          "n": 4,
+          "x": 367,
+          "y": 456,
+          "w": 56,
+          "h": 32,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "history-kit",
+      "lang": "he",
+      "file": "history-kit.he.webp",
+      "alt": "אזור הערכות בלוגיסטיקה, עם כפתור ההיסטוריה של ערכה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 64,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 54,
+          "y": 67,
+          "w": 52,
+          "h": 29,
+          "badge": "corner"
+        },
+        {
+          "n": 3,
+          "x": 854,
+          "y": 202,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "history-archive",
+      "lang": "he",
+      "file": "history-archive.he.webp",
+      "alt": "הארכיון: ארכיון כוח אדם, ארכיון ציוד, וכפתור ההיסטוריה של שורה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 317,
+          "y": 67,
+          "w": 117,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 212,
+          "y": 67,
+          "w": 100,
+          "h": 26
+        },
+        {
+          "n": 3,
+          "x": 129,
+          "y": 289,
+          "w": 24,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
+    },
+    {
+      "id": "registry-track",
+      "lang": "he",
+      "file": "registry-track.he.webp",
+      "alt": "חלון עריכת פריט בלשונית מרשם: מעקב היחידות כבוי, והמתג שמפעיל אותו",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 652,
+          "y": 145,
+          "w": 56,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 2,
+          "x": 684,
+          "y": 212,
+          "w": 219,
+          "h": 34
+        },
+        {
+          "n": 3,
+          "x": 542,
+          "y": 219,
+          "w": 37,
+          "h": 20
+        }
+      ]
+    },
+    {
+      "id": "registry-book",
+      "lang": "he",
+      "file": "registry-book.he.webp",
+      "alt": "ספר הרכוש במרשם: הפריט שנבחר, האצוות שלו, וכל יחידה עם המספר הסידורי, הסטטוס, הכשירות והמחזיק",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 357,
+          "y": 67,
+          "w": 69,
+          "h": 26
+        },
+        {
+          "n": 2,
+          "x": 1132,
+          "y": 553,
+          "w": 213,
+          "h": 74
+        },
+        {
+          "n": 3,
+          "x": 866,
+          "y": 301,
+          "w": 240,
+          "h": 579
+        },
+        {
+          "n": 4,
+          "x": 20,
+          "y": 301,
+          "w": 839,
+          "h": 579
+        }
+      ]
+    },
+    {
+      "id": "registry-register",
+      "lang": "he",
+      "file": "registry-register.he.webp",
+      "alt": "רישום יחידות: הפריט והאצווה, אחת, מרובות או מקובץ, המספר הסידורי, ורשום יחידה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 187,
+          "w": 383,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 253,
+          "w": 383,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 295,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 535,
+          "w": 117,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-file",
+      "lang": "he",
+      "file": "registry-file.he.webp",
+      "alt": "רישום יחידות מקובץ: מדביקים מספרים סידוריים או בוחרים קובץ csv או txt, ואז רואים איך הוא נקרא",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 253,
+          "w": 124,
+          "h": 29,
+          "badge": "end"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 295,
+          "w": 383,
+          "h": 165,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 824,
+          "y": 470,
+          "w": 90,
+          "h": 26,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 531,
+          "w": 207,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-lot",
+      "lang": "he",
+      "file": "registry-lot.he.webp",
+      "alt": "הוספת אצווה: מספר האצווה של הספק, תאריך האחריות, תאריך התפוגה, ושמור",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 145,
+          "w": 383,
+          "h": 54,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 728,
+          "y": 212,
+          "w": 186,
+          "h": 52,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 531,
+          "y": 212,
+          "w": 186,
+          "h": 52,
+          "badge": "end"
+        },
+        {
+          "n": 4,
+          "x": 519,
+          "y": 391,
+          "w": 77,
+          "h": 30,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-unit-actions",
+      "lang": "he",
+      "file": "registry-unit-actions.he.webp",
+      "alt": "יחידה שבמלאי במרשם, עם הכפתורים בשורה שלה: שייך, שלח לתיקון, העברת יחידה וגריעה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 223,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 194,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 80,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 51,
+          "y": 381,
+          "w": 24,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "registry-repair",
+      "lang": "he",
+      "file": "registry-repair.he.webp",
+      "alt": "שליחת יחידה לתיקון: היחידה, סיבה (רשות), וכפתור האישור",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 212,
+          "w": 383,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 531,
+          "y": 260,
+          "w": 383,
+          "h": 79,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 373,
+          "w": 120,
+          "h": 31,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-exports",
+      "lang": "he",
+      "file": "dataops-exports.he.webp",
+      "alt": "ניהול נתונים בלשונית הייצוא: הדוחות מקובצים לפי תחום",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1384,
+          "y": 413,
+          "w": 46,
+          "h": 40
+        },
+        {
+          "n": 2,
+          "x": 1053,
+          "y": 219,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 860,
+          "y": 198,
+          "w": 112,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 875,
+          "y": 535,
+          "w": 97,
+          "h": 17,
+          "badge": "end"
+        },
+        {
+          "n": 3,
+          "x": 875,
+          "y": 679,
+          "w": 97,
+          "h": 17,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "dataops-report",
+      "lang": "he",
+      "file": "dataops-report.he.webp",
+      "alt": "שורה של דוח: השם ומה הוא מכיל, ואז CSV, Excel והדפסה",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 743,
+          "y": 249,
+          "w": 240,
+          "h": 32
+        },
+        {
+          "n": 2,
+          "x": 405,
+          "y": 249,
+          "w": 72,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 3,
+          "x": 312,
+          "y": 249,
+          "w": 86,
+          "h": 32,
+          "badge": "above"
+        },
+        {
+          "n": 4,
+          "x": 220,
+          "y": 249,
+          "w": 86,
+          "h": 32,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "dataops-people-reports",
+      "lang": "he",
+      "file": "dataops-people-reports.he.webp",
+      "alt": "דוחות כוח האדם והאישורים: רשימת כוח האדם, הקבלות ושורות הקבלות",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 209,
+          "y": 210,
+          "w": 786,
+          "h": 54
+        },
+        {
+          "n": 2,
+          "x": 209,
+          "y": 354,
+          "w": 786,
+          "h": 54
+        },
+        {
+          "n": 3,
+          "x": 209,
+          "y": 418,
+          "w": 786,
+          "h": 54
+        }
+      ]
+    },
+    {
+      "id": "dataops-maintenance",
+      "lang": "he",
+      "file": "dataops-maintenance.he.webp",
+      "alt": "ניהול נתונים בלשונית התחזוקה: הגיבוי המוצפן ורשימת הבדיקה לשחזור נתונים",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1053,
+          "y": 256,
+          "w": 145,
+          "h": 34,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 633,
+          "y": 585,
+          "w": 362,
+          "h": 30
+        },
+        {
+          "n": 3,
+          "x": 187,
+          "y": 656,
+          "w": 828,
+          "h": 187
+        }
+      ]
+    },
+    {
+      "id": "dataops-backup-window",
+      "lang": "he",
+      "file": "dataops-backup-window.he.webp",
+      "alt": "חלון הגיבוי המוצפן: הסיסמה שנועלת את הקובץ, ביטול, והורדת גיבוי",
+      "theme": "office",
+      "app": "index-DBJZ6krX.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 531,
+          "y": 260,
+          "w": 383,
+          "h": 70,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 647,
+          "y": 365,
+          "w": 61,
+          "h": 30,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 519,
+          "y": 364,
+          "w": 120,
+          "h": 31,
+          "badge": "end"
         }
       ]
     }

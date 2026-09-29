@@ -1,0 +1,113 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.12</p>
+        <p class="band-kicker">Guide 4.12 <span class="sep">&middot;</span> Reports</p>
+        <h1 class="band-title">Export a report, and back up your workspace</h1>
+        <p class="band-lede">Download or print any of fourteen reports, export a list as you filtered it, and take an encrypted backup that only your password opens.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Data Ops is for administrators only. Its reports need the right <em>Export Data</em>, and administrators have it.</li>
+            <li>Anyone given <em>Export Data</em> also gets the export buttons on <em>System Logs</em> and on the Archive tabs they can open.</li>
+            <li>A backup needs a <em>Super Administrator</em>.</li>
+            <li>Exporting keeps working even if your subscription lapses.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open <em>Exports</em> in Data Ops.</h2>
+            <ol class="guide-marks">
+              <li><em>Data Ops</em> in the side menu.</li>
+              <li><em>Exports</em> on the Data Ops rail.</li>
+              <li>The reports, grouped by area: <em>Logistics Reports</em>, <em>Personnel Reports</em>, <em>Approvals Reports</em>, <em>Registry Reports</em>, <em>Archive Reports</em> and <em>Activity Reports</em>.</li>
+            </ol>
+            <p>Fourteen reports in all. Each one reads your complete records from the server, never a clipped list.</p>
+            <gl-shot id="dataops-exports" caption="Data Ops in the side menu, Exports on its rail, and the reports grouped by area." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Export one report.</h2>
+            <p>Every row is one report, with three buttons.</p>
+            <ol class="guide-marks">
+              <li>The report&rsquo;s name and what it holds. Here: <em>Full Inventory Audit</em>.</li>
+              <li><em>CSV</em>: a plain data file.</li>
+              <li><em>Excel</em>: a real Excel workbook.</li>
+              <li><em>Print</em>: a clean report page. It is the reliable route to a PDF, Hebrew included.</li>
+            </ol>
+            <p>CSV and Excel files carry English column headings. A printed page follows the language of the app. When a file is ready, the app says <em>Report downloaded.</em></p>
+            <gl-shot id="dataops-report" caption="One report&rsquo;s row: its name and what it holds, then CSV, Excel and Print." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Know what the people reports carry.</h2>
+            <ol class="guide-marks">
+              <li><em>Personnel Roster</em>: every active person with rank and team. Phone, email, notes, ID number and personal number are added only for someone who holds <em>View Contact Details</em>.</li>
+              <li><em>Hand-over receipts</em>: one row per receipt. Who it was for, its state, when it was opened and decided, and by whom. Never the notes. The email column follows the same right.</li>
+              <li><em>Receipt lines</em>: one row per frozen line of every receipt.</li>
+            </ol>
+            <p>Without the right, those columns are simply not there. The report never prints an empty column.</p>
+            <gl-shot id="dataops-people-reports" caption="Personnel Roster, Hand-over receipts and Receipt lines, numbered as in the list." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Export straight from a list.</h2>
+            <p>On <em>System Logs</em>, the same three buttons export what you see.</p>
+            <ol class="guide-marks">
+              <li><em>CSV</em>, <em>Excel</em> and <em>Print</em> at the top of the screen.</li>
+              <li>The filters: <em>Search Keywords</em>, <em>User</em> and <em>Action Type</em>. The export follows them.</li>
+              <li>The line at the foot says how many entries the export includes.</li>
+            </ol>
+            <p>System Logs holds the latest 1,000 entries, and so does its export. For the whole history, export <em>Full Activity Log</em> from Data Ops. The same buttons sit on the Archive tabs — <em>Personnel Archives</em>, <em>Equipment Archives</em>, <em>Contract Archives</em> and <em>Write-offs</em> — and on the billing log in <em>Settings</em> &rsaquo; <em>Billing</em>.</p>
+            <gl-shot id="logs" caption="System Logs: the three export buttons, the filters they follow, and the count of entries the export includes." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Find the backup in <em>Maintenance</em>.</h2>
+            <ol class="guide-marks">
+              <li><em>Maintenance</em> on the Data Ops rail.</li>
+              <li><em>Encrypted Backup</em>: <em>Create Backup</em> opens the backup window.</li>
+              <li><em>Data Recovery</em>: <em>Open a support request</em>. A backup comes back together with support, never by one click in the app.</li>
+            </ol>
+            <p>Only a Super Administrator sees <em>Encrypted Backup</em>. The support request opens already filled in with your workspace name and the checklist. Add the backup file and when it was taken.</p>
+            <gl-shot id="dataops-maintenance" caption="Maintenance: Create Backup in Encrypted Backup, and the Data Recovery card." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-6">
+            <h2 class="gstep-t">Take the backup.</h2>
+            <ol class="guide-marks">
+              <li><em>Encryption Password</em>: at least 8 characters. It is the only key to the backup.</li>
+              <li><em>Cancel</em> closes the window. Nothing is downloaded.</li>
+              <li><em>Download Backup</em> stays grey until the password is long enough.</li>
+            </ol>
+            <p>The encrypted file is saved to your computer. Keep the password apart from it: support will never ask for it by email. The backup holds your records: items, people, hand-outs, write-offs, the Registry, kits and receipts. The activity log and the sign-in accounts are not in it. Nothing in the app changes.</p>
+            <gl-shot id="dataops-backup-window" caption="The Encrypted Backup window: the password, Cancel, and Download Backup still grey." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>Every report downloads or prints from one screen, a list exports just as you filtered it, and an encrypted backup of your records waits on your own computer.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>Export failed — please try again.</q> The report could not be read or saved. No file was made. Try again.</li>
+            <li><q>Backup failed: could not read the full workspace from the server. Nothing was downloaded.</q> The window stays open. Try again in a moment.</li>
+            <li><q>Backup failed: encryption error</q> Nothing was downloaded, and the window stays open. Try again.</li>
+            <li><q>Showing the most recent 1,000 entries. Older history is in each person&rsquo;s or item&rsquo;s own activity log.</q> System Logs holds only the latest 1,000 entries, and so does its export. For everything, export Full Activity Log from Data Ops.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/history">Review Your History</a></li>
+            <li><a href="/guides/write-offs">Retire People &amp; Write Off Gear</a></li>
+            <li><a href="/guides/approvals">Approvals &mdash; Reading a Receipt</a></li>
+            <li><a href="/guides#guide-4-10">Manage Your Subscription and Seats</a></li>
+            <li><a href="/guides#guide-4-16">Get Support Inside the App</a></li>
+            <li><a href="/guides/access">Control Who Has Access</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

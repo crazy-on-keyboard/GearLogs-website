@@ -5,18 +5,27 @@
 // (from one element's top to another's bottom); `marks` lists what a guide step points at (their boxes land in the manifest, and
 // the site outlines them — they follow the app on every re-capture). Add a shot here (a guide's screens go in ./guides/), run
 // `npm run capture`, and the site's picture is the app as it is today. Shared helpers and the demo's names: ./helpers.mjs.
+// PRIVACY: the demo accounts are real sign-ins — a picture never shows a member's address. `hide` names what is made invisible
+// for the picture (the member rows behind a window); the capture refuses any picture that would still show an address.
 // Never pictured (the council's law): weapons — the Army demo's Weapons Vault tab stays out of every shot.
 
+/** @typedef {'start' | 'end' | 'corner' | 'above' | 'below'} Side where a mark's number sits (scripts/lib/shots.mjs → badgeAt) */
 /** @typedef {{ id: string, alt: { en: string, he: string }, theme?: 'office' | 'light' | 'dark' | 'army' | 'medical', target?: string, settle?: number,
  *    run: (app: any, lang: string) => Promise<void>, after?: (app: any, lang: string) => Promise<void>,
  *    clip?: (app: any) => Promise<{ x: number, y: number, width: number, height: number }>,
- *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: 'start' | 'end' | 'corner' }>>,
- *    badge?: 'start' | 'end' | 'corner' }} Shot */
+ *    marks?: (app: any, lang: string) => Promise<Array<any | any[] | { at: any | any[], badge: Side } | { around: any[], badge?: Side }>>,
+ *    badge?: Side,
+ *    hide?: (app: any, lang: string) => Promise<any[]> }} Shot */
 
-import { NAMES, control, dashboardCard, escapeRe, onScreen, openCard, openLogistics, openMyGear, openWaiting, closeCard, slotted, toTop } from './helpers.mjs';
+import { NAMES, around, control, dashboardCard, escapeRe, labelled, onScreen, openCard, openLogistics, openMyGear, openWaiting, closeCard, slotted, toTop } from './helpers.mjs';
 import HANDOUT_SHOTS from './guides/handout.mjs';
 import KIT_SHOTS from './guides/kits.mjs';
 import WRITEOFF_SHOTS from './guides/writeoffs.mjs';
+import DASHBOARD_SHOTS from './guides/dashboard.mjs';
+import ACCESS_SHOTS from './guides/access.mjs';
+import HISTORY_SHOTS from './guides/history.mjs';
+import REGISTRY_SHOTS from './guides/registry.mjs';
+import DATAOPS_SHOTS from './guides/dataops.mjs';
 
 /** @type {Shot[]} */
 export default [
@@ -57,6 +66,13 @@ export default [
     alt: { en: 'The dashboard: stock, hand-outs, receipts and kits at a glance', he: 'לוח המחוונים: מלאי, מסירות, קבלות וערכות במבט אחד' },
     run: async (app) => { await app.nav('tab_analytics'); },
     settle: 1500,
+    // the dashboard guide's step 1: the screen in the side menu, then the band's controls in reading order
+    marks: async (app) => [
+      app.page.getByRole('button', { name: new RegExp(`^${escapeRe(await app.t('tab_analytics'))}`, 'i') }).first(),
+      app.page.getByRole('radiogroup', { name: await app.t('tf_range'), exact: true }).first(),
+      app.page.getByRole('button', { name: await app.t('an_edit_layout'), exact: true }).first(),
+      app.page.getByRole('button', { name: await app.t('add_widget'), exact: true }).first(),
+    ],
   },
   {
     id: 'approvals-receipt',
@@ -186,6 +202,14 @@ export default [
     id: 'logs',
     alt: { en: 'System logs: every action, who did it and when', he: 'יומני המערכת: כל פעולה, מי ביצע אותה ומתי' },
     run: async (app) => { await app.nav('tab_logs'); },
+    // the reports guide's step 4: the export buttons, the filters the export follows (ONE number), the count at the foot
+    marks: async (app) => [
+      app.page.getByRole('button', { name: `${await app.t('rpt_export_as')} CSV`, exact: true }).first().locator('xpath=..'),
+      around([labelled(app.page.getByRole('textbox', { name: await app.t('logs_filter_search'), exact: true }).first()),
+        labelled(app.page.getByRole('combobox', { name: await app.t('logs_filter_user'), exact: true }).first()),
+        labelled(app.page.getByRole('combobox', { name: await app.t('logs_filter_action'), exact: true }).first())]),
+      app.page.getByText(slotted(await app.t('logs_footer'))).first(),
+    ],
   },
   {
     id: 'mygear',
@@ -235,4 +259,9 @@ export default [
   ...HANDOUT_SHOTS,
   ...KIT_SHOTS,
   ...WRITEOFF_SHOTS,
+  ...DASHBOARD_SHOTS,
+  ...ACCESS_SHOTS,
+  ...HISTORY_SHOTS,
+  ...REGISTRY_SHOTS,
+  ...DATAOPS_SHOTS,
 ];

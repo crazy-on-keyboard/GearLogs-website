@@ -223,5 +223,45 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Kits: take a kit back",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/dashboard": {
+    "title": "Dashboard: Build Your Dashboard, and Arrange It — GearLogs Guide",
+    "description": "Add ready-made widgets or build your own, choose who sees each one, and arrange them on the grid. Step by step, with real screens.",
+    "ogTitle": "Dashboard: build your dashboard, and arrange it",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Dashboard: build your dashboard, and arrange it",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/access": {
+    "title": "Users: Give Each Member a Role, and the Rights They Need — GearLogs Guide",
+    "description": "Add the people who sign in, give each of them a role, grant an extra right where one is needed, and keep an administrator in place. Step by step, with real screens.",
+    "ogTitle": "Users: give each member a role, and the rights they need",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Users: give each member a role, and the rights they need",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/history": {
+    "title": "History: See Who Did What, and When — GearLogs Guide",
+    "description": "Open the activity log of any person, group, kit or tab, go back as far as you need, and find the history of archived records. Step by step, with real screens.",
+    "ogTitle": "History: see who did what, and when",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "History: see who did what, and when",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/registry": {
+    "title": "Registry: Track Each Unit by Its Serial Number — GearLogs Guide",
+    "description": "Turn on unit tracking for an item, register its units and lots, and hand out, move or repair one unit at a time. Step by step, with real screens.",
+    "ogTitle": "Registry: track each unit by its serial number",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Registry: track each unit by its serial number",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/reports": {
+    "title": "Reports: Export a Report, and Back Up Your Workspace — GearLogs Guide",
+    "description": "Download or print any of fourteen reports, export a list as you filtered it, and take an encrypted backup that only your password opens. Step by step, with real screens.",
+    "ogTitle": "Reports: export a report, and back up your workspace",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Reports: export a report, and back up your workspace",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }
