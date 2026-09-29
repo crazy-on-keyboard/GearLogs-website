@@ -1,0 +1,103 @@
+    <gl-band photo="help" variant="article">
+        <p class="band-trail"><a href="/guides">Guides</a><span class="sep">/</span>4.15</p>
+        <p class="band-kicker">Guide 4.15 <span class="sep">&middot;</span> Settings</p>
+        <h1 class="band-title">Turn on two-factor sign-in</h1>
+        <p class="band-lede">Add a six-digit code from your phone to your password, keep a way back in, and require it for the whole workspace.</p>
+    </gl-band>
+
+    <section class="section guide">
+      <div class="section-inner">
+        <div class="guide-before">
+          <h2 class="guide-h">Before you start</h2>
+          <ul class="guide-list">
+            <li>Settings &rsaquo; Security opens for every member. <em>Your two-factor</em> is yours alone.</li>
+            <li>You need an authenticator app on your phone. GearLogs names Google Authenticator, Authy and 1Password as examples.</li>
+            <li>GearLogs asks for the code at every sign-in once the workspace requires two-factor. Step 4 turns that on.</li>
+            <li>Requiring it for the whole workspace is for administrators.</li>
+          </ul>
+        </div>
+
+        <ol class="gsteps">
+          <li class="gstep" id="step-1">
+            <h2 class="gstep-t">Open Settings &rsaquo; Security.</h2>
+            <p>Open <em>Settings</em> from the side menu, then <em>Security</em> in its list.</p>
+            <ol class="guide-marks">
+              <li><em>Settings</em> in the side menu.</li>
+              <li><em>Security</em> in the Settings list.</li>
+              <li><em>Your two-factor</em>: your own sign-in.</li>
+              <li><em>Workspace two-factor</em>: administrators see this card below it.</li>
+            </ol>
+            <p><em>Change password</em> sits above them. Guide 4.9 covers it.</p>
+            <gl-shot id="twofactor-open" caption="Settings on Security: the side menu, the Settings list and the two two-factor cards." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-2">
+            <h2 class="gstep-t">Set up your own two-factor.</h2>
+            <p>The card tells you where you stand.</p>
+            <ol class="guide-marks">
+              <li><em>Your two-factor</em> and its status: <em>Not set up</em>, <em>Set up &mdash; verify to manage</em> or <em>Verified this session</em>.</li>
+              <li><em>Set up my two-factor</em> opens the setup window.</li>
+            </ol>
+            <p>The window <em>Set up your two-factor</em> shows a code to scan with your authenticator app. <em>Or enter this key manually</em> gives the same key as text. Type the <em>6-digit code</em> the app shows, then press <em>Verify &amp; continue</em>. Ten recovery codes appear next. Each one works once. Copy them with <em>Copy all</em>, keep them somewhere safe, and press <em>I’ve saved them</em>. They are never shown again. Later, <em>Verify my two-factor</em> asks for a code and nothing else.</p>
+            <gl-shot id="twofactor-your" caption="Your two-factor: its status and Set up my two-factor." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-3">
+            <h2 class="gstep-t">Keep a way back in.</h2>
+            <p>Recovery codes let you in when the phone is lost.</p>
+            <ol class="guide-marks">
+              <li>The (i) beside <em>Your two-factor</em>.</li>
+              <li>Its explanation: recovery codes are the way back in, and an administrator can also reset your two-factor.</li>
+            </ol>
+            <p>On the sign-in code screen, <em>Lost your device? Use a recovery code</em> asks for one of your codes. Press <em>Continue</em>. GearLogs clears the old authenticator and shows a new code to scan straight away, then a fresh set of recovery codes. While the card reads <em>Verified this session</em>, <em>New recovery codes</em> gives you ten new codes, and the old set stops working.</p>
+            <gl-shot id="twofactor-info" caption="The (i) of Your two-factor, open: what the card does and the way back in." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-4">
+            <h2 class="gstep-t">Require two-factor for the whole workspace.</h2>
+            <p><em>Workspace two-factor</em> is for administrators.</p>
+            <ol class="guide-marks">
+              <li><em>Workspace two-factor</em> and its state, <em>Off</em> or <em>On</em>.</li>
+              <li><em>Turn on</em> stays grey until your own two-factor reads <em>Verified this session</em>. The reason is written under it.</li>
+            </ol>
+            <p><em>Turn on</em> asks first: <em>Require two-factor for everyone?</em> Every member is asked to set up two-factor at their next sign-in, and every change then requires the code. Once it is on, the Users screen shows <em>2FA on</em> or <em>No 2FA</em> beside each member. <em>Reset 2FA</em> clears a locked-out member’s authenticator, and they set up a new one at their next sign-in. It never resets your own or the super administrator’s. Another administrator’s is for a super administrator. <em>Turn off</em> asks first too, and anyone already set up keeps their authenticator.</p>
+            <gl-shot id="twofactor-workspace" caption="Workspace two-factor: its state, and Turn on greyed with the reason." marks></gl-shot>
+          </li>
+          <li class="gstep" id="step-5">
+            <h2 class="gstep-t">Know when anything changes.</h2>
+            <p>Settings &rsaquo; Notifications tells you of every change to your sign-in.</p>
+            <ol class="guide-marks">
+              <li><em>Notifications</em> in the Settings list.</li>
+              <li><em>Security</em>, with its two columns: <em>In-app</em> and <em>Email</em>.</li>
+              <li><em>Password, two-factor and recovery changes</em>: <em>Always on</em> in both. It cannot be switched off.</li>
+            </ol>
+            <p>You hear when two-factor is turned on or off, when a recovery code is used, and when an administrator resets your two-factor. When wrong recovery codes are tried on your account, you and your administrators are told. Nothing is locked. A change you did not make means someone else has your account.</p>
+            <gl-shot id="twofactor-notices" caption="Settings on Notifications: the Security band and the row that is always on." marks></gl-shot>
+          </li>
+        </ol>
+
+        <div class="guide-result">
+          <h2 class="guide-h">Result</h2>
+          <p>With the workspace requirement on, every sign-in asks for the password and the six-digit code, and every change needs it. You keep ten recovery codes for the day the phone is lost, and you hear about every change.</p>
+        </div>
+
+        <div class="guide-trouble">
+          <h2 class="guide-h">If something is refused</h2>
+          <ul class="guide-list">
+            <li><q>That code isn’t right. Try again.</q> The code did not match your authenticator. Type the code the app shows now.</li>
+            <li><q>Couldn’t start two-step setup. Please try again.</q> The setup window could not start. Close it and try again in a moment.</li>
+            <li><q>That code isn’t valid or was already used.</q> Each recovery code works once. Try another code from your set. Several wrong codes in a short time tell you and your administrators; nothing is locked.</li>
+            <li><q>Set up and verify your own two-factor first.</q> Written under a grey <em>Turn on</em>. Set up your own two-factor, or verify it, until the card reads <em>Verified this session</em>.</li>
+            <li><q>Couldn’t change the setting. Make sure your own two-factor is verified, then try again.</q> The workspace refused the change. Only an administrator verified this session may turn the requirement on or off.</li>
+            <li><q>Couldn’t generate new recovery codes. Please try again.</q> No new set was made. Your current recovery codes still work.</li>
+          </ul>
+        </div>
+
+        <nav class="guide-related" aria-label="Related guides">
+          <h2 class="guide-h">Related guides</h2>
+          <ul>
+            <li><a href="/guides/your-sign-in">Look After Your Own Sign-In</a></li>
+            <li><a href="/guides/access">Control Who Has Access</a></li>
+            <li><a href="/guides/notifications">Choose What You Are Told About</a></li>
+            <li><a href="/guides/make-it-yours">Make GearLogs Yours</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>

@@ -303,5 +303,45 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Data Ops: bring your lists in from a spreadsheet",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/your-sign-in": {
+    "title": "Settings: Look After Your Own Sign-In — GearLogs Guide",
+    "description": "Every member looks after their own sign-in. Change your password, check your two-factor, and see what GearLogs tells you when your account is used. Step by step, with real screens.",
+    "ogTitle": "Settings: look after your own sign-in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: look after your own sign-in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/subscription": {
+    "title": "Settings: Manage Your Subscription and Seats — GearLogs Guide",
+    "description": "See what your workspace runs on, choose a plan and pay by card, then add seats and extras as your team grows. Step by step, with real screens.",
+    "ogTitle": "Settings: manage your subscription and seats",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: manage your subscription and seats",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/warranty-contracts": {
+    "title": "Registry: Track Warranties and Service Contracts — GearLogs Guide",
+    "description": "Record your service contracts, attach them to units and lots, and see every warning before a warranty runs out. Step by step, with real screens.",
+    "ogTitle": "Registry: track warranties and service contracts",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Registry: track warranties and service contracts",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/two-factor": {
+    "title": "Settings: Turn On Two-Factor Sign-In — GearLogs Guide",
+    "description": "Add a six-digit code from your phone to your password, keep a way back in, and require it for the whole workspace. Step by step, with real screens.",
+    "ogTitle": "Settings: turn on two-factor sign-in",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: turn on two-factor sign-in",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/notifications": {
+    "title": "Settings: Choose What You Are Told About — GearLogs Guide",
+    "description": "Pick which notices reach you in the app and which by email, and when the emails arrive. Administrators also set where everyone starts. Step by step, with real screens.",
+    "ogTitle": "Settings: choose what you are told about",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Settings: choose what you are told about",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }
