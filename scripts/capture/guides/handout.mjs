@@ -1,7 +1,7 @@
 // The hand-out guides' screens: 4.2 (hand out gear, and take it back) and 4.3 (sign out gear for a team). Every shot opens a
 // window and leaves it untouched: no confirm is ever pressed, no Enter is ever typed, and each window closes by Escape or its
 // own Cancel — found by its label right before the click. Ticking a line in a window is the window's own state, never saved.
-import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, openLogistics, side, slotted } from '../helpers.mjs';
+import { NAMES, boardCard, control, escape, escapeRe, openCard, closeCard, openLogistics, side, slotted, toTop } from '../helpers.mjs';
 
 /** The small Assign card an item or a person opens ("Assign Item — <name>", or "Assign Unit — <name>" on a serial item). */
 const assignCard = async (app, key = 'assign_item') => app.page.getByRole('dialog', { name: new RegExp(`^${escapeRe(await app.t(key))} — `) }).first();
@@ -13,7 +13,11 @@ async function openBatch(app, lang) {
   const dialog = await batchDialog(app);
   await dialog.waitFor();
   // a group's label starts with its name (an item's label starts with its code), so the anchor never picks an item
-  await dialog.getByRole('checkbox', { name: new RegExp(`^${escapeRe(NAMES.batchGroup[lang])}`) }).first().check();
+  const group = dialog.getByRole('checkbox', { name: new RegExp(`^${escapeRe(NAMES.batchGroup[lang])}`) }).first();
+  await group.check();
+  // the tick scrolls the tree only as far as it must, so the group landed at another height on every run: bring it to
+  // the top of the tree, its ticked items under it
+  await toTop(group.locator('xpath=..'));
   await app.idle(900);
 }
 const batchDialog = async (app) => app.page.getByRole('dialog', { name: await app.t('sign_out_batch'), exact: true }).first();
