@@ -19,17 +19,64 @@ const SHOT = /<gl-shot\s+id="([a-z0-9-]+)"(?:\s+inset="([a-z0-9-]+)")?(?:\s+capt
  * view — "B · One soft pulse"). Drawn from the boxes the capture recorded, in the picture's own pixels, so it follows every
  * re-capture and mirrors in Hebrew by itself. SVG attributes only — no inline style under the site's CSP.
  */
+// the approved board's measures, in the app's own pixels: 6 around each target, a 30 square number on its start corner
+const PAD = 6;
+const BADGE = 30;
+
+/** Each mark's outline (its target, padded), with its number; one number may stand in several places (every "No code" mark
+ *  on screen is the step's "2"). */
+const outlines = (shot) => shot.marks.map((m, i) => ({ n: m.n ?? i + 1, badge: m.badge, x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
+
+/** Two boxes lie over each other by more than a hair (outlines may touch; a number may touch its own outline). */
+const HAIR = 3;
+const over = (a, b) => Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > HAIR && Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) > HAIR;
+
+/**
+ * Where every number of a picture sits. Each takes the side its shot named (or the default for its size); when that side
+ * would lay it over ANOTHER mark's target or over a number already placed, it takes the first side that is free
+ * (corner · start · end · above · below). One that finds no free side keeps its own, and `marksProblems` names it.
+ */
+function placeNumbers(shot, lang) {
+  const { w, h } = shot.frame;
+  const placed = [];
+  outlines(shot).forEach((b, i) => {
+    const at = (side) => { const [x, y] = badgeAt({ ...b, badge: side }, lang, w, h, BADGE); return { n: b.n, x, y, w: BADGE, h: BADGE }; };
+    const free = (num) => !shot.marks.some((m, j) => j !== i && over(num, m)) && !placed.some((other) => over(num, other));
+    const own = at(b.badge);
+    placed.push(free(own) ? own : ['corner', 'start', 'end', 'above', 'below'].map(at).find(free) ?? own);
+  });
+  return placed;
+}
+
+/**
+ * The law "a number never hides a thing the step points at", checked: a number that still lies over ANOTHER mark's target,
+ * or over another number. Answers one sentence per fault (the build refuses the page; the shot's recipe marks less, or
+ * pictures the screen so the targets stand apart).
+ * @param {{ id: string, frame: { w: number, h: number }, marks: Array<{ n?: number, x: number, y: number, w: number, h: number, badge?: string }> }} shot
+ * @param {string} lang
+ */
+export function marksProblems(shot, lang) {
+  const numbers = placeNumbers(shot, lang);
+  const names = outlines(shot).map((b) => b.n);
+  const problems = [];
+  numbers.forEach((num, i) => {
+    shot.marks.forEach((m, j) => {
+      if (j !== i && over(num, m)) problems.push(`the number ${num.n} lies over the target of ${names[j]}`);
+    });
+    numbers.forEach((other, j) => {
+      if (j > i && over(num, other)) problems.push(`the numbers ${num.n} and ${other.n} lie over each other`);
+    });
+  });
+  return problems;
+}
+
 function marksLayer(shot, lang, maskId) {
   const { w, h } = shot.frame;
-  // the approved board's measures, in the app's own pixels: 6 around each target, a 30 square number on its start corner
-  const PAD = 6;
-  const BADGE = 30;
-  // one number may stand in several places (every "No code" mark on screen is the step's "2")
-  const boxes = shot.marks.map((m, i) => ({ n: m.n ?? i + 1, badge: m.badge, x: m.x - PAD, y: m.y - PAD, w: m.w + 2 * PAD, h: m.h + 2 * PAD }));
+  const boxes = outlines(shot);
   const rect = (b, cls) => `<rect class="${cls}" x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="none"/>`;
   const holes = boxes.map((b) => `<rect x="${b.x}" y="${b.y}" width="${b.w}" height="${b.h}" rx="2" fill="#000"/>`).join('');
-  const badges = boxes.map((b) => {
-    const [x, y] = badgeAt(b, lang, w, h, BADGE);
+  const badges = placeNumbers(shot, lang).map((b) => {
+    const { x, y } = b;
     return `<rect class="marks-badge" x="${x}" y="${y}" width="${BADGE}" height="${BADGE}" rx="2"/><text class="marks-num" x="${x + BADGE / 2}" y="${y + BADGE / 2}" text-anchor="middle" dominant-baseline="central">${b.n}</text>`;
   }).join('');
   // the mask covers the whole picture (its default region hugs the masked shapes and would cut the pulse off above and below);
@@ -51,7 +98,7 @@ function marksLayer(shot, lang, maskId) {
  * side is the picture's edge — or where the shot says (`badge`: start · end · corner · above · below; the last two centre the
  * number over or under a target that has neighbours on both sides: an icon in a row of icons, a button in a footer).
  */
-function badgeAt(b, lang, w, h, size) {
+export function badgeAt(b, lang, w, h, size) {
   const GAP = 4;
   const TOUCH = 8;
   const rtl = lang === 'he';
@@ -59,6 +106,7 @@ function badgeAt(b, lang, w, h, size) {
   const endX = rtl ? b.x - GAP - size : b.x + b.w + GAP;
   let side = b.badge ?? (b.w < 3 * size || b.h <= size ? 'start' : 'corner');
   if (side === 'start' && (startX < 0 || startX + size > w)) side = 'end';
+  if (side === 'end' && (endX < 0 || endX + size > w)) side = 'start';
   const midY = b.y + b.h / 2 - size / 2;
   const midX = b.x + b.w / 2 - size / 2;
   const aboveY = b.y - GAP - size;
@@ -112,6 +160,8 @@ export function expandShots(body, lang, manifest, sizeOf, where) {
       ? `\n        <a class="frame-inset" href="/img/app/${insetShot.file}" data-lightbox aria-label="${W.open}: ${attr(insetShot.alt)}">${img(insetShot, 'frame-img')}</a>`
       : '';
     if (withMarks && !shot.marks?.length) throw new Error(`shots: ${where} asks for the marks of "${id}", but its ${lang} picture has none (add \`marks\` to the shot and run npm run capture)`);
+    const faults = withMarks ? marksProblems(shot, lang) : [];
+    if (faults.length) throw new Error(`shots: ${where} — on the ${lang} picture of "${id}" ${[...new Set(faults)].join(', ')} (a number never hides a thing the step points at: mark less, or picture the screen so the targets stand apart)`);
     const marks = withMarks ? marksLayer(shot, lang, `marks-${id}-${lang}-${++frames}`) : '';
     return (
       `<figure class="frame${insetId ? ' has-inset' : ''}">\n` +

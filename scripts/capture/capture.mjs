@@ -21,6 +21,7 @@ import { homedir } from 'node:os';
 import { join } from 'node:path';
 import SHOTS from './shots.mjs';
 import { encodeWebp } from '../images/encode.mjs';
+import { badgeAt } from '../lib/shots.mjs';
 
 const APP = process.env.CAPTURE_APP ?? 'http://localhost:4174';
 /** Each language's own window: the two demo accounts cannot share a profile (both sign in to the same local address). */
@@ -92,6 +93,81 @@ function addressesShown({ box, open }) {
   }
   return found;
 }
+
+/** Runs in the page: a thing's box TOGETHER with its own visible label, when the label stands right over it or right beside
+ *  it on its line — an outline on the control alone would dim the field's name. The label is the one the control is bound to
+ *  (<label for>, aria-labelledby), or the words of its aria-label written just before it (a stepper, a segmented choice).
+ *  Anything without such a label keeps its own box. */
+function boxWithLabel(el) {
+  const r = el.getBoundingClientRect();
+  const own = { x: r.x, y: r.y, width: r.width, height: r.height };
+  const seen = (node) => node && node !== el && !node.contains(el) && node.checkVisibility({ visibilityProperty: true }) && node.getBoundingClientRect().width > 0;
+  let label = [el.labels?.[0], el.id ? document.querySelector(`label[for="${CSS.escape(el.id)}"]`) : null,
+    document.getElementById((el.getAttribute('aria-labelledby') ?? '').split(' ')[0])].find(seen);
+  const name = (el.getAttribute('aria-label') ?? '').trim();
+  if (!label && name && el.matches('input, textarea, select, [role="group"], [role="radiogroup"], [role="grid"], [role="combobox"], [role="slider"], [role="spinbutton"]')) {
+    for (let node = el, depth = 0; node && depth < 3 && !label; node = node.parentElement, depth++) {
+      for (let before = node.previousElementSibling; before && !label; before = before.previousElementSibling) {
+        const words = before.textContent.trim();
+        if (words.startsWith(name) && words.length <= name.length + 12 && seen(before)) label = before;
+      }
+    }
+  }
+  if (!label) return own;
+  const l = label.getBoundingClientRect();
+  const over = l.bottom <= r.top + 2 && r.top - l.bottom <= 28 && l.left < r.right && l.right > r.left;
+  const beside = l.top < r.bottom && l.bottom > r.top && Math.max(l.left - r.right, r.left - l.right) <= 24;
+  if (!(over || beside)) return own;
+  const x = Math.min(r.left, l.left);
+  const y = Math.min(r.top, l.top);
+  return { x, y, width: Math.max(r.right, l.right) - x, height: Math.max(r.bottom, l.bottom) - y };
+}
+
+/** Runs in the page: for each place a number could take, how much a reader would lose there — a button, a field, an icon,
+ *  a column head, a line of text under it. What stands in the target's OWN window (the same dialog, the same floating panel,
+ *  or the page itself) counts four times what lies behind that window. 0 = the place is free. (The mark's own target is
+ *  not asked about: a number may touch its own outline.) */
+function placesCost({ places }) {
+  const NEEDED = 'button, a, input, select, textarea, label, svg, img, canvas, th, [role="button"], [role="tab"], [role="radio"], [role="checkbox"],'
+    + ' [role="switch"], [role="combobox"], [role="slider"], [role="option"], [role="link"], [role="columnheader"]';
+  const textAt = (el, x, y) => {
+    for (const node of el.childNodes) {
+      if (node.nodeType !== Node.TEXT_NODE || !node.nodeValue.trim()) continue;
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      for (const r of range.getClientRects()) if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return true;
+    }
+    return false;
+  };
+  // the window a thing stands in: a dialog, or a floating panel (only floating things cast a shadow), or the page
+  const windowOf = (el) => {
+    for (let node = el; node && node !== document.body; node = node.parentElement) {
+      if (node.getAttribute('role') === 'dialog') return node;
+      const style = getComputedStyle(node);
+      if ((style.position === 'fixed' || style.position === 'absolute') && style.boxShadow !== 'none') return node;
+    }
+    return document.body;
+  };
+  return places.map(({ x, y, w, h, own }) => {
+    const home = windowOf(document.elementFromPoint(own.x + own.w / 2, own.y + own.h / 2) ?? document.body);
+    let cost = 0;
+    for (let i = 0; i < 5; i++) {
+      for (let j = 0; j < 5; j++) {
+        const px = x + 2 + (i * (w - 4)) / 4;
+        const py = y + 2 + (j * (h - 4)) / 4;
+        if (px >= own.x && px <= own.x + own.w && py >= own.y && py <= own.y + own.h) continue;
+        const top = document.elementFromPoint(px, py);
+        if (top && (top.closest(NEEDED) || textAt(top, px, py))) cost += windowOf(top) === home ? 4 : 1;
+      }
+    }
+    return cost;
+  });
+}
+
+/** The measures the site draws a mark with (scripts/lib/shots.mjs): 6 around the target, a 30 square number. */
+const MARK = { pad: 6, number: 30, hair: 3 };
+const SIDES = ['corner', 'start', 'end', 'above', 'below'];
+const liesOver = (a, b) => Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x) > MARK.hair && Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y) > MARK.hair;
 
 /** Small helpers each shot drives the app with — by the app's own labels, never a remembered position. */
 function helpers(page, words) {
@@ -194,9 +270,8 @@ async function captureLanguage(lang, words, index) {
       if (places.length === 0) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} found nothing on the screen`);
       const boxes = [];
       for (const locator of places) {
-        const m = await locator.boundingBox();
-        if (!m) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} is not on the screen`);
-        boxes.push(m);
+        if (!(await locator.boundingBox())) throw new Error(`capture: ${shot.id} (${lang}) — mark ${i + 1} is not on the screen`);
+        boxes.push(await locator.evaluate(boxWithLabel));
       }
       const one = (list) => {
         const x = Math.min(...list.map((m) => m.x));
@@ -215,6 +290,27 @@ async function captureLanguage(lang, words, index) {
     for (const locator of shot.hide ? await shot.hide(app, lang) : []) hidden.push(...await locator.elementHandles());
     for (const el of hidden) await el.evaluate((n) => { n.dataset.captureWas = n.style.visibility; n.style.visibility = 'hidden'; });
     const shown = await page.evaluate(addressesShown, { box: box ?? { x: 0, y: 0, width: VIEW.width, height: VIEW.height }, open: PUBLIC_ADDRESSES });
+    // where each number sits: the side its shot named (or the default for its size) when nothing a reader needs lies there —
+    // no button, field, icon or text, no other mark's target, no number already placed; otherwise the side that costs least.
+    // One number that stands in several places takes the same side in all of them.
+    const numbers = [];
+    for (const n of [...new Set(marks.map((m) => m.n))]) {
+      const places = marks.filter((m) => m.n === n);
+      const outline = (m) => ({ x: m.x - MARK.pad, y: m.y - MARK.pad, w: m.w + 2 * MARK.pad, h: m.h + 2 * MARK.pad });
+      const first = outline(places[0]);
+      const wish = [...new Set([places[0].badge, first.w < 3 * MARK.number || first.h <= MARK.number ? 'start' : 'corner', ...SIDES].filter(Boolean))];
+      const at = (m, side) => { const [x, y] = badgeAt({ ...outline(m), badge: side }, lang, frame.w, frame.h, MARK.number); return { side, x, y, w: MARK.number, h: MARK.number }; };
+      const cost = [];
+      for (const side of wish) {
+        const spots = places.map((m) => at(m, side));
+        const lost = await page.evaluate(placesCost, { places: spots.map((a, k) => ({ ...a, x: a.x + (box?.x ?? 0), y: a.y + (box?.y ?? 0), own: { x: places[k].x + (box?.x ?? 0), y: places[k].y + (box?.y ?? 0), w: places[k].w, h: places[k].h } })) });
+        // a number over another mark's target or over a number is the worst place of all
+        const clash = spots.filter((a, k) => marks.some((other) => other !== places[k] && liesOver(a, other)) || numbers.some((placed) => liesOver(a, placed))).length;
+        cost.push(lost.reduce((sum, c) => sum + c, 0) + 1000 * clash);
+      }
+      const side = wish[cost.indexOf(Math.min(...cost))];
+      for (const m of places) { numbers.push(at(m, side)); m.badge = side; }
+    }
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
     const png = shown.length ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     for (const el of hidden) await el.evaluate((n) => { n.style.visibility = n.dataset.captureWas ?? ''; delete n.dataset.captureWas; });
