@@ -55,7 +55,7 @@ main .page-lead a:hover, main .legal-mark:hover { color: var(--go-hover); }
 :is(.band-kicker, .band-trail, .section-num, .cap-ref, .note-cat, .note-fn, .note-more-t, .note-meta,
     .price-headline, .price-row-label, .price-total-label, .price-baseline-per, .price-card-per,
     .changelog-ver, .foot-h, .nav-links a, .nav-links summary, .nf-t, .cta-stamp, .lbl, .gp-unit, .num-unit, .chip, .frame-cap,
-    .guide-group-count, .guide-card-steps, .guide-row-steps) {
+    .guide-group-count, .guide-card-steps, .guide-row-steps, .lightbox-cap) {
   font-family: var(--font-label);
   font-size: var(--fs-label);
   font-weight: 500;

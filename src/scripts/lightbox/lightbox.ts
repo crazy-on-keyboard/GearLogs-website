@@ -3,8 +3,8 @@
 // back on the link when it closes. Without scripts the same link simply opens the picture file.
 
 const WORDS = {
-  en: { close: 'Close the picture' },
-  he: { close: 'סגירת התמונה' },
+  en: { close: 'Close the picture', strip: 'Real screen \u00b7 sample workspace' },
+  he: { close: 'סגירת התמונה', strip: 'מסך אמיתי \u00b7 סביבת עבודה לדוגמה' },
 } as const;
 
 function build(lang: keyof typeof WORDS): { dialog: HTMLDialogElement; img: HTMLImageElement } {
@@ -16,10 +16,18 @@ function build(lang: keyof typeof WORDS): { dialog: HTMLDialogElement; img: HTML
   close.setAttribute('aria-label', WORDS[lang].close);
   close.textContent = '×';
   close.addEventListener('click', () => dialog.close());
+  // the button stands on a strip ABOVE the picture (the Director's pick "Viewer · A · A strip above the picture"): laid over
+  // the picture's corner it hid the app's own Sign out and the person's name on every enlarged screen
+  const strip = document.createElement('div');
+  strip.className = 'lightbox-strip';
+  const words = document.createElement('span');
+  words.className = 'lightbox-cap';
+  words.textContent = WORDS[lang].strip;
+  strip.append(words, close);
   const img = document.createElement('img');
   img.className = 'lightbox-img';
   img.decoding = 'async';
-  dialog.append(close, img);
+  dialog.append(strip, img);
   // a click on the dark surround (the dialog itself, not the picture) closes it
   dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
   dialog.addEventListener('close', () => { img.removeAttribute('src'); });
