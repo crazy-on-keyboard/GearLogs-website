@@ -1,5 +1,5 @@
 {
-  "access.en": {
+  "access.en.row": {
     "shot": "access-users",
     "source": {
       "file": "access-users.en.webp",
@@ -8,52 +8,52 @@
     "window": {
       "x": 87,
       "y": 0,
-      "w": 486,
+      "w": 405,
       "h": 304
     },
     "files": [
       {
-        "file": "access.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5774
+        "file": "access.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2038
       },
       {
-        "file": "access.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11044
+        "file": "access.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3800
       }
     ]
   },
-  "access.he": {
+  "access.he.row": {
     "shot": "access-users",
     "source": {
       "file": "access-users.he.webp",
       "md5": "774ac935d0e7f79aa25a56a833b7948b"
     },
     "window": {
-      "x": 867,
+      "x": 948,
       "y": 0,
-      "w": 486,
+      "w": 405,
       "h": 304
     },
     "files": [
       {
-        "file": "access.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5070
+        "file": "access.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1858
       },
       {
-        "file": "access.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 9674
+        "file": "access.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3146
       }
     ]
   },
-  "approvals.en": {
+  "approvals.en.card": {
     "shot": "approvals",
     "source": {
       "file": "approvals.en.webp",
@@ -67,20 +67,47 @@
     },
     "files": [
       {
-        "file": "approvals.en.400.webp",
+        "file": "approvals.en.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 9864
       },
       {
-        "file": "approvals.en.800.webp",
+        "file": "approvals.en.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 19850
       }
     ]
   },
-  "approvals.he": {
+  "approvals.en.row": {
+    "shot": "approvals",
+    "source": {
+      "file": "approvals.en.webp",
+      "md5": "52c66548714bcb5bea36a3089f2f3b01"
+    },
+    "window": {
+      "x": 0,
+      "y": 229,
+      "w": 399,
+      "h": 299
+    },
+    "files": [
+      {
+        "file": "approvals.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 3010
+      },
+      {
+        "file": "approvals.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5424
+      }
+    ]
+  },
+  "approvals.he.card": {
     "shot": "approvals",
     "source": {
       "file": "approvals.he.webp",
@@ -94,20 +121,47 @@
     },
     "files": [
       {
-        "file": "approvals.he.400.webp",
+        "file": "approvals.he.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 9718
       },
       {
-        "file": "approvals.he.800.webp",
+        "file": "approvals.he.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 18060
       }
     ]
   },
-  "assign-return.en": {
+  "approvals.he.row": {
+    "shot": "approvals",
+    "source": {
+      "file": "approvals.he.webp",
+      "md5": "1e58206758c87db0a41c031831077c6d"
+    },
+    "window": {
+      "x": 1041,
+      "y": 229,
+      "w": 399,
+      "h": 299
+    },
+    "files": [
+      {
+        "file": "approvals.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 3090
+      },
+      {
+        "file": "approvals.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5400
+      }
+    ]
+  },
+  "assign-return.en.card": {
     "shot": "assign-item",
     "source": {
       "file": "assign-item.en.webp",
@@ -121,20 +175,47 @@
     },
     "files": [
       {
-        "file": "assign-return.en.400.webp",
+        "file": "assign-return.en.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 9320
       },
       {
-        "file": "assign-return.en.800.webp",
+        "file": "assign-return.en.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 17276
       }
     ]
   },
-  "assign-return.he": {
+  "assign-return.en.row": {
+    "shot": "assign-item",
+    "source": {
+      "file": "assign-item.en.webp",
+      "md5": "df83f96f41475cb05b9e39d3cca948a9"
+    },
+    "window": {
+      "x": 603,
+      "y": 500,
+      "w": 414,
+      "h": 311
+    },
+    "files": [
+      {
+        "file": "assign-return.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2934
+      },
+      {
+        "file": "assign-return.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5974
+      }
+    ]
+  },
+  "assign-return.he.card": {
     "shot": "assign-item",
     "source": {
       "file": "assign-item.he.webp",
@@ -148,74 +229,101 @@
     },
     "files": [
       {
-        "file": "assign-return.he.400.webp",
+        "file": "assign-return.he.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 8612
       },
       {
-        "file": "assign-return.he.800.webp",
+        "file": "assign-return.he.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 15166
       }
     ]
   },
-  "dashboard.en": {
+  "assign-return.he.row": {
+    "shot": "assign-item",
+    "source": {
+      "file": "assign-item.he.webp",
+      "md5": "66525560637f574daebe641bfa34e334"
+    },
+    "window": {
+      "x": 423,
+      "y": 500,
+      "w": 414,
+      "h": 311
+    },
+    "files": [
+      {
+        "file": "assign-return.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2924
+      },
+      {
+        "file": "assign-return.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5318
+      }
+    ]
+  },
+  "dashboard.en.row": {
     "shot": "dashboard",
     "source": {
       "file": "dashboard.en.webp",
       "md5": "4cd77cb43f4cd52fef0e57e0bae2f659"
     },
     "window": {
-      "x": 743,
+      "x": 760,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 445,
+      "h": 334
     },
     "files": [
       {
-        "file": "dashboard.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4988
+        "file": "dashboard.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1864
       },
       {
-        "file": "dashboard.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 9678
+        "file": "dashboard.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3144
       }
     ]
   },
-  "dashboard.he": {
+  "dashboard.he.row": {
     "shot": "dashboard",
     "source": {
       "file": "dashboard.he.webp",
       "md5": "adc654c5b2602a4eff947c57a96dea93"
     },
     "window": {
-      "x": 196,
+      "x": 234,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 404,
+      "h": 303
     },
     "files": [
       {
-        "file": "dashboard.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4592
+        "file": "dashboard.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1670
       },
       {
-        "file": "dashboard.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 8258
+        "file": "dashboard.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2876
       }
     ]
   },
-  "dialogs.en": {
+  "dialogs.en.row": {
     "shot": "dialogs-parts",
     "source": {
       "file": "dialogs-parts.en.webp",
@@ -225,24 +333,24 @@
       "x": 471,
       "y": 0,
       "w": 498,
-      "h": 311
+      "h": 374
     },
     "files": [
       {
-        "file": "dialogs.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4354
+        "file": "dialogs.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1694
       },
       {
-        "file": "dialogs.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 8234
+        "file": "dialogs.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3110
       }
     ]
   },
-  "dialogs.he": {
+  "dialogs.he.row": {
     "shot": "dialogs-parts",
     "source": {
       "file": "dialogs-parts.he.webp",
@@ -252,78 +360,78 @@
       "x": 471,
       "y": 0,
       "w": 497,
-      "h": 311
+      "h": 373
     },
     "files": [
       {
-        "file": "dialogs.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 3730
+        "file": "dialogs.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1546
       },
       {
-        "file": "dialogs.he.800.webp",
-        "width": 800,
-        "height": 501,
-        "bytes": 6804
+        "file": "dialogs.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2898
       }
     ]
   },
-  "find-anything.en": {
+  "find-anything.en.row": {
     "shot": "search-results",
     "source": {
       "file": "search-results.en.webp",
       "md5": "3441b6d7378efe6070a794cdbd39ac85"
     },
     "window": {
-      "x": 3,
+      "x": 47,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 391,
+      "h": 293
     },
     "files": [
       {
-        "file": "find-anything.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8014
+        "file": "find-anything.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2272
       },
       {
-        "file": "find-anything.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 15358
+        "file": "find-anything.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4594
       }
     ]
   },
-  "find-anything.he": {
+  "find-anything.he.row": {
     "shot": "search-results",
     "source": {
       "file": "search-results.he.webp",
       "md5": "494b9555e3662da06693b2f2281950aa"
     },
     "window": {
-      "x": 958,
+      "x": 1002,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 391,
+      "h": 293
     },
     "files": [
       {
-        "file": "find-anything.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 7384
+        "file": "find-anything.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2158
       },
       {
-        "file": "find-anything.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13460
+        "file": "find-anything.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3998
       }
     ]
   },
-  "give-my-gear.en": {
+  "give-my-gear.en.row": {
     "shot": "people-no-code",
     "source": {
       "file": "people-no-code.en.webp",
@@ -331,53 +439,53 @@
     },
     "window": {
       "x": 87,
-      "y": 0,
-      "w": 480,
-      "h": 300
+      "y": 33,
+      "w": 304,
+      "h": 228
     },
     "files": [
       {
-        "file": "give-my-gear.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8044
+        "file": "give-my-gear.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2710
       },
       {
-        "file": "give-my-gear.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 16048
+        "file": "give-my-gear.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5342
       }
     ]
   },
-  "give-my-gear.he": {
+  "give-my-gear.he.row": {
     "shot": "people-no-code",
     "source": {
       "file": "people-no-code.he.webp",
       "md5": "e5e538ccd25bb657b8b01a33a0e73806"
     },
     "window": {
-      "x": 873,
-      "y": 0,
-      "w": 480,
-      "h": 300
+      "x": 1067,
+      "y": 40,
+      "w": 286,
+      "h": 215
     },
     "files": [
       {
-        "file": "give-my-gear.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8144
+        "file": "give-my-gear.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2418
       },
       {
-        "file": "give-my-gear.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 15308
+        "file": "give-my-gear.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4512
       }
     ]
   },
-  "hand-out-kit.en": {
+  "hand-out-kit.en.row": {
     "shot": "kits",
     "source": {
       "file": "kits.en.webp",
@@ -385,26 +493,26 @@
     },
     "window": {
       "x": 48,
-      "y": 329,
+      "y": 283,
       "w": 733,
-      "h": 458
+      "h": 550
     },
     "files": [
       {
-        "file": "hand-out-kit.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6562
+        "file": "hand-out-kit.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2076
       },
       {
-        "file": "hand-out-kit.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13630
+        "file": "hand-out-kit.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3880
       }
     ]
   },
-  "hand-out-kit.he": {
+  "hand-out-kit.he.row": {
     "shot": "kits",
     "source": {
       "file": "kits.he.webp",
@@ -412,80 +520,80 @@
     },
     "window": {
       "x": 659,
-      "y": 329,
+      "y": 283,
       "w": 733,
-      "h": 458
+      "h": 550
     },
     "files": [
       {
-        "file": "hand-out-kit.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6018
+        "file": "hand-out-kit.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1926
       },
       {
-        "file": "hand-out-kit.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11922
+        "file": "hand-out-kit.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3710
       }
     ]
   },
-  "history.en": {
+  "history.en.row": {
     "shot": "history-buttons",
     "source": {
       "file": "history-buttons.en.webp",
       "md5": "7e25a571a4184702c4114a4a2db4bfc9"
     },
     "window": {
-      "x": 0,
-      "y": 0,
-      "w": 480,
-      "h": 300
+      "x": 16,
+      "y": 48,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "history.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8662
+        "file": "history.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2824
       },
       {
-        "file": "history.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 16870
+        "file": "history.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5124
       }
     ]
   },
-  "history.he": {
+  "history.he.row": {
     "shot": "history-buttons",
     "source": {
       "file": "history-buttons.he.webp",
       "md5": "056e6f156cde630af9e4e7e72180da51"
     },
     "window": {
-      "x": 960,
-      "y": 0,
-      "w": 480,
-      "h": 300
+      "x": 1126,
+      "y": 48,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "history.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8198
+        "file": "history.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2440
       },
       {
-        "file": "history.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 15352
+        "file": "history.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4464
       }
     ]
   },
-  "import.en": {
+  "import.en.row": {
     "shot": "import-center",
     "source": {
       "file": "import-center.en.webp",
@@ -493,26 +601,26 @@
     },
     "window": {
       "x": 397,
-      "y": 176,
-      "w": 480,
-      "h": 300
+      "y": 146,
+      "w": 479,
+      "h": 359
     },
     "files": [
       {
-        "file": "import.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6184
+        "file": "import.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1924
       },
       {
-        "file": "import.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13152
+        "file": "import.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3722
       }
     ]
   },
-  "import.he": {
+  "import.he.row": {
     "shot": "import-center",
     "source": {
       "file": "import-center.he.webp",
@@ -520,26 +628,26 @@
     },
     "window": {
       "x": 564,
-      "y": 176,
-      "w": 480,
-      "h": 300
+      "y": 146,
+      "w": 479,
+      "h": 359
     },
     "files": [
       {
-        "file": "import.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5276
+        "file": "import.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1800
       },
       {
-        "file": "import.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10742
+        "file": "import.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3248
       }
     ]
   },
-  "make-it-yours.en": {
+  "make-it-yours.en.row": {
     "shot": "display-open",
     "source": {
       "file": "display-open.en.webp",
@@ -549,24 +657,24 @@
       "x": 509,
       "y": 0,
       "w": 683,
-      "h": 427
+      "h": 512
     },
     "files": [
       {
-        "file": "make-it-yours.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 3868
+        "file": "make-it-yours.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1622
       },
       {
-        "file": "make-it-yours.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 7376
+        "file": "make-it-yours.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2658
       }
     ]
   },
-  "make-it-yours.he": {
+  "make-it-yours.he.row": {
     "shot": "display-open",
     "source": {
       "file": "display-open.he.webp",
@@ -576,24 +684,24 @@
       "x": 248,
       "y": 0,
       "w": 707,
-      "h": 442
+      "h": 530
     },
     "files": [
       {
-        "file": "make-it-yours.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 3830
+        "file": "make-it-yours.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1544
       },
       {
-        "file": "make-it-yours.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 7154
+        "file": "make-it-yours.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2638
       }
     ]
   },
-  "notifications.en": {
+  "notifications.en.row": {
     "shot": "notifications-open",
     "source": {
       "file": "notifications-open.en.webp",
@@ -603,24 +711,24 @@
       "x": 508,
       "y": 0,
       "w": 685,
-      "h": 428
+      "h": 514
     },
     "files": [
       {
-        "file": "notifications.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6390
+        "file": "notifications.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1888
       },
       {
-        "file": "notifications.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13244
+        "file": "notifications.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3832
       }
     ]
   },
-  "notifications.he": {
+  "notifications.he.row": {
     "shot": "notifications-open",
     "source": {
       "file": "notifications-open.he.webp",
@@ -630,186 +738,186 @@
       "x": 247,
       "y": 0,
       "w": 709,
-      "h": 443
+      "h": 532
     },
     "files": [
       {
-        "file": "notifications.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6070
+        "file": "notifications.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1766
       },
       {
-        "file": "notifications.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11410
+        "file": "notifications.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3766
       }
     ]
   },
-  "open-my-gear.en": {
+  "open-my-gear.en.row": {
     "shot": "door-my-gear",
     "source": {
       "file": "door-my-gear.en.webp",
       "md5": "22ed74c4e4247009d68fd487118a9206"
     },
     "window": {
-      "x": 481,
-      "y": 266,
-      "w": 480,
-      "h": 300
+      "x": 512,
+      "y": 259,
+      "w": 417,
+      "h": 313
     },
     "files": [
       {
-        "file": "open-my-gear.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6436
+        "file": "open-my-gear.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1976
       },
       {
-        "file": "open-my-gear.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 14298
+        "file": "open-my-gear.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4118
       }
     ]
   },
-  "open-my-gear.he": {
+  "open-my-gear.he.row": {
     "shot": "door-my-gear",
     "source": {
       "file": "door-my-gear.he.webp",
       "md5": "2d41598b0ad9577f742e3415d8c68bd8"
     },
     "window": {
-      "x": 481,
-      "y": 266,
-      "w": 480,
-      "h": 300
+      "x": 512,
+      "y": 259,
+      "w": 417,
+      "h": 313
     },
     "files": [
       {
-        "file": "open-my-gear.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5676
+        "file": "open-my-gear.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1858
       },
       {
-        "file": "open-my-gear.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11894
+        "file": "open-my-gear.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3606
       }
     ]
   },
-  "registry.en": {
+  "registry.en.row": {
     "shot": "registry-track",
     "source": {
       "file": "registry-track.en.webp",
       "md5": "d19df3d4cccc8863eb7564195f5e01ab"
     },
     "window": {
-      "x": 424,
-      "y": 79,
-      "w": 480,
-      "h": 300
+      "x": 489,
+      "y": 98,
+      "w": 350,
+      "h": 263
     },
     "files": [
       {
-        "file": "registry.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4362
+        "file": "registry.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1638
       },
       {
-        "file": "registry.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 8680
+        "file": "registry.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2954
       }
     ]
   },
-  "registry.he": {
+  "registry.he.row": {
     "shot": "registry-track",
     "source": {
       "file": "registry-track.he.webp",
       "md5": "0e26f9b97972adb0296df260c8906c52"
     },
     "window": {
-      "x": 554,
-      "y": 79,
-      "w": 480,
-      "h": 300
+      "x": 636,
+      "y": 111,
+      "w": 315,
+      "h": 236
     },
     "files": [
       {
-        "file": "registry.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 3946
+        "file": "registry.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1510
       },
       {
-        "file": "registry.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 7158
+        "file": "registry.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2700
       }
     ]
   },
-  "reports.en": {
+  "reports.en.row": {
     "shot": "dataops-exports",
     "source": {
       "file": "dataops-exports.en.webp",
       "md5": "942be028b8ee87bfc3751a288a5d465a"
     },
     "window": {
-      "x": 76,
-      "y": 86,
-      "w": 480,
-      "h": 300
+      "x": 184,
+      "y": 137,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "reports.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5846
+        "file": "reports.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1414
       },
       {
-        "file": "reports.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11702
+        "file": "reports.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2474
       }
     ]
   },
-  "reports.he": {
+  "reports.he.row": {
     "shot": "dataops-exports",
     "source": {
       "file": "dataops-exports.he.webp",
       "md5": "25f2e1df03d6dd75e5b573dfb94ce8b6"
     },
     "window": {
-      "x": 886,
-      "y": 86,
-      "w": 480,
-      "h": 300
+      "x": 994,
+      "y": 137,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "reports.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4908
+        "file": "reports.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1174
       },
       {
-        "file": "reports.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 9148
+        "file": "reports.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2060
       }
     ]
   },
-  "set-up-board.en": {
+  "set-up-board.en.card": {
     "shot": "board-tabs",
     "source": {
       "file": "board-tabs.en.webp",
@@ -823,20 +931,47 @@
     },
     "files": [
       {
-        "file": "set-up-board.en.400.webp",
+        "file": "set-up-board.en.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 8350
       },
       {
-        "file": "set-up-board.en.800.webp",
+        "file": "set-up-board.en.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 16036
       }
     ]
   },
-  "set-up-board.he": {
+  "set-up-board.en.row": {
+    "shot": "board-tabs",
+    "source": {
+      "file": "board-tabs.en.webp",
+      "md5": "93cd69572e067f7fe8bfead7db8078b1"
+    },
+    "window": {
+      "x": 28,
+      "y": 48,
+      "w": 264,
+      "h": 198
+    },
+    "files": [
+      {
+        "file": "set-up-board.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2730
+      },
+      {
+        "file": "set-up-board.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5000
+      }
+    ]
+  },
+  "set-up-board.he.card": {
     "shot": "board-tabs",
     "source": {
       "file": "board-tabs.he.webp",
@@ -850,20 +985,47 @@
     },
     "files": [
       {
-        "file": "set-up-board.he.400.webp",
+        "file": "set-up-board.he.card.400.webp",
         "width": 400,
         "height": 250,
         "bytes": 7946
       },
       {
-        "file": "set-up-board.he.800.webp",
+        "file": "set-up-board.he.card.800.webp",
         "width": 800,
         "height": 500,
         "bytes": 14758
       }
     ]
   },
-  "sign-in-my-gear.en": {
+  "set-up-board.he.row": {
+    "shot": "board-tabs",
+    "source": {
+      "file": "board-tabs.he.webp",
+      "md5": "aed87981a1299d32ef85c2d45b72acc5"
+    },
+    "window": {
+      "x": 1165,
+      "y": 48,
+      "w": 264,
+      "h": 198
+    },
+    "files": [
+      {
+        "file": "set-up-board.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2542
+      },
+      {
+        "file": "set-up-board.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4724
+      }
+    ]
+  },
+  "sign-in-my-gear.en.row": {
     "shot": "mygear-sign",
     "source": {
       "file": "mygear-sign.en.webp",
@@ -872,106 +1034,106 @@
     "window": {
       "x": 0,
       "y": 0,
-      "w": 720,
-      "h": 450
+      "w": 396,
+      "h": 297
     },
     "files": [
       {
-        "file": "sign-in-my-gear.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4978
+        "file": "sign-in-my-gear.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1852
       },
       {
-        "file": "sign-in-my-gear.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11324
+        "file": "sign-in-my-gear.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3256
       }
     ]
   },
-  "sign-in-my-gear.he": {
+  "sign-in-my-gear.he.row": {
     "shot": "mygear-sign",
     "source": {
       "file": "mygear-sign.he.webp",
       "md5": "34053d54d5bb4d0b9b4db938d2cdf927"
     },
     "window": {
-      "x": 720,
+      "x": 1044,
       "y": 0,
-      "w": 720,
-      "h": 450
+      "w": 396,
+      "h": 297
     },
     "files": [
       {
-        "file": "sign-in-my-gear.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4786
+        "file": "sign-in-my-gear.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1844
       },
       {
-        "file": "sign-in-my-gear.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10406
+        "file": "sign-in-my-gear.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3168
       }
     ]
   },
-  "storage-capacity.en": {
+  "storage-capacity.en.row": {
     "shot": "capacity-form",
     "source": {
       "file": "capacity-form.en.webp",
       "md5": "956de10fbcfd1e085c9423f4c444ba8c"
     },
     "window": {
-      "x": 424,
-      "y": 371,
-      "w": 480,
-      "h": 300
+      "x": 489,
+      "y": 390,
+      "w": 349,
+      "h": 262
     },
     "files": [
       {
-        "file": "storage-capacity.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5594
+        "file": "storage-capacity.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1970
       },
       {
-        "file": "storage-capacity.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10956
+        "file": "storage-capacity.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3976
       }
     ]
   },
-  "storage-capacity.he": {
+  "storage-capacity.he.row": {
     "shot": "capacity-form",
     "source": {
       "file": "capacity-form.he.webp",
       "md5": "5ab5fd38bcc323a2f960fb2e084c2692"
     },
     "window": {
-      "x": 540,
-      "y": 371,
-      "w": 480,
-      "h": 300
+      "x": 608,
+      "y": 393,
+      "w": 343,
+      "h": 257
     },
     "files": [
       {
-        "file": "storage-capacity.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4762
+        "file": "storage-capacity.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1844
       },
       {
-        "file": "storage-capacity.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 8816
+        "file": "storage-capacity.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3416
       }
     ]
   },
-  "subscription.en": {
+  "subscription.en.row": {
     "shot": "billing-open",
     "source": {
       "file": "billing-open.en.webp",
@@ -979,26 +1141,26 @@
     },
     "window": {
       "x": 508,
-      "y": 35,
+      "y": 0,
       "w": 685,
-      "h": 428
+      "h": 514
     },
     "files": [
       {
-        "file": "subscription.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6720
+        "file": "subscription.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2020
       },
       {
-        "file": "subscription.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13836
+        "file": "subscription.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4570
       }
     ]
   },
-  "subscription.he": {
+  "subscription.he.row": {
     "shot": "billing-open",
     "source": {
       "file": "billing-open.he.webp",
@@ -1006,26 +1168,26 @@
     },
     "window": {
       "x": 247,
-      "y": 14,
+      "y": 0,
       "w": 709,
-      "h": 443
+      "h": 532
     },
     "files": [
       {
-        "file": "subscription.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6118
+        "file": "subscription.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1930
       },
       {
-        "file": "subscription.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 12490
+        "file": "subscription.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3900
       }
     ]
   },
-  "support-views.en": {
+  "support-views.en.row": {
     "shot": "support-views-open",
     "source": {
       "file": "support-views-open.en.webp",
@@ -1033,26 +1195,26 @@
     },
     "window": {
       "x": 508,
-      "y": 472,
+      "y": 386,
       "w": 685,
-      "h": 428
+      "h": 514
     },
     "files": [
       {
-        "file": "support-views.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5566
+        "file": "support-views.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1702
       },
       {
-        "file": "support-views.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11490
+        "file": "support-views.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3336
       }
     ]
   },
-  "support-views.he": {
+  "support-views.he.row": {
     "shot": "support-views-open",
     "source": {
       "file": "support-views-open.he.webp",
@@ -1060,107 +1222,107 @@
     },
     "window": {
       "x": 247,
-      "y": 457,
+      "y": 368,
       "w": 709,
-      "h": 443
+      "h": 532
     },
     "files": [
       {
-        "file": "support-views.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4860
+        "file": "support-views.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1670
       },
       {
-        "file": "support-views.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10552
+        "file": "support-views.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3460
       }
     ]
   },
-  "support.en": {
+  "support.en.row": {
     "shot": "support-open",
     "source": {
       "file": "support-open.en.webp",
       "md5": "f145558a3c4c7ef0cad5ad04c45adbb9"
     },
     "window": {
-      "x": 88,
-      "y": 8,
-      "w": 480,
-      "h": 300
+      "x": 87,
+      "y": 47,
+      "w": 294,
+      "h": 221
     },
     "files": [
       {
-        "file": "support.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 7130
+        "file": "support.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2252
       },
       {
-        "file": "support.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 15168
+        "file": "support.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4370
       }
     ]
   },
-  "support.he": {
+  "support.he.row": {
     "shot": "support-open",
     "source": {
       "file": "support-open.he.webp",
       "md5": "8811345756f42367efffff20817668a6"
     },
     "window": {
-      "x": 872,
-      "y": 8,
-      "w": 480,
-      "h": 300
+      "x": 1047,
+      "y": 43,
+      "w": 306,
+      "h": 230
     },
     "files": [
       {
-        "file": "support.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6720
+        "file": "support.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2020
       },
       {
-        "file": "support.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 13294
+        "file": "support.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 4170
       }
     ]
   },
-  "take-kit-back.en": {
+  "take-kit-back.en.row": {
     "shot": "kits-board",
     "source": {
       "file": "kits-board.en.webp",
       "md5": "aced4b18a2811193f3218f152f014e48"
     },
     "window": {
-      "x": 960,
+      "x": 1176,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "take-kit-back.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5684
+        "file": "take-kit-back.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1922
       },
       {
-        "file": "take-kit-back.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10924
+        "file": "take-kit-back.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3366
       }
     ]
   },
-  "take-kit-back.he": {
+  "take-kit-back.he.row": {
     "shot": "kits-board",
     "source": {
       "file": "kits-board.he.webp",
@@ -1169,25 +1331,25 @@
     "window": {
       "x": 0,
       "y": 0,
-      "w": 480,
-      "h": 300
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "take-kit-back.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5322
+        "file": "take-kit-back.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1742
       },
       {
-        "file": "take-kit-back.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 9774
+        "file": "take-kit-back.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2986
       }
     ]
   },
-  "team-sign-out.en": {
+  "team-sign-out.en.row": {
     "shot": "person-form-head",
     "source": {
       "file": "person-form-head.en.webp",
@@ -1195,26 +1357,26 @@
     },
     "window": {
       "x": 478,
-      "y": 280,
-      "w": 480,
-      "h": 300
+      "y": 251,
+      "w": 479,
+      "h": 359
     },
     "files": [
       {
-        "file": "team-sign-out.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5824
+        "file": "team-sign-out.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1986
       },
       {
-        "file": "team-sign-out.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 11734
+        "file": "team-sign-out.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3660
       }
     ]
   },
-  "team-sign-out.he": {
+  "team-sign-out.he.row": {
     "shot": "person-form-head",
     "source": {
       "file": "person-form-head.he.webp",
@@ -1222,26 +1384,26 @@
     },
     "window": {
       "x": 483,
-      "y": 280,
-      "w": 480,
-      "h": 300
+      "y": 251,
+      "w": 479,
+      "h": 359
     },
     "files": [
       {
-        "file": "team-sign-out.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5586
+        "file": "team-sign-out.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1970
       },
       {
-        "file": "team-sign-out.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10968
+        "file": "team-sign-out.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3468
       }
     ]
   },
-  "two-factor.en": {
+  "two-factor.en.row": {
     "shot": "twofactor-open",
     "source": {
       "file": "twofactor-open.en.webp",
@@ -1249,26 +1411,26 @@
     },
     "window": {
       "x": 508,
-      "y": 346,
+      "y": 303,
       "w": 685,
-      "h": 428
+      "h": 514
     },
     "files": [
       {
-        "file": "two-factor.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 7614
+        "file": "two-factor.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1874
       },
       {
-        "file": "two-factor.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 17162
+        "file": "two-factor.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3824
       }
     ]
   },
-  "two-factor.he": {
+  "two-factor.he.row": {
     "shot": "twofactor-open",
     "source": {
       "file": "twofactor-open.he.webp",
@@ -1276,134 +1438,134 @@
     },
     "window": {
       "x": 247,
-      "y": 345,
+      "y": 300,
       "w": 709,
-      "h": 443
+      "h": 532
     },
     "files": [
       {
-        "file": "two-factor.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 6690
+        "file": "two-factor.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1746
       },
       {
-        "file": "two-factor.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 15096
+        "file": "two-factor.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3466
       }
     ]
   },
-  "warranty-contracts.en": {
+  "warranty-contracts.en.row": {
     "shot": "contracts-list",
     "source": {
       "file": "contracts-list.en.webp",
       "md5": "5fea23a9c61409c23726ae892cc627fe"
     },
     "window": {
-      "x": 598,
-      "y": 215,
-      "w": 480,
-      "h": 300
+      "x": 706,
+      "y": 266,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "warranty-contracts.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 3060
+        "file": "warranty-contracts.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1024
       },
       {
-        "file": "warranty-contracts.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 6524
+        "file": "warranty-contracts.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 1624
       }
     ]
   },
-  "warranty-contracts.he": {
+  "warranty-contracts.he.row": {
     "shot": "contracts-list",
     "source": {
       "file": "contracts-list.he.webp",
       "md5": "da722a9f0983d0443bc69776b4d36672"
     },
     "window": {
-      "x": 367,
-      "y": 215,
-      "w": 480,
-      "h": 300
+      "x": 475,
+      "y": 266,
+      "w": 264,
+      "h": 198
     },
     "files": [
       {
-        "file": "warranty-contracts.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 2502
+        "file": "warranty-contracts.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 992
       },
       {
-        "file": "warranty-contracts.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 5146
+        "file": "warranty-contracts.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 1578
       }
     ]
   },
-  "write-offs.en": {
+  "write-offs.en.row": {
     "shot": "writeoff-card",
     "source": {
       "file": "writeoff-card.en.webp",
       "md5": "ced977b0b276a36a3a1f04f70f8eccfe"
     },
     "window": {
-      "x": 71,
-      "y": 600,
-      "w": 480,
-      "h": 300
+      "x": 93,
+      "y": 573,
+      "w": 436,
+      "h": 327
     },
     "files": [
       {
-        "file": "write-offs.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 7918
+        "file": "write-offs.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2546
       },
       {
-        "file": "write-offs.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 17422
+        "file": "write-offs.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5372
       }
     ]
   },
-  "write-offs.he": {
+  "write-offs.he.row": {
     "shot": "writeoff-card",
     "source": {
       "file": "writeoff-card.he.webp",
       "md5": "9fd06263fec8a2de0689e267c81befcf"
     },
     "window": {
-      "x": 916,
-      "y": 600,
-      "w": 480,
-      "h": 300
+      "x": 964,
+      "y": 613,
+      "w": 383,
+      "h": 287
     },
     "files": [
       {
-        "file": "write-offs.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 8288
+        "file": "write-offs.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 2846
       },
       {
-        "file": "write-offs.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 16678
+        "file": "write-offs.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 5718
       }
     ]
   },
-  "your-sign-in.en": {
+  "your-sign-in.en.row": {
     "shot": "security-open",
     "source": {
       "file": "security-open.en.webp",
@@ -1413,24 +1575,24 @@
       "x": 569,
       "y": 0,
       "w": 606,
-      "h": 379
+      "h": 455
     },
     "files": [
       {
-        "file": "your-sign-in.en.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 5160
+        "file": "your-sign-in.en.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1520
       },
       {
-        "file": "your-sign-in.en.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 10502
+        "file": "your-sign-in.en.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 3084
       }
     ]
   },
-  "your-sign-in.he": {
+  "your-sign-in.he.row": {
     "shot": "security-open",
     "source": {
       "file": "security-open.he.webp",
@@ -1440,20 +1602,20 @@
       "x": 265,
       "y": 0,
       "w": 630,
-      "h": 394
+      "h": 473
     },
     "files": [
       {
-        "file": "your-sign-in.he.400.webp",
-        "width": 400,
-        "height": 250,
-        "bytes": 4336
+        "file": "your-sign-in.he.row.132.webp",
+        "width": 132,
+        "height": 99,
+        "bytes": 1500
       },
       {
-        "file": "your-sign-in.he.800.webp",
-        "width": 800,
-        "height": 500,
-        "bytes": 8630
+        "file": "your-sign-in.he.row.264.webp",
+        "width": 264,
+        "height": 198,
+        "bytes": 2976
       }
     ]
   }
