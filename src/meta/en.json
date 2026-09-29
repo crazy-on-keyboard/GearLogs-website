@@ -367,5 +367,29 @@
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Settings: see when support looked in",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/open-my-gear": {
+    "title": "My Gear: Open My Gear — GearLogs Guide",
+    "description": "Sign in with a code sent to your email. Then see the gear on your name, your notices and your history. Step by step, with real screens.",
+    "ogTitle": "My Gear: open My Gear",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "My Gear: open My Gear",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/give-my-gear": {
+    "title": "Personnel: Give Your People My Gear — GearLogs Guide",
+    "description": "Put an email and a number on a person's record, and they can sign in to My Gear to see their own gear, notices and receipts. Step by step, with real screens.",
+    "ogTitle": "Personnel: give your people My Gear",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "Personnel: give your people My Gear",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
+  },
+  "guides/sign-in-my-gear": {
+    "title": "My Gear: Sign a Receipt, or Say What Is Wrong — GearLogs Guide",
+    "description": "Sign for the gear on your name, or say what is wrong with it. Share this guide with your people: it shows My Gear as they see it. Step by step, with real screens.",
+    "ogTitle": "My Gear: sign a receipt, or say what is wrong",
+    "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
+    "twitterTitle": "My Gear: sign a receipt, or say what is wrong",
+    "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   }
 }

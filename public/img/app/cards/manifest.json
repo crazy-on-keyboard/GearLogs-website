@@ -1026,56 +1026,56 @@
     ]
   },
   "sign-in-my-gear.en.row": {
-    "shot": "mygear-sign",
+    "shot": "mygear-approvals",
     "source": {
-      "file": "mygear-sign.en.webp",
-      "md5": "82a67ce44acdec0384ebcb4d2ce717f7"
+      "file": "mygear-approvals.en.webp",
+      "md5": "019738e510d4b2ae601d1447880751e3"
     },
     "window": {
-      "x": 0,
+      "x": 175,
       "y": 0,
-      "w": 396,
-      "h": 297
+      "w": 418,
+      "h": 314
     },
     "files": [
       {
         "file": "sign-in-my-gear.en.row.132.webp",
         "width": 132,
         "height": 99,
-        "bytes": 1852
+        "bytes": 1174
       },
       {
         "file": "sign-in-my-gear.en.row.264.webp",
         "width": 264,
         "height": 198,
-        "bytes": 3256
+        "bytes": 1954
       }
     ]
   },
   "sign-in-my-gear.he.row": {
-    "shot": "mygear-sign",
+    "shot": "mygear-approvals",
     "source": {
-      "file": "mygear-sign.he.webp",
-      "md5": "34053d54d5bb4d0b9b4db938d2cdf927"
+      "file": "mygear-approvals.he.webp",
+      "md5": "14480c111338ea6399f84e89cdc3c330"
     },
     "window": {
-      "x": 1044,
+      "x": 847,
       "y": 0,
-      "w": 396,
-      "h": 297
+      "w": 418,
+      "h": 314
     },
     "files": [
       {
         "file": "sign-in-my-gear.he.row.132.webp",
         "width": 132,
         "height": 99,
-        "bytes": 1844
+        "bytes": 1216
       },
       {
         "file": "sign-in-my-gear.he.row.264.webp",
         "width": 264,
         "height": 198,
-        "bytes": 3168
+        "bytes": 1840
       }
     ]
   },

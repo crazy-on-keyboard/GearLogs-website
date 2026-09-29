@@ -13244,6 +13244,920 @@
           "badge": "start"
         }
       ]
+    },
+    {
+      "id": "mygear-home",
+      "lang": "en",
+      "file": "mygear-home.en.webp",
+      "alt": "My Gear after signing in: the sections with their numbers, the count of what is on your name, and the gear table",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 95,
+          "w": 161,
+          "h": 136,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1303,
+          "y": 64,
+          "w": 100,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 224,
+          "y": 96,
+          "w": 1182,
+          "h": 74,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-notices",
+      "lang": "en",
+      "file": "mygear-notices.en.webp",
+      "alt": "My Gear on Notices: Notices in the sections with its count of new ones, and a new notice",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 131,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 223,
+          "y": 95,
+          "w": 1184,
+          "h": 32,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-history",
+      "lang": "en",
+      "file": "mygear-history.en.webp",
+      "alt": "My Gear on History: History in the sections with its count, and the When and What columns",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 166,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 224,
+          "y": 96,
+          "w": 308,
+          "h": 99,
+          "pad": [
+            6,
+            2,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 532,
+          "y": 96,
+          "w": 173,
+          "h": 99,
+          "pad": [
+            6,
+            2,
+            6,
+            2
+          ],
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "mygear-topbar",
+      "lang": "en",
+      "file": "mygear-topbar.en.webp",
+      "alt": "My Gear's top bar: your name and code, the language switch, Sign out everywhere and Sign out",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1046,
+          "y": 11,
+          "w": 108,
+          "h": 17,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 1164,
+          "y": 7,
+          "w": 32,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 1217,
+          "y": 7,
+          "w": 132,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 4,
+          "x": 1359,
+          "y": 7,
+          "w": 67,
+          "h": 24,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "mygear-sections",
+      "lang": "en",
+      "file": "mygear-sections.en.webp",
+      "alt": "My Gear, the page your people sign in to: its four sections — My gear, Notices, History and Approvals",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 95,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 21,
+          "y": 131,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 21,
+          "y": 166,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 21,
+          "y": 202,
+          "w": 161,
+          "h": 29,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-approvals",
+      "lang": "en",
+      "file": "mygear-approvals.en.webp",
+      "alt": "My Gear on Approvals: Approvals in the sections with its count, and one receipt waiting to be signed",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 202,
+          "w": 161,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 223,
+          "y": 95,
+          "w": 322,
+          "h": 51,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-read",
+      "lang": "en",
+      "file": "mygear-receipt-read.en.webp",
+      "alt": "A receipt open on My Gear: the facts, the three lines as they were recorded, and the two answers — I received these, or Something is wrong",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 586,
+          "y": 95,
+          "w": 822,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 587,
+          "y": 119,
+          "w": 820,
+          "h": 99,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 597,
+          "y": 257,
+          "w": 115,
+          "h": 24,
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 718,
+          "y": 257,
+          "w": 126,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-confirm",
+      "lang": "en",
+      "file": "mygear-receipt-confirm.en.webp",
+      "alt": "The confirm step of a receipt on My Gear: the sentence that says the signature cannot be undone, Confirm and sign, and Back",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 597,
+          "y": 237,
+          "w": 799,
+          "h": 13,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 597,
+          "y": 257,
+          "w": 115,
+          "h": 24,
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ],
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 718,
+          "y": 257,
+          "w": 44,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-dispute",
+      "lang": "en",
+      "file": "mygear-receipt-dispute.en.webp",
+      "alt": "Something is wrong on a My Gear receipt: the five reasons, the lines to tick, the box for your words, and Send the dispute with the line above it",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 597,
+          "y": 237,
+          "w": 435,
+          "h": 168,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 597,
+          "y": 415,
+          "w": 435,
+          "h": 119,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 597,
+          "y": 544,
+          "w": 435,
+          "h": 91,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 597,
+          "y": 652,
+          "w": 435,
+          "h": 79,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-held",
+      "lang": "en",
+      "file": "mygear-held.en.webp",
+      "alt": "My Gear on My gear: the items on the person's name, already there while their receipt waits for a signature",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 21,
+          "y": 95,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 224,
+          "y": 96,
+          "w": 1182,
+          "h": 74,
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "mygear-home",
+      "lang": "he",
+      "file": "mygear-home.he.webp",
+      "alt": "הציוד שלי אחרי הכניסה: המדורים עם המספרים שלהם, הספירה של מה שעל שמכם, וטבלת הציוד",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 95,
+          "w": 161,
+          "h": 136,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 36,
+          "y": 64,
+          "w": 112,
+          "h": 13,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 34,
+          "y": 96,
+          "w": 1182,
+          "h": 74,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-notices",
+      "lang": "he",
+      "file": "mygear-notices.he.webp",
+      "alt": "הציוד שלי על הודעות: הודעות במדורים עם מספר החדשות, והודעה חדשה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 131,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 33,
+          "y": 95,
+          "w": 1184,
+          "h": 32,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-history",
+      "lang": "he",
+      "file": "mygear-history.he.webp",
+      "alt": "הציוד שלי על היסטוריה: היסטוריה במדורים עם המספר שלה, והעמודות מתי ומה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 166,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 926,
+          "y": 96,
+          "w": 291,
+          "h": 99,
+          "pad": [
+            6,
+            6,
+            6,
+            2
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 815,
+          "y": 96,
+          "w": 111,
+          "h": 99,
+          "pad": [
+            6,
+            2,
+            6,
+            2
+          ],
+          "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "mygear-topbar",
+      "lang": "he",
+      "file": "mygear-topbar.he.webp",
+      "alt": "הסרגל העליון של הציוד שלי: השם והקוד שלכם, מתג השפה, התנתקות מכל המכשירים והתנתקות",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 263,
+          "y": 11,
+          "w": 96,
+          "h": 17,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 221,
+          "y": 7,
+          "w": 32,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 73,
+          "y": 7,
+          "w": 126,
+          "h": 24,
+          "badge": "corner"
+        },
+        {
+          "n": 4,
+          "x": 13,
+          "y": 7,
+          "w": 50,
+          "h": 24,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "mygear-sections",
+      "lang": "he",
+      "file": "mygear-sections.he.webp",
+      "alt": "הציוד שלי, הדף שהאנשים שלכם נכנסים אליו: ארבעת המדורים שלו — הציוד שלי, הודעות, היסטוריה ואישורים",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 95,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 1258,
+          "y": 131,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 1258,
+          "y": 166,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 1258,
+          "y": 202,
+          "w": 161,
+          "h": 29,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-approvals",
+      "lang": "he",
+      "file": "mygear-approvals.he.webp",
+      "alt": "הציוד שלי על אישורים: אישורים במדורים עם המספר שלו, ואישור מסירה אחד שממתין לחתימה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 202,
+          "w": 161,
+          "h": 29,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 895,
+          "y": 95,
+          "w": 322,
+          "h": 51,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-read",
+      "lang": "he",
+      "file": "mygear-receipt-read.he.webp",
+      "alt": "אישור מסירה פתוח בהציוד שלי: העובדות, שלוש השורות כפי שנרשמו, ושתי התשובות — קיבלתי את הפריטים, או משהו לא נכון",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 33,
+          "y": 95,
+          "w": 822,
+          "h": 17,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 34,
+          "y": 119,
+          "w": 820,
+          "h": 99,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 758,
+          "y": 257,
+          "w": 85,
+          "h": 24,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 660,
+          "y": 257,
+          "w": 91,
+          "h": 24,
+          "badge": "end"
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-confirm",
+      "lang": "he",
+      "file": "mygear-receipt-confirm.he.webp",
+      "alt": "שלב האישור של אישור מסירה בהציוד שלי: המשפט שאומר שאי אפשר לבטל חתימה, אישור וחתימה, וחזרה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 44,
+          "y": 237,
+          "w": 799,
+          "h": 13,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 752,
+          "y": 257,
+          "w": 91,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 702,
+          "y": 257,
+          "w": 44,
+          "h": 24,
+          "badge": "end",
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mygear-receipt-dispute",
+      "lang": "he",
+      "file": "mygear-receipt-dispute.he.webp",
+      "alt": "משהו לא נכון באישור מסירה בהציוד שלי: חמש הסיבות, השורות לסימון, התיבה למילים שלכם, והכפתור שליחת הערעור עם השורה שמעליו",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 409,
+          "y": 237,
+          "w": 435,
+          "h": 168,
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 409,
+          "y": 415,
+          "w": 435,
+          "h": 119,
+          "badge": "start"
+        },
+        {
+          "n": 3,
+          "x": 409,
+          "y": 544,
+          "w": 435,
+          "h": 91,
+          "badge": "start"
+        },
+        {
+          "n": 4,
+          "x": 409,
+          "y": 652,
+          "w": 435,
+          "h": 64,
+          "badge": "start"
+        }
+      ]
+    },
+    {
+      "id": "mygear-held",
+      "lang": "he",
+      "file": "mygear-held.he.webp",
+      "alt": "הציוד שלי על הציוד שלי: הפריטים שעל שם האדם, כבר רשומים בזמן שאישור המסירה שלהם ממתין לחתימה",
+      "theme": "office",
+      "app": "index-FmJCAUqv.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1258,
+          "y": 95,
+          "w": 161,
+          "h": 29,
+          "pad": [
+            6,
+            6,
+            5,
+            6
+          ],
+          "badge": "start"
+        },
+        {
+          "n": 2,
+          "x": 34,
+          "y": 96,
+          "w": 1182,
+          "h": 74,
+          "badge": "above"
+        }
+      ]
     }
   ]
 }
