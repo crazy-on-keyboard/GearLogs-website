@@ -71,10 +71,34 @@
 .guide-related a { font-size: var(--fs-17); font-weight: 500; color: var(--go); text-decoration: underline; text-underline-offset: 3px; }
 .guide-related a:hover { color: var(--go-hover); }
 
-/* the guides index: a card whose guide has its own page links to it */
-.cap-more { display: inline-flex; gap: 8px; margin-top: 14px; font-size: var(--fs-15); font-weight: 500; color: var(--go); }
-.cap-more:hover { color: var(--go-hover); }
-[dir="rtl"] .cap-more .ar { display: inline-block; transform: scaleX(-1); }
+/* the guides index (the Director's pick, in his words: "just like what you did here with short text underneath. in
+   groups/sections like you offered"): five subject groups under "Start here", three cards to a row; a card is the guide's
+   first screen cut close, then its number, title, short text and steps. Flat: the edge darkens under the pointer, nothing lifts. */
+.guide-groups { display: grid; gap: 56px; }
+.guide-group { display: grid; gap: 20px; scroll-margin-top: calc(var(--header-h) + 16px); }
+.guide-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--edge); }
+.guide-group-name { font-size: var(--fs-26); font-weight: 400; line-height: 1.3; letter-spacing: var(--track-tight); color: var(--text); }
+.guide-group-count, .guide-card-steps { color: var(--text-muted); }
+.guide-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.guide-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+  transition: border-color var(--d-control);
+}
+a.guide-card:hover { border-color: var(--edge); }
+a.guide-card:hover .guide-card-name { color: var(--go); }
+.guide-card-shot { width: 100%; height: auto; background: var(--fog); border-bottom: 1px solid var(--line); }
+/* the steps stand on the card's foot, so they line up along a row whatever the length of the words above them */
+.guide-card-in { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; padding: 18px 24px 22px; }
+.guide-card-in .cap-ref { margin-bottom: 0; }
+.guide-card-name { font-size: var(--fs-22); font-weight: 500; line-height: 1.3; color: var(--text); text-wrap: balance; transition: color var(--d-control); }
+.guide-card-lede { font-size: var(--fs-15); line-height: 1.5; color: var(--text-body); }
+.guide-card-steps { align-self: end; padding-top: 6px; }
 
 /* a guide step's caption is a sentence the reader should notice (not a label): body text, never capitals */
 .guide .frame-cap { font-family: var(--font-body); font-size: var(--fs-15); font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--text-muted); }

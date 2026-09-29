@@ -9,6 +9,7 @@
 //
 //   node scripts/build-site.mjs            full build (fails if any page lacks Hebrew)
 //   node scripts/build-site.mjs --en-only  English only (for verifying EN output pre-translation)
+import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, cpSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
@@ -19,6 +20,7 @@ import { renderHeaders } from './lib/headers.mjs';
 import { inlineCodeIn } from './lib/inline-code.mjs';
 import { expandBand, expandPhotos } from './lib/photo-tags.mjs';
 import { expandShots, strayAppImages, webpSize } from './lib/shots.mjs';
+import { expandGuideCards, withoutCardPictures } from './lib/guide-cards.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
 const SCRIPT_BUNDLES = [
@@ -51,6 +53,14 @@ const appSizeOf = (file) => {
   if (!appSizes.has(file)) appSizes.set(file, webpSize(readFileSync(join(PUBLIC, 'img', 'app', file))));
   return appSizes.get(file);
 };
+/** The guides index's card pictures and what each was cut from (written by `npm run cards`). */
+const guideCards = readJson(join(PUBLIC, 'img', 'app', 'cards', 'manifest.json'));
+const appStamps = new Map();
+const appStampOf = (file) => {
+  if (!appStamps.has(file)) appStamps.set(file, createHash('md5').update(readFileSync(join(PUBLIC, 'img', 'app', file))).digest('hex'));
+  return appStamps.get(file);
+};
+const guidePageOf = (lang) => (slug) => (existsSync(bodyPath(`guides/${slug}`, lang)) ? readFileSync(bodyPath(`guides/${slug}`, lang), 'utf8') : null);
 const meta = {
   en: readJson(join(SRC, 'meta', 'en.json')),
   he: existsSync(join(SRC, 'meta', 'he.json')) ? readJson(join(SRC, 'meta', 'he.json')) : {},
@@ -140,6 +150,8 @@ if (missingFonts.length) {
 
 const langs = EN_ONLY ? ['en'] : LANGS;
 let written = 0;
+/** The guides whose index card still waits for its page (named at the end: none of them may reach the live site). */
+const waitingGuides = new Set();
 for (const page of PAGES) {
   for (const lang of page.bilingual ? langs : ['en']) {
     const p = { ...page, head: { en: meta.en[page.slug], he: meta.he[page.slug] } };
@@ -152,15 +164,17 @@ for (const page of PAGES) {
       console.error(`build-site: ${where} does not open with a <gl-band> — every page opens with its photo band`);
       process.exit(1);
     }
-    const body = expandShots(expandPhotos(band.html, photos, where), lang, appShots, appSizeOf, where);
+    const cards = expandGuideCards(expandPhotos(band.html, photos, where), lang, { pageOf: guidePageOf(lang), shots: appShots, cards: guideCards, stampOf: appStampOf }, where);
+    for (const slug of cards.waiting) waitingGuides.add(slug);
+    const body = expandShots(cards.html, lang, appShots, appSizeOf, where);
     const html = renderPage(p, lang, body);
     // S2-02: every app picture on the site is a real capture, in the page's language, placed by a <gl-shot> — nothing else
-    const stray = strayAppImages(html);
+    const stray = strayAppImages(withoutCardPictures(html));
     if (stray.length) {
-      console.error(`build-site: ${where} shows app pictures outside a <gl-shot> frame — ${stray.join(', ')}`);
+      console.error(`build-site: ${where} shows app pictures outside a <gl-shot> frame or a guide card — ${stray.join(', ')}`);
       process.exit(1);
     }
-    const wrongLang = [...html.matchAll(/\/img\/app\/[a-z0-9-]+\.(en|he)\./g)].filter((m) => m[1] !== lang);
+    const wrongLang = [...html.matchAll(/\/img\/app\/(?:cards\/)?[a-z0-9-]+\.(en|he)\./g)].filter((m) => m[1] !== lang);
     if (wrongLang.length) {
       console.error(`build-site: ${where} shows an app picture in the other language — ${wrongLang[0][0]}`);
       process.exit(1);
@@ -217,4 +231,5 @@ const sitemap =
   entries.join('\n') + '\n</urlset>\n';
 writeFileSync(join(DIST, 'sitemap.xml'), sitemap, 'utf8');
 
+if (waitingGuides.size) console.log(`build-site: NOTE — ${waitingGuides.size} guide card(s) still wait for their page: ${[...waitingGuides].join(', ')}`);
 console.log(`build-site: OK — ${written} page(s)${EN_ONLY ? ' (EN only)' : ' in EN + HE'}, sitemap with ${entries.length} URL(s)`);

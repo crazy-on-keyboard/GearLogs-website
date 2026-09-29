@@ -54,7 +54,8 @@ main .page-lead a:hover, main .legal-mark:hover { color: var(--go-hover); }
 /* The label look — ONE recipe for every small uppercase label (mono in English; the Hebrew face, no capitals, no tracking in Hebrew). */
 :is(.band-kicker, .band-trail, .section-num, .cap-ref, .note-cat, .note-fn, .note-more-t, .note-meta,
     .price-headline, .price-row-label, .price-total-label, .price-baseline-per, .price-card-per,
-    .changelog-ver, .foot-h, .nav-links a, .nav-links summary, .nf-t, .cta-stamp, .lbl, .gp-unit, .num-unit, .chip, .frame-cap) {
+    .changelog-ver, .foot-h, .nav-links a, .nav-links summary, .nf-t, .cta-stamp, .lbl, .gp-unit, .num-unit, .chip, .frame-cap,
+    .guide-group-count, .guide-card-steps) {
   font-family: var(--font-label);
   font-size: var(--fs-label);
   font-weight: 500;
