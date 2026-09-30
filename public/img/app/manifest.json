@@ -13385,47 +13385,14 @@
       "id": "mygear-topbar",
       "lang": "en",
       "file": "mygear-topbar.en.webp",
-      "alt": "My Gear's top bar: your name and code, the language switch, Sign out everywhere and Sign out",
+      "alt": "My Gear's top bar: your name and code, the language switch and Sign out",
       "theme": "office",
       "app": "index-FmJCAUqv.js",
       "frame": {
         "w": 1440,
         "h": 900
       },
-      "marks": [
-        {
-          "n": 1,
-          "x": 1046,
-          "y": 11,
-          "w": 108,
-          "h": 17,
-          "badge": "below"
-        },
-        {
-          "n": 2,
-          "x": 1164,
-          "y": 7,
-          "w": 32,
-          "h": 24,
-          "badge": "below"
-        },
-        {
-          "n": 3,
-          "x": 1217,
-          "y": 7,
-          "w": 132,
-          "h": 24,
-          "badge": "below"
-        },
-        {
-          "n": 4,
-          "x": 1359,
-          "y": 7,
-          "w": 67,
-          "h": 24,
-          "badge": "below"
-        }
-      ]
+      "marks": []
     },
     {
       "id": "mygear-sections",
@@ -13845,47 +13812,14 @@
       "id": "mygear-topbar",
       "lang": "he",
       "file": "mygear-topbar.he.webp",
-      "alt": "הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה, יציאה מכל המכשירים ויציאה",
+      "alt": "הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה ויציאה",
       "theme": "office",
       "app": "index-FmJCAUqv.js",
       "frame": {
         "w": 1440,
         "h": 900
       },
-      "marks": [
-        {
-          "n": 1,
-          "x": 263,
-          "y": 11,
-          "w": 96,
-          "h": 17,
-          "badge": "below"
-        },
-        {
-          "n": 2,
-          "x": 221,
-          "y": 7,
-          "w": 32,
-          "h": 24,
-          "badge": "below"
-        },
-        {
-          "n": 3,
-          "x": 73,
-          "y": 7,
-          "w": 126,
-          "h": 24,
-          "badge": "corner"
-        },
-        {
-          "n": 4,
-          "x": 13,
-          "y": 7,
-          "w": 50,
-          "h": 24,
-          "badge": "below"
-        }
-      ]
+      "marks": []
     },
     {
       "id": "mygear-sections",

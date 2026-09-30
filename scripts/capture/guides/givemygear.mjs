@@ -33,6 +33,21 @@ const idCell = async (app, card) => card.getByText(await app.t('per_id_number'),
 /** @type {import('../shots.mjs').Shot[]} */
 export default [
   {
+    // 4.25 before you start: the workspace's own code on the Personnel band (stage 4 PR 3 — the Director's Code look · A · Code chip + Copy)
+    id: 'personnel-ws-code',
+    alt: { en: 'The Personnel band: the workspace code with its Copy button and (i) at the end of the band', he: 'סרגל כוח האדם: קוד סביבת העבודה עם כפתור ההעתקה וה-(i) בקצה הסרגל' },
+    run: async (app, lang) => { await openPeople(app, lang); },
+    marks: async (app) => {
+      const slot = app.page.getByTestId('workspace-code');
+      return [
+        // the caption and the chip are ONE outline; then Copy; then the (i)
+        around([slot.locator('span').first(), slot.locator('bdi').first()], 'below'),
+        side('below', slot.getByRole('button', { name: /^Copy|העתק/ }).first()),
+        side('below', slot.getByRole('button').last()),
+      ];
+    },
+  },
+  {
     // step 1: the filter pressed, the head of Cold Chain (no e-mail on record: No code) at the top of the pane
     id: 'people-no-code',
     alt: { en: 'Personnel with the filter pressed: Personnel in the side menu, the Cannot receive a code filter with its count, a No code mark and the card\'s Edit Record button', he: 'כוח אדם עם המסנן לחוץ: כוח אדם בתפריט הצדדי, המסנן לא יכולים לקבל קוד עם המספר שלו, הסימון ללא קוד והכפתור ערוך רשומה בכרטיס' },

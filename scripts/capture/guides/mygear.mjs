@@ -133,7 +133,7 @@ export default [
   {
     // 4.24 step 5: the top bar (no button on it is pressed)
     id: 'mygear-topbar',
-    alt: { en: 'My Gear\'s top bar: your name and code, the language switch, Sign out everywhere and Sign out', he: 'הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה, יציאה מכל המכשירים ויציאה' },
+    alt: { en: 'My Gear\'s top bar: your name and code, the language switch and Sign out', he: 'הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה ויציאה' },
     run: async (app, lang) => {
       await openSection(app, lang, 'staff_rail_gear');
       await app.page.locator('header').first().getByRole('button', { name: await app.t('staff_sign_out'), exact: true }).waitFor();
@@ -146,8 +146,7 @@ export default [
       return [
         around([code.locator('xpath=preceding-sibling::span[1]'), code], 'below'),
         side('below', bar.getByRole('button', { name: await app.t('staff_lang_switch'), exact: true })),
-        side('below', bar.getByRole('button', { name: await app.t('staff_sign_out_everywhere'), exact: true })),
-        // exact: in English "Sign out" is the start of "Sign out everywhere"
+        // stage 4 (the Director's Sign-out · A): ONE Sign out — the second button and its key are gone
         side('below', bar.getByRole('button', { name: await app.t('staff_sign_out'), exact: true })),
       ];
     },
