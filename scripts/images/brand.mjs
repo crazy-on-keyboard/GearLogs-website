@@ -4,7 +4,9 @@
 // wordmark in the header). The vectors are served as they are (public/favicon.svg, public/img/logo-mark.svg); this script
 // renders the two pictures that must stay raster, inside Chrome through a canvas, like the site's other image tooling:
 //
-//   public/img/logo-mark.png — the search engines' logo (Organization JSON-LD; they want a raster at least 112 px)
+//   public/img/logo-mark.png — the search engines' logo (Organization JSON-LD; they want a raster at least 112 px). A live
+//                              app workspace also points its app and sign-in logo URLs at this file: changing it changes
+//                              that workspace's sidebar and sign-in too.
 //   public/img/og-card.png   — the link card: its old metallic mark is painted over with the card's own grid paper (the
 //                              same 60 px grid, copied from an empty spot ten squares to the right) and the vector mark is
 //                              drawn into the same box. Everything else on the card stays as it was. Safe to run again.
