@@ -39,9 +39,10 @@
   text-wrap: balance;
 }
 .note-body p.note-pull { margin-block: 36px; }
-.note-endmark { width: 30px; height: 28px; margin: 40px auto 8px; }
+/* the vector mark sits in the boxes the old picture had; contain keeps its own proportions */
+.note-endmark { width: 30px; height: 28px; margin: 40px auto 8px; object-fit: contain; }
 .note-filed { display: flex; gap: 16px; align-items: center; margin-top: 28px; padding: 20px 24px; background: var(--fog); border-radius: var(--radius); }
-.note-filed img { width: 34px; height: 32px; flex: none; }
+.note-filed img { width: 34px; height: 32px; flex: none; object-fit: contain; }
 .nf-t { margin-bottom: 4px; color: var(--text); }
 .nf-d { font-size: var(--fs-14); color: var(--text-body); }
 .nf-cta { margin-inline-start: auto; }

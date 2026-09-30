@@ -18,6 +18,7 @@
     "check:uistd": "node scripts/check-uistd.mjs",
     "photos": "node scripts/images/photos.mjs",
     "cards": "node scripts/images/cards.mjs",
+    "brand": "node scripts/images/brand.mjs",
     "capture": "node scripts/capture/capture.mjs",
     "perf": "node scripts/perf/record.mjs",
     "check": "npm run check:types && npm run check:contact && npm run check:guard && npm run check:cards && npm run check:uistd && npm run build && npm run check:links && npm run check:i18n && npm run check:csp"

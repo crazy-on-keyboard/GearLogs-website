@@ -157,10 +157,15 @@ function navLinks(page, lang) {
   }).join('\n');
 }
 
-/** The wordmark: GEAR + LOGS in the brand red, always left-to-right. */
-function logo(lang) {
+/**
+ * The wordmark: GEAR + LOGS in the brand red, always left-to-right. In the header the vector mark stands before it (the
+ * Director's pick "B · A + the mark beside the wordmark in the header", 2026-09-30); mark and wordmark are one lockup, so
+ * it is not mirrored in Hebrew — the header around it is. The footer keeps the wordmark alone.
+ */
+function logo(lang, { mark = false } = {}) {
   const homeHref = lang === 'he' ? '/he/' : '/';
-  return `<a href="${homeHref}" class="logo" aria-label="${t(lang, 'logo_aria')}">GEAR<span>LOGS</span></a>`;
+  const img = mark ? '<img class="logo-mark" src="/img/logo-mark.svg" alt="" width="31" height="30">' : '';
+  return `<a href="${homeHref}" class="logo" aria-label="${t(lang, 'logo_aria')}">${img}GEAR<span>LOGS</span></a>`;
 }
 
 /**
@@ -186,7 +191,7 @@ export function renderHeader(page, lang) {
   return (
     `    <header class="site-header${page.opensWithBand ? '' : ' is-solid'}">\n` +
     `      <div class="wrap bar">\n` +
-    `        ${logo(lang)}\n` +
+    `        ${logo(lang, { mark: true })}\n` +
     `        <nav class="nav-links" aria-label="${t(lang, 'nav_aria')}">\n${nav}\n        </nav>\n` +
     `        <div class="navr">\n          ${right}\n        </div>\n` +
     `      </div>\n` +
