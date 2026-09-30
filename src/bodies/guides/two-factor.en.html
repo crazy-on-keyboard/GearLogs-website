@@ -12,7 +12,7 @@
           <ul class="guide-list">
             <li>Settings &rsaquo; Security opens for every member. <em>Your two-factor</em> is yours alone.</li>
             <li>You need an authenticator app on your phone. GearLogs names Google Authenticator, Authy and 1Password as examples.</li>
-            <li>GearLogs asks for the code at every sign-in once the workspace requires two-factor. Step 4 turns that on.</li>
+            <li>Once you set up your own two-factor, GearLogs asks you for the code at every sign-in. Step 4 requires it of every member.</li>
             <li>Requiring it for the whole workspace is for administrators.</li>
           </ul>
         </div>
@@ -37,7 +37,7 @@
               <li><em>Your two-factor</em> and its status: <em>Not set up</em>, <em>Set up &mdash; verify to manage</em> or <em>Verified this session</em>.</li>
               <li><em>Set up my two-factor</em> opens the setup window.</li>
             </ol>
-            <p>The window <em>Set up your two-factor</em> shows a code to scan with your authenticator app. <em>Or enter this key manually</em> gives the same key as text. Type the <em>6-digit code</em> the app shows, then press <em>Verify &amp; continue</em>. Ten recovery codes appear next. Each one works once. Copy them with <em>Copy all</em>, keep them somewhere safe, and press <em>I’ve saved them</em>. They are never shown again. Later, <em>Verify my two-factor</em> asks for a code and nothing else.</p>
+            <p>The window <em>Set up your two-factor</em> shows a code to scan with your authenticator app. <em>Or enter this key manually</em> gives the same key as text. Type the <em>6-digit code</em> the app shows, then press <em>Verify &amp; continue</em>. Ten recovery codes appear next. Each one works once. Copy them with <em>Copy all</em>, keep them somewhere safe, and press <em>I’ve saved them</em>. They are never shown again. From then on, every sign-in asks for your password and then for <em>Your two-factor code</em>.</p>
             <gl-shot id="twofactor-your" caption="Your two-factor: its status and Set up my two-factor." marks></gl-shot>
           </li>
           <li class="gstep" id="step-3">
@@ -47,7 +47,7 @@
               <li>The (i) beside <em>Your two-factor</em>.</li>
               <li>Its explanation: recovery codes are the way back in, and an administrator can also reset your two-factor.</li>
             </ol>
-            <p>On the sign-in code screen, <em>Lost your device? Use a recovery code</em> asks for one of your codes. Press <em>Continue</em>. GearLogs clears the old authenticator and shows a new code to scan straight away, then a fresh set of recovery codes. While the card reads <em>Verified this session</em>, <em>New recovery codes</em> gives you ten new codes, and the old set stops working.</p>
+            <p>On the sign-in code screen, <em>Lost your device? Use a recovery code</em> asks for one of your codes. Press <em>Continue</em>. GearLogs clears the old authenticator and opens the screen <em>Set up your authenticator again</em>: a new code to scan, then a fresh set of recovery codes. This setup cannot be skipped. If you close the browser, your next sign-in returns to it. While the card reads <em>Verified this session</em>, <em>New recovery codes</em> gives you ten new codes, and the old set stops working.</p>
             <gl-shot id="twofactor-info" caption="The (i) of Your two-factor, open: what the card does and the way back in." marks></gl-shot>
           </li>
           <li class="gstep" id="step-4">
@@ -57,7 +57,7 @@
               <li><em>Workspace two-factor</em> and its state, <em>Off</em> or <em>On</em>.</li>
               <li><em>Turn on</em> stays grey until your own two-factor reads <em>Verified this session</em>. The reason is written under it.</li>
             </ol>
-            <p><em>Turn on</em> asks first: <em>Require two-factor for everyone?</em> Every member is asked to set up two-factor at their next sign-in, and every change then requires the code. Once it is on, the Users screen shows <em>2FA on</em> or <em>No 2FA</em> beside each member. <em>Reset 2FA</em> clears a locked-out member’s authenticator, and they set up a new one at their next sign-in. It never resets your own or the super administrator’s. Another administrator’s is for a super administrator. <em>Turn off</em> asks first too, and anyone already set up keeps their authenticator.</p>
+            <p><em>Turn on</em> asks first: <em>Require two-factor for everyone?</em> Every member is asked to set up two-factor at their next sign-in, and every change then requires the code. The Users screen shows <em>2FA on</em>, <em>No 2FA</em> or <em>2FA setup owed</em> beside each member, whether or not the requirement is on. <em>Reset 2FA</em> clears a member’s authenticator and recovery codes. Where the workspace requires two-factor, they set up a new one at their next sign-in. Elsewhere they sign in with the password alone until they turn two-factor on again. To reset a member who has two-factor, your own account needs two-factor too, and you must have signed in with your code. Every other administrator is told. It never resets your own or the super administrator’s. Another administrator’s is for a super administrator. <em>Turn off</em> asks first too. Anyone who has set up their own authenticator keeps it and is still asked for its code at every sign-in.</p>
             <gl-shot id="twofactor-workspace" caption="Workspace two-factor: its state, and Turn on greyed with the reason." marks></gl-shot>
           </li>
           <li class="gstep" id="step-5">
@@ -68,25 +68,27 @@
               <li><em>Security</em>, with its two columns: <em>In-app</em> and <em>Email</em>.</li>
               <li><em>Password, two-factor and recovery changes</em>: <em>Always on</em> in both. It cannot be switched off.</li>
             </ol>
-            <p>You hear when two-factor is turned on or off, when a recovery code is used, and when an administrator resets your two-factor. When wrong recovery codes are tried on your account, you and your administrators are told. If it was not you, change your password and tell your administrator. A change you did not make means someone else has your account.</p>
+            <p>You hear when two-factor is turned on or off, when a recovery code is used, and when an administrator resets your two-factor. Administrators also hear when another administrator resets a member’s two-factor. When wrong recovery codes are tried on your account, you and your administrators are told. If it was not you, change your password and tell your administrator. A change you did not make means someone else has your account.</p>
             <gl-shot id="twofactor-notices" caption="Settings on Notifications: the Security band and the row that is always on." marks></gl-shot>
           </li>
         </ol>
 
         <div class="guide-result">
           <h2 class="guide-h">Result</h2>
-          <p>With the workspace requirement on, every sign-in asks for the password and the six-digit code, and every change needs it. You keep ten recovery codes for the day the phone is lost, and you hear about every change.</p>
+          <p>Every sign-in asks you for your password and the six-digit code. With the workspace requirement on, the same holds for every member, and every change needs the code. You keep ten recovery codes for the day the phone is lost, and you hear about every change.</p>
         </div>
 
         <div class="guide-trouble">
           <h2 class="guide-h">If something is refused</h2>
           <ul class="guide-list">
             <li><q>That code isn’t right. Try again.</q> The code did not match your authenticator. Type the code the app shows now.</li>
-            <li><q>Couldn’t start two-step setup. Please try again.</q> The setup window could not start. Close it and try again in a moment.</li>
+            <li><q>Couldn’t start the two-factor setup. Please try again.</q> The setup window could not start. Close it and try again in a moment.</li>
             <li><q>That code isn’t valid or was already used.</q> Each recovery code works once. Try another code from your set. Several wrong codes in a short time tell you and your administrators. If it was not you, change your password and tell your administrator.</li>
             <li><q>Set up and verify your own two-factor first.</q> Written under a grey <em>Turn on</em>. Set up your own two-factor, or verify it, until the card reads <em>Verified this session</em>.</li>
             <li><q>Couldn’t change the setting. Make sure your own two-factor is verified, then try again.</q> The workspace refused the change. Only an administrator verified this session may turn the requirement on or off.</li>
             <li><q>Couldn’t generate new recovery codes. Please try again.</q> No new set was made. Your current recovery codes still work.</li>
+            <li><q>This member has two-factor. To reset it, your own account needs two-factor too &mdash; turn it on in Settings &rsaquo; Security, sign in with your code, then try again.</q> Shown in the window <em>Reset two-factor authentication?</em> when your own account has no two-factor. Set yours up, sign in with your code, and reset again.</li>
+            <li><q>Couldn’t check your sign-in</q> GearLogs could not read whether your account has two-factor, so nothing opens. Press <em>Retry</em>. If it stays, press <em>Sign out</em> and sign in again. On <em>Reset your password</em> it means no password was set yet: press <em>Set new password</em> again.</li>
           </ul>
         </div>
 
