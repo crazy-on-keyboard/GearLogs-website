@@ -13387,12 +13387,37 @@
       "file": "mygear-topbar.en.webp",
       "alt": "My Gear's top bar: your name and code, the language switch and Sign out",
       "theme": "office",
-      "app": "index-FmJCAUqv.js",
+      "app": "index-csXwtE1G.js",
       "frame": {
         "w": 1440,
         "h": 900
       },
-      "marks": []
+      "marks": [
+        {
+          "n": 1,
+          "x": 1188,
+          "y": 11,
+          "w": 108,
+          "h": 17,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 1306,
+          "y": 7,
+          "w": 32,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 1359,
+          "y": 7,
+          "w": 67,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
     },
     {
       "id": "mygear-sections",
@@ -13596,7 +13621,7 @@
       "file": "mygear-receipt-dispute.en.webp",
       "alt": "Something is wrong on a My Gear receipt: the five reasons, the lines to tick, the box for your words, and Send the dispute with the line above it",
       "theme": "office",
-      "app": "index-FmJCAUqv.js",
+      "app": "index-csXwtE1G.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -13631,7 +13656,7 @@
           "x": 597,
           "y": 652,
           "w": 435,
-          "h": 79,
+          "h": 94,
           "badge": "start"
         }
       ]
@@ -13814,12 +13839,37 @@
       "file": "mygear-topbar.he.webp",
       "alt": "הסרגל העליון של ״הציוד שלי״: השם והקוד שלכם, מתג השפה ויציאה",
       "theme": "office",
-      "app": "index-FmJCAUqv.js",
+      "app": "index-csXwtE1G.js",
       "frame": {
         "w": 1440,
         "h": 900
       },
-      "marks": []
+      "marks": [
+        {
+          "n": 1,
+          "x": 126,
+          "y": 11,
+          "w": 108,
+          "h": 17,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 84,
+          "y": 7,
+          "w": 32,
+          "h": 24,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 13,
+          "y": 7,
+          "w": 50,
+          "h": 24,
+          "badge": "corner"
+        }
+      ]
     },
     {
       "id": "mygear-sections",
@@ -14017,7 +14067,7 @@
       "file": "mygear-receipt-dispute.he.webp",
       "alt": "משהו לא נכון באישור מסירה ב״הציוד שלי״: חמש הסיבות, השורות לסימון, התיבה למילים שלכם, והכפתור שליחת הערעור עם השורה שמעליו",
       "theme": "office",
-      "app": "index-FmJCAUqv.js",
+      "app": "index-csXwtE1G.js",
       "frame": {
         "w": 1440,
         "h": 900
@@ -14052,7 +14102,7 @@
           "x": 409,
           "y": 652,
           "w": 435,
-          "h": 64,
+          "h": 79,
           "badge": "start"
         }
       ]
@@ -14090,6 +14140,88 @@
           "w": 1182,
           "h": 74,
           "badge": "above"
+        }
+      ]
+    },
+    {
+      "id": "personnel-ws-code",
+      "lang": "en",
+      "file": "personnel-ws-code.en.webp",
+      "alt": "The Personnel band: the workspace code with its Copy button and (i) at the end of the band",
+      "theme": "office",
+      "app": "index-csXwtE1G.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 1209,
+          "y": 71,
+          "w": 135,
+          "h": 15,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 1356,
+          "y": 67,
+          "w": 33,
+          "h": 23,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 1396,
+          "y": 67,
+          "w": 24,
+          "h": 24,
+          "badge": "below"
+        }
+      ]
+    },
+    {
+      "id": "personnel-ws-code",
+      "lang": "he",
+      "file": "personnel-ws-code.he.webp",
+      "alt": "סרגל כוח האדם: קוד סביבת העבודה עם כפתור ההעתקה וה-(i) בקצה הסרגל",
+      "theme": "office",
+      "app": "index-csXwtE1G.js",
+      "frame": {
+        "w": 1440,
+        "h": 900
+      },
+      "marks": [
+        {
+          "n": 1,
+          "x": 96,
+          "y": 71,
+          "w": 148,
+          "h": 15,
+          "badge": "below"
+        },
+        {
+          "n": 2,
+          "x": 51,
+          "y": 67,
+          "w": 33,
+          "h": 23,
+          "badge": "below"
+        },
+        {
+          "n": 3,
+          "x": 20,
+          "y": 67,
+          "w": 24,
+          "h": 24,
+          "badge": "below",
+          "pad": [
+            6,
+            5,
+            6,
+            6
+          ]
         }
       ]
     }

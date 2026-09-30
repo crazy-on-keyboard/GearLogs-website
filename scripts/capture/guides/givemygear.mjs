@@ -3,7 +3,7 @@
 // Person opens and closes by Escape with nothing typed (Save and Archive are outlined, never pressed). A demo person's phone
 // and ID number never show: their values are blanked for the picture (invented numbers, and possibly somebody's).
 // (The guide's one My Gear page, the four sections, lives with the other My Gear pictures in mygear.mjs.)
-import { NAMES, boardCard, closeCard, control, escape, escapeRe, openCard, personalFields, side, toTop } from '../helpers.mjs';
+import { NAMES, around, boardCard, closeCard, control, escape, escapeRe, openCard, personalFields, side, toTop } from '../helpers.mjs';
 
 /** The "Cannot receive a code" filter: its name is its caption, then its words with the count. */
 const noCodeFilter = async (app) => app.page.getByRole('button', { name: new RegExp(`${escapeRe((await app.t('apr_filter_no_code')).split(' · ')[0])} · \\d+`) }).first();
