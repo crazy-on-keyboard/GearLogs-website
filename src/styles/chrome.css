@@ -19,6 +19,8 @@
   color: var(--on-ink);
 }
 .logo span { color: var(--brand-on-ink); }
+/* the vector mark before the wordmark (header only); its frame is the mark's own ink box, so nothing is stretched */
+.logo-mark { width: 31px; height: 30px; margin-inline-end: 10px; flex: none; }
 
 .nav-links {
   margin-inline-start: auto;
