@@ -21,6 +21,7 @@ import { inlineCodeIn } from './lib/inline-code.mjs';
 import { expandBand, expandPhotos } from './lib/photo-tags.mjs';
 import { expandShots, strayAppImages, webpSize } from './lib/shots.mjs';
 import { expandGuideCards, expandGuideLinks, withoutCardPictures } from './lib/guide-cards.mjs';
+import { generatedLd } from './lib/structured-data.mjs';
 
 /** Typed script entry (under src/) → the file the pages load (under dist/). */
 const SCRIPT_BUNDLES = [
@@ -157,7 +158,10 @@ for (const page of PAGES) {
     const p = { ...page, head: { en: meta.en[page.slug], he: meta.he[page.slug] } };
     p.jsonld = { en: loadJsonld(p, 'en'), he: loadJsonld(p, 'he') };
     const where = `${lang}:${page.slug}`;
-    const band = expandBand(readFileSync(bodyPath(page.slug, lang), 'utf8'), photos, where);
+    const source = readFileSync(bodyPath(page.slug, lang), 'utf8');
+    // the FAQ, product and guide markup is generated from the page's own words (SEO-1 · D5 · A)
+    p.generatedLd = { [lang]: generatedLd(page, lang, { bodyHtml: source, head: meta[lang][page.slug], guidesBody: readFileSync(bodyPath('guides', lang), 'utf8') }) };
+    const band = expandBand(source, photos, where);
     p.opensWithBand = band.opensWithBand;
     // every page opens with its photo band (the Director's pick F3 · C; the home's is its hero)
     if (!band.opensWithBand) {
@@ -187,8 +191,15 @@ for (const page of PAGES) {
 }
 
 // ---- sitemap ----------------------------------------------------------------
+// <lastmod> is the day the page's own files last changed (scripts/page-dates.mjs writes the snapshot from git; SEO-1 · D7 · A).
+const pageDates = readJson(join(ROOT, 'scripts', 'lib', 'page-dates.json'));
 function sitemapEntry(page, lang) {
   const loc = canonicalUrl(page, lang);
+  const lastmod = pageDates[page.slug]?.[lang];
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lastmod ?? '')) {
+    console.error(`build-site: ${lang}:${page.slug} has no date in scripts/lib/page-dates.json — run \`node scripts/page-dates.mjs --sync\``);
+    process.exit(1);
+  }
   const en = page.path === '/' ? SITE_ORIGIN : `${SITE_ORIGIN}${page.path}`;
   const he = page.path === '/' ? `${SITE_ORIGIN}/he/` : `${SITE_ORIGIN}/he${page.path}`;
   const alts = [
@@ -198,7 +209,7 @@ function sitemapEntry(page, lang) {
   ].join('\n');
   return (
     `  <url><loc>${loc}</loc>\n${alts}\n` +
-    `    <changefreq>${page.sitemap.changefreq}</changefreq><priority>${page.sitemap.priority}</priority></url>`
+    `    <lastmod>${lastmod}</lastmod></url>`
   );
 }
 const smPages = PAGES.filter((p) => p.sitemap);

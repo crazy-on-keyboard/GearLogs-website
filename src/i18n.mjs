@@ -46,6 +46,8 @@ export const FOOTER_COLUMNS = [
 export const CHROME = {
   en: {
     html_lang: 'en',
+    og_locale: 'en_US',
+    og_image_alt: 'GearLogs — Know what you have. Know who has it.',
     logo_aria: 'GearLogs home',
     skip_link: 'Skip to content',
     nav_aria: 'Main',
@@ -88,6 +90,8 @@ export const CHROME = {
   },
   he: {
     html_lang: 'he',
+    og_locale: 'he_IL',
+    og_image_alt: 'GearLogs — דעו מה יש לכם. דעו אצל מי זה.',
     logo_aria: 'GearLogs — לדף הבית',
     skip_link: 'דילוג לתוכן',
     nav_aria: 'ראשי',
