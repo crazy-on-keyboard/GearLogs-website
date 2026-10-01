@@ -45,7 +45,7 @@ const RETIRED = lists.retired.map((r) => [new RegExp(r.source, r.flags), r.law])
 const HEB = '\\u0590-\\u05FF';
 const SINGULAR_YOU = new RegExp(lists.you);
 const SINGULAR_HEAD = new RegExp('^(?:--\\s*)?(?:' + lists.commands.join('|') + ')(?![' + HEB + '])');
-const SINGULAR_INSIDE = new RegExp('(?:[.:!?;—–-]\\s+|\\sאנא\\s+|\\s[ו])(?:' + lists.commands.join('|') + ')(?![' + HEB + '])');
+const SINGULAR_INSIDE = new RegExp('(?:[.:!?;—–-]\\s+|[(\\[]|(?:^|\\s)(?:אנא|או)\\s+|\\s[ו])(?:' + lists.commands.join('|') + ')(?![' + HEB + '])');
 
 /** A quote of the app on the page: <em>, <q>, a picture's caption or alt, Hebrew quotation marks ״…״, or &ldquo;…&rdquo;. */
 const QUOTED = /<em>([^<]*)<\/em>|<q>([^<]*)<\/q>|caption="([^"]*)"|alt="([^"]*)"|״([^״<]{1,200})״|&ldquo;([^<]{1,200}?)&rdquo;/g;
