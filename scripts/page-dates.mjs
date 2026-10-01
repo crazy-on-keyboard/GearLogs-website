@@ -11,7 +11,7 @@
 //
 // The check compares DAYS (the sitemap carries a day). On `main` after a squash-merge the commits carry a newer stamp than
 // the branch the snapshot was written on, so the staleness half runs on pull requests and locally only (`SKIP_STALE=1`
-// in the main-branch CI run); the shape half runs everywhere.
+// in the main-branch CI run) and only for the pages the branch itself touched; the shape half runs everywhere.
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -79,11 +79,25 @@ for (const page of listed) {
   }
 }
 for (const slug of Object.keys(snapshot)) if (!listed.some((p) => p.slug === slug)) problems.push(`${slug} is in the snapshot but not in the sitemap — run --sync`);
+// Staleness is judged on the files THIS branch changed (against its merge base with main): a squash-merge stamps main with the
+// merge's day, later than the branch the snapshot was written on, and that is not staleness — the branch's day is the truth.
 const checkStale = !process.env.SKIP_STALE && hasHistory();
+function branchFiles() {
+  for (const base of ['origin/main', 'main']) {
+    try {
+      const mergeBase = execFileSync('git', ['merge-base', 'HEAD', base], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+      return new Set(execFileSync('git', ['diff', '--name-only', mergeBase, 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean));
+    } catch { /* the next base */ }
+  }
+  return null;
+}
 if (checkStale) {
+  const touched = branchFiles();
   for (const page of listed) {
     for (const lang of page.bilingual ? LANGS : ['en']) {
-      const day = newestDay(sourcesOf(page, lang), page, lang);
+      const files = sourcesOf(page, lang);
+      if (touched && !files.some((f) => touched.has(f)) && !touched.has(`src/meta/${lang}.json`)) continue;
+      const day = newestDay(files, page, lang);
       const kept = snapshot[page.slug]?.[lang];
       if (day && kept && kept < day) problems.push(`${lang}:${page.slug} changed on ${day} but the snapshot says ${kept} — run --sync`);
     }

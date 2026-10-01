@@ -208,8 +208,8 @@ function sitemapEntry(page, lang) {
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${en}"/>`,
   ].join('\n');
   return (
-    `  <url><loc>${loc}</loc>\n${alts}\n` +
-    `    <lastmod>${lastmod}</lastmod></url>`
+    // the schema's order: loc · lastmod · then the extension elements (the alternates)
+    `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod>\n${alts}\n  </url>`
   );
 }
 const smPages = PAGES.filter((p) => p.sitemap);

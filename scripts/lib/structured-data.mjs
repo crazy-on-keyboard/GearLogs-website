@@ -4,7 +4,8 @@
 // `scripts/check-structured-data.mjs` parses every built page's JSON-LD and compares it with the visible text again.
 import { SITE_ORIGIN } from '../../src/i18n.mjs';
 
-const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', mdash: '—', ndash: '–', hellip: '…', rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”', middot: '·', times: '×', rarr: '→', larr: '←' };
+/** The named entities the bodies write (the house style's set); `check:ld` refuses a page whose markup still carries one. */
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: '\u00a0', mdash: '\u2014', ndash: '\u2013', hellip: '\u2026', rsquo: '\u2019', lsquo: '\u2018', ldquo: '\u201c', rdquo: '\u201d', rsaquo: '\u203a', lsaquo: '\u2039', middot: '\u00b7', times: '\u00d7', minus: '\u2212', rarr: '\u2192', larr: '\u2190', copy: '\u00a9', shy: '' };
 /** The visible text of a fragment of HTML: tags dropped, entities decoded, whitespace folded. */
 export function visibleText(html) {
   return html

@@ -25,4 +25,5 @@ jobs:
           node-version: 22
 
       - name: Ping the changed pages
+        continue-on-error: true   # a ping is a courtesy: the engines read the sitemap's dates anyway
         run: node scripts/indexnow.mjs --before "${{ github.event.before }}"

@@ -27,7 +27,11 @@ for (const page of PAGES.filter((p) => p.sitemap)) {
       try { data.push(JSON.parse(raw)); parsed++; } catch (e) { problems.push(`${where}: a JSON-LD block does not parse — ${e.message.slice(0, 80)}`); }
     }
     const types = data.flatMap((d) => (d['@graph'] ? d['@graph'] : [d])).map((d) => d['@type']);
-    if (!types.includes('Organization')) problems.push(`${where}: no Organization block`);
+    const org = data.find((d) => d['@type'] === 'Organization');
+    if (!org) problems.push(`${where}: no Organization block`);
+    else if (org.parentOrganization?.name !== 'RAQIOM' || org.parentOrganization?.url !== 'https://raqiom.com') problems.push(`${where}: the Organization block does not name RAQIOM as the parent`);
+    // a named or numeric entity left inside the markup's text means the decoder missed one
+    for (const raw of blocksOf(html)) { const left = raw.match(/&(?:[a-z][a-z0-9]*|#x?[0-9a-f]+);/i); if (left) problems.push(`${where}: an HTML entity left in the structured data (${left[0]})`); }
     const bodyH1 = pageTitleOf(html);
     if (page.slug === 'faq') {
       const ld = data.find((d) => d['@type'] === 'FAQPage');

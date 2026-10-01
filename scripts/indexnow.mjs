@@ -14,6 +14,8 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
 import { SITE_ORIGIN } from '../src/i18n.mjs';
+import { canonicalUrl } from '../src/chrome.mjs';
+import { existsSync } from 'node:fs';
 
 const KEY = '69ab4b3ec6060fc1700fff51b4c42280';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';
@@ -23,7 +25,9 @@ const flag = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 
 const DRY = args.includes('--dry');
 const WAIT_MS = Number(process.env.INDEXNOW_WAIT_MS ?? 15 * 60 * 1000);
 
-const urlOf = (page, lang) => (page.path === '/' ? (lang === 'he' ? `${SITE_ORIGIN}/he/` : `${SITE_ORIGIN}/`) : `${SITE_ORIGIN}${lang === 'he' ? '/he' : ''}${page.path}`);
+// the SAME address the sitemap and the canonical carry (the English home is the bare origin, no slash)
+const urlOf = (page, lang) => canonicalUrl(page, lang);
+const TIMEOUT = () => AbortSignal.timeout(20_000);
 
 /** The pages whose date moved between the snapshot at <sha> and the one here. */
 function changedSince(sha) {
@@ -46,7 +50,7 @@ async function liveCarries(changed) {
   const started = Date.now();
   while (Date.now() - started < WAIT_MS) {
     try {
-      const xml = await (await fetch(`${SITE_ORIGIN}/sitemap.xml?cb=${Date.now()}`, { headers: { 'cache-control': 'no-cache' } })).text();
+      const xml = await (await fetch(`${SITE_ORIGIN}/sitemap.xml?cb=${Date.now()}`, { headers: { 'cache-control': 'no-cache' }, signal: TIMEOUT() })).text();
       const entry = xml.split('<url>').find((u) => u.includes(`<loc>${probe.url}</loc>`));
       if (entry && entry.includes(`<lastmod>${probe.day}</lastmod>`)) return true;
     } catch (e) { console.log(`indexnow: the live sitemap could not be read (${e.message}) — trying again`); }
@@ -57,7 +61,7 @@ async function liveCarries(changed) {
 
 async function ping(urls) {
   const body = { host: HOST, key: KEY, keyLocation: `${SITE_ORIGIN}/${KEY}.txt`, urlList: urls };
-  const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'content-type': 'application/json; charset=utf-8' }, body: JSON.stringify(body) });
+  const res = await fetch(ENDPOINT, { method: 'POST', headers: { 'content-type': 'application/json; charset=utf-8' }, body: JSON.stringify(body), signal: TIMEOUT() });
   return res.status;
 }
 
@@ -70,7 +74,17 @@ else {
   const changed = changedSince(sha);
   if (!changed.length) { console.log('indexnow: no page changed since the previous release — nothing to ping'); process.exit(0); }
   console.log(`indexnow: ${changed.length} changed page(s):\n  ${changed.map((c) => `${c.url} (${c.day})`).join('\n  ')}`);
-  if (DRY) process.exit(0);
+  if (DRY) {
+    // the dry run proves every address is one the built sitemap carries, so the live probe can match
+    const built = join(process.cwd(), 'dist', 'sitemap.xml');
+    if (existsSync(built)) {
+      const xml = readFileSync(built, 'utf8');
+      const missing = changed.filter((c) => !xml.includes(`<loc>${c.url}</loc>`)).map((c) => c.url);
+      if (missing.length) { console.error(`indexnow: ${missing.length} address(es) are not in dist/sitemap.xml — ${missing.join(', ')}`); process.exit(1); }
+      console.log('indexnow: every changed address is in the built sitemap');
+    }
+    process.exit(0);
+  }
   if (!(await liveCarries(changed))) { console.log('indexnow: the live sitemap did not show the new date in time — not pinged (the engines read the sitemap anyway)'); process.exit(0); }
   urls = changed.map((c) => c.url);
 }
