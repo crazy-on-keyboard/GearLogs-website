@@ -66,9 +66,15 @@ for (const f of readdirSync(join(bodies, 'guides'))) {
   if (/\.en\.html$/.test(f)) EN_PAGES.push(join(bodies, 'guides', f));
 }
 const rel = (file) => file.slice(process.cwd().length + 1).replace(/\\/g, '/');
+// A FEMININE button name (the app's nouns: שמירה · הפעלה · הגדרת … · החזרה …) followed by a masculine verb reads wrong; the guides
+// introduce the control — "הכפתור <em>…</em> פותח" — so the verb agrees. A label that ends in ה or ת (the noun forms) is treated as
+// feminine; an <em> preceded by הכפתור / כפתור / על / את is already a named control or an object.
+const FEMININE_LABEL = /(?<!הכפתור |כפתור |הקישור |הכרטיס |הכרטיסייה |החלון |החלונית |בחלונית |המסנן |המתג |המקור |התג |הווידג׳ט |העמודה |הטופס |השורה |הרשימה |הפס |על |את |ב|ל)<em>([֐-׿][^<]{1,40}?[הת](?: \([^)]*\))?)<\/em>\s+(פותח|נשאר|שואל|מוסיף|מציג|קובע|יוצר|מסיר|מנפק|מעביר|שומר|מחזיר|מסמן|לוקח|מוותר|מזיז|נותן|מפעיל|מאפס|מנקה|מביא|מסדר|סוגר|עובד|מתחיל|מוציא|מכניס|מבקש|שולח|מוחק|נפתח|מופיע|מעומעם|אפור|פעיל|מעדכן|רושם|גורע|מחליף|מסתיר|מפרט|ששואל)(?![֐-׿])/;
 const hits = [];
 for (const file of HE_PAGES) {
   readFileSync(file, 'utf8').split('\n').forEach((line, i) => {
+    const fem = line.match(FEMININE_LABEL);
+    if (fem) hits.push(`${rel(file)}:${i + 1} — a feminine button name followed by a masculine verb (${fem[1]} ${fem[2]}): introduce it as "הכפתור <em>…</em>" so the verb agrees`);
     for (const m of line.matchAll(QUOTED)) {
       const quote = (m[1] ?? m[2] ?? m[3] ?? m[4] ?? m[5] ?? m[6]).replace(/&[a-z]+;/g, ' ');
       if (!/[֐-׿]/.test(quote)) continue;
