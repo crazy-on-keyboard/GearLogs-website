@@ -57,6 +57,10 @@
             <p class="faq-a">A person who can sign in. Five accounts are included in the base plan; beyond them, each additional person is a flat $39 a month. Disable a member and their seat frees immediately; re-enabling simply checks the limit again. Adding seats mid-period bills only the prorated remainder, and reducing seats settles at your next renewal &mdash; and the exact amount is always shown before you confirm anything.</p>
           </div>
           <div class="faq-item">
+            <h2 class="faq-q">Why is a seat free after I disabled a login?</h2>
+            <p class="faq-a">A seat counts a login that can sign in. A disabled login cannot, so its seat is free the moment you disable it; enabling it again takes a seat again. The Users screen, the &ldquo;limit reached&rdquo; window and your Billing page all count the same way.</p>
+          </div>
+          <div class="faq-item">
             <h2 class="faq-q">What is Priority Operations?</h2>
             <p class="faq-a">An optional add-on for your workspace, $99 a month or $990 a year: we reply first to your support requests, within 4 business hours (Sunday&ndash;Thursday 09:00&ndash;18:00, Israel time). A PRIORITY OPS badge and the promise show on your Support screen while it is on. Turn it on or off from Settings &rsaquo; Billing at any time &mdash; the prorated amount is shown before anything is billed, and switching off credits the unused time to your next invoice. Everything else in GearLogs works the same with it or without it.</p>
           </div>
@@ -79,6 +83,10 @@
           <div class="faq-item">
             <h2 class="faq-q">What if a person has no email on their record?</h2>
             <p class="faq-a"><em>My Gear</em> needs the email on their record &mdash; without one the page cannot send a code, and the storeman&rsquo;s record remains the record. Add the email on the person&rsquo;s card and they can sign in from then on.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">What ends a remembered sign-in on My Gear?</h2>
+            <p class="faq-a">Tick &ldquo;Remember this device for 30 days&rdquo; and the device stays signed in for 30 days from the sign-in, whether or not it is used. Four things end it earlier: Sign out, signing in on another device (a person is signed in on one device at a time), an administrator changing the e-mail on your record or archiving you, and the 30th day itself. Without the tick, a sign-in lasts 12 hours.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">What is a hand-over receipt?</h2>
@@ -143,6 +151,10 @@
           <div class="faq-item">
             <h2 class="faq-q">Can GearLogs tell me when a warranty or service contract is about to expire?</h2>
             <p class="faq-a">Yes. You can put warranty dates on individual units and whole lots, and record full service contracts &mdash; provider, coverage type, contract number, dates, and cost &mdash; attached to exactly the gear each one covers. Coverage that&rsquo;s running out shows up as colour-coded chips across the app, an &ldquo;Expiring&rdquo; widget lists the most urgent first, and a signal appears on the board before dates run out. You set how far ahead the warnings begin, and contract cost is visible to managers only.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Which date is a unit&rsquo;s warranty?</h2>
+            <p class="faq-a">A unit&rsquo;s own warranty date, when one was typed, is the one that counts. Otherwise the unit takes the later of two dates: its lot&rsquo;s warranty date and the end of the latest service contract attached to it. A contract can only extend a warranty &mdash; it never shortens one. The lot&rsquo;s (i) in the Registry says the same.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Can I record our own ID numbers for people?</h2>
@@ -241,6 +253,14 @@
             <p class="faq-a">Yes. A workspace can require two-factor authentication (2FA) &mdash; a one-time code from an authenticator app in addition to a password. It can be required both to sign in and to make changes, so a stolen password on its own can't alter your records. Members keep one-time recovery codes in case they lose their phone, and admins can reset a member's two-factor if they are ever locked out. Turning two-factor on or off is noted in the bell whichever way it happened, and if several wrong recovery codes are tried on an account in a short time, the account and its administrators are told. If it was not you, change your password and tell your administrator.</p>
           </div>
           <div class="faq-item">
+            <h2 class="faq-q">I lost my phone &mdash; how do I get back in?</h2>
+            <p class="faq-a">On the code screen, &ldquo;Lost your device? Use a recovery code&rdquo; takes one of the recovery codes you saved when you set two-factor up. It signs you in and opens the setup again at once &mdash; a new authenticator must be set up before you go on; this step cannot be skipped. No codes left? An administrator can reset your two-factor from the Users screen (they need their own code to do it, and every other administrator is told). A super administrator&rsquo;s two-factor is reset by GearLogs support.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">Why am I asked for a code in a workspace that does not require two-factor?</h2>
+            <p class="faq-a">Because you set two-factor up on your own account. Once you have, GearLogs asks for the code at every sign-in, in every workspace you belong to &mdash; a workspace&rsquo;s own requirement is a separate switch its administrators set in Settings &rsaquo; Security. Your own protection follows you.</p>
+          </div>
+          <div class="faq-item">
             <h2 class="faq-q">What happens if someone types wrong recovery codes on my account?</h2>
             <p class="faq-a">After several wrong codes in a short time, you get a notice in the bell and by email, and so does every administrator of your workspace &mdash; it names you by your member code, never your name. If it was you, try another code from your set. If it was not you, change your password and tell your administrator.</p>
           </div>
@@ -251,6 +271,10 @@
           <div class="faq-item">
             <h2 class="faq-q">How do I change my password?</h2>
             <p class="faq-a">Every member can, from Settings &rsaquo; Security &rsaquo; Change password. You confirm your current password first, then set the new one. The moment it is saved, every device and browser is signed out &mdash; the one you are on included &mdash; and each lands on a screen that says your password was changed. Sign in again with the new password. A confirmation reaches you by email and in the bell.</p>
+          </div>
+          <div class="faq-item">
+            <h2 class="faq-q">What are the password rules?</h2>
+            <p class="faq-a">The same rule everywhere a login is made or changed, including the spreadsheet import: 12 characters or more, with letters and numbers, up to 72 characters, and no spaces at the start or end. An administrator who sets a password types it twice and sees the rules while typing; a password the rule refuses is named under the field, never saved silently.</p>
           </div>
           <div class="faq-item">
             <h2 class="faq-q">Why did a field turn red only after I pressed Save?</h2>
