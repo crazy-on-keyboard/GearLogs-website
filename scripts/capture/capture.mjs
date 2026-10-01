@@ -6,6 +6,7 @@
 //   npm run capture                         every shot, both languages
 //   npm run capture -- --only=board,approvals --lang=he
 //   npm run capture -- --only=board --keep-open      the capture windows stay open after the run
+//   npm run capture -- --dry --report=dry.json      every screen opened and JUDGED by the privacy guard, no picture written (DEBT-106)
 //
 // What it needs (nothing here ever holds a password):
 //   1. the app's local preview:  cd ../GearLogs && npx vite preview --port 4174 --strictPort --host 127.0.0.1
@@ -23,6 +24,7 @@ import { join } from 'node:path';
 import SHOTS from './shots.mjs';
 import { encodeWebp } from '../images/encode.mjs';
 import { badgeAt } from '../lib/shots.mjs';
+import { PATTERNS, ALLOWED_ADDRESS, addressesShown, blankPersonal, unblank } from './guard.mjs';
 
 const APP = process.env.CAPTURE_APP ?? 'http://localhost:4174';
 /** Each language's own window: the two demo accounts cannot share a profile (both sign in to the same local address). */
@@ -43,6 +45,9 @@ const only = args.only ? new Set(args.only.split(',')) : null;
 /** The pictures the privacy guard refused in a --keep-going run. */
 const refused = [];
 const langs = (args.lang ?? 'en,he').split(',');
+/** --dry: every screen opened and judged by the privacy guard, no picture and no index written (DEBT-106); --report=<file> keeps the verdicts. */
+const DRY = 'dry' in args;
+const dryReport = [];
 /** The look every picture is taken in unless a shot names its own: the app's default theme, whatever the demo account last picked. */
 const BASE_THEME = args.theme ?? process.env.CAPTURE_THEME ?? 'office';
 
@@ -72,75 +77,6 @@ const escapeRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** The only real mailboxes a picture may show: the site's own public ones. Every demo address lives on a reserved test domain. */
 const PUBLIC_ADDRESSES = ['hello@gearlogs.com', 'support@gearlogs.com'];
-
-/** Runs in the page: where an e-mail address, a network (IP) address or a phone number would be READ inside the picture's
- *  area (a text or a field's value; a placeholder is no one's address). A sign-in notice names the network address its member
- *  signed in from — a real person's; a demo person's phone number is invented, and may still be somebody's. What a shot BLANKED
- *  for its picture is not read. Answers the elements' descriptions, never the values. */
-function addressesShown({ box, open }) {
-  const ADDRESS = /[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+|\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b|\b(?:[0-9A-Fa-f]{1,4}:){3,7}[0-9A-Fa-f]{1,4}\b/g;
-  // the reserved test domains, and the network ranges kept for documentation (RFC 5737, RFC 3849)
-  const allowed = (a) => open.includes(a.toLowerCase()) || /\.(example|test|invalid|localhost)$/i.test(a) || /^(192\.0\.2|198\.51\.100|203\.0\.113)\.\d+$/.test(a) || /^2001:0?db8:/i.test(a);
-  const inPicture = (el) => {
-    if (!el.checkVisibility({ visibilityProperty: true, opacityProperty: true })) return false;
-    const r = el.getBoundingClientRect();
-    return r.width > 0 && r.height > 0 && r.right > box.x && r.left < box.x + box.width && r.bottom > box.y && r.top < box.y + box.height;
-  };
-  // a phone number as people write one: a plus, a country code, then groups of digits (a code such as LOG-03-001 has no plus)
-  const PHONE = /\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}/g;
-  const blanked = (el) => Boolean(el.closest('[data-capture-blank]'));
-  const found = [];
-  const say = (el) => found.push(`${el.tagName.toLowerCase()}${el.getAttribute('role') ? `[role=${el.getAttribute('role')}]` : ''}${el.closest('[role="dialog"]') ? ' in a dialog' : ''}`);
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-    const hits = [...(node.nodeValue.match(ADDRESS) ?? []).filter((a) => !allowed(a)), ...(node.nodeValue.match(PHONE) ?? [])];
-    if (hits.length && node.parentElement && !blanked(node.parentElement) && inPicture(node.parentElement)) say(node.parentElement);
-  }
-  for (const field of document.querySelectorAll('input, textarea')) {
-    const value = String(field.value ?? '');
-    const hits = [...(value.match(ADDRESS) ?? []).filter((a) => !allowed(a)), ...(value.match(PHONE) ?? [])];
-    if (hits.length && !blanked(field) && inPicture(field)) say(field);
-  }
-  return found;
-}
-
-/** Runs in the page, before every picture: the values a picture never shows although the demo invented them — a PHONE number
- *  wherever it is written (a text or a field's value) and an ID NUMBER (its field, or the value beside the app's own "ID number"
- *  label on a person's card): an invented number may still be somebody's. Their words are drawn transparent — the box, the
- *  label and the icon stay — and put back by `unblank`. Answers how many values were blanked. */
-function blankPersonal({ idWords }) {
-  const PHONE = /\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}/;
-  let count = 0;
-  const blank = (el) => {
-    if (!el || el.dataset.captureBlank) return;
-    el.dataset.captureBlank = el.style.getPropertyValue('-webkit-text-fill-color') || 'none';
-    el.style.setProperty('-webkit-text-fill-color', 'transparent');
-    count++;
-  };
-  const isId = (words) => idWords.some((w) => words.trim().startsWith(w));
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  for (let node = walker.nextNode(); node; node = walker.nextNode()) if (PHONE.test(node.nodeValue)) blank(node.parentElement);
-  for (const field of document.querySelectorAll('input, textarea')) {
-    const value = String(field.value ?? '');
-    const label = field.labels?.[0]?.textContent ?? field.getAttribute('aria-label') ?? '';
-    if (PHONE.test(value) || (/\d/.test(value) && isId(label))) blank(field);
-  }
-  // a card's contact line: the label's own span, then the value beside it
-  for (const label of document.querySelectorAll('span')) {
-    if (label.children.length || !idWords.includes(label.textContent.trim())) continue;
-    for (const beside of label.parentElement?.children ?? []) if (beside !== label && !beside.children.length && /\d/.test(beside.textContent)) blank(beside);
-  }
-  return count;
-}
-
-/** Runs in the page, after the picture: every blanked value is drawn again as it was. */
-function unblank() {
-  for (const el of document.querySelectorAll('[data-capture-blank]')) {
-    const was = el.dataset.captureBlank;
-    if (was && was !== 'none') el.style.setProperty('-webkit-text-fill-color', was); else el.style.removeProperty('-webkit-text-fill-color');
-    delete el.dataset.captureBlank;
-  }
-}
 
 /** Runs in the page: a thing's box TOGETHER with its own visible label, when the label stands right over it or right beside
  *  it on its line — an outline on the control alone would dim the field's name. The label is the one the control is bound to
@@ -333,6 +269,17 @@ async function captureLanguage(lang, words, index) {
     await app.lang(lang);
     for (const shot of SHOTS) {
       if (only && !only.has(shot.id)) continue;
+      // a dry run judges EVERY screen: a shot that fails on its way (a mark gone, a window that would not open) is written
+      // into the report as a failure and the run goes on — the page is brought back to the app's root first
+      if (DRY) {
+        try { await picture(shot); } catch (failure) {
+          dryReport.push({ shot: shot.id, lang, blanked: 0, refused: [], failed: String(failure?.message ?? failure).split('\n')[0] });
+          console.log(`capture: DRY ${shot.id}.${lang} — FAILED ${String(failure?.message ?? failure).split('\n')[0]}`);
+          await page.goto(APP, { waitUntil: 'networkidle' }).catch(() => {});
+          await app.lang(lang).catch(() => {});
+        }
+        continue;
+      }
       await picture(shot);
     }
     await app.lang(startLang);
@@ -434,11 +381,12 @@ async function captureLanguage(lang, words, index) {
     const blank = [];
     for (const locator of shot.blank ? await shot.blank(app, lang) : []) blank.push(...await locator.elementHandles());
     for (const el of blank) await el.evaluate((n) => { if (n.dataset.captureBlank) return; n.dataset.captureBlank = n.style.getPropertyValue('-webkit-text-fill-color') || 'none'; n.style.setProperty('-webkit-text-fill-color', 'transparent'); });
-    await page.evaluate(blankPersonal, { idWords: [words.en.per_id_number, words.he.per_id_number].filter(Boolean) });
+    const guardWords = { idWords: [words.en.per_id_number, words.he.per_id_number, words.en.per_org_identifier, words.he.per_org_identifier].filter(Boolean), allowWords: [words.en.ext_id_default, words.he.ext_id_default].filter(Boolean) };
+    const blankedCount = await page.evaluate(blankPersonal, { ...guardWords, patterns: PATTERNS });
     const hidden = [];
     for (const locator of shot.hide ? await shot.hide(app, lang) : []) hidden.push(...await locator.elementHandles());
     for (const el of hidden) await el.evaluate((n) => { n.dataset.captureWas = n.style.visibility; n.style.visibility = 'hidden'; });
-    const shown = await page.evaluate(addressesShown, { box: box ?? { x: 0, y: 0, width: VIEW.width, height: VIEW.height }, open: PUBLIC_ADDRESSES });
+    const shown = await page.evaluate(addressesShown, { box: box ?? { x: 0, y: 0, width: VIEW.width, height: VIEW.height }, open: PUBLIC_ADDRESSES, patterns: PATTERNS, allowedAddress: ALLOWED_ADDRESS, allowWords: guardWords.allowWords });
     // where each number sits: the side its shot named (or the default for its size) when nothing a reader needs lies there —
     // no button, field, icon or text, no other mark's target, no number already placed; otherwise the side that costs least.
     // One number that stands in several places takes the same side in all of them.
@@ -460,11 +408,18 @@ async function captureLanguage(lang, words, index) {
       const side = wish[cost.indexOf(Math.min(...cost))];
       for (const m of places) { numbers.push(at(m, side)); m.badge = side; }
     }
+    // --dry (DEBT-106): the screen is opened and JUDGED exactly as for a picture — what was blanked, what would refuse — and
+    // nothing is written; the verdicts land in the dry report
+    if (DRY) {
+      dryReport.push({ shot: shot.id, lang, blanked: blankedCount, refused: shown });
+      console.log(`capture: DRY ${shot.id}.${lang} — blanked ${blankedCount}${shown.length ? ` · WOULD REFUSE (in: ${shown.join(' · ')})` : ''}`);
+    }
     const shotArgs = { format: 'png', ...(box ? { clip: { x: box.x, y: box.y, width: box.width, height: box.height, scale: 1 } } : {}) };
-    const png = shown.length ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
+    const png = shown.length || DRY ? null : Buffer.from((await cdp.send('Page.captureScreenshot', shotArgs)).data, 'base64');
     for (const el of hidden) await el.evaluate((n) => { n.style.visibility = n.dataset.captureWas ?? ''; delete n.dataset.captureWas; });
     await page.evaluate(unblank).catch(() => {});
     for (const el of left) await el.evaluate((n) => { n.style.display = n.dataset.captureShown ?? ''; delete n.dataset.captureShown; }).catch(() => {});
+    if (DRY) { if (shot.after) await shot.after(app, lang).catch(() => {}); return; }
     if (!png) {
       if (shot.after) await shot.after(app, lang).catch(() => {});
       await page.evaluate(unblank).catch(() => {});
@@ -497,7 +452,14 @@ async function main() {
   try {
     for (const lang of langs) bundles.push(await captureLanguage(lang, words, index));
   } finally {
-    writeFileSync(manifestFile, JSON.stringify({ view: VIEW, shots: [...index.values()] }, null, 2) + '\n');
+    if (!DRY) writeFileSync(manifestFile, JSON.stringify({ view: VIEW, shots: [...index.values()] }, null, 2) + '\n');
+    if (DRY) {
+      const would = dryReport.filter((r) => r.refused.length);
+      const failed = dryReport.filter((r) => r.failed);
+      const report = { screens: dryReport.length, blanked: dryReport.reduce((n, r) => n + r.blanked, 0), wouldRefuse: would.map((r) => `${r.shot}.${r.lang} (in: ${r.refused.join(' · ')})`), failed: failed.map((r) => `${r.shot}.${r.lang} — ${r.failed}`), verdicts: dryReport };
+      if (args.report) writeFileSync(args.report, JSON.stringify(report, null, 2) + '\n');
+      console.log(`capture: DRY RUN — ${report.screens} screens judged · ${report.blanked} values blanked · ${would.length} would refuse · ${failed.length} failed${args.report ? ` · report ${args.report}` : ''}`);
+    }
   }
   if (refused.length) throw new Error(`capture: ${refused.length} picture(s) REFUSED and not written — ${refused.join(' | ')}`);
   console.log(`capture: OK — ${[...index.values()].filter((e) => langs.includes(e.lang)).length} picture(s) from ${[...new Set(bundles)].join(', ') || 'the app'}`);
