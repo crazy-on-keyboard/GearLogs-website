@@ -75,7 +75,8 @@ export default [
     marks: async (app, lang) => {
       const dialog = app.page.getByRole('dialog', { name: NAMES.returnItem[lang], exact: true });
       return [
-        dialog.getByRole('heading', { level: 2, name: NAMES.returnItem[lang], exact: true }),
+        // the title's (i) stands INSIDE the heading, so its accessible name is the title followed by the (i)'s name: match the start
+        dialog.getByRole('heading', { level: 2, name: new RegExp(`^${escapeRe(NAMES.returnItem[lang])}`) }),
         dialog.getByRole('button', { name: `${await app.t('close')} — ${NAMES.returnItem[lang]}`, exact: true }),
         side('end', dialog.getByRole('button', { name: await app.t('close'), exact: true })),
       ];

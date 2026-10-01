@@ -45,7 +45,7 @@ const CASES = [
   { name: 'SVG text that carries a phone is REFUSED, never counted as blanked',
     html: '<svg width="300" height="40"><text x="0" y="20">+972-54-555-4444</text></svg>', blanked: 0, refused: 1, note: 'svg' },
   { name: 'a value under the company\'s own External ID column is allowed (the named allowance)',
-    html: '<table><thead><tr><th>Name</th><th>External ID</th></tr></thead><tbody><tr><td>Dana</td><td>123456789</td></tr></tbody></table><input aria-label="External ID" value="987654321">', blanked: 0, refused: 0 },
+    html: '<table><thead><tr><th>Name</th><th>External ID</th></tr></thead><tbody><tr><td>Dana</td><td>123456789</td></tr></tbody></table><input aria-label="External ID" value="987654321"><p>External ID: <span>123456789</span></p><p>מזהה חיצוני: <span>123456780</span></p><p>Badge: <span class="x">123456781</span></p>', blanked: 1, refused: 0, transparent: 'span.x' },
   { name: 'an ID field with a real-looking value is blanked; the same field with an invented value is not',
     html: '<input id="a" aria-label="ID number" value="304567891"><input id="b" aria-label="ID number" value="000000007"><span>ID number</span><span class="v">304567892</span>', blanked: 2, refused: 0, transparent: '#a, span.v' },
   { name: 'unblank puts every value back, in the main document and the shadow root',

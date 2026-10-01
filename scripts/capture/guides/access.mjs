@@ -4,7 +4,7 @@
 // PRIVACY: a member's row and a member's own window carry a REAL sign-in address (the demo accounts are real sign-ins). The Users
 // screen is pictured above its rows; behind a window the rows are hidden; in your own window the address field is hidden. The
 // capture itself refuses any picture that would still show an address.
-import { escape, escapeRe } from '../helpers.mjs';
+import { around, escape, escapeRe } from '../helpers.mjs';
 
 /** The band's title "User Management" (its (i) sits inside the heading, so the name only starts with the title). */
 const usersBand = async (app) => app.page.getByRole('heading', { level: 1, name: new RegExp(`^${escapeRe(await app.t('user_mgmt'))}`, 'i') }).first();
@@ -100,8 +100,8 @@ export default [
         // its label is the workspace's own name for the ID (default "External ID") followed by an (i)
         dialog.getByRole('textbox', { name: new RegExp(`^${escapeRe(await app.t('ext_id_default'))}`) }).locator('xpath=..'),
         dialog.getByRole('textbox', { name: await app.t('email'), exact: true }).locator('xpath=..'),
-        // a password field has no textbox role: found by its own type (the window holds one)
-        dialog.locator('input[type="password"]').locator('xpath=..'),
+        // a password field has no textbox role: found by its own type — the window holds TWO since S2 (the password and its confirmation), ONE outline
+        around([dialog.locator('input[type="password"]').nth(0).locator('xpath=..'), dialog.locator('input[type="password"]').nth(1).locator('xpath=..')]),
       ];
     },
     after: async (app) => cancelDialog(app, 'create_user'),

@@ -3,7 +3,7 @@
 // saved); no request row is ever clicked (opening a conversation marks its replies read) and the demo workspaces hold none; the
 // New request window is closed by Escape; one word is typed into Subject (it only fills the suggestions, a search of what the page
 // already holds); Details is never typed into, so Send request stays greyed and is never pressed.
-import { NAMES, escape, escapeRe, side } from '../helpers.mjs';
+import { NAMES, escape, escapeRe, side, slotted } from '../helpers.mjs';
 
 /** A tab by the start of its name (a status tab may carry its count after the word). */
 const tab = async (app, key) => app.page.getByRole('tab', { name: new RegExp(`^${escapeRe(await app.t(key))}`) }).first();
@@ -92,8 +92,8 @@ export default [
         dialog.getByText(await app.t('sup_dlg_suggest_title'), { exact: true }).locator('xpath=ancestor::div[contains(@class,"border-dashed")][1]'),
         // Attachments: its label (a span) and the sentence under it
         dialog.getByText(await app.t('sup_dlg_attach'), { exact: true }).locator('xpath=..'),
-        // the reason at the start of the footer
-        dialog.getByText(await app.t('sup_dlg_send_why_details'), { exact: true }),
+        // the reason at the start of the footer: with a subject typed and Details empty, the sentence names the floor (S6 re-worded it with the count)
+        dialog.getByText(slotted(await app.t('sup_dlg_send_why_details_short')), { exact: true }),
         side('end', dialog.getByRole('button', { name: await app.t('sup_dlg_send'), exact: true })),
       ];
     },

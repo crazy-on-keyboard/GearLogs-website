@@ -63,7 +63,11 @@ export function addressesShown({ box, open, patterns, allowedAddress, allowWords
     }
     const field = el.closest('input, textarea, select');
     const label = field ? (field.labels?.[0]?.textContent ?? field.getAttribute('aria-label') ?? '') : '';
-    return words.includes(label.trim());
+    if (words.includes(label.trim())) return true;
+    // a line that reads "<label>: <value>" — the words before the value inside its own parent are the label
+    let before = '';
+    for (const n of el.parentElement?.childNodes ?? []) { if (n === el) break; before += n.textContent ?? ''; }
+    return words.includes(before.trim().replace(/[:：]\s*$/, '').trim());
   };
   const hitsIn = (text) => [
     ...(text.match(ADDRESS) ?? []).filter((a) => !allowedAddr(a)),
@@ -161,12 +165,18 @@ export function blankPersonal({ idWords, patterns, allowWords }) {
       const el = node.parentElement;
       // a script's source, a stylesheet or a template is not on the screen; a select's options are read with the field below
       if (!el || el.closest('script, style, noscript, template, select')) continue;
-      const cell = el.closest('td');
-      if (cell && words.length) {
-        const row = cell.parentElement; const table = cell.closest('table');
-        const i = row ? [...row.children].indexOf(cell) : -1;
-        const head = table && i >= 0 ? table.querySelector('thead tr')?.children[i] : null;
-        if (head && words.includes(head.textContent.trim())) continue;
+      if (words.length) {
+        // the company's own ID: a cell under an allowed header, or a value on a "<label>: <value>" line
+        const cell = el.closest('td');
+        if (cell) {
+          const row = cell.parentElement; const table = cell.closest('table');
+          const i = row ? [...row.children].indexOf(cell) : -1;
+          const head = table && i >= 0 ? table.querySelector('thead tr')?.children[i] : null;
+          if (head && words.includes(head.textContent.trim())) continue;
+        }
+        let before = '';
+        for (const n of el.parentElement?.childNodes ?? []) { if (n === el) break; before += n.textContent ?? ''; }
+        if (words.includes(before.trim().replace(/[:：]\s*$/, '').trim())) continue;
       }
       blank(el);
     }
