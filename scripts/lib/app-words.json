@@ -74,6 +74,11 @@
       "source": "(?<![\\u0590-\\u05FF])[בלמשוהכ]{0,2}סשן(?![\\u0590-\\u05FF])",
       "flags": "",
       "law": "a session is an התחברות"
+    },
+    {
+      "source": "(?<![\\u0590-\\u05FF])השאר (?:ריקה?|ריקים|את|אותו|אותה)(?![\\u0590-\\u05FF])",
+      "flags": "",
+      "law": "a prompt commands in the plural — השאירו ריק, never השאר ריק (the noun \"the rest\" stands alone)"
     }
   ],
   "commands": [
