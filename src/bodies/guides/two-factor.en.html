@@ -34,11 +34,11 @@
             <h2 class="gstep-t">Set up your own two-factor.</h2>
             <p>The card tells you where you stand.</p>
             <ol class="guide-marks">
-              <li><em>Your two-factor</em> and its status: <em>Not set up</em>, <em>Set up &mdash; verify to manage</em> or <em>Verified this session</em>.</li>
+              <li><em>Your two-factor</em>, its (i) and its status: <em>Not set up</em>, <em>Set up &mdash; verify to manage</em> or <em>Verified this session</em>.</li>
               <li><em>Set up my two-factor</em> opens the setup window.</li>
             </ol>
             <p>The window <em>Set up your two-factor</em> shows a code to scan with your authenticator app. <em>Or enter this key manually</em> gives the same key as text. Type the <em>6-digit code</em> the app shows, then press <em>Verify &amp; continue</em>. Ten recovery codes appear next. Each one works once. Copy them with <em>Copy all</em>, keep them somewhere safe, and press <em>I’ve saved them</em>. They are never shown again. From then on, every sign-in asks for your password and then for <em>Your two-factor code</em>.</p>
-            <gl-shot id="twofactor-your" caption="Your two-factor: its status and Set up my two-factor." marks></gl-shot>
+            <gl-shot id="twofactor-your" caption="Your two-factor: the title with its (i) and its status, and Set up my two-factor." marks></gl-shot>
           </li>
           <li class="gstep" id="step-3">
             <h2 class="gstep-t">Keep a way back in.</h2>
@@ -54,11 +54,11 @@
             <h2 class="gstep-t">Require two-factor for the whole workspace.</h2>
             <p><em>Workspace two-factor</em> is for administrators.</p>
             <ol class="guide-marks">
-              <li><em>Workspace two-factor</em> and its state, <em>Off</em> or <em>On</em>.</li>
+              <li><em>Workspace two-factor</em>, its (i) and its state, <em>Off</em> or <em>On</em>.</li>
               <li><em>Turn on</em> stays grey until your own two-factor reads <em>Verified this session</em>. The reason is written under it.</li>
             </ol>
             <p><em>Turn on</em> asks first: <em>Require two-factor for everyone?</em> Every member is asked to set up two-factor at their next sign-in, and every change then requires the code. The Users screen shows <em>2FA on</em>, <em>No 2FA</em> or <em>2FA setup owed</em> beside each member, whether or not the requirement is on. <em>Reset 2FA</em> clears a member’s authenticator and recovery codes. Where the workspace requires two-factor, they set up a new one at their next sign-in. Elsewhere they sign in with the password alone until they turn two-factor on again. To reset a member who has two-factor, your own account needs two-factor too, and you must have signed in with your code. Every other administrator is told. It never resets your own or the super administrator’s. Another administrator’s is for a super administrator. <em>Turn off</em> asks first too. Anyone who has set up their own authenticator keeps it and is still asked for its code at every sign-in.</p>
-            <gl-shot id="twofactor-workspace" caption="Workspace two-factor: its state, and Turn on greyed with the reason." marks></gl-shot>
+            <gl-shot id="twofactor-workspace" caption="Workspace two-factor: the title with its (i) and its state, and Turn on greyed with the reason." marks></gl-shot>
           </li>
           <li class="gstep" id="step-5">
             <h2 class="gstep-t">Know when anything changes.</h2>
@@ -85,7 +85,7 @@
             <li><q>Couldn’t start the two-factor setup. Please try again.</q> The setup window could not start. Close it and try again in a moment.</li>
             <li><q>That code isn’t valid or was already used.</q> Each recovery code works once. Try another code from your set. Several wrong codes in a short time tell you and your administrators. If it was not you, change your password and tell your administrator.</li>
             <li><q>Set up and verify your own two-factor first.</q> Written under a grey <em>Turn on</em>. Set up your own two-factor, or verify it, until the card reads <em>Verified this session</em>.</li>
-            <li><q>Couldn’t change the setting. Make sure your own two-factor is verified, then try again.</q> The workspace refused the change. Only an administrator verified this session may turn the requirement on or off.</li>
+            <li><q>Not saved. This workspace requires two-factor, and your sign-in has not passed it. Sign out, sign in again and enter the code.</q> The workspace refused the change because your own sign-in has not passed two-factor. Only an administrator verified this session may turn the requirement on or off: sign out, sign in with your code, and try again.</li>
             <li><q>Couldn’t generate new recovery codes. Please try again.</q> No new set was made. Your current recovery codes still work.</li>
             <li><q>This member has two-factor. To reset it, your own account needs two-factor too &mdash; turn it on in Settings &rsaquo; Security, sign in with your code, then try again.</q> Shown in the window <em>Reset two-factor authentication?</em> when your own account has no two-factor. Set yours up, sign in with your code, and reset again.</li>
             <li><q>Couldn’t check your sign-in</q> GearLogs could not read whether your account has two-factor, so nothing opens. Press <em>Retry</em>. If it stays, press <em>Sign out</em> and sign in again. On <em>Reset your password</em> it means no password was set yet: press <em>Set new password</em> again.</li>
