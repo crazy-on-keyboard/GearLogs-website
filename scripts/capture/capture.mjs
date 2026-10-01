@@ -462,6 +462,13 @@ async function main() {
     }
   }
   if (refused.length) throw new Error(`capture: ${refused.length} picture(s) REFUSED and not written — ${refused.join(' | ')}`);
+  // a dry run never says "OK — N pictures" (it took none): it ends non-zero when any screen would refuse or could not be judged (the qa gate's F4)
+  if (DRY) {
+    const bad = dryReport.filter((r) => r.refused.length || r.failed).length;
+    if (bad) throw new Error(`capture: DRY RUN — ${bad} screen(s) would refuse or could not be judged (the report names them); nothing was written`);
+    console.log(`capture: DRY RUN clean — ${dryReport.length} screens judged, nothing written`);
+    return;
+  }
   console.log(`capture: OK — ${[...index.values()].filter((e) => langs.includes(e.lang)).length} picture(s) from ${[...new Set(bundles)].join(', ') || 'the app'}`);
 }
 

@@ -12,12 +12,15 @@
 /** The patterns, as regex sources (no flags; the in-page functions add them). */
 export const PATTERNS = {
   /** an e-mail address · an IPv4 address · an IPv6 address, full or compressed (`::1`, `fe80::1`, `2001:db8::`) */
-  address: String.raw`[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+|(?<![\d.])(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?![\d.])|(?<![0-9A-Za-z:])(?:(?:[0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,7}:(?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6})?|::(?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6})?)(?![0-9A-Za-z:])`,
-  /** a phone number as people write one: `+` country code and groups (`+972-54-123-4567`), OR a local form that starts
-   *  with 0 (`054-123-4567` · `03-1234567` · `054 1234567`) — a code such as LOG-03-001 is neither */
-  phone: String.raw`\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}|(?<![\d-])0\d{1,2}[-\s.]?\d{3}[-\s.]?\d{4}(?![\d-])|(?<![\d-])0\d[-\s.]?\d{7}(?![\d-])`,
+  // the boundaries are digit-aware (the security gate's SEC-S8-2): a value may end a sentence ("… from 82.166.1.9.") or
+  // stand before a comma — only a FOLLOWING DIGIT (a longer number, a date, a version) disqualifies the match
+  address: String.raw`[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+|(?<!\d|\d\.)(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)(?!\d|\.\d)|(?<![0-9A-Za-z:])(?:(?:[0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,7}:(?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6})?|::(?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4}){0,6})?)(?![0-9A-Za-z:])`,
+  /** a phone number as people write one: `+` country code and groups (`+972-54-123-4567`); a local form that starts with 0
+   *  (`054-123-4567` · `03-1234567` · `054 1234567` · the Dutch `06-12345678`); a bracketed area code (`(03) 123-4567` ·
+   *  `(054) 123 4567`); the North-American `415-555-0142` — a code such as LOG-03-001, a date and a count are none of these */
+  phone: String.raw`\+\d{1,3}[-\s.]?\(?\d{1,4}\)?(?:[-\s.]?\d{2,4}){2,3}|(?<![\d-])0\d{1,2}[-\s.]?\d{3}[-\s.]?\d{4}(?![\d-])|(?<![\d-])0\d[-\s.]?\d{7,8}(?![\d-])|\(0?\d{1,3}\)[-\s.]?\d{3}[-\s.]?\d{4}(?![\d-])|(?<![\d-])\d{3}[-\s.]\d{3}[-\s.]\d{4}(?![\d-])`,
   /** a bare run of 8–9 digits — an ID number written as plain text (not inside a longer number, a code or a date) */
-  idRun: String.raw`(?<![\d.,:/-])\d{8,9}(?![\d.,:/-])`,
+  idRun: String.raw`(?<!\d|\d[.,:/-])\d{8,9}(?!\d|[.,:/-]\d)`,
   /** the demo's INVENTED shapes, which may be shown: the phone's last two groups `000-NNNN`, the ID `00000NNNN`,
    *  the personal number `E-000-NNNN` or `000NNNN` */
   inventedPhone: String.raw`^\+\d{1,3}(?:[-\s.]\d{1,4})?[-\s.]000[-\s.]\d{4}$`,
@@ -69,6 +72,7 @@ export function addressesShown({ box, open, patterns, allowedAddress, allowWords
     for (const n of el.parentElement?.childNodes ?? []) { if (n === el) break; before += n.textContent ?? ''; }
     return words.includes(before.trim().replace(/[:：]\s*$/, '').trim());
   };
+  const onlyDigits = (h) => /^\d+$/.test(h.trim());
   const hitsIn = (text) => [
     ...(text.match(ADDRESS) ?? []).filter((a) => !allowedAddr(a)),
     ...(text.match(PHONE) ?? []).filter((p) => !invented(p)),
@@ -109,12 +113,14 @@ export function addressesShown({ box, open, patterns, allowedAddress, allowWords
       // every hit sits whole inside some child → the children answer for it; a hit no child holds whole is split across them and is this element's
       const children = [...el.children].map(innerText);
       if (hits.every((h) => children.some((c) => c.includes(h)))) continue;
-      if (blanked(el) || !inPicture(el) || underAllowedLabel(el)) continue;
+      // the allowance covers ONLY a bare digit run (the company's own ID number) — never an e-mail, a network address or a phone (SEC-S8-1)
+      if (blanked(el) || !inPicture(el) || (underAllowedLabel(el) && hits.every(onlyDigits))) continue;
       say(el, el.closest('svg') ? 'svg — cannot be blanked' : '');
     }
     for (const field of root.querySelectorAll('input, textarea, select')) {
       const value = field.tagName === 'SELECT' ? (field.selectedOptions?.[0]?.textContent ?? '') : String(field.value ?? '');
-      if (hitsIn(value).length && !blanked(field) && inPicture(field) && !underAllowedLabel(field)) say(field);
+      const fieldHits = hitsIn(value);
+      if (fieldHits.length && !blanked(field) && inPicture(field) && !(underAllowedLabel(field) && fieldHits.every(onlyDigits))) say(field);
     }
   };
   for (let i = 0; i < roots.length; i++) walk(roots[i]);
@@ -146,6 +152,7 @@ export function blankPersonal({ idWords, patterns, allowWords }) {
     count++;
   };
   const words = (allowWords ?? []).map((w) => w.trim()).filter(Boolean);
+  const bareDigits = (text) => /^[0-9]+$/.test(text.trim());
   const isId = (label) => idWords.some((w) => label.trim().startsWith(w));
   const allowedField = (field) => {
     const label = field.labels?.[0]?.textContent ?? field.getAttribute('aria-label') ?? '';
@@ -165,8 +172,9 @@ export function blankPersonal({ idWords, patterns, allowWords }) {
       const el = node.parentElement;
       // a script's source, a stylesheet or a template is not on the screen; a select's options are read with the field below
       if (!el || el.closest('script, style, noscript, template, select')) continue;
-      if (words.length) {
-        // the company's own ID: a cell under an allowed header, or a value on a "<label>: <value>" line
+      // the company's own ID may show (SEC-S8-1: ONLY a bare digit run — an e-mail, a network address or a phone under that label is still blanked)
+      if (words.length && bareDigits(node.nodeValue)) {
+        // a cell under an allowed header, or a value on a "<label>: <value>" line
         const cell = el.closest('td');
         if (cell) {
           const row = cell.parentElement; const table = cell.closest('table');
@@ -183,7 +191,7 @@ export function blankPersonal({ idWords, patterns, allowWords }) {
     for (const field of root.querySelectorAll('input, textarea, select')) {
       const value = field.tagName === 'SELECT' ? (field.selectedOptions?.[0]?.textContent ?? '') : String(field.value ?? '');
       const label = field.labels?.[0]?.textContent ?? field.getAttribute('aria-label') ?? '';
-      if (allowedField(field)) continue;
+      if (allowedField(field) && bareDigits(value)) continue;
       // a personal value anywhere, or any digits in a field the app labels as an identifier — unless the value is an invented one
       if (personal(value) || (/\d/.test(value) && isId(label) && !invented(value))) blank(field);
     }
