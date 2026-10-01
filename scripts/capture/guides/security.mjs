@@ -78,14 +78,14 @@ export default [
   {
     // step 3: the same card, what the click does (told twice) and the button, pictured greyed (nothing is typed or pressed)
     id: 'security-password-save',
-    alt: { en: 'Change password: the promise that every device is signed out, the warning above the button, and Change password', he: 'שינוי סיסמה: ההבטחה שכל המכשירים מנותקים, האזהרה מעל הכפתור, וכפתור שנו סיסמה' },
+    alt: { en: 'Change password: the card\'s title with its (i), the warning above the button, and Change password', he: 'שינוי סיסמה: כותרת הכרטיס עם סמל ה-(i), האזהרה מעל הכפתור, ושינוי סיסמה' },
     badge: 'start',
     run: async (app) => { await openSecurity(app); },
     marks: async (app) => {
       const card = await settingsCard(app, 'pw_change_title');
       return [
-        // the card's line under its title (the description and the promise in one paragraph)
-        card.locator('p').filter({ hasText: await app.t('pw_change_promise') }).first(),
+        // the card's title row — the title and its (i), which holds what the card does (S2 moved the description into the (i))
+        await titleRow(app, 'pw_change_title'),
         card.getByText(await app.t('pw_change_forewarn'), { exact: true }),
         // the button (in English it shares its words with the card's title: the role tells them apart)
         card.getByRole('button', { name: await app.t('pw_change_btn'), exact: true }),
@@ -95,7 +95,7 @@ export default [
   {
     // step 4: Your two-factor at the top of the pane (its button is never pressed)
     id: 'security-two-factor',
-    alt: { en: 'Your two-factor: the status beside the title, what two-factor is, and the button for the next move', he: 'האימות הדו-שלבי שלך: המצב ליד הכותרת, מה זה אימות דו-שלבי, והכפתור לצעד הבא' },
+    alt: { en: 'Your two-factor: the status beside the title and its (i), and the button for the next move', he: 'האימות הדו-שלבי שלכם: המצב ליד הכותרת וסמל ה-(i) שלה, והכפתור לצעד הבא' },
     badge: 'start',
     run: async (app) => {
       await openSecurity(app);
@@ -105,8 +105,7 @@ export default [
     marks: async (app) => {
       const card = await settingsCard(app, 'sec_your_title');
       return [
-        await titleRow(app, 'sec_your_title'),
-        card.getByText(await app.t('sec_your_desc'), { exact: true }),
+        await titleRow(app, 'sec_your_title'),   // the title, its (i) and the status (the description lives in the (i) since S2)
         await twoFactorButton(app),
       ];
     },

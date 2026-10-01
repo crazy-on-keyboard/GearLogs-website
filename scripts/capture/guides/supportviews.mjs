@@ -3,7 +3,7 @@
 // never touched); the card only reads; the one (i) opened closes by Escape; System Logs is pictured as it stands (no filter, date
 // or export button is touched).
 import { around, escape, escapeRe, side, toTop } from '../helpers.mjs';
-import { openSettings, settingsCard, settingsList, twoFactorButton } from './security.mjs';
+import { openSettings, settingsCard, settingsList, titleRow, twoFactorButton } from './security.mjs';
 
 /** The Support views card's list: its empty line or its table (the card reads the database first). */
 const viewsList = async (app, card) => card.getByText(await app.t('sec_views_none'), { exact: true }).or(card.getByRole('table')).first();
@@ -39,13 +39,13 @@ export default [
   {
     // step 2: the same card — the line under its title, and its list
     id: 'support-views-list',
-    alt: { en: 'Support views: the line under the title, and the list of the last 90 days', he: 'תצוגות תמיכה: השורה שמתחת לכותרת, והרשימה של 90 הימים האחרונים' },
+    alt: { en: 'Support views: the title with its (i), and the list of the last 90 days', he: 'תצוגות תמיכה: הכותרת עם סמל ה-(i) שלה, והרשימה של 90 הימים האחרונים' },
     badge: 'start',
     run: async (app) => { await openSupportViews(app); },
     marks: async (app) => {
       const card = await settingsCard(app, 'sec_views_title');
       return [
-        card.getByText(await app.t('sec_views_desc'), { exact: true }),
+        await titleRow(app, 'sec_views_title'),   // the title and its (i) (the line under the title moved into the (i) in S2)
         await viewsList(app, card),
       ];
     },

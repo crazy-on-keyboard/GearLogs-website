@@ -60,8 +60,8 @@ export default [
     marks: async (app) => {
       const card = await settingsCard(app, 'sec_your_title');
       return [
-        // the title, its (i), the status and the line under them stand together: ONE outline
-        around([await cardTitle(app, 'sec_your_title'), await ownStatus(app, card), card.getByText(await app.t('sec_your_desc'), { exact: true })]),
+        // the title, its (i) and the status stand together: ONE outline (the description lives in the (i) since S2)
+        around([await cardTitle(app, 'sec_your_title'), await ownHelp(app, card), await ownStatus(app, card)]),
         await twoFactorButton(app),
       ];
     },
@@ -95,8 +95,8 @@ export default [
     marks: async (app) => {
       const card = await settingsCard(app, 'sec_workspace_title');
       return [
-        // the title, its (i), the state and the line under them stand together: ONE outline
-        around([await cardTitle(app, 'sec_workspace_title'), await oneOf(app, card, null, ['sec_status_off', 'sec_status_on']), card.getByText(await app.t('sec_workspace_desc'), { exact: true })]),
+        // the title, its (i) and the state stand together: ONE outline (the description lives in the (i) since S2)
+        around([await cardTitle(app, 'sec_workspace_title'), card.getByRole('button', { name: (await app.t('info_aria_help')).replace('{0}', await app.t('sec_workspace_title')), exact: true }), await oneOf(app, card, null, ['sec_status_off', 'sec_status_on'])]),
         // the button and the reason under it: ONE outline — the reason stands only while your own two-factor is not verified
         around([await oneOf(app, card, 'button', ['sec_turn_on', 'sec_turn_off']), card.getByText(await app.t('sec_need_own_first'), { exact: true })]),
       ];
