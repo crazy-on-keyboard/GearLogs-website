@@ -18,12 +18,16 @@
     "check:cards": "node scripts/check-guide-cards.mjs",
     "check:csp": "node scripts/check-csp.mjs",
     "check:uistd": "node scripts/check-uistd.mjs",
+    "check:dates": "node scripts/page-dates.mjs",
+    "check:ld": "node scripts/check-structured-data.mjs",
+    "dates": "node scripts/page-dates.mjs --sync",
+    "indexnow": "node scripts/indexnow.mjs",
     "photos": "node scripts/images/photos.mjs",
     "cards": "node scripts/images/cards.mjs",
     "brand": "node scripts/images/brand.mjs",
     "capture": "node scripts/capture/capture.mjs",
     "perf": "node scripts/perf/record.mjs",
-    "check": "npm run check:types && npm run check:contact && npm run check:guard && npm run check:capture && npm run check:words && npm run check:cards && npm run check:uistd && npm run build && npm run check:links && npm run check:i18n && npm run check:csp"
+    "check": "npm run check:types && npm run check:contact && npm run check:guard && npm run check:capture && npm run check:words && npm run check:cards && npm run check:uistd && npm run check:dates && npm run build && npm run check:ld && npm run check:links && npm run check:i18n && npm run check:csp"
   },
   "devDependencies": {
     "@fontsource-variable/ibm-plex-sans": "5.3.0",

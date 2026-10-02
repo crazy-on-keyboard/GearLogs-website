@@ -53,11 +53,20 @@ function alternates(page) {
   ].join('\n');
 }
 
-const OG_IMAGE_BLOCK = [
+/** The link card, described in the page's language (SEO-1 · AC-905: a Hebrew page carries a Hebrew picture description). */
+const ogImageBlock = (lang) => [
   '  <meta property="og:image" content="https://gearlogs.com/img/og-card.png">',
   '  <meta property="og:image:width" content="1200">',
   '  <meta property="og:image:height" content="630">',
-  '  <meta property="og:image:alt" content="GearLogs — Know what you have. Know who has it.">',
+  `  <meta property="og:image:alt" content="${t(lang, 'og_image_alt')}">`,
+].join('\n');
+/** The icons the engines list (SEO-1 · AC-902): the ICO and PNGs rendered from the vector by `npm run brand`; browsers keep the SVG. */
+const ICON_LINKS = [
+  '  <link rel="icon" href="/favicon.ico" sizes="48x48">',
+  '  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">',
+  '  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">',
+  '  <link rel="icon" type="image/svg+xml" href="/favicon.svg">',
+  '  <link rel="apple-touch-icon" href="/apple-touch-icon.png">',
 ].join('\n');
 
 /** Who publishes the site, on every listed page (Stage 2 SEO basics — entity markup only, never ratings or claims). */
@@ -95,19 +104,21 @@ export function renderHead(page, lang) {
   if (m.ogTitle) L.push(`  <meta property="og:title" content="${m.ogTitle}">`);
   if (m.ogDescription) L.push(`  <meta property="og:description" content="${m.ogDescription}">`);
   if (m.ogTitle || m.ogDescription) L.push(`  <meta property="og:type" content="${o.ogType || 'website'}">`);
+  if (m.ogTitle || m.ogDescription) L.push(`  <meta property="og:site_name" content="GearLogs">\n  <meta property="og:locale" content="${t(lang, 'og_locale')}">`);
   if (o.canonical !== false) L.push(`  <meta property="og:url" content="${canonicalUrl(page, lang)}">`);
   if (o.twitterCard) L.push(`  <meta name="twitter:card" content="${o.twitterCard}">`);
   if (m.twitterTitle) L.push(`  <meta name="twitter:title" content="${m.twitterTitle}">`);
   if (m.twitterDescription) L.push(`  <meta name="twitter:description" content="${m.twitterDescription}">`);
   if (o.canonical !== false) L.push(`  <link rel="canonical" href="${canonicalUrl(page, lang)}">`);
   if (page.bilingual && o.canonical !== false) L.push(alternates(page));
-  if (o.ogImage) L.push(OG_IMAGE_BLOCK);
-  L.push('  <link rel="icon" type="image/svg+xml" href="/favicon.svg">');
+  if (o.ogImage) L.push(ogImageBlock(lang));
+  L.push(ICON_LINKS);
   for (const font of PRELOAD_FONTS[lang]) L.push(`  <link rel="preload" href="/fonts/${font}" as="font" type="font/woff2" crossorigin>`);
   L.push('  <link rel="stylesheet" href="/styles/main.css">');
   if (o.extraHead) L.push(o.extraHead);
   if (page.sitemap) L.push(`  <script type="application/ld+json">${ORGANIZATION_LD}</script>`);
   if (page.path === '/') L.push(`  <script type="application/ld+json">${WEBSITE_LD}</script>`);
+  for (const block of page.generatedLd?.[lang] ?? []) L.push(`  <script type="application/ld+json">${block}</script>`);
   if (o.jsonld && page.jsonld?.[lang]) {
     L.push('  <script type="application/ld+json">');
     L.push(page.jsonld[lang]);

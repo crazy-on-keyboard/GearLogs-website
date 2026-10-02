@@ -1,0 +1,198 @@
+{
+  "index": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "product": {
+    "en": "2026-09-30",
+    "he": "2026-10-01"
+  },
+  "pricing": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "guides": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "faq": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "notes": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "contact": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "changelog": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "privacy": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "terms": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "refunds": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "notes/track-who-has-equipment": {
+    "en": "2026-10-02",
+    "he": "2026-09-30"
+  },
+  "notes/equipment-shrinkage": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/inventory-spreadsheet-limits": {
+    "en": "2026-10-02",
+    "he": "2026-09-30"
+  },
+  "notes/chain-of-custody-equipment": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/serial-number-tracking": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/equipment-write-offs": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/equipment-warranty-tracking": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/software-that-explains-itself": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/the-button-that-says-no": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/storage-capacity-held-gear": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "notes/a-column-is-not-a-question": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "guides/approvals": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "guides/assign-return": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/team-sign-out": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/write-offs": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/hand-out-kit": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/take-kit-back": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/dashboard": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/access": {
+    "en": "2026-10-02",
+    "he": "2026-10-02"
+  },
+  "guides/history": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/registry": {
+    "en": "2026-09-29",
+    "he": "2026-10-02"
+  },
+  "guides/reports": {
+    "en": "2026-10-02",
+    "he": "2026-10-01"
+  },
+  "guides/set-up-board": {
+    "en": "2026-10-02",
+    "he": "2026-10-01"
+  },
+  "guides/find-anything": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/make-it-yours": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/storage-capacity": {
+    "en": "2026-10-02",
+    "he": "2026-10-01"
+  },
+  "guides/import": {
+    "en": "2026-10-02",
+    "he": "2026-10-01"
+  },
+  "guides/your-sign-in": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/subscription": {
+    "en": "2026-09-29",
+    "he": "2026-09-29"
+  },
+  "guides/warranty-contracts": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/two-factor": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/notifications": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/support": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/dialogs": {
+    "en": "2026-09-29",
+    "he": "2026-10-01"
+  },
+  "guides/support-views": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/open-my-gear": {
+    "en": "2026-10-01",
+    "he": "2026-10-01"
+  },
+  "guides/give-my-gear": {
+    "en": "2026-09-30",
+    "he": "2026-10-01"
+  },
+  "guides/sign-in-my-gear": {
+    "en": "2026-09-30",
+    "he": "2026-10-01"
+  }
+}

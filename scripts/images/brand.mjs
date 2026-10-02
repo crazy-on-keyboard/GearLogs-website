@@ -10,6 +10,10 @@
 //   public/img/og-card.png   — the link card: its old metallic mark is painted over with the card's own grid paper (the
 //                              same 60 px grid, copied from an empty spot ten squares to the right) and the vector mark is
 //                              drawn into the same box. Everything else on the card stays as it was. Safe to run again.
+//   public/favicon-48.png, favicon-192.png, apple-touch-icon.png (180, on white) and favicon.ico (the 48 px PNG in an ICO
+//                              wrapper) — the search engines' site icon (SEO-1 · AC-902, 2026-10-02: Google's "Favicon in
+//                              Search" lists BMP · GIF · ICO · PNG · JPEG · PPM · TIFF, not SVG; Bing asks /favicon.ico first).
+//                              Browsers keep the SVG; every raster is the same mark, fitted in a square.
 //
 //   npm run brand
 import { chromium } from 'playwright-core';
@@ -25,12 +29,26 @@ const CARD = join(PUBLIC, 'img', 'og-card.png');
 const CARD_MARK = { x: 243, y: 98, w: 91, h: 85 };
 const CARD_PATCH = { margin: 8, shift: 600 };
 const LOGO_WIDTH = 276;
+/** The square icons: size → the ground behind the mark (null = transparent). */
+const ICONS = { 48: null, 192: null, 180: '#ffffff' };
+
+/** An ICO file holding one PNG image (the ICO container allows PNG data since Vista; every engine and browser reads it). */
+function icoAround(png, size) {
+  const header = Buffer.alloc(6);
+  header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(1, 4);   // reserved · type 1 = icon · one image
+  const entry = Buffer.alloc(16);
+  entry.writeUInt8(size === 256 ? 0 : size, 0); entry.writeUInt8(size === 256 ? 0 : size, 1);   // width · height (0 = 256)
+  entry.writeUInt8(0, 2); entry.writeUInt8(0, 3);                                            // palette · reserved
+  entry.writeUInt16LE(1, 4); entry.writeUInt16LE(32, 6);                                    // colour planes · bits per pixel
+  entry.writeUInt32LE(png.length, 8); entry.writeUInt32LE(6 + 16, 12);                     // bytes · offset of the image
+  return Buffer.concat([header, entry, png]);
+}
 
 const browser = await chromium.launch({ executablePath: CHROME });
 try {
   const page = await browser.newPage();
   const out = await page.evaluate(
-    async ({ mark, card, box, patch, logoWidth }) => {
+    async ({ mark, card, box, patch, logoWidth, iconSizes }) => {
       const load = async (src) => {
         const img = new Image();
         img.src = src;
@@ -60,7 +78,23 @@ try {
       const w = h * ratio;
       g.drawImage(svg, box.x + (box.w - w) / 2, box.y + (box.h - h) / 2, w, h);
 
+      // the square icons: the mark fitted inside the square with a 1/12 margin, centred
+      const icons = {};
+      for (const [size, ground] of Object.entries(iconSizes)) {
+        const n = Number(size);
+        const ic = document.createElement('canvas');
+        ic.width = n; ic.height = n;
+        const ig = ic.getContext('2d');
+        ig.imageSmoothingQuality = 'high';
+        if (ground) { ig.fillStyle = ground; ig.fillRect(0, 0, n, n); }
+        const inner = n - 2 * Math.round(n / 12);
+        const ih = Math.min(inner, inner / ratio);
+        const iw = ih * ratio;
+        ig.drawImage(svg, (n - iw) / 2, (n - ih) / 2, iw, ih);
+        icons[size] = ic.toDataURL('image/png').split(',')[1];
+      }
       return {
+        icons,
         logo: logo.toDataURL('image/png').split(',')[1],
         logoSize: [logo.width, logo.height],
         card: c.toDataURL('image/png').split(',')[1],
@@ -72,11 +106,17 @@ try {
       box: CARD_MARK,
       patch: CARD_PATCH,
       logoWidth: LOGO_WIDTH,
+      iconSizes: ICONS,
     },
   );
   writeFileSync(join(PUBLIC, 'img', 'logo-mark.png'), Buffer.from(out.logo, 'base64'));
   writeFileSync(CARD, Buffer.from(out.card, 'base64'));
-  console.log(`brand: img/logo-mark.png ${out.logoSize.join('x')} and img/og-card.png written`);
+  const icon48 = Buffer.from(out.icons[48], 'base64');
+  writeFileSync(join(PUBLIC, 'favicon-48.png'), icon48);
+  writeFileSync(join(PUBLIC, 'favicon-192.png'), Buffer.from(out.icons[192], 'base64'));
+  writeFileSync(join(PUBLIC, 'apple-touch-icon.png'), Buffer.from(out.icons[180], 'base64'));
+  writeFileSync(join(PUBLIC, 'favicon.ico'), icoAround(icon48, 48));
+  console.log(`brand: img/logo-mark.png ${out.logoSize.join('x')}, img/og-card.png, favicon-48/192.png, apple-touch-icon.png and favicon.ico written`);
 } finally {
   await browser.close();
 }

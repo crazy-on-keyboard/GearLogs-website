@@ -31,7 +31,7 @@ if (existsSync(GUARD)) {
   const fromGuard = listsFromGuard(readFileSync(GUARD, 'utf8'));
   const serialized = JSON.stringify(fromGuard, null, 2) + '\n';
   if (SYNC) { writeFileSync(SNAPSHOT, serialized); console.log(`check-app-words: snapshot written from the app guard — ${fromGuard.retired.length} retired words, ${fromGuard.commands.length} command words`); process.exit(0); }
-  if (!existsSync(SNAPSHOT) || readFileSync(SNAPSHOT, 'utf8') !== serialized) {
+  if (!existsSync(SNAPSHOT) || readFileSync(SNAPSHOT, 'utf8').replace(/\r\n/g, '\n') !== serialized) {
     console.error('check-app-words: scripts/lib/app-words.json is not the app guard\'s current lists — run `node scripts/check-app-words.mjs --sync` and commit the snapshot');
     process.exit(1);
   }

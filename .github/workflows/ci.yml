@@ -21,6 +21,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0   # the dates check compares the snapshot with the git history of every page
 
       - uses: actions/setup-node@v7
         with:
@@ -36,3 +38,5 @@ jobs:
         run: npm run check
         env:
           CHROME: /usr/bin/google-chrome   # the CSP walk drives the runner's Chrome (it never skips silently)
+          # on main the squash commit is newer than the branch the dates were written on — the staleness half runs on PRs
+          SKIP_STALE: ${{ github.event_name == 'push' && '1' || '' }}
