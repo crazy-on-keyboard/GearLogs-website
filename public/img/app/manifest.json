@@ -12835,7 +12835,7 @@
       "id": "people-signin-fields",
       "lang": "en",
       "file": "people-signin-fields.en.webp",
-      "alt": "Edit Person for someone with no email yet: the Email field, the ID number, the personal number and Save",
+      "alt": "Edit Person for someone with no email yet: the Email field, the identity number, the personal number and Save",
       "theme": "office",
       "app": "index-FmJCAUqv.js",
       "frame": {
@@ -12881,7 +12881,7 @@
       "id": "people-signin-details",
       "lang": "en",
       "file": "people-signin-details.en.webp",
-      "alt": "A person's card opened with Show details: the email on record, no ID number, and the personal number",
+      "alt": "A person's card opened with Show details: the email on record, no identity number, and the personal number",
       "theme": "office",
       "app": "index-FmJCAUqv.js",
       "frame": {
@@ -12949,7 +12949,7 @@
       "id": "door-my-gear",
       "lang": "en",
       "file": "door-my-gear.en.webp",
-      "alt": "The My Gear sign-in: the workspace code, your ID number, the e-mail on your record and Send me a code",
+      "alt": "The My Gear sign-in: the workspace code, your identity number, the e-mail on your record and Send me a code",
       "theme": "office",
       "app": "index-FmJCAUqv.js",
       "frame": {

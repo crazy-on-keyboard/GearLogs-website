@@ -54,7 +54,7 @@ export default [
     // 4.24 step 1: the door as a person first meets it — a fresh window, every field empty, nothing pressed
     id: 'door-my-gear',
     fresh: true,
-    alt: { en: 'The My Gear sign-in: the workspace code, your ID number, the e-mail on your record and Send me a code', he: 'הכניסה ל״הציוד שלי״: קוד סביבת העבודה, מספר הזהות שלכם, האימייל שברשומה שלכם והכפתור שלחו לי קוד' },
+    alt: { en: 'The My Gear sign-in: the workspace code, your identity number, the e-mail on your record and Send me a code', he: 'הכניסה ל״הציוד שלי״: קוד סביבת העבודה, מספר הזהות שלכם, האימייל שברשומה שלכם והכפתור שלחו לי קוד' },
     badge: 'start',
     settle: 1200,
     run: async (app, lang) => {
