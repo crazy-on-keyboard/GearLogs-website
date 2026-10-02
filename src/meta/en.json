@@ -9,7 +9,7 @@
   },
   "pricing": {
     "title": "Pricing — GearLogs",
-    "description": "GearLogs pricing on one plan: $199 a month for five accounts with every capability, $39 for each additional seat, and an optional Priority Operations add-on at $99. Yearly is two months free. Up to 5,000 emails a month included. No tiers. Billed by Paddle.",
+    "description": "One plan: $199 a month for five accounts with every capability, $39 per extra seat, Priority Operations at $99. Yearly is two months free. Billed by Paddle.",
     "ogTitle": "Pricing — GearLogs",
     "ogDescription": "One plan: $199 a month for five accounts, $39 each additional seat, and optional Priority Operations. Every capability, every future capability. No tiers; yearly two months free.",
     "twitterTitle": "Pricing — GearLogs",
@@ -74,7 +74,7 @@
   },
   "notes/track-who-has-equipment": {
     "title": "Who has the drill right now? — GearLogs Field Notes",
-    "description": "The most expensive question in any operation is the one nobody can answer on the spot. How to track who has company equipment without a clipboard that fails by Friday.",
+    "description": "The most expensive question in any operation is the one nobody can answer on the spot. How to track who has company equipment without a clipboard.",
     "ogTitle": "Who has the drill right now?",
     "ogDescription": "The cheapest question to ask, and the most expensive to answer on the spot.",
     "twitterTitle": "Who has the drill right now?",
@@ -82,22 +82,22 @@
   },
   "notes/equipment-shrinkage": {
     "title": "Where the 5 to 15 percent goes — GearLogs Field Notes",
-    "description": "Nobody budgets for equipment shrinkage; everybody pays for it. The three ordinary ways inventory quietly goes missing — and how to make the loss visible while it's still small.",
+    "description": "Nobody budgets for equipment shrinkage; everybody pays for it. The three ordinary ways inventory goes missing, and how to see the loss while it is small.",
     "ogTitle": "Where the 5 to 15 percent goes",
     "ogDescription": "Nobody budgets for shrinkage. Everybody pays for it.",
     "twitterTitle": "Where the 5 to 15 percent goes",
     "twitterDescription": "Nobody budgets for shrinkage. Everybody pays for it."
   },
   "notes/inventory-spreadsheet-limits": {
-    "title": "The spreadsheet that breaks at 200 assets — GearLogs Field Notes",
-    "description": "An inventory spreadsheet doesn't fail at a row count — it fails the moment a second person edits it. The tells, why it's dangerous, and what actually replaces it.",
+    "title": "The spreadsheet that breaks at 200 assets — GearLogs",
+    "description": "An inventory spreadsheet fails the moment a second person edits it, not at a row count. The tells, why it is dangerous, and what replaces it.",
     "ogTitle": "The spreadsheet that breaks at 200 assets",
     "ogDescription": "Spreadsheets don't fail loudly. They quietly stop being true.",
     "twitterTitle": "The spreadsheet that breaks at 200 assets",
     "twitterDescription": "Spreadsheets don't fail loudly. They quietly stop being true."
   },
   "notes/chain-of-custody-equipment": {
-    "title": "Chain of Custody for Equipment: Digital Hand Receipts — GearLogs Field Notes",
+    "title": "Chain of Custody: Digital Hand Receipts — GearLogs",
     "description": "Paper hand receipts and sign-out sheets break down under real use. What a real equipment custody trail needs to hold up — and how to build one.",
     "ogTitle": "Chain of Custody for Equipment: Digital Hand Receipts",
     "ogDescription": "A signature on a paper hand receipt proves someone signed. It doesn't prove who has the radio today.",
@@ -105,7 +105,7 @@
     "twitterDescription": "A signature on a paper hand receipt proves someone signed. It doesn't prove who has the radio today."
   },
   "notes/serial-number-tracking": {
-    "title": "Serial Number Tracking for Equipment: When Spreadsheets Stop Working — GearLogs Field Notes",
+    "title": "Serial Number Tracking Beyond Spreadsheets — GearLogs",
     "description": "How to track equipment by serial number instead of a spreadsheet — what to capture, when to make the switch, and how to stay audit-ready.",
     "ogTitle": "Serial Number Tracking for Equipment",
     "ogDescription": "Counting how many you have is a different job from knowing which one is where. At some point, the difference starts costing you.",
@@ -113,7 +113,7 @@
     "twitterDescription": "Counting how many you have is a different job from knowing which one is where."
   },
   "notes/equipment-write-offs": {
-    "title": "Equipment Write-Offs and Loss Tracking: A Defensible Record — GearLogs Field Notes",
+    "title": "Equipment Write-Offs: A Defensible Record — GearLogs",
     "description": "Lost or damaged equipment needs more than a deleted spreadsheet row. How to build a write-off and loss record that actually holds up to audit.",
     "ogTitle": "Equipment Write-Offs and Loss Tracking",
     "ogDescription": "A missing row in a spreadsheet isn't a record that something is gone. It's the absence of one.",
@@ -121,7 +121,7 @@
     "twitterDescription": "A missing row in a spreadsheet isn't a record that something is gone. It's the absence of one."
   },
   "notes/equipment-warranty-tracking": {
-    "title": "Equipment Warranty &amp; Service Contract Tracking: The Coverage You Forgot You Had — GearLogs Field Notes",
+    "title": "Warranty and Service Contract Tracking — GearLogs",
     "description": "Warranties and service contracts only pay out if you remember them at the right moment. How to track coverage per unit and get warned before it lapses.",
     "ogTitle": "The Coverage You Forgot You Had",
     "ogDescription": "A warranty only pays out if you remember it exists at the moment something breaks. Most equipment coverage dies quietly.",
@@ -129,32 +129,32 @@
     "twitterDescription": "A warranty only pays out if you remember it exists at the moment something breaks."
   },
   "notes/software-that-explains-itself": {
-    "title": "Equipment Software Your Team Can Learn Without a Manual: Software That Explains Itself — GearLogs Field Notes",
-    "description": "Hover tooltips vanish, manuals go stale, and the one person who knows the system is on leave. What help inside equipment software should look like, and why it saves more than training hours.",
+    "title": "Software That Explains Itself — GearLogs",
+    "description": "Tooltips vanish, manuals go stale, the one person who knows the system is on leave. What help inside equipment software should look like.",
     "ogTitle": "Software That Explains Itself",
     "ogDescription": "Help you have to catch is help you don't have. What good in-app help looks like, and what it saves.",
     "twitterTitle": "Software That Explains Itself",
     "twitterDescription": "Help you have to catch is help you don't have. What good in-app help looks like, and what it saves."
   },
   "notes/the-button-that-says-no": {
-    "title": "Why Equipment Software Should Refuse Out Loud: The Button That Says No — GearLogs Field Notes",
-    "description": "A refusal that flashes in a corner and vanishes costs more than the mistake it prevented. What a system owes you when the answer is no: the reason, in place, with the door left open.",
+    "title": "The Button That Says No — GearLogs",
+    "description": "A refusal that flashes in a corner costs more than the mistake it prevented. What a system owes you when the answer is no: the reason, in place.",
     "ogTitle": "The Button That Says No",
     "ogDescription": "A refusal you can read beats a success you cannot trust. Three rules for software that has to say no at a busy counter.",
     "twitterTitle": "The Button That Says No",
     "twitterDescription": "A refusal you can read beats a success you cannot trust. Three rules for software that has to say no at a busy counter."
   },
   "notes/storage-capacity-held-gear": {
-    "title": "Storage Capacity for Equipment: Why In-Use Gear Counts as Held — GearLogs Field Notes",
-    "description": "An empty shelf is not free room. What a store-room ceiling should count — the shelf, the hands and the repair bench — and why the number should ask before it blocks.",
+    "title": "Storage Capacity: Why In-Use Gear Counts as Held — GearLogs",
+    "description": "An empty shelf is not free room. What a store-room ceiling should count — the shelf, the hands and the repair bench — and why it should ask first.",
     "ogTitle": "The shelf has a ceiling",
     "ogDescription": "Why gear in someone’s hands still takes up room, and what to count before you order more.",
     "twitterTitle": "The shelf has a ceiling",
     "twitterDescription": "Why gear in someone’s hands still takes up room, and what to count before you order more."
   },
   "notes/a-column-is-not-a-question": {
-    "title": "Dashboards That Answer: A Column Is Not a Question — GearLogs Field Notes",
-    "description": "Why a chart built from a raw column shows 340 categories and no answer. What a real question needs — a finite vocabulary, a human label, one meaning — and how to build one.",
+    "title": "A Column Is Not a Question — GearLogs",
+    "description": "Why a chart built from a raw column shows 340 categories and no answer. What a real question needs: a finite vocabulary, a human label, one meaning.",
     "ogTitle": "A column is not a question",
     "ogDescription": "A column stores. A question means. Why dashboards built from field pickers lie, and what to ask instead.",
     "twitterTitle": "A column is not a question",
@@ -178,14 +178,14 @@
   },
   "guides/approvals": {
     "title": "Approvals: Read a Receipt and Act on It — GearLogs Guide",
-    "description": "Read every receipt your people sign on My Gear, act on the open ones — confirm on behalf, cancel, resend the reminder — and follow them on the dashboard. Step by step, with real screens.",
+    "description": "Read every receipt your people sign on My Gear, act on the open ones — confirm on behalf, cancel, resend — and follow them on the dashboard.",
     "ogTitle": "Approvals: read a receipt and act on it",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Approvals: read a receipt and act on it",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/assign-return": {
-    "title": "Hand-outs and Returns: Hand Out Gear, and Take It Back — GearLogs Guide",
+    "title": "Hand Out Gear, and Take It Back — GearLogs Guide",
     "description": "Hand gear to one person or to many, and take it back when it comes in. The stock follows every step. Step by step, with real screens.",
     "ogTitle": "Hand-outs and returns: hand out gear, and take it back",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -201,7 +201,7 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/write-offs": {
-    "title": "Write-offs: Write Off Lost Gear, and Retire a Leaver — GearLogs Guide",
+    "title": "Write Off Lost Gear, and Retire a Leaver — GearLogs Guide",
     "description": "Record gear that is lost, stolen or broken, retire someone who left with gear in one step, and find every loss in the Archive. Step by step, with real screens.",
     "ogTitle": "Write-offs: write off lost gear, and retire a leaver",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -225,7 +225,7 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/dashboard": {
-    "title": "Dashboard: Build Your Dashboard, and Arrange It — GearLogs Guide",
+    "title": "Build Your Dashboard, and Arrange It — GearLogs Guide",
     "description": "Add ready-made widgets or build your own, choose who sees each one, and arrange them on the grid. Step by step, with real screens.",
     "ogTitle": "Dashboard: build your dashboard, and arrange it",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -233,8 +233,8 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/access": {
-    "title": "Users: Give Each Member a Role, and the Rights They Need — GearLogs Guide",
-    "description": "Add the people who sign in, give each of them a role, grant an extra right where one is needed, and keep an administrator in place. Step by step, with real screens.",
+    "title": "Give Each Member a Role and Rights — GearLogs Guide",
+    "description": "Add the people who sign in, give each a role, grant an extra right where needed, and keep an administrator in place. Step by step, with real screens.",
     "ogTitle": "Users: give each member a role, and the rights they need",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Users: give each member a role, and the rights they need",
@@ -249,7 +249,7 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/registry": {
-    "title": "Registry: Track Each Unit by Its Serial Number — GearLogs Guide",
+    "title": "Track Each Unit by Its Serial Number — GearLogs Guide",
     "description": "Turn on unit tracking for an item, register its units and lots, and hand out, move or repair one unit at a time. Step by step, with real screens.",
     "ogTitle": "Registry: track each unit by its serial number",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -257,16 +257,16 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/reports": {
-    "title": "Reports: Export a Report, and Back Up Your Workspace — GearLogs Guide",
-    "description": "Download or print any of fourteen reports, export a list as you filtered it, and take an encrypted backup that only your password opens. Step by step, with real screens.",
+    "title": "Export a Report, and Back Up Your Workspace — GearLogs Guide",
+    "description": "Download or print any of fourteen reports, export a list as you filtered it, and take an encrypted backup only your password opens.",
     "ogTitle": "Reports: export a report, and back up your workspace",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Reports: export a report, and back up your workspace",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/set-up-board": {
-    "title": "Board: Build Your Board from Tabs and Groups — GearLogs Guide",
-    "description": "Give each department its own tab, add groups inside it, fill them with your items or people, and arrange the board in the order you read it. Step by step, with real screens.",
+    "title": "Build Your Board from Tabs and Groups — GearLogs Guide",
+    "description": "Give each department its own tab, add groups inside it, fill them with items or people, and arrange the board in the order you read it.",
     "ogTitle": "Board: build your board from tabs and groups",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Board: build your board from tabs and groups",
@@ -289,7 +289,7 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/storage-capacity": {
-    "title": "Logistics: Set a Storage Capacity, and See How Much Room Is Left — GearLogs Guide",
+    "title": "Set a Storage Capacity and See What Is Left — GearLogs Guide",
     "description": "Give an item the most you can hold of it, read its meter on the board, and find the items that are over. Step by step, with real screens.",
     "ogTitle": "Logistics: set a storage capacity, and see how much room is left",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -297,8 +297,8 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/import": {
-    "title": "Data Ops: Bring Your Lists In from a Spreadsheet — GearLogs Guide",
-    "description": "Bring in items, people, sign-in accounts or serial numbers from a .csv file. You see how the file was read before anything is saved. Step by step, with real screens.",
+    "title": "Bring Your Lists In from a Spreadsheet — GearLogs Guide",
+    "description": "Bring in items, people, sign-in accounts or serial numbers from a .csv file, and see how the file was read before anything is saved.",
     "ogTitle": "Data Ops: bring your lists in from a spreadsheet",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Data Ops: bring your lists in from a spreadsheet",
@@ -306,14 +306,14 @@
   },
   "guides/your-sign-in": {
     "title": "Settings: Look After Your Own Sign-In — GearLogs Guide",
-    "description": "Every member looks after their own sign-in. Change your password, check your two-factor, and see what GearLogs tells you when your account is used. Step by step, with real screens.",
+    "description": "Change your password, check your two-factor, and see what GearLogs tells you when your account is used. Step by step, with real screens.",
     "ogTitle": "Settings: look after your own sign-in",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Settings: look after your own sign-in",
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/subscription": {
-    "title": "Settings: Manage Your Subscription and Seats — GearLogs Guide",
+    "title": "Manage Your Subscription and Seats — GearLogs Guide",
     "description": "See what your workspace runs on, choose a plan and pay by card, then add seats and extras as your team grows. Step by step, with real screens.",
     "ogTitle": "Settings: manage your subscription and seats",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -321,7 +321,7 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/warranty-contracts": {
-    "title": "Registry: Track Warranties and Service Contracts — GearLogs Guide",
+    "title": "Track Warranties and Service Contracts — GearLogs Guide",
     "description": "Record your service contracts, attach them to units and lots, and see every warning before a warranty runs out. Step by step, with real screens.",
     "ogTitle": "Registry: track warranties and service contracts",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
@@ -338,7 +338,7 @@
   },
   "guides/notifications": {
     "title": "Settings: Choose What You Are Told About — GearLogs Guide",
-    "description": "Pick which notices reach you in the app and which by email, and when the emails arrive. Administrators also set where everyone starts. Step by step, with real screens.",
+    "description": "Pick which notices reach you in the app and which by email, and when the emails arrive. Administrators also set where everyone starts.",
     "ogTitle": "Settings: choose what you are told about",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "Settings: choose what you are told about",
@@ -385,8 +385,8 @@
     "twitterDescription": "A GearLogs guide, step by step, with a real screen for every step."
   },
   "guides/sign-in-my-gear": {
-    "title": "My Gear: Sign a Receipt, or Say What Is Wrong — GearLogs Guide",
-    "description": "Sign for the gear on your name, or say what is wrong with it. Share this guide with your people: it shows My Gear as they see it. Step by step, with real screens.",
+    "title": "Sign a Receipt, or Say What Is Wrong — GearLogs Guide",
+    "description": "Sign for the gear on your name, or say what is wrong with it. Share this guide with your people: it shows My Gear as they see it.",
     "ogTitle": "My Gear: sign a receipt, or say what is wrong",
     "ogDescription": "A GearLogs guide, step by step, with a real screen for every step.",
     "twitterTitle": "My Gear: sign a receipt, or say what is wrong",

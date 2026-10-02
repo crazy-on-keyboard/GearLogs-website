@@ -10,12 +10,11 @@
 //
 // A failed ping never fails anything: the engines will read the sitemap's dates anyway. Exit 0 always, the log says what happened.
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
 import { SITE_ORIGIN } from '../src/i18n.mjs';
 import { canonicalUrl } from '../src/chrome.mjs';
-import { existsSync } from 'node:fs';
 
 const KEY = '69ab4b3ec6060fc1700fff51b4c42280';
 const ENDPOINT = 'https://api.indexnow.org/indexnow';

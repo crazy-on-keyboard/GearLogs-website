@@ -26,7 +26,6 @@ for (const page of PAGES.filter((p) => p.sitemap)) {
     for (const raw of blocksOf(html)) {
       try { data.push(JSON.parse(raw)); parsed++; } catch (e) { problems.push(`${where}: a JSON-LD block does not parse — ${e.message.slice(0, 80)}`); }
     }
-    const types = data.flatMap((d) => (d['@graph'] ? d['@graph'] : [d])).map((d) => d['@type']);
     const org = data.find((d) => d['@type'] === 'Organization');
     if (!org) problems.push(`${where}: no Organization block`);
     else if (org.parentOrganization?.name !== 'RAQIOM' || org.parentOrganization?.url !== 'https://raqiom.com') problems.push(`${where}: the Organization block does not name RAQIOM as the parent`);
@@ -36,6 +35,10 @@ for (const page of PAGES.filter((p) => p.sitemap)) {
     if (page.slug === 'faq') {
       const ld = data.find((d) => d['@type'] === 'FAQPage');
       const shown = faqItems(html);
+      // the wrappers are the truth the pattern must match: one question and one answer in each, no item the pattern misses
+      const wrappers = [...html.matchAll(/<div class="faq-item">([\s\S]*?)<\/div>/g)].map((m) => m[1]);
+      if (wrappers.length !== shown.length) problems.push(`${where}: ${wrappers.length} faq-item blocks but the FAQ pattern read ${shown.length} items`);
+      wrappers.forEach((w, i) => { if ((w.match(/class="faq-q"/g) ?? []).length !== 1 || (w.match(/<p class="faq-a">/g) ?? []).length !== 1 || /<h[1-6](?![^>]*faq-q)/.test(w)) problems.push(`${where}: faq-item ${i + 1} is not one question + one answer`); });
       if (!ld) problems.push(`${where}: no FAQPage block`);
       else {
         faq++;

@@ -13,7 +13,7 @@
 // the branch the snapshot was written on, so the staleness half runs on pull requests and locally only (`SKIP_STALE=1`
 // in the main-branch CI run) and only for the pages the branch itself touched; the shape half runs everywhere.
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PAGES } from '../src/pages.mjs';
 
@@ -31,9 +31,14 @@ function sourcesOf(page, lang) {
   if (page.opts?.jsonld) files.push(`src/bodies/${page.slug}.jsonld.${lang}.json`);
   const body = join(ROOT, 'src', 'bodies', `${page.slug}.${lang}.html`);
   if (existsSync(body)) {
-    for (const m of readFileSync(body, 'utf8').matchAll(/<gl-shot id="([a-z0-9-]+)"/g)) files.push(`public/img/app/${m[1]}.${lang}.webp`);
+    const html = readFileSync(body, 'utf8');
+    // every picture the body names: the app screens (and the small inset a screen carries), the photo band, the section photos
+    for (const m of html.matchAll(/<gl-shot id="([a-z0-9-]+)"/g)) files.push(`public/img/app/${m[1]}.${lang}.webp`);
+    for (const m of html.matchAll(/\binset="([a-z0-9-]+)"/g)) files.push(`public/img/app/${m[1]}.${lang}.webp`);
+    const photoNames = [...html.matchAll(/<gl-(?:band|photo)\b[^>]*\b(?:photo|name)="([a-z0-9-]+)"/g)].map((m) => m[1]);
+    if (photoNames.length) for (const f of readdirSync(join(ROOT, 'public', 'img', 'photos'))) if (photoNames.some((n) => f.startsWith(`${n}.`))) files.push(`public/img/photos/${f}`);
   }
-  return files.filter((f) => existsSync(join(ROOT, f)));
+  return [...new Set(files)].filter((f) => existsSync(join(ROOT, f)));
 }
 const dayOf = (iso) => (iso ? new Date(iso).toISOString().slice(0, 10) : null);
 const gitLog = (args) => execFileSync('git', ['log', '-1', '--format=%cI', ...args], { cwd: ROOT, encoding: 'utf8' }).trim();
