@@ -74,7 +74,7 @@ export default [
   {
     // step 2: Edit Person for the same head — both numbers on record, no e-mail (nothing is typed)
     id: 'people-signin-fields',
-    alt: { en: 'Edit Person for someone with no email yet: the Email field, the ID number, the personal number and Save', he: 'עריכת אדם למי שעדיין אין לו אימייל: השדה אימייל, מספר הזהות, המספר האישי והכפתור שמור' },
+    alt: { en: 'Edit Person for someone with no email yet: the Email field, the identity number, the personal number and Save', he: 'עריכת אדם למי שעדיין אין לו אימייל: השדה אימייל, מספר הזהות, המספר האישי והכפתור שמור' },
     badge: 'start',
     blank: async (app) => [personalFields(await editWindow(app))],
     run: async (app, lang) => {
@@ -97,7 +97,7 @@ export default [
   {
     // step 3: a person who can receive a code — the open card's contact line
     id: 'people-signin-details',
-    alt: { en: 'A person\'s card opened with Show details: the email on record, no ID number, and the personal number', he: 'כרטיס של אדם שנפתח עם הצג פרטים: האימייל הרשום, בלי מספר זהות, והמספר האישי' },
+    alt: { en: 'A person\'s card opened with Show details: the email on record, no identity number, and the personal number', he: 'כרטיס של אדם שנפתח עם הצג פרטים: האימייל הרשום, בלי מספר זהות, והמספר האישי' },
     // the phone stands first on the contact line: its number stays out of the picture
     blank: async (app, lang) => [(await idCell(app, await boardCard(app, NAMES.returnPerson[lang]))).locator('xpath=preceding-sibling::div[2]')],
     run: async (app, lang) => {
